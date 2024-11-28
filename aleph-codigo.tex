@@ -1,0 +1,48 @@
+\usepackage{listings}
+\input{listings-python.prf}
+
+\usepackage[spanish,onelanguage,vlined,linesnumbered]{algorithm2e}
+
+% -- Comandos adicionales
+\newtcolorbox{pscodigo}
+    {icono=\faCogs,color=lightgray,postit,top=-1.5mm,bottom=-1.5mm}
+    
+\definecolor{colcod}{RGB}{174,218,255}
+\newtcolorbox{pycodigo}
+    {icono=\faKeyboardO, color=colcod, postit, 
+    top=-2mm, bottom=-2mm, 
+    extras first={bottom=0mm},
+    extras last={top=0mm},
+    extras middle={top=0mm,bottom=0mm},
+    }
+
+\lstloadlanguages{Python}
+\lstset{
+  language=Python,
+  basicstyle=\small\sffamily,
+  stringstyle=\color[HTML]{933797},
+  commentstyle=\color[HTML]{228B22}\sffamily,
+  emph={[2]from,import,pass,return}, emphstyle={[2]\color[HTML]{DD52F0}},
+  emph={[3]range}, emphstyle={[3]\color[HTML]{D17032}},
+  emph={[4]for,in,def}, emphstyle={[4]\color{blue}},
+  showstringspaces=false,
+  breaklines=true,
+  prebreak=\mbox{{\color{gray}\tiny$\searrow$}},
+  xleftmargin=3pt,
+  inputencoding=utf8,
+  extendedchars=true,
+  columns=fullflexible,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1,
+}
+
+
+\SetKwFunction{concat}{Concatenar}
+\SetKwProg{Fn}{Función}{\string:}{}
+\SetKwFunction{ult}{Ultimo}
+\SetKwFunction{pri}{Primero}
+\SetKwFunction{sinul}{SinUltimo}
+\SetKw{Salir}{Salir}
+
+\newcommand{\fuentecomentario}[1]{\scriptsize\ttfamily #1}
+\SetCommentSty{fuentecomentario}
+\SetAlFnt{\footnotesize}

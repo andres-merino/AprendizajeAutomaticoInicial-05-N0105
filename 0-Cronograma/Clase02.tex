@@ -1,0 +1,123 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 02: Conceptos básicos del Aprendizaje Automático}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+\section*{Resultado de Aprendizaje}
+
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 1:} 
+    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+\end{itemize}
+
+\subsection*{RdA de la actividad:}
+\begin{enumerate}[leftmargin=*]
+    \item Definir qué es aprendizaje supervisado y no supervisado.
+    \item Identificar los tipos de tareas asociadas (clasificación, regresión y agrupamiento).
+    \item Enumerar los principales modelos utilizados en cada tipo de tarea.
+    \item Comprender las métricas comunes utilizadas para medir distancias.
+\end{enumerate}
+
+\section*{Introducción}
+
+\paragraph{Pregunta inicial:}  
+Si tuvieras un conjunto de datos de imágenes de flores, ¿qué datos se necesitaría para construir un modelo que identifique su tipo automáticamente?
+
+\begin{itemize}
+    \item Breve presentación sobre el contexto histórico del aprendizaje automático y su relevancia actual.
+\end{itemize}
+
+\section*{Desarrollo}
+
+\subsection*{Actividad 1: Definición de aprendizaje supervisado y no supervisado (10 minutos)}  
+Explicaremos las definiciones básicas:
+\begin{itemize}
+    \item \textbf{Supervisado:} El modelo aprende a partir de datos etiquetados, buscando una relación entre entradas y salidas. 
+    \item \textbf{No supervisado:} El modelo identifica patrones en datos no etiquetados. 
+\end{itemize}
+
+\paragraph{Recursos:} Presentación visual con ejemplos.  
+
+\paragraph{Verificación de aprendizaje:} Presentación de ejemplos para determinar tipo de aprendizaje.
+
+\subsection*{Actividad 2: Tipos de tareas y modelos principales  (20 minutos)}  
+Explicaremos los tipos de tareas y los modelos más utilizados:
+\begin{itemize}
+    \item \textbf{Clasificación:} Regresión logística, SVM, Árboles de decisión, Redes neuronales.
+    \item \textbf{Regresión:} Regresión lineal, Regresión polinómica, KNN, Redes neuronales.
+    \item \textbf{Agrupamiento:} Modelos: K-Means, DBSCAN, Hierarchical Clustering.
+\end{itemize}
+
+\paragraph{Recursos:} Cuadro resumen.  
+
+\paragraph{Verificación de aprendizaje:} Presentación de ejemplos para determinar tipo de tarea.
+
+\subsection*{Actividad 3: Explicación de métricas de distancia (15 minutos)}  
+Detallaremos las métricas más comunes:
+\begin{itemize}
+    \item Euclidiana: $\sqrt{\sum (x_i - y_i)^2}$
+    \item Mahalanobis: Basada en la covarianza.
+    \item Hamming: Comparación binaria.
+    \item Minkowski: Generalización de las métricas Euclidiana y Manhattan.
+\end{itemize}
+
+\paragraph{Ejercicio práctico:} Comparar distancias entre puntos con diferentes métricas en Python.
+
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+import numpy as np
+from scipy.spatial.distance import euclidean, mahalanobis, hamming, minkowski
+
+# Puntos de ejemplo
+x = np.array([1, 2])
+y = np.array([4, 6])
+
+# Distancias
+print("Distancia Euclidiana:", euclidean(x, y))
+print("Distancia Minkowski (p=3):", minkowski(x, y, p=3))
+
+# Ejemplo de distancia de Hamming
+x_bin = np.array([1, 0, 1])
+y_bin = np.array([0, 1, 1])
+print("Distancia Hamming:", hamming(x_bin, y_bin))
+\end{lstlisting}
+\end{pycodigo}
+
+\section*{Cierre}
+
+\paragraph{Tarea:}  
+    No se deja tarea.
+
+\paragraph{Pregunta de investigación:}  
+    \begin{itemize}
+        \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa?
+        \item ¿Cómo afecta la escala de las variables a las métricas de distancia? ¿Cómo podemos solucionarlo?
+        \item ¿Qué es el método del codo (Elbow Method) en KMeans?
+    \end{itemize}
+
+\end{document} 

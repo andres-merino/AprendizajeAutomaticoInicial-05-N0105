@@ -1,0 +1,492 @@
+%%
+%% This is file `aleph-moodle.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% aleph-moodle.dtx  (with options: `aleph-moodle')
+%% 
+%% This is a generated file.
+%% LaTeX class for typesetting books
+%% 
+%% Copyright (C) 2020 by Jonathan Ortiz <jonathan.ortiz.c347@gmail.com>
+%% 
+%% Para un mejor uso y entendimiento de la actual clase,
+%% consultar la documentación.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2009/09/24]
+\ProvidesPackage{aleph-moodle}[2023/12/25 v2.0]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Opciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Opciones predeterminadas ninguna
+\ProcessOptions\relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Son necesarios los siguientes paquetes para utilizar los comandos.
+\RequirePackage{iftex}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+\RequirePackage[draft,subsection]{moodle}
+\else % assuming XELATEX or LUALATEX
+\RequirePackage[subsection]{moodle}
+\fi
+\RequirePackage{enumitem}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Modificaciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Numeración de preguntas
+\setlist[enumerate]{label=\textbf{\arabic*.}}
+%%  Formato retroalimentación
+\newtcbox{\retroalimentacion}{bottom=1mm,top=-4mm}
+%%  Cambio los estilos de enumeración de opción múltiple
+%%  y el formato de la retroalimentación
+\def\moodle@multi@latexprocessing{%
+  \ifmoodle@allornothing
+    \moodle@singletrue
+  \fi
+  \moodle@countcorrectanswers%
+  \ifmoodle@handout\NewList{answerlist}\fi
+  \begin{enumerate}[label=\textit{\alph*)}]%%
+    \setlength\itemsep{0pt}\setlength\parskip{0pt}%
+    \loopthroughitemswithcommand{\moodle@print@multichoice@answer}%
+    \ifmoodle@handout
+      \ifmoodle@shuffle
+        \let\moodle@multi@loop=\ForEachRandomItem
+      \else
+        \let\moodle@multi@loop=\ForEachFirstItem
+      \fi
+      \moodle@multi@loop{answerlist}{Answer}{\Answer}%
+    \fi
+  \end{enumerate}%
+  \ifmoodle@handout\else
+    \ifx\moodle@generalfeedback\@empty\relax\else%
+      \retroalimentacion{\parbox{0.87\linewidth}{\small\paragraph{\small Retroalimentaci\'on:}\moodle@generalfeedback}}%
+    \fi
+  \fi
+}
+%% Cambio de formato de la retroalimentación numérica
+\ifmoodle@handout
+  \let\moodle@numerical@latexprocessing\relax
+\else
+  \def\moodle@numerical@latexprocessing{%
+    \begin{itemize} \setlength\itemsep{0pt}\setlength\parskip{0pt}%
+      \loopthroughitemswithcommand{\moodle@print@numerical@answer}%
+    \end{itemize}%
+    \ifx\moodle@generalfeedback\@empty\relax\else%
+      \retroalimentacion{\parbox{0.87\linewidth}{\paragraph{\small Retroalimentaci\'on:}{\small \moodle@generalfeedback}}}%
+    \fi
+  }
+\fi
+%%  Cambio de formato de la retroalimentación de respuesta corta
+\ifmoodle@handout
+  \let\moodle@shortanswer@latexprocessing\relax
+\else
+  \def\moodle@shortanswer@latexprocessing{%
+    \begin{itemize} \setlength\itemsep{0pt}\setlength\parskip{0pt}%
+      \loopthroughitemswithcommand{\moodle@print@shortanswer@answer}%
+    \end{itemize}%
+    \ifx\moodle@generalfeedback\@empty\relax\else%
+      \retroalimentacion{\parbox{0.87\linewidth}{\paragraph{\small Retroalimentaci\'on:}{\small \moodle@generalfeedback}}}%
+    \fi
+  }
+\fi
+%%  Eliminación del total de puntos
+\renewenvironment{quiz}[2][]{%
+  \setkeys{moodle}{#1}%
+  \gdef\setcategory##1{%
+    % At first call (end of \begin{quiz}) enumerate is not started yet
+    \ifx\@currenvir\@enumeratename
+      % In case no question is defined between two calls of \setcategory
+      \def\@noitemerr{}%\@latex@warning{Empty question list}
+      \end{enumerate}%
+    \fi
+    \gdef\moodle@currentcategory{##1}%
+    \moodle@write@category@xml{##1}%
+    \ifmoodle@section
+      \ifmoodle@numbered
+        \section{##1}%
+      \else
+        \section*{##1}%
+      \fi
+    \else
+      \ifmoodle@numbered
+        \subsection{##1}%
+      \else
+        \subsection*{##1}%
+      \fi
+    \fi
+    \begin{enumerate}%
+  }%
+  \gdef\setsubcategory##1{%
+    \def\@noitemerr{}%\@latex@warning{Empty question list}
+    \end{enumerate}%
+    \moodle@write@category@xml{\moodle@currentcategory/##1}%
+    \ifmoodle@section
+      \ifmoodle@numbered
+        \subsection{##1}%
+      \else
+        \subsection*{##1}%
+      \fi
+    \else
+      \ifmoodle@numbered
+        \subsubsection{##1}%
+      \else
+        \subsubsection*{##1}%
+      \fi
+    \fi
+    \begin{enumerate}%
+  }%
+  \setcategory{#2}%
+}{%
+  \end{enumerate}%
+  \let\setcategory\relax
+  \let\setsubcategory\relax
+}%
+%%  Eliminación de las etiquedas en el tipo multiopción
+\RenewEnviron{multi}[2][]{%
+    \bgroup
+      \setkeys{moodle}{#1,questionname={#2}}%
+      \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+      \expandafter\gatheritems\xa{\BODY}%
+      \let\moodle@questionheader=\gatheredheader
+      %First, the LaTeX processing
+      \item \textbf{\moodle@questionname}\par
+      \noindent
+      \moodle@questionheader
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      \csname moodle@multi@latexprocessing\endcsname
+      %Now, writing information to XML
+      \@moodle@ifgeneratexml{%
+        \xa\questiontext\xa{\moodle@questionheader}% Save the question text.
+        \csname writemultiquestion\endcsname
+        \bgroup
+          \gdef\moodle@answers@xml{}%
+          \setkeys{moodle}{feedback={}}%
+          \xa\loopthroughitemswithcommand\xa{\csname savemultianswer\endcsname}%
+          \passvalueaftergroup{\moodle@answers@xml}%
+        \egroup
+        \moodle@writeanswers%
+        \moodle@writetags%
+        \writetomoodle{</question>}%
+      }{}%
+    \egroup
+  }%
+%%  Eliminación de las etiquedas en el tipo numérico
+\RenewEnviron{numerical}[2][]{%
+    \bgroup
+      \setkeys{moodle}{#1,questionname={#2}}%
+      \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+      \expandafter\gatheritems\xa{\BODY}%
+      \let\moodle@questionheader=\gatheredheader
+      %First, the LaTeX processing
+      \item \textbf{\moodle@questionname}\par
+      \noindent
+      \moodle@questionheader
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      \csname moodle@numerical@latexprocessing\endcsname
+      %Now, writing information to XML
+      \@moodle@ifgeneratexml{%
+        \xa\questiontext\xa{\moodle@questionheader}% Save the question text.
+        \csname writenumericalquestion\endcsname
+        \bgroup
+          \gdef\moodle@answers@xml{}%
+          \setkeys{moodle}{feedback={}}%
+          \xa\loopthroughitemswithcommand\xa{\csname savenumericalanswer\endcsname}%
+          \passvalueaftergroup{\moodle@answers@xml}%
+        \egroup
+        \moodle@writeanswers%
+        \moodle@writetags%
+        \writetomoodle{</question>}%
+      }{}%
+    \egroup
+  }%
+%%  Eliminación de las etiquedas en el tipo respuesta corta
+\RenewEnviron{shortanswer}[2][]{%
+  \bgroup
+    \setkeys{moodle}{#1,questionname={#2}}%
+    \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+    \expandafter\gatheritems\xa{\BODY}%
+    \let\moodle@questionheader=\gatheredheader
+    %First, the LaTeX processing.
+      \item \textbf{\moodle@questionname}\par
+      \noindent
+      \moodle@questionheader
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      \csname moodle@shortanswer@latexprocessing\endcsname
+    %Now, writing information to memory.
+    \@moodle@ifgeneratexml{%
+      \xa\questiontext\xa{\moodle@questionheader}% Save the question text.
+      \csname writeshortanswerquestion\endcsname
+      \bgroup
+        \gdef\moodle@answers@xml{}%
+        \setkeys{moodle}{feedback={}}%
+        \xa\loopthroughitemswithcommand\xa{\csname
+        saveshortansweranswer\endcsname}%
+        \passvalueaftergroup{\moodle@answers@xml}%
+      \egroup
+        \moodle@writeanswers%
+        \moodle@writetags%
+        \writetomoodle{</question>}%
+    }{}%
+  \egroup
+}%
+%%  Eliminación de las etiquedas en el tipo ensayo
+\def\moodle@essay@latexprocessing{%
+  % Moodle cannot automatically grade an essay,
+  % but if the user puts \item's in, we can list them in an itemize as notes.
+  \par\noindent \emph{Informaci\'on para evaluadores:}
+  \ifnum\c@numgathereditems>0\relax
+    \begin{itemize} \setlength\itemsep{0pt}\setlength\parskip{0pt}%
+      \loopthroughitemswithcommand{\moodle@print@essay@answer}%
+    \end{itemize}%
+  \fi
+  \ifx\moodle@generalfeedback\@empty\relax\else%
+    \fbox{\parbox{\linewidth}{\emph{\moodle@generalfeedback}}}%
+  \fi
+}
+\RenewEnviron{essay}[2][]{%
+  \bgroup
+    \setkeys{moodle}{#1,questionname={#2}}%
+    \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+    \moodle@checkresponsefieldlines
+    \expandafter\gatheritems\expandafter{\BODY}%
+    \let\moodle@questionheader=\gatheredheader
+    %First, the LaTeX processing.
+      \item \textbf{\moodle@questionname}
+      \ifmoodle@handout
+        \moodle@makelatextag@qtype{essay}
+      \else
+        % \moodle@latex@writetags
+        % \par
+        % \noindent
+        % \moodle@makelatextag@qtype{essay}
+        % \moodle@makelatextag@value{default grade}{\moodle@marks{\csname moodle@default grade\endcsname}}
+        % \moodle@makelatextag@value{penalty}{penalty}
+        % \moodle@makelatextag@key{responseformat}
+      \fi
+      \par
+      \noindent
+      \moodle@questionheader
+      \long\def\@lempty{}%
+      \par
+      \dotfill
+      \par
+      \dotfill
+      \ifx\moodle@responsetemplate\@lempty\else
+        \par\noindent \emph{Template:}
+        \par\fbox{\parbox{\linewidth}{\moodle@responsetemplate}}\par
+      \fi
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      \ifmoodle@handout\else
+        \csname moodle@essay@latexprocessing\endcsname
+      \fi
+    %Now, writing information to memory.
+    \@moodle@ifgeneratexml{%
+      \xa\questiontext\xa{\moodle@questionheader}% Save the question text.
+      \writeessayquestion
+      \bgroup
+        \gdef\moodle@answers@xml{}%
+        %
+        \ifnum\c@numgathereditems=0\relax
+          \addto@xml[2]\moodle@answers@xml{<graderinfo format="html"><text/></graderinfo>}%
+        \else
+          \addto@xml[2]\moodle@answers@xml{<graderinfo format="html"><text><![CDATA[}%
+          \ifnum\c@numgathereditems>1\relax
+            \addto@xml[4]\moodle@answers@xml{<ul>}%
+          \fi
+          \loopthroughitemswithcommand{\moodle@savegraderinfo}%
+          \ifnum\c@numgathereditems>1\relax
+            \addto@xml[4]\moodle@answers@xml{</ul>}%
+          \fi
+          \addto@xml[2]\moodle@answers@xml{]]></text></graderinfo>}%
+        \fi
+        %
+        \passvalueaftergroup{\moodle@answers@xml}%
+      \egroup
+      \moodle@writeanswers% The 'answers' XML really contains the grader info.
+      \moodle@writeresponsetemplate%
+      \moodle@writetags%
+      \writetomoodle{</question>}%
+    }{}%
+  \egroup
+}%
+%%  Eliminación de las etiquedas en el tipo matching
+\RenewEnviron{matching}[2][]{%
+    \bgroup
+      \setkeys{moodle}{#1,questionname={#2}}%
+      \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+      \expandafter\gatheritems\xa{\BODY}%
+      \let\moodle@questionheader=\gatheredheader
+      %First, the LaTeX processing
+      \item \textbf{\moodle@questionname}
+      \ifmoodle@handout
+        \moodle@makelatextag@qtype{matching}
+      \else
+        % \moodle@latex@writetags
+        % \par
+        % \noindent
+        % \moodle@makelatextag@qtype{matching}
+        % \moodle@makelatextag@value{default grade}{\moodle@marks{\csname moodle@default grade\endcsname}}
+        % \moodle@makelatextag@value{penalty}{penalty}
+      \fi
+      % \moodle@makelatextag@shortanswer
+      \par
+      \noindent
+      \moodle@questionheader
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      \csname moodle@matching@latexprocessing\endcsname
+      %Now, writing information to XML
+      \@moodle@ifgeneratexml{%
+        \xa\questiontext\xa{\moodle@questionheader}% Save the question text.
+        \csname writematchingquestion\endcsname
+        \bgroup
+          \gdef\moodle@answers@xml{}%
+          \setkeys{moodle}{feedback={}}%
+          \xa\loopthroughitemswithcommand\xa{\csname savematchinganswer\endcsname}%
+          \passvalueaftergroup{\moodle@answers@xml}%
+        \egroup
+        \moodle@writeanswers%
+        \moodle@writetags%
+        \writetomoodle{</question>}%
+      }{}%
+    \egroup
+}%
+%%  Eliminación de las etiquedas en el tipo cloze
+\RenewEnviron{cloze}[2][]{%
+  \bgroup
+    \setkeys{moodle}{default grade=1}%
+    \setkeys{moodle}{#1,questionname={#2}}%
+    % A cloze question won't have any \item's in it, so we just use \BODY.
+    \moodle@enableclozeenvironments
+    %First, the LaTeX processing.
+      \item \textbf{\moodle@questionname}
+      \ifmoodle@handout
+        \moodle@makelatextag@qtype{cloze}
+      \else
+        % \moodle@latex@writetags
+        % \par
+        % \noindent
+        % \moodle@makelatextag@qtype{cloze}
+        % \moodle@makelatextag@value{penalty}{penalty}
+      \fi
+      \par
+      \noindent
+      \BODY
+      \edef\moodle@generalfeedback{\expandonce\moodle@feedback}
+      %\csname moodle@cloze@latexprocessing\endcsname
+      \ifmoodle@handout\else
+        \ifx\moodle@generalfeedback\@empty\relax\else%
+          \fbox{\parbox{\linewidth}{\emph{\moodle@generalfeedback}}}%
+        \fi
+      \fi
+    %Now, writing information to memory.
+    \@moodle@ifgeneratexml{%
+      \xa\questiontext\xa{\BODY}% Save the question text as HTML.
+      \writeclozequestion
+    }{}%
+  \egroup%
+}
+%%  Eliminación de las etiquedas en el tipo cloze numerica
+\RenewEnviron{clozenumerical}[1][]{%
+  \bgroup
+    \expandafter\gatheritems\expandafter{\BODY}%
+    \let\moodle@questionheader=\gatheredheader
+    \setkeys{moodle}{default grade=1}%
+    \setkeys{moodle}{#1}%
+    \ifhtmlizer@active
+      %HTML version
+      \def\moodle@clozenumerical@output{}%
+      \xa\g@addto@macro\xa\moodle@clozenumerical@output\xa{\moodle@questionheader}%
+      \def\clozenumerical@coding{}%
+      \edef\clozenumerical@coding{\csname moodle@default grade\endcsname:NUMERICAL:}%
+      \bgroup
+        \setkeys{moodle}{feedback={}}%
+        \loopthroughitemswithcommand{\saveclozenumericalanswer}%
+      \egroup
+      %\xa\g@addto@macro\xa\clozenumerical@coding\xa{\otherrbrace}%
+      \xa\g@addto@macro\xa\moodle@clozenumerical@output\xa{\xa\clozelbrace\clozenumerical@coding\clozerbrace}%
+      \xa\gdef\xa\htmlize@afteraction@hook\xa{\moodle@clozenumerical@output}%
+      \def\endclozenumerical@code{\htmlize@patchendenvironment}%
+    \else
+      %LaTeX version
+      \global\advance\moodle@totalmarks by \csname moodle@default grade\endcsname pt
+      \moodle@questionheader% %Any introductory text just continues to be typeset.
+      % \par
+      % \noindent
+      % \moodle@makelatextag@qtype{numerical}
+      \ifmoodle@handout\else
+        % \moodle@makelatextag@value{default grade}{\moodle@marks{\csname moodle@default grade\endcsname}}
+        % \moodle@makelatextag@numerical
+        % \ \blank\ 
+        % \par
+        % \noindent
+        \def\cloze@numerical@table@text{}%
+        \loopthroughitemswithcommand{\moodle@print@clozenumerical@answer}%
+        \begin{tabular}[t]{|l@{}p{0\linewidth}|}
+          \firsthline% (\firsthline is from the array package.)
+          \cloze@numerical@table@text%
+        \end{tabular}%
+        % \par%
+      \fi
+      \def\endclozenumerical@code{\relax}%
+    \fi
+    \passvalueaftergroup\endclozenumerical@code%
+    \passvalueaftergroup\htmlize@afteraction@hook%
+  \egroup
+}[\endclozenumerical@code]%
+%%  Corrección del comando pm
+\def\moodle@print@numerical@answer@int@int#1\@rdelim{%
+ \gdef\test@i{#1}%
+ \trim@spaces@in\test@i
+ \ifx\test@i\@star
+   \item \test@i
+ \else
+   \item \moodle@printnum{#1}%
+   \ifx\moodle@tolerance\moodle@zero\else
+     $\,\pm \,$\moodle@printnum{\expandonce\moodle@tolerance}%
+   \fi
+ \fi
+ \ifx\moodle@fraction\@hundred
+   $~\checkmark$%
+ \else
+   \moodle@checkfraction
+   $~(\moodle@fraction\%)$%
+ \fi
+ \ifx\moodle@feedback\@empty\relax\else
+   \moodle@preFeedback \emph{$\rightarrow$ \moodle@feedback}%
+ \fi
+}%
+\def\moodle@print@clozenumerical@answer@int@int#1\@rdelim{%
+  \ifx\moodle@fraction\@hundred
+    \def\moodle@clozenumericalprint@fraction{$~\checkmark$}%
+  \else
+    \moodle@checkclozefraction
+    \edef\moodle@clozenumericalprint@fraction{$(~\moodle@fraction\%)$}%
+  \fi
+  \ifx\moodle@zero\moodle@tolerance%
+    \def\moodle@clozenumericalprint@tolerance{}%
+  \else
+    \edef\moodle@clozenumericalprint@tolerance{$\,\pm\,$\moodle@printnum{\expandonce\moodle@tolerance}}%
+  \fi
+  \gdef\test@i{#1}%
+  \trim@spaces@in\test@i
+  \ifx\test@i\@star
+    \xdef\moodle@clozenumericalprint@line{\expandonce\test@i~\moodle@clozenumericalprint@fraction & \expandonce\emph{\expandonce\moodle@feedback}}%
+  \else
+    \xdef\moodle@clozenumericalprint@line{\moodle@printnum{\expandonce\test@i}\expandonce\moodle@clozenumericalprint@tolerance~\moodle@clozenumericalprint@fraction & \expandonce\emph{\expandonce\moodle@feedback}}%
+  \fi
+  \xa\g@addto@macro\xa\cloze@numerical@table@text\xa{\moodle@clozenumericalprint@line \\\hline}%
+}%
+
+
+
+
+
+%%  Y ¡se acabó!
+\endinput
+%%
+%% End of file `aleph-moodle.sty'.

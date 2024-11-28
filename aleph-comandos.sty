@@ -1,0 +1,275 @@
+%%
+%% This is file `aleph-comandos.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% aleph-comandos.dtx  (with options: `aleph-comandos')
+%% 
+%% This is a generated file.
+%% LaTeX class for typesetting books
+%% 
+%% Copyright (C) 2020 by Andres Merino <mat.andresmerino@gmail.com>
+%% 
+%% Para un mejor uso y entendimiento de la actual clase,
+%% consultar la documentación.
+%% 
+\NeedsTeXFormat{LaTeX2e}[2009/09/24]
+\ProvidesPackage{aleph-comandos}[2021/06/07 v1.1.1]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Son necesarios los siguientes paquetes para utilizar los comandos.
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Comandos de función
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Función completa
+\newcommand{\funcion}[5]{%
+    {\setlength{\arraycolsep}{2pt}
+    \begin{array}{r@{\,}ccl}
+        #1\colon & #2 & \longrightarrow & #3\\
+                & #4 & \longmapsto & \displaystyle#5
+    \end{array}
+    }
+}
+%%  Función dom-img
+\newcommand{\func}[3]{ #1\colon #2 \rightarrow  #3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Conjuntos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Números naturales
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Nbb}{\mathbb{N}}
+%%  Números enteros
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zbb}{\mathbb{Z}}
+%%  Números racionales
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Qbb}{\mathbb{Q}}
+%%  Números reales
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rbb}{\mathbb{R}}
+\newcommand{\reales}{\mathbb{R}}
+%%  Números complejos
+\@ifundefined{C}
+    {\newcommand{\C}{\mathbb{C}}}
+    {\renewcommand{\C}{\mathbb{C}}}
+\newcommand{\Cbb}{\mathbb{C}}
+%%  Campos
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Kbb}{\mathbb{K}}
+%%  Primos
+\newcommand{\Pbb}{\mathbb{P}}
+%%  Polinomios
+\newcommand{\Pol}{\mathcal{P}}
+%%  Matrices
+\newcommand{\M}{\mathcal{M}}
+%%  Matrices 2
+\newcommand{\Mat}[3][\R]{#1^{#2\times #3}}
+%%  Números irracionales
+\newcommand{\Ibb}{\mathbb{I}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Operadores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Dominio
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Dom}{Dom}
+%%  Recorrido
+\DeclareMathOperator{\rec}{rec}
+\DeclareMathOperator{\Rec}{Rec}
+%%  Imagen
+\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\Img}{Img}
+%%  Rango de una matriz
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\rang}{rang}
+%%  Matriz adjunta
+\DeclareMathOperator{\adj}{adj}
+%%  Matriz de cofactores
+\DeclareMathOperator{\cof}{cof}
+%%  Espacio generado
+\DeclareMathOperator{\gen}{gen}
+%%  Proyección
+\DeclareMathOperator{\proy}{proy}
+%%  Componente normal
+\DeclareMathOperator{\norm}{norm}
+%%  Interior de un conjunto
+\DeclareMathOperator{\inte}{int}
+%%  Trigonométricas
+\renewcommand{\sin}{\sen}
+%%  Trigonométricas inversa
+\let\arctan\relax
+\DeclareMathOperator{\arctan}{arc\,tan}
+\DeclareMathOperator{\arccsc}{arc\,csc}
+\DeclareMathOperator{\arccot}{arc\,cot}
+\DeclareMathOperator{\arcsec}{arc\,sec}
+\DeclareMathOperator{\arcsen}{arc\,sen}
+\let\arccos\relax
+\DeclareMathOperator{\arccos}{arc\,cos}
+\let\arcsin\relax
+\DeclareMathOperator{\arcsin}{arc\,sen}
+%%  Espacio generado
+\DeclareMathOperator{\spn}{span}
+%%  Parte real y parte imaginaria
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
+%%  Gráfico de una función
+\DeclareMathOperator{\graf}{graf}
+%%  Operador signo
+\DeclareMathOperator{\sgn}{sgn}
+%%  Conjunto de valores admisible
+\DeclareMathOperator{\CVA}{CVA}
+%%  Conjunto solución
+\DeclareMathOperator{\Sol}{Sol}
+\DeclareMathOperator{\sol}{Sol}
+%%  Operador cis (cos + i sen)
+\DeclareMathOperator{\Cis}{Cis}
+\DeclareMathOperator{\cis}{Cis}
+%%  Diámetro
+\DeclareMathOperator{\diam}{diam}
+%%  Varianza
+\DeclareMathOperator{\Var}{Var}
+%%  Traza
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\tr}{tr}
+%%  Máximo común divisor
+\DeclareMathOperator{\mcd}{mcd}
+%%  Mínimo común múltiplo
+\DeclareMathOperator{\mcm}{mcm}
+%%  Divergencia
+\DeclareMathOperator{\dive}{div}
+%%  Rotacional
+\DeclareMathOperator{\rot}{rot}
+%%  Partes de un conjunto
+\DeclareMathOperator{\partes}{\mathcal{P}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Operadores como comandos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Clausura de un conjunto
+\newcommand{\cl}[1]{\overline{#1}}
+%%  Norma
+\newcommand{\norma}[1]{%
+    \left\|\ifthenelse{\equal{#1}{}}
+                  {\cdot}{#1}
+    \right\|}
+%%  Producto interno
+\newcommand{\prodinner}[2]{%
+    \left\langle\ifthenelse{\equal{#1}{}\and\equal{#2}{}}
+               {\cdot,\cdot}
+               {#1,\, #2}
+    \right\rangle}
+%%  Conjugado
+\newcommand{\conjugate}[1]{\overline{#1}}
+%%  Derivada parcial
+\newcommand{\parcial}[2]{\dfrac{\partial #1 }{\partial #2}}
+%%  Derivada total
+\newcommand{\derivada}[2]{\dfrac{d #1 }{d #2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Abreviaciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Diferencia de conjuntos pequeña
+\renewcommand{\setminus}{\smallsetminus}
+%%  Contenecia de conjuntos con igual
+\newcommand{\sset}{\subseteq}
+%%  Conjunto vacío
+\renewcommand{\emptyset}{\varnothing}
+%%  Épsilon
+\newcommand{\vepsilon}{\varepsilon}
+%%  Texto ``y'' con espacio
+\newcommand{\texty}{\qquad\text{y}\qquad}
+\newcommand{\yds}{\quad\text{y}\quad}
+%%  Texto ``o'' con espacio
+\newcommand{\texto}{\qquad\text{o}\qquad}
+\newcommand{\ods}{\quad\text{o}\quad}
+%%  Texto ``si y solo si'' con espacio
+\newcommand{\siysolosi}{\quad\text{si y solo si}\quad}
+\newcommand{\ssi}{\quad\text{si y solo si}\quad}
+%%  Grados
+\newcommand{\degre}{\ensuremath{^\circ}}
+\newcommand{\grad}{\ensuremath{^\circ}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Comandos desplegados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Límite en formato desplegado
+\newcommand{\dlim}{\displaystyle\lim}
+\newcommand{\Lim}{\displaystyle\lim}
+%%  Sumatoria en formato desplegado
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\Sum}{\displaystyle\sum}
+%%  Binomio en formato desplegado
+\newcommand{\Binom}{\displaystyle\binom}
+%%  Integral en formato desplegado
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\Int}{\displaystyle\int}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Abreviaciones de operadores lógicos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Doble implicación
+\newcommand{\Di}{\Longleftrightarrow}
+\newcommand{\dimp}{\Leftrightarrow}
+\newcommand{\Dimp}{\Longleftrightarrow}
+\newcommand{\qDimp}{\quad\Longleftrightarrow\quad}
+%%  Implicación
+\newcommand{\Imp}{\Longrightarrow}
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\qImp}{\quad\Longrightarrow\quad}
+%%  Conectores con espacio
+\newcommand{\qland}{\quad \land \quad }
+\newcommand{\qlor}{\quad \lor \quad }
+\newcommand{\orm}{\quad \vee \quad }
+\newcommand{\andm}{\quad \wedge \quad }
+%%  Tautología y contradicción
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\F}{\mathbb{F}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Delimitadores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Intervalo abierto izquierda
+\newcommand{\lop}{\left]}
+%%  Intervalo cerrado izquierda
+\newcommand{\lcl}{\left[}
+%%  Intervalo abierto derecha
+\newcommand{\rop}{\right[}
+%%  Intervalo cerrado derecha
+\newcommand{\rcl}{\right]}
+%%  Izquierda
+\renewcommand{\l}{\left}
+%%  Derecha
+\renewcommand{\r}{\right}
+%%  Intervalos
+\newcommand{\open}[1]{\left]#1\right[}
+\newcommand{\openl}[1]{\left]#1\right]}
+\newcommand{\openr}[1]{\left[#1\right[}
+\newcommand{\close}[1]{\left[#1\right]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Sucesiones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Sucesiones
+\newcommand{\suc}[2][n]{\left(#2\right)_{#1\in\mathbb{\N}}}
+%%  Sucesiones con llaves
+\newcommand{\sucl}[2][n]{\left\{#2\right\}_{#1\in\mathbb{\N}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Comentarios
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Comentarios
+\newcommand{\comentario}[1]{\textcolor{red}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Vectores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Vectores canónicos
+\newcommand{\veci}{\mathbf{i}}
+\newcommand{\vecj}{\mathbf{j}}
+\newcommand{\veck}{\mathbf{k}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --- Formato
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Formato
+\allowdisplaybreaks
+%%  Y ¡se acabó!
+\endinput
+%%
+%% End of file `aleph-comandos.sty'.

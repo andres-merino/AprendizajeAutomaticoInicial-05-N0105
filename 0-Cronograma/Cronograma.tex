@@ -1,0 +1,188 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{array,booktabs,multirow,makecell}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{pdflscape}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Cronograma y actividades}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\newcolumntype{C}[1]{>{\hspace{0pt}\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\definecolor{verde}{RGB}{0, 255, 127}
+\definecolor{celeste}{RGB}{68,195,218}
+
+\begin{document}
+\addtolength{\headheight}{1.8\baselineskip}
+\addtolength{\voffset}{-1.5\baselineskip}
+
+\encabezado
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resultados de aprendizaje} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}[leftmargin=*]
+\item 
+    \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{Criterio 1.1:} Identifica los conceptos básicos del aprendizaje automático, incluyendo las técnicas de preprocesado de datos, validación y evaluación de modelos.
+        \item \textbf{Criterio 1.2:} Describe los métodos de aprendizaje no supervisado, sus características, aplicaciones, alcance y limitaciones.
+        \item \textbf{Criterio 1.3:} Explica los métodos de aprendizaje supervisado, sus características, aplicaciones, alcance y limitaciones.
+    \end{itemize}
+\item 
+    \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{Criterio 2.1:} Emplea modelos de aprendizaje no supervisado, realizando un análisis crítico de su rendimiento y aplicabilidad en diferentes contextos.
+        \item \textbf{Criterio 2.2:} Desarrolla modelos de aprendizaje supervisado, optimizando sus hiperparámetros utilizando técnicas de validación y evaluación.
+    \end{itemize}
+\item
+    \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{Criterio 3.1:} Aplica modelos de aprendizaje no supervisado en casos prácticos complejos, analizando los resultados y proponiendo mejoras basadas en métricas de rendimiento.
+        \item \textbf{Criterio 3.2:} Aplica modelos de aprendizaje supervisado en escenarios del mundo real, ajustando los modelos para maximizar su precisión y eficiencia mediante técnicas de ajuste de hiperparámetros y regularización.
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contenidos generales} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+\item 
+    Introducción al Aprendizaje Automático
+\item 
+    Preprocesamiento de Datos
+\item 
+    Métodos de Evaluación y Validación de Modelos
+\item 
+    Aprendizaje Supervisado
+\item 
+    Aprendizaje No Supervisado
+\item 
+    Ajuste y Optimización de Modelos:
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Actividades de evaluación} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Criterio 1.1}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Cuestionario en Línea 1 (100\%):} Evaluará la comprensión de los conceptos básicos del aprendizaje automático, incluyendo las técnicas de preprocesado de datos, validación y evaluación de modelos, a través de preguntas de opción múltiple y preguntas de desarrollo cortas.
+        \end{itemize}
+    \item \textbf{Criterio 1.2}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Cuestionario en Línea 2 (50\%):} Evaluará la capacidad de describir los métodos de aprendizaje no supervisado, sus características, aplicaciones, alcance y limitaciones, mediante preguntas de opción múltiple y análisis de casos.
+            \item \textbf{Video exposición 1 (50\%):} Consistirá en una presentación grabada donde los estudiantes explicarán un método de aprendizaje no supervisado y analizarán su aplicabilidad en distintos escenarios.
+        \end{itemize}
+    \item \textbf{Criterio 1.3}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Cuestionario en Línea 3 (50\%):} Evaluará la capacidad de explicar los métodos de aprendizaje supervisado, sus características, aplicaciones, alcance y limitaciones, mediante preguntas de opción múltiple y de desarrollo.
+            \item \textbf{Video exposición 2 (50\%):} Los estudiantes presentarán un método de aprendizaje supervisado en un video de análisis crítico, abordando sus ventajas y limitaciones en situaciones reales.
+        \end{itemize}
+    \item \textbf{Criterio 2.1}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Examen 1 (100\%):} Evaluará la capacidad de emplear modelos de aprendizaje no supervisado y realizar un análisis crítico de su rendimiento y aplicabilidad en diferentes contextos, mediante ejercicios prácticos y teóricos.
+        \end{itemize}
+    \item \textbf{Criterio 2.2}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Examen 2 (100\%):} Evaluará el desarrollo y optimización de modelos de aprendizaje supervisado, con un enfoque en la optimización de hiperparámetros utilizando técnicas de validación y evaluación.
+        \end{itemize}
+    \item \textbf{Criterio 3.1}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Reto 1 (100\%):} Consistirá en la aplicación de modelos de aprendizaje no supervisado en un caso práctico complejo. Los estudiantes deberán analizar los resultados y proponer mejoras basadas en métricas de rendimiento.
+        \end{itemize}
+    \item \textbf{Criterio 3.2}
+        \begin{itemize}[leftmargin=*]
+            \item \textbf{Reto 2 (100\%):} Los estudiantes aplicarán modelos de aprendizaje supervisado en un escenario del mundo real, ajustando los modelos para maximizar su precisión y eficiencia mediante el ajuste de hiperparámetros y regularización.
+        \end{itemize}
+\end{itemize}
+
+
+\begin{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cronograma de Desarrollo del Curso} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}\small
+\setlength{\extrarowheight}{0ex}
+\setlength{\belowrulesep}{.6ex}
+\begin{longtable}{cccL{12cm}L{7.5cm}}
+    \toprule
+    &&\thead{Fecha}&\thead{Detalle de contenido} & \thead{Observación} \\
+    \midrule
+  \endfirsthead
+    \multicolumn{5}{l}{\footnotesize \ldots viene de la página anterior}\\
+    \toprule
+    &&\thead{Fecha}&\thead{Detalle de contenido} & \thead{Observación} \\
+    \midrule
+  \endhead
+        \bottomrule  \multicolumn{5}{r}{\footnotesize Continúa en la siguiente página\ldots}
+  \endfoot
+        \bottomrule
+  \endlastfoot
+1	&	1	&	25-nov	&	Introducción al Aprendizaje Automático	&		\\	
+	&	2	&	26-nov	&	Conceptos básicos del Aprendizaje Automático	&		\\	
+	&	3	&	27-nov	&	Conjuntos de Entrenamiento y Validación	&		\\	
+	&	4	&	28-nov	&	Preparación de los Datos	&		\\ \midrule	
+2	&	5	&	02-dic	&	Evaluación de Modelos I	&		\\	
+	&	6	&	03-dic	&	Evaluación de Modelos II	&		\\	
+	&	7	&	04-dic	&	Reducción de Dimensionalidad y Extracción de Características	&		\\	
+	&	8	&	05-dic	&	Taller de implementación	&		\\ \midrule	\rowcolor{celeste!50}
+3	&	9	&	09-dic	&	Cuestionario en línea 1 (Criterio 1.1)	&	Evaluación	\\	
+	&	10	&	10-dic	&	Introducción al Aprendizaje No Supervisado	&	Envío de la Video exp. 1 (Criterio 1.2)	\\	
+	&	11	&	11-dic	&	Algoritmos de Agrupamiento Jerárquico	&		\\	
+	&	12	&	12-dic	&	Agrupamiento k-Means	&		\\ \midrule	
+4	&	13	&	16-dic	&	Taller de implementación	&	Envío del Reto 1 (Criterio 3.1)	\\	
+	&	14	&	17-dic	&	Otros Métodos de Clustering	&		\\	
+	&	15	&	18-dic	&	Taller de implementación	&	Entrega de la Video exp. 1 (Criterio 1.2)	\\	
+	&	16	&	19-dic	&	Desarrollo del Reto 1	&	Entrega del Reto 1 (Criterio 3.1)	\\ \midrule	\rowcolor{celeste!50}
+	&	17	&	23-dic	&	Cuestionario en línea 2 (Criterio 1.2); Examen 1 (Criterio 2.1)	&	Evaluación	\\	
+	&	18	&	24-dic	&	Introducción al Aprendizaje Supervisado	&	Envío de la Video exp. 2 (Criterio 1.3)	\\	\rowcolor{verde!50}
+	&		&	25-dic	&		&	Feriado	\\	\rowcolor{verde!50}
+	&		&	26-dic	&		&	Feriado	\\ \midrule	\rowcolor{verde!50}
+	&		&	30-dic	&		&	Feriado	\\	\rowcolor{verde!50}
+	&		&	31-dic	&		&	Feriado	\\	\rowcolor{verde!50}
+	&		&	01-ene	&		&	Feriado	\\	
+	&	19	&	02-ene	&	Algoritmo k-Nearest Neighbors	&		\\ \midrule	
+6	&	20	&	06-ene	&	Máquinas de Vectores Soporte (SVM)	&		\\	
+	&	21	&	07-ene	&	Ajuste y Optimización de SVM	&		\\	
+	&	22	&	08-ene	&	Taller de implementación	&	Entrega de la Video exp. 2 (Criterio 1.3)	\\	
+	&	23	&	09-ene	&	Redes Neuronales: Introducción	&		\\ \midrule	
+7	&	24	&	13-ene	&	Aprendizaje en Redes Neuronales	&		\\	
+	&	25	&	14-ene	&	Taller de implementación	&	Envío del Reto 2 (Criterio 3.2)	\\	
+	&	26	&	15-ene	&	Redes Neuronales Profundas	&		\\	
+	&	27	&	16-ene	&	Árboles de Decisión	&		\\ \midrule	
+8	&	28	&	20-ene	&	Bosques Aleatorios	&		\\	
+	&	29	&	21-ene	&	Taller de implementación	&		\\	\rowcolor{celeste!50}
+	&	30	&	22-ene	&	Cuestionario en línea 3 (Criterio 1.3); Examen 2 (Criterio 2.2)	&	Evaluación	\\	
+	&	31	&	23-ene	&	Evaluación de Modelos: Validación cruzada	&		\\ \midrule	
+9	&	32	&	27-ene	&	Búsqueda de Hiperparámetros	&		\\	
+	&	33	&	28-ene	&	Taller de implementación	&		\\	
+	&	34	&	29-ene	&	Desarrollo del Reto 2	&	Entrega del Reto 2 (Criterio 3.2)	\\	
+	&	35	&	30-ene	&	Conclusiones y retroalimentación	&		\\ 
+\end{longtable}
+\end{center}
+\end{landscape}
+
+\end{document} 

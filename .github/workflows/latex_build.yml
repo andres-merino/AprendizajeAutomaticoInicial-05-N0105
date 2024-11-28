@@ -1,0 +1,80 @@
+name: Compile LaTeX documents
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v44
+
+    - name: Filter .tex files
+      id: tex-files
+      run: |
+        echo "::set-output name=tex_files::$(echo ${{ steps.changed-files.outputs.all_changed_files }} | tr ' ' '\n' | grep '\.tex' | xargs || echo '')"
+
+    - name: Compile LaTeX documents
+      if: steps.tex-files.outputs.tex_files != ''
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: ${{ steps.tex-files.outputs.tex_files }}
+        latexmk_use_xelatex: true
+
+    - name: Move PDFs to original .tex directories
+      if: steps.tex-files.outputs.tex_files != ''
+      run: |
+        for tex_file in ${{ steps.tex-files.outputs.tex_files }}; do
+          pdf_file=$(basename "${tex_file%.tex}.pdf")
+          target_dir=$(dirname "$tex_file")
+          if [ -f "$pdf_file" ]; then
+            mv "$pdf_file" "$target_dir/"
+          fi
+        done
+
+    - name: Move XMLs to original .tex directories
+      if: steps.tex-files.outputs.tex_files != ''
+      run: |
+        for tex_file in ${{ steps.tex-files.outputs.tex_files }}; do
+          xml_file=$(basename "${tex_file%.tex}-moodle.xml")
+          target_dir=$(dirname "$tex_file")
+          if [ -f "$xml_file" ]; then
+            mv "$xml_file" "$target_dir/"
+          fi
+        done
+
+    - name: Commit PDFs
+      if: steps.changed-files.outputs.all_changed_files != ''
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -f **/*.pdf
+        git commit -m "chore: se agregan los PDFs compilados :wrench:" || echo "No changes to commit"
+        git push
+
+    - name: Check for XML files
+      id: check-xml
+      run: |
+        if ls **/*.xml 1> /dev/null 2>&1; then
+          echo "::set-output name=xml_exists::true"
+        else
+          echo "::set-output name=xml_exists::false"
+        fi
+
+    - name: Commit XMLs
+      if: steps.check-xml.outputs.xml_exists == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -f **/*.xml
+        git commit -m "chore: se agregan los PDFs y XMLs compilados :wrench:" || echo "No changes to commit"
+        git push
