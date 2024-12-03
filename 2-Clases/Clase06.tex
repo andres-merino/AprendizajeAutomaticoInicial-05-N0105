@@ -1,0 +1,175 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema[Clase 06: Red. de Dimensionalidad y Extrac. de Características]{Clase 06: Reducción de Dimensionalidad y Extracción de Características}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+\section*{Resultado de Aprendizaje}
+
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    \item Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+\end{itemize}
+
+\subsection*{RdA de la actividad:}
+    \begin{itemize}[leftmargin=*]
+        \item Comprender la importancia de la selección y extracción de atributos en la construcción de modelos eficientes.
+        \item Implementar métodos básicos como PCA y SVD para reducir dimensionalidad.
+        \item Analizar aplicaciones de factorización de matrices no negativas en aprendizaje automático.
+    \end{itemize}
+
+\section*{Introducción}
+
+\paragraph{Pregunta inicial:} 
+¿Por qué es importante reducir la dimensionalidad de un conjunto de datos al construir un modelo de aprendizaje automático?
+
+
+\section*{Desarrollo}
+
+\subsection*{Actividad 1: Selección de Atributos}
+
+Se preparará un modelo GPT interactivo con el cual los estudiantes podrán explorar conceptos clave, ventajas y desventajas de técnicas de selección de atributos.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase interactiva:}  
+    Los estudiantes interactuarán con un modelo GPT diseñado para explicar las técnicas de selección de atributos y sus aplicaciones prácticas.
+    \begin{quote}
+        Enlace al GPT: \href{https://chatgpt.com/g/g-674f787b286c8191aee6a93bde4ede57-tutor-aa-seleccion-de-atributos}{Tutor AA - Selección de Atributos}
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Los estudiantes responderán las preguntas del GPT proporcionado.
+
+\subsection*{Actividad 2: Análisis de Componentes Principales (PCA)}
+
+Se utilizará un modelo GPT para repasar conceptos clave de PCA y guiar a los estudiantes en su implementación práctica.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase interactiva:}  Los estudiantes interactuarán con un modelo GPT diseñado para sus conocimientos en PCA.
+    \begin{quote}
+        Enlace al GPT: \href{https://chatgpt.com/g/g-674f7cde85ac81918e2a05a692ae0ee9-evluador-aa-pca}{Evaluador AA - PCA}
+    \end{quote}
+
+
+    \item \textbf{Ejemplo práctico en Python:}  
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+import pandas as pd
+
+# Cargar conjunto de datos Iris
+data = load_iris()
+X = pd.DataFrame(data.data, columns=data.feature_names)
+display(X.head())
+
+# Reducir a 2 componentes principales
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Proporción de varianza explicada
+explained_variance_ratio = pca.explained_variance_ratio_
+print("Varianza explicada por cada componente principal:")
+print(explained_variance_ratio)
+
+# Matriz de componentes principales
+print("\nMatriz de componentes principales:")
+print(pca.components_)
+
+# Datos transformados
+df_pca = pd.DataFrame(X_pca, columns=["PC1", "PC2"])
+print("\nDatos transformados:")
+display(df_pca.head())
+\end{lstlisting}
+\end{pycodigo}
+
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Los estudiantes responderán las preguntas del GPT proporcionado.
+
+\subsection*{Actividad 3: Descomposición en Valores Singulares (SVD)}
+
+Clase magistral para explicar los fundamentos de SVD, seguida de un ejemplo práctico de implementación en Python.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}  
+    Introducción matemática a SVD y sus aplicaciones en reducción de dimensionalidad y sistemas de recomendación.
+
+    \item \textbf{Ejemplo práctico en Python:}  
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+import numpy as np
+
+# Matriz de ejemplo
+A = np.array([[1, 2], [3, 4], [5, 6]])
+U, S, VT = np.linalg.svd(A)
+
+print("Matriz Original:\n", A)
+print("Matriz U:\n", U)
+print("Valores Singulares:\n", S)
+print("Matriz V Transpuesta:\n", VT)
+\end{lstlisting}
+\end{pycodigo}
+    \item \textbf{Discusión guiada:}  
+    Los estudiantes analizarán el significado de cada matriz resultante (U, S, VT) y cómo estas se relacionan con la matriz original.
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Los estudiantes responderán cómo se puede usar SVD para compresión de datos y reducción de ruido.
+
+\subsection*{Actividad 4: Factorización de Matrices No Negativas}
+
+Lectura asignada sobre aplicaciones prácticas de factorización de matrices no negativas (NMF).
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Lectura asignada:}  
+    Artículo \href{https://mro.massey.ac.nz/server/api/core/bitstreams/7dbd6b5e-4d71-490a-b1b6-654e40181693/content}{“Non-negative Matrix Factorization: ASurvey”}.  
+    \item \textbf{Análisis:}  
+    Leer el resumen y la introducción del artículo para discutirlo la siguiente clase.
+\end{itemize}
+
+\section*{Cierre}
+
+\paragraph{Tarea:} Culminar la Actividad 4.
+    
+    
+\paragraph{Pregunta de investigación:} 
+\begin{enumerate}
+    \item ¿Puedo hacer PCA para datos categóricos?
+    \item ¿Qué sistemas de recomendación usan SVD?
+
+\end{enumerate}
+    
+
+
+\end{document} 
