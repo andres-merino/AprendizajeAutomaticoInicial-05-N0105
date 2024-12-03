@@ -1,0 +1,199 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 05: Evaluación de modelos}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+\section*{Resultado de Aprendizaje}
+
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    \item Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+\end{itemize}
+
+\subsection*{RdA de la actividad:}
+    \begin{itemize}[leftmargin=*]
+        \item Comprender la importancia de la evaluación de modelos y su impacto en la toma de decisiones.
+        \item Explicar y calcular las métricas para modelos de clasificación (matriz de confusión, ACC, PRE, REC, F1, Curva ROC).
+        \item Interpretar y calcular las métricas para modelos de regresión (MAE, MSE, RMSE).
+    \end{itemize}
+
+\section*{Introducción}
+
+\paragraph{Pregunta inicial:} 
+¿Cómo sabemos si un modelo de aprendizaje automático está funcionando bien y es confiable en un contexto práctico?
+
+
+\section*{Desarrollo}
+
+\subsection*{Actividad 1: Explorando la Evaluación de Modelos de Clasificación (70 minutos)}
+
+\paragraph{Descripción:}  
+Esta actividad combina una clase magistral, recursos multimedia y un ejercicio práctico en equipos para comprender las métricas derivadas de la matriz de confusión. Los estudiantes explorarán las métricas (Precisión, Sensibilidad, F1-Score, Accuracy) y analizarán casos donde cada métrica sea más relevante.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}  
+    Se explicará la matriz de confusión y cómo calcular las métricas derivadas. Para facilitar el aprendizaje, se presentará un cuadro resumen.
+
+    \item \textbf{Video explicativo:}  
+    Los estudiantes verán un video que explica en detalle los conceptos de Precisión (Precision) y Sensibilidad (Recall): \url{https://www.youtube.com/watch?v=JXvHsw1WzF4&t=116s}
+
+    \item \textbf{Discusión guiada:}  
+    Se plantearán interactuar con ChatGPT mediante el siguiente prompt:
+    \begin{quote}\small
+        Quiero ejemplos prácticos en los que haya que tomar una decisión entre priorizar el Recall (sensibilidad) o la Precisión en un modelo de clasificación. Genera dos casos diferentes, asegurándote de incluir una breve descripción del contexto, las consecuencias de maximizar cada métrica y la razón por la cual una de ellas sería más importante en ese caso. Los casos deben ser variados y abarcar aplicaciones como medicina, finanzas, seguridad, marketing y tecnología.
+    \end{quote}
+    Luego de leer los casos, utiliza este prompt:
+    \begin{quote}\small
+        Vas a ser mi tutor de Aprendizaje Supervisado. Quiero evaluar mi capacidad para decidir cuándo es mejor priorizar el Recall o la Precisión en un modelo de clasificación. Plantea un caso práctico en el que deba tomar esta decisión. Debe incluir un contexto breve, una descripción del problema y una instrucción clara que me pida tomar una decisión entre Recall o Precisión con una breve justificación. Luego pídeme que responde y, con base en mi respuesta, dame retroalimentación o un razonamiento sobre cuál métrica sería mejor priorizar y por qué. Posterior a eso, plantéame otro caso.
+    \end{quote}
+
+    \item \textbf{Ejercicio práctico guiado :}  
+    Se mostrará el siguiente código base para calcular métricas con datos simulados (\texttt{y\_true} y \texttt{y\_pred}):
+
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+import numpy as np
+
+# Datos simulados
+np.random.seed(42)
+y_true = np.random.choice([0, 1], size=100, p=[0.5, 0.5])
+y_pred = np.random.choice([0, 1], size=100, p=[0.5, 0.5])
+
+# Calcular la matriz de confusión y métricas
+cm = confusion_matrix(y_true, y_pred)
+accuracy = accuracy_score(y_true, y_pred)
+precision = precision_score(y_true, y_pred)
+recall = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
+
+print("Matriz de Confusión:\n", cm)
+print(f"Accuracy: {accuracy:.2f}")
+print(f"Precision: {precision:.2f}")
+print(f"Recall: {recall:.2f}")
+print(f"F1-Score: {f1:.2f}")
+\end{lstlisting}
+\end{pycodigo}
+
+    \item \textbf{Exploración por equipos:}  
+    Los estudiantes, organizados en parejas o tríos, realizarán las siguientes actividades:
+    \begin{enumerate}[leftmargin=*]
+        \item Modificar el código para generar nuevos datos (\texttt{y\_true} y \texttt{y\_pred}) y calcular las métricas.
+        \item Responder las siguientes preguntas:
+            \begin{itemize}[leftmargin=*]
+                \item ¿Cómo cambia la Precisión y el Recall al modificar la distribución de \texttt{y\_true} y \texttt{y\_pred}?
+                \item ¿Qué sucede con el F1-Score si una de las métricas (Precisión o Recall) es muy baja?
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+    Mediante los casos presentados por el prompt proporcionado.
+
+\subsection*{Actividad 2: Evaluación de Modelos de Regresión (40 minutos)}
+
+\paragraph{Descripción:}  
+Esta actividad combina una clase magistral y un
+ejercicio práctico para aprender a calcular para modelos de regresión, incluyendo MAE, MSE y RMSE (Raíz del Error Cuadrático Medio).
+
+\paragraph{¿Cómo lo haremos?}  
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}  
+    Se explicarán los conceptos clave de las métricas de evaluación para modelos de regresión: MAE (Mean Absolute Error), MSE (Mean Squared Error), RMSE (Raíz cuadrada del MSE).
+
+    \item \textbf{Ejercicio práctico (25 minutos):}  
+    Los estudiantes implementarán un modelo de regresión lineal y calcularán las métricas utilizando datos simulados. Se les proporcionará el siguiente código base:
+
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+import numpy as np
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+# Datos simulados
+np.random.seed(42)
+X = np.random.rand(100, 1) * 10  # Característica
+y = 3 * X.squeeze() + np.random.randn(100) * 5  # Variable objetivo
+
+# División de datos en entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Entrenar modelo de regresión lineal
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predicciones
+y_pred = model.predict(X_test)
+
+# Cálculo de métricas
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+
+print(f"MAE: {mae:.2f}")
+print(f"MSE: {mse:.2f}")
+print(f"RMSE: {rmse:.2f}")
+\end{lstlisting}
+\end{pycodigo}
+
+    Los estudiantes deberán:
+    \begin{enumerate}
+        \item Interpretar los valores de MAE, MSE y RMSE obtenidos.
+        \item Comparar el impacto de aumentar o disminuir los errores del modelo en las métricas calculadas.
+        \item Modificar el modelo o los datos para observar cómo cambian las métricas al ajustar el nivel de ruido en los datos.
+    \end{enumerate}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Al finalizar, los estudiantes responderán las siguientes preguntas:
+\begin{itemize}
+    \item ¿Qué métrica prefieren para evaluar el modelo y por qué?
+    \item Si el modelo se ajusta a un problema donde los grandes errores son inaceptables, ¿qué métrica priorizarían? Justifique su elección.
+    \item ¿Cómo interpretan los resultados obtenidos y qué ajustes podrían realizar para mejorar el rendimiento del modelo?
+\end{itemize}
+
+
+\section*{Cierre}
+
+\paragraph{Tarea:} Elegir un conjunto de datos de clasificación o regresión y aplicar las métricas aprendidas para evaluar el rendimiento de un modelo.
+    
+    
+\paragraph{Pregunta de investigación:} 
+\begin{enumerate}
+    \item ¿Es posible diseñar una métrica de evaluación personalizada que combine las ventajas de Precision, Recall y F1-score para un problema específico?
+    \item ¿Las normalizaciones de los datos podrían sesgar las métricas hacia resultados que no reflejan el verdadero rendimiento del modelo?
+    \item ¿Qué métricas existen para evaluar modelos de clasificación para múltiples clases?
+
+\end{enumerate}
+    
+
+
+\end{document} 
