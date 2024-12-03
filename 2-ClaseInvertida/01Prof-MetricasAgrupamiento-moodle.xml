@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was generated on 2024-12-03 by XeLaTeX -->
+<!-- running on *NIX with the package moodle v0.9 -->
+
+<quiz>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Metrica Cluster</text>
+  </category>
+</question>
+ 
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[MetricaCluster01]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Qué es un cluster en el contexto de análisis de datos? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Un punto de datos que se utiliza para realizar cálculos estadísticos.</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>Un agrupamiento natural de datos que comparten similitudes.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Un algoritmo utilizado para clasificar datos en categorías.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Una métrica para evaluar la calidad de una visualización.</p>]]></text>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[MetricaCluster02]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Qué mide el coeficiente de silueta en el análisis de clusters? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>El número total de clusters en los datos.</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>Qué tan compactos están los puntos dentro de un cluster y qué tan separados están los clusters entre sí.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>La distancia promedio entre todos los puntos del dataset.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>El rendimiento computacional del algoritmo utilizado.</p>]]></text>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[MetricaCluster03]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones describe correctamente el índice Davies-Bouldin? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Es una métrica que evalúa la separación de los clusters únicamente.</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>Es una métrica que mide la cohesión y separación de los clusters, donde valores cercanos a 0 indican una mejor clusterización.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Evalúa exclusivamente la cantidad de datos en cada cluster.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Se utiliza para calcular el número óptimo de clusters en el método K-Medias.</p>]]></text>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[MetricaCluster04]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Cuál es la principal diferencia entre los algoritmos K-Medias y Propagación de Afinidad? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>K-Medias requiere especificar el número de clusters como entrada, mientras que Propagación de Afinidad los determina automáticamente.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>K-Medias clasifica datos basándose en probabilidades, mientras que Propagación de Afinidad utiliza métricas geométricas.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Propagación de Afinidad requiere más memoria que K-Medias para procesar grandes datasets.</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>K-Medias funciona solo con datos numéricos, mientras que Propagación de Afinidad trabaja con datos categóricos.</p>]]></text>
+  </answer>
+</question>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Clase Invertida</text>
+  </category>
+</question>
+ 
+<question type="essay">
+  <name format="html">
+    <text><![CDATA[ClaseInvertida-Chat]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Copia el enlace del chat con ChatGPT como evidencia de la actividad realizada en casa. </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <responserequired>0</responserequired>
+  <responseformat>plain</responseformat>
+  <responsefieldlines>5</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+  <graderinfo format="html"><text><![CDATA[
+    Acceder al enlace.
+  ]]></text></graderinfo>
+  <responsetemplate format="html"><text/></responsetemplate>
+</question>
+<question type="essay">
+  <name format="html">
+    <text><![CDATA[ClaseInvertida-Dudas]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Qué dudas tuviste sobre el tema cubierto en la actividad? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <responserequired>0</responserequired>
+  <responseformat>plain</responseformat>
+  <responsefieldlines>5</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+  <graderinfo format="html"><text><![CDATA[
+    Solo para registro.
+  ]]></text></graderinfo>
+  <responsetemplate format="html"><text/></responsetemplate>
+</question>
+ 
+</quiz>
