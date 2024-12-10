@@ -1,0 +1,219 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 08: Algoritmos de Agrupamiento Jerárquico}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la actividad:}
+
+\begin{itemize}[leftmargin=*]
+    \item Describir y diferenciar los algoritmos jerárquicos aglomerativos y divisivos, junto con sus ventajas y desventajas.
+    \item Analizar y construir dendogramas para entender los resultados de un agrupamiento jerárquico.
+    \item Aplicar diferentes criterios de enlace en algoritmos de agrupamiento jerárquico.
+    \item Implementar algoritmos de agrupamiento jerárquico en un conjunto de datos utilizando Python.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+ ¿Cómo podemos agrupar datos de manera jerárquica y visualizar las relaciones entre los grupos? 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Presentación teórica sobre algoritmos de agrupamiento jerárquico}
+
+se introducirá a los estudiantes los fundamentos del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, y los criterios de enlace para calcular las distancias entre grupos. También se explicará el uso de los dendogramas como herramienta visual para entender las jerarquías de los grupos.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Introducción a los algoritmos jerárquicos:}  
+    Explicaremos los principios de los algoritmos aglomerativos y divisivos. Se destacará cómo los métodos aglomerativos comienzan con cada punto como un clúster individual y los unen iterativamente, mientras que los divisivos parten de un clúster único y lo dividen sucesivamente.
+    
+    \item \textbf{Dendogramas:}  
+    Introduciremos los dendogramas como una herramienta para visualizar la jerarquía de los agrupamientos. Analizaremos cómo interpretar las uniones y las distancias representadas en el gráfico.
+    
+    \item \textbf{Criterios de enlace:}  
+    Explicaremos los tres criterios principales para determinar las distancias entre clústeres:
+    \begin{itemize}
+        \item \textbf{Enlace sencillo (Single Linkage):} Distancia mínima entre dos clústeres.
+        \item \textbf{Enlace completo (Complete Linkage):} Distancia máxima entre dos clústeres.
+        \item \textbf{Enlace promedio (Average Linkage):} Promedio de todas las distancias entre puntos de los dos clústeres.
+    \end{itemize}
+
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Los estudiantes deberán:
+\begin{itemize}[leftmargin=*]
+    \item Identificar correctamente las diferencias entre los métodos aglomerativos y divisivos.
+    \item Explicar qué representa un dendograma y cómo se interpreta.
+    \item Comparar los efectos de los diferentes criterios de enlace en un ejemplo dado.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2 : Agrupamiento jerárquico con una lista de números}
+
+Se realizará un ejercicio práctico para agrupar una lista de números utilizando un enfoque jerárquico. Se construirán grupos utilizando diferentes criterios de enlace y se visualizará el proceso en un dendograma manual.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Datos iniciales:}  
+    Se trabajará con la siguiente lista de números: \\[1mm]
+    \texttt{[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]}
+    
+    \item \textbf{Cálculo de distancias:}  
+    Se calcularán las distancias absolutas entre todos los pares de números para construir una matriz de distancias inicial. La distancia entre dos números será la diferencia absoluta entre ellos.
+    
+    \item \textbf{Construcción del dendograma:}  
+    Se fusionarán los números o grupos más cercanos según el criterio de enlace seleccionado:
+    \begin{itemize}
+        \item \textbf{Enlace sencillo:} Se tomará la distancia mínima entre elementos de los dos grupos.
+        \item \textbf{Enlace completo:} Se tomará la distancia máxima entre elementos de los dos grupos.
+        \item \textbf{Enlace promedio:} Se calculará el promedio de todas las distancias entre elementos de los dos grupos.
+    \end{itemize}
+    
+    \item \textbf{Representación manual:}  
+    A medida que se fusionan los grupos, se registrarán los pasos y se dibujará un dendograma manualmente en el pizarrón o en hojas de trabajo distribuidas a los estudiantes.
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Replicar el proceso con otro conjunto de números.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3 : Visualización de video sobre algoritmos de agrupamiento jerárquico}
+
+Se utilizará un video educativo para que los estudiantes comprendan los conceptos fundamentales del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, los criterios de enlace, y la interpretación de dendogramas.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proyección de video:}  
+    Se presentará un video educativo que explique los fundamentos del agrupamiento jerárquico.
+    \begin{quote}
+        Enlace al video: \href{https://youtu.be/8QCBl-xdeZI?si=TYfeBv0pZGRS_0zS}{Hierarchical Cluster Analysis}.
+    \end{quote}
+    \item \textbf{Interacción con ChatGPT:}  
+    Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con términos o conceptos que no comprendieron durante la visualización.
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Se realizará una discusión grupal donde los estudiantes compartirán:
+\begin{itemize}[leftmargin=*]
+    \item Las preguntas que realizaron a ChatGPT.
+    \item Las respuestas que obtuvieron y cómo estas les ayudaron a comprender mejor el tema.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 4: Implementación directa del agrupamiento jerárquico}
+
+Los estudiantes ejecutarán el siguiente código para generar un agrupamiento jerárquico sobre el conjunto de datos y visualizar el dendograma.
+
+\paragraph{Datos iniciales:}  
+Se trabajará con el siguiente conjunto de datos:
+\begin{verbatim}
+[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]
+\end{verbatim}
+
+\paragraph{Código a ejecutar:}  \hspace{0pt}
+
+\begin{pycodigo}
+\begin{lstlisting}[language=Python]
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage
+
+# Datos de entrada
+data = np.array([10, 4, 20, 30, 38, 87, 82, 56, 66, 70]).reshape(-1, 1)
+
+# Aplicar el agrupamiento jerárquico con criterio de enlace promedio
+linkage_matrix = linkage(data, method='average')
+
+# Visualizar el dendograma
+plt.figure(figsize=(8, 5))
+dendrogram(linkage_matrix, labels=data.flatten())
+plt.title('Dendograma - Enlace Promedio')
+plt.xlabel('Puntos de datos')
+plt.ylabel('Distancia')
+plt.show()
+\end{lstlisting}
+\end{pycodigo}
+
+\paragraph{Resultados esperados:}  
+Los estudiantes deben analizar el dendograma generado e identificar:
+\begin{itemize}[leftmargin=*]
+    \item El orden en que se formaron los clusters.
+    \item Las distancias a las que se unieron los diferentes grupos.
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+Responder las siguientes preguntas basadas en los resultados:
+\begin{itemize}[leftmargin=*]
+    \item ¿Cuál fue la distancia más grande entre dos clusters antes de unirse?
+    \item ¿Qué estructura jerárquica muestran los datos?
+    \item ¿Cómo podría cambiar el resultado si utilizáramos un criterio de enlace diferente (e.g., enlace sencillo o completo)?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+
+\paragraph{Tarea:}  
+    Implementar el algoritmos en los datos seleccionados la clase anterior.
+
+\paragraph{Pregunta de investigación:}  
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué información podemos obtener de un dendograma que no podemos obtener directamente de otros modelos?
+    \item ¿Cómo afecta el criterio de enlace (sencillo, completo o promedio) a la forma final de los grupos en el agrupamiento jerárquico?
+    \item ¿En qué casos prácticos sería más útil un método divisivo en lugar de uno aglomerativo?
+\end{enumerate}
+    
+
+
+\end{document} 
