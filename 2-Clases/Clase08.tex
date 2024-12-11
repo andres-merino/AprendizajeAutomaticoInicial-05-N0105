@@ -146,49 +146,23 @@ Se realizará una discusión grupal donde los estudiantes compartirán:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 4: Implementación directa del agrupamiento jerárquico}
+\subsection*{Actividad 4: Implementación del agrupamiento jerárquico}
 
-Los estudiantes ejecutarán el siguiente código para generar un agrupamiento jerárquico sobre el conjunto de datos y visualizar el dendograma.
+Los estudiantes utilizarán un notebook donde se aplicará el agrupamiento jerárquico a varios conjuntos de datos.
 
-\paragraph{Datos iniciales:}  
-Se trabajará con el siguiente conjunto de datos:
-\begin{verbatim}
-[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]
-\end{verbatim}
-
-\paragraph{Código a ejecutar:}  \hspace{0pt}
-
-\begin{pycodigo}
-\begin{lstlisting}[language=Python]
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.cluster.hierarchy import dendrogram, linkage
-
-# Datos de entrada
-data = np.array([10, 4, 20, 30, 38, 87, 82, 56, 66, 70]).reshape(-1, 1)
-
-# Aplicar el agrupamiento jerárquico con criterio de enlace promedio
-linkage_matrix = linkage(data, method='average')
-
-# Visualizar el dendograma
-plt.figure(figsize=(8, 5))
-dendrogram(linkage_matrix, labels=data.flatten())
-plt.title('Dendograma - Enlace Promedio')
-plt.xlabel('Puntos de datos')
-plt.ylabel('Distancia')
-plt.show()
-\end{lstlisting}
-\end{pycodigo}
-
-\paragraph{Resultados esperados:}  
-Los estudiantes deben analizar el dendograma generado e identificar:
+\paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item El orden en que se formaron los clusters.
-    \item Las distancias a las que se unieron los diferentes grupos.
+    \item \textbf{Revisión de cuaderno de Jupyter:}  
+    Se utilizará un cuaderno de Jupyter para implementar los algoritmos sobre datos.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/07-Agrupamiento-Jerarquico.ipynb}{07-Agrupamiento-Jerarquico.ipynb}.
+    \end{quote}
+    \item \textbf{Interacción de cuaderno de Jupyter:}  
+    En el cuaderno, se modificará el código para experimentar con diferentes métricas y funciones de enlace.
 \end{itemize}
 
 \paragraph{Verificación de aprendizaje:}  
-Responder las siguientes preguntas basadas en los resultados:
+Desarrolla los ejercicios planteados en el cuaderno de Jupyter. Además, responde estas preguntas:
 \begin{itemize}[leftmargin=*]
     \item ¿Cuál fue la distancia más grande entre dos clusters antes de unirse?
     \item ¿Qué estructura jerárquica muestran los datos?
@@ -205,7 +179,10 @@ Responder las siguientes preguntas basadas en los resultados:
 \section*{Cierre}
 
 \paragraph{Tarea:}  
-    Implementar el algoritmos en los datos seleccionados la clase anterior.
+    Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/03-Agrupamiento-Jerarquico.ipynb}{03-Agrupamiento-Jerarquico.ipynb}.
+    \end{quote}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
