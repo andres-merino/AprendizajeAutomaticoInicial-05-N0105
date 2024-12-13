@@ -6,13 +6,16 @@
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
-
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
-\tema{Reto no. 1}
+\tema{Reto no. 1: Aprendizaje no supervisado}
 \autor{Andrés Merino}
 \fecha{Semestre 2024-2}
 
@@ -30,44 +33,217 @@
 
 \encabezado
 
-\vspace*{-10mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Indicaciones}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Indicaciones}
 \begin{itemize}[leftmargin=*]
 \item 
-    En esta actividad se evalúa si el estudiante \textit{(Criterio 3.1) aplica los principios de lógica matemática, teoría de conjuntos y números reales para la resolución de problemas prácticos.}
-\item 
-    
+    En esta actividad se evalúa si el estudiante \textit{(Criterio 3.1: Aplica modelos de aprendizaje no supervisado en casos prácticos complejos, analizando los resultados y proponiendo mejoras basadas en métricas de rendimiento.}
 \end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objetivos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Descripción}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+En el contexto de un aumento significativo de la violencia en el país, la Policía Científica busca mejorar sus estrategias de prevención y acción a través del análisis de datos. Como analistas de datos, tu misión es identificar patrones significativos y reducir la complejidad de los datos para extraer información valiosa.
 
-\subsection{Pregunta esencial}
+\subsection*{Pregunta esencial}
+\begin{itemize}[leftmargin=*]
+\item ¿Cómo pueden las técnicas de clustering y reducción de dimensiones ayudar a identificar patrones ocultos en los datos y facilitar decisiones informadas en el manejo de eventos violentos?
+\end{itemize}
 
+\subsection*{Reto}
 
-\subsection{Reto}
+Como parte de un equipo de análisis de datos, tu misión es desentrañar patrones clave dentro de un conjunto de datos complejos sobre eventos violentos en el país. El reto consiste en aplicar técnicas de clustering y reducción de dimensiones para extraer información valiosa y visualmente clara que pueda ser utilizada por la Policía Científica para mejorar sus estrategias. Tu objetivo final será entregar:
+\begin{itemize}[leftmargin=*]
+\item Un Jupyter Notebook replicable, que incluya código y visualizaciones técnicas para explorar y analizar los datos.
+\item Un informe divulgativo para la Policía Científica que presente los hallazgos clave de manera clara y accesible, con visualizaciones comprensibles.
+\end{itemize}
 
+\subsection*{Preguntas guía}
+\begin{itemize}[leftmargin=*]
+\item ¿Cómo se preprocesan los datos para su análisis efectivo?
+\item ¿Qué algoritmos de clustering son más adecuados para este tipo de datos?
+\item ¿Qué criterios usarás para evaluar la calidad de los clusters obtenidos?
+\item ¿Cómo puede la reducción de dimensiones facilitar la visualización de patrones complejos?
+\item ¿Cómo puedes comunicar los hallazgos de manera efectiva a un público no técnico?
+\end{itemize}
+
+\subsection*{Actividades guía}
+\begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
+\item Investigar las técnicas de clustering (como K-Means, DBSCAN) y reducción de dimensiones (PCA, t-SNE).
+\item Preprocesar el dataset:
+    \begin{itemize}[leftmargin=*]
+    \item Manejo de valores nulos.
+    \item Estandarización de variables.
+    \item Codificación de variables categóricas.
+    \end{itemize}
+\item Aplicar clustering para identificar agrupaciones significativas en los datos.
+\item Evaluar los agrupamientos para obtener el mejor posible.
+\item Implementar reducción de dimensiones para visualizar las relaciones entre variables y clusters.
+\item Generar visualizaciones técnicas y explicativas:
+    \begin{itemize}[leftmargin=*]
+    \item Gráficos de dispersión y mapas de calor.
+    \item Representaciones tridimensionales para datos complejos.
+    \end{itemize}
+\item Redactar un informe final, estructurando los hallazgos en:
+    \begin{itemize}[leftmargin=*]
+    \item Introducción al problema.
+    \item Metodología aplicada.
+    \item Resultados obtenidos y su interpretación.
+    \item Recomendaciones basadas en los hallazgos.
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Recursos}
+\begin{itemize}[leftmargin=*]
+\item Dataset confidencial proporcionado por la Policía Científica (previo acuerdo de confidencialidad).
+\item Documentación de Scikit-learn, Pandas y Matplotlib.
+\item Tutoriales y ejemplos sobre clustering y reducción de dimensiones dados en clases.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Producto}
+\section*{Producto}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Jupyter Notebook}
+El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros analistas reproduzcan el análisis con datasets similares. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases.
+
+\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+\item \textbf{Título y descripción inicial:} Incluye un título descriptivo, los autores y una breve introducción que explique el problema, los objetivos del análisis y las técnicas utilizadas.
+
+\item \textbf{Carga y descripción de datos:} Código para cargar el dataset proporcionado. Análisis exploratorio inicial que describa las variables más relevantes y sus características (tipos, distribuciones, etc.).
+
+\item \textbf{Preprocesamiento de datos:} Limpieza del dataset, incluyendo manejo de valores nulos, codificación de variables categóricas y normalización. Explicación de los pasos tomados y justificación de las decisiones.
+
+\item \textbf{Análisis con clustering:} Aplicación de algoritmos de clustering, como \texttt{K-Means}, \texttt{DBSCAN} o jerárquico.  Visualizaciones técnicas que representen los resultados, como gráficos de dispersión coloreados por cluster.
+
+\item \textbf{Reducción de dimensiones:} Implementación de técnicas como PCA o t-SNE para reducir las dimensiones de los datos. Visualización en 2D o 3D de los datos en el espacio reducido, resaltando los patrones principales.
+
+\item \textbf{Interpretación de resultados:} Discusión breve de los clusters formados y cómo las técnicas aplicadas ayudan a entender los datos.
+
+\item \textbf{Conclusión técnica:} Resumen de los hallazgos técnicos y limitaciones del análisis.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Informe Divulgativo}
+El informe divulgativo debe estar dirigido a un público no técnico, como responsables de la toma de decisiones en la Policía Científica.  Debe estar hecho en \LaTeX{}, en el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato proporcionado}, e incluir bibliografía relevante (tanto que vincule la aplicación de las técnicas con el tipo de datos).
+
+\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+
+\item \textbf{Introducción:} Contexto del problema, relevancia del análisis y objetivos de la investigación.
+
+\item \textbf{Metodología:} Breve descripción de las técnicas utilizadas (clustering, reducción de dimensiones) y su utilidad.
+
+\item \textbf{Resultados principales:} Explicación de los clusters encontrados y sus características principales. Gráficos comprensibles que muestren patrones relevantes, como la distribución de eventos por tipo o área.
+
+\item \textbf{Implicaciones prácticas:} Interpretación de los resultados en términos de acciones concretas para la Policía Científica.
+
+\item \textbf{Recomendaciones:} Sugerencias basadas en el análisis, como estrategias de intervención o necesidades de datos adicionales.
+
+\item \textbf{Conclusión:} Resumen breve de los hallazgos y su importancia para la resolución del problema.
+
+\end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Jupyter Notebook (30 puntos totales)}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{Título y descripción inicial (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Introducción que contextualiza el problema y los objetivos (1 punto).
+        \item Breve descripción de las técnicas utilizadas (1 punto).
+    \end{itemize}
+    
+    \item \textbf{Carga y descripción de datos (4 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Descripción de las variables relevantes, análisis exploratorio básico (3 puntos).
+        \item Identificación y representación gráfica adecuada de distribuciones (1 punto).
+    \end{itemize}
+    
+    \item \textbf{Preprocesamiento de datos (5 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Limpieza de datos correctamente implementada (3 puntos).
+        \item Justificación clara de las decisiones tomadas en el preprocesamiento (2 puntos).
+    \end{itemize}
+    
+    \item \textbf{Análisis con clustering (8 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Implementación adecuada de al menos dos algoritmos de clustering (4 puntos).
+        \item Visualizaciones técnicas que representen los resultados (2 puntos).
+        \item Explicación de la calidad de los clusters obtenidos (2 puntos).
+    \end{itemize}
+    
+    \item \textbf{Reducción de dimensiones (4 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Implementación de una técnica de reducción de dimensiones (2 puntos).
+        \item Visualizaciones técnicas en 2D o 3D que resalten patrones clave (2 puntos).
+    \end{itemize}
+    
+    \item \textbf{Interpretación de resultados (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Discusión clara de los clusters formados y los patrones identificados (1.5 puntos).
+        \item Relación de los resultados con el problema inicial (0.5 puntos).
+    \end{itemize}
+    
+    \item \textbf{Conclusión técnica (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Resumen conciso de los hallazgos técnicos (1.5 puntos).
+        \item Identificación de limitaciones y posibles mejoras (0.5 puntos).
+    \end{itemize}
+    
+    \item \textbf{Legibilidad y simpleza del código (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Código bien comentado, organizado en secciones claras (1.5 puntos).
+        \item Uso de celdas Markdown para explicar los pasos (1.5 puntos).
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Informe Divulgativo (20 puntos totales)}
+\begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
+    \item \textbf{Introducción (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Contextualiza el problema y la relevancia del análisis (2 puntos).
+        \item Explica claramente los objetivos de la investigación (1 punto).
+    \end{itemize}
+    
+    \item \textbf{Metodología (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Breve descripción de las técnicas utilizadas  (1.5 puntos).
+        \item Explicación de cómo estas técnicas ayudan a entender los datos (0.5 puntos).
+    \end{itemize}
+    
+    \item \textbf{Resultados principales (5 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Explicación de los clusters encontrados y sus características (2.5 puntos).
+        \item Uso de gráficos comprensibles y relevantes para el público objetivo (2.5 puntos).
+    \end{itemize}
+    
+    \item \textbf{Implicaciones prácticas (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Relación de los resultados con acciones concretas (2 puntos).
+        \item Interpretación de patrones significativos y su importancia (1 punto).
+    \end{itemize}
+    
+    \item \textbf{Recomendaciones (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Propuestas claras y aplicables basadas en los resultados del análisis (2 puntos).
+    \end{itemize}
+    
+    \item \textbf{Conclusión (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Resumen breve y relevante de los hallazgos (2 puntos).
+        \item Importancia de los resultados para la resolución del problema (1 punto).
+    \end{itemize}
+
+    \item \textbf{Conclusión (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Diseño profesional y organizado con secciones bien definidas (1.5 puntos).
+        \item Uso de gráficos y tablas adecuadamente formateados (1.5 puntos).
+    \end{itemize}
+\end{enumerate}
+
 
 \end{document}
