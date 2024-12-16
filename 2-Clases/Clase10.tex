@@ -103,7 +103,7 @@ En esta actividad, los estudiantes implementarán el algoritmo kNN utilizando Py
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Preparación:}  
-    Los estudiantes accederán a un cuaderno de Google Colab preparado para esta actividad. El cuaderno contiene un ejemplo básico de clasificación utilizando kNN con el dataset Iris.
+    Los estudiantes accederán a un cuaderno de Google Colab preparado para esta actividad. El cuaderno contiene un ejemplo básico de clasificación utilizando kNN.
     \begin{quote}
         Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/09-kNN.ipynb}{09-kNN.ipynb}.
     \end{quote}
@@ -126,11 +126,11 @@ X, y = iris.data, iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Crear y entrenar el modelo kNN con k=3
-knn = KNeighborsClassifier(n_neighbors=3)
-knn.fit(X_train, y_train)
+modelo = KNeighborsClassifier(n_neighbors=3)
+modelo.fit(X_train, y_train)
 
 # Realizar predicciones y evaluar el modelo
-y_pred = knn.predict(X_test)
+y_pred = modelo.predict(X_test)
 print("Precisión del modelo:", accuracy_score(y_test, y_pred))
 \end{lstlisting}
 \end{pycodigo}
@@ -147,7 +147,7 @@ print("Precisión del modelo:", accuracy_score(y_test, y_pred))
 \begin{ejer}
 Modifique el código para:
 \begin{enumerate}[leftmargin=*]
-    \item Establecer \(k = 3\) y comparar los resultados con \(k = 5\).
+    \item Establecer \(k = 5\) y comparar los resultados con \(k = 3\).
     \item Utilizar la métrica de distancia \texttt{'manhattan'} en lugar de \texttt{'euclidean'}.
     \item Cambiar el tamaño del conjunto de prueba a \(40\%\) y analizar el impacto en la precisión.
 \end{enumerate}
