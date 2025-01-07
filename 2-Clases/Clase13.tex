@@ -1,0 +1,156 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 13: Perceptrón Sigmoide y Perceptrón Multiclase}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la actividad:}
+\begin{itemize}[leftmargin=*]
+    \item Comprender las funciones de combinación, activación y pérdida del perceptrón sigmoide y multiclase.
+    \item Derivar los gradientes asociados a las funciones de pérdida de cada perceptrón.
+    \item Implementar en Python los algoritmos del perceptrón sigmoide y multiclase.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+¿Qué pasa si le pedimos a una máquina que nos diga si una imagen contiene un gato, un perro o un ave? ¿Cómo lo decide?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Perceptrón Sigmoide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Descripción:} 
+En esta actividad, se explorará el funcionamiento del perceptrón sigmoide, abordando sus funciones de combinación, activación y pérdida. Se derivará el gradiente necesario para el entrenamiento mediante la metodología de clase magistral, combinada con aprendizaje práctico para la implementación.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se explicará la teoría que sustenta el perceptrón sigmoide:
+    \begin{itemize}
+        \item Funciones de combinación y activación (sigmoide).
+        \item Pérdida por entropía cruzada binaria.
+        \item Derivación del gradiente para los pesos y el sesgo.
+    \end{itemize}
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/12-Perceptron-Sigmoide.ipynb}{12-Perceptron-Sigmoide.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Cuál es el propósito de la función de activación sigmoide?
+    \item ¿Cómo se calcula el gradiente para el entrenamiento del perceptrón sigmoide?
+    \item ¿Qué tipos de problemas son adecuados para este modelo?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Perceptrón Multiclase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad se centra en el perceptrón multiclase, destacando las funciones de combinación, activación (softmax) y pérdida categórica. Se derivará el gradiente para su entrenamiento, utilizando metodologías de clase magistral y aprendizaje basado en proyectos.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se cubrirá la teoría que sustenta el perceptrón multiclase:
+    \begin{itemize}
+        \item Funciones de combinación y activación (softmax).
+        \item Pérdida categórica cruzada.
+        \item Derivación del gradiente para los pesos y sesgos.
+    \end{itemize}
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/13-Perceptron-Multiclase.ipynb}{12-Perceptron-Multiclase.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Cuál es la función de activación utilizada en el perceptrón multiclase y por qué?
+    \item ¿Cómo se deriva el gradiente para el entrenamiento en problemas multiclase?
+    \item ¿Cuándo deberíamos preferir el perceptrón multiclase frente a otros modelos?
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Tarea:}
+    Realizar los ejercicios planteados en los cuadernos de Jupyter.
+
+\paragraph{Pregunta de investigación:}  
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cómo se compara el perceptrón multiclase con otros métodos de clasificación, como regresión logística multinomial?
+    \item En el perceptrón multiclase, ¿por qué se utiliza la función softmax junto con la pérdida categórica cruzada? ¿Cómo trabajan juntas para mejorar la clasificación?
+    \item ¿Qué problemas podrían surgir al usar combinaciones incorrectas de funciones de activación y pérdida?
+\end{enumerate}
+    
+\paragraph{Para la próxima clase:} 
+Investigar qué son los frameworks de aprendizaje profundo como PyTorch y TensorFlow, y responder a las siguientes preguntas:
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué es un framework? ¿Qué es una API en este sentido?
+    \item ¿Qué características y ventajas ofrecen estos frameworks para implementar redes neuronales?
+    \item ¿Cuáles son las diferencias clave entre PyTorch y TensorFlow en términos de facilidad de uso, flexibilidad y rendimiento?
+    \item ¿Qué ejemplos prácticos existen del uso de PyTorch y TensorFlow en la resolución de problemas de clasificación y predicción?
+    \item ¿Cómo podrías instalar y configurar uno de estos frameworks en tu entorno de trabajo?
+\end{itemize}
+
+Se proporcionará material de lectura y enlaces sugeridos:
+\begin{itemize}
+    \item \href{https://pytorch.org/tutorials/}{Introducción a PyTorch}
+    \item \href{https://www.tensorflow.org/}{Documentación oficial de TensorFlow}
+\end{itemize}
+
+
+
+\end{document} 
