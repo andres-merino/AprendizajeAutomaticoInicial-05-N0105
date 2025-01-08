@@ -1,0 +1,138 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 15: Entrenamiento de Redes Neuronales}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+\subsection*{Resultados específicos:}  
+\begin{itemize}[leftmargin=*]  
+    \item Comprender el método de retropropagación y su deducción matemática.  
+    \item Revisar las técnicas de optimización en el entrenamiento de redes neuronales.  
+\end{itemize}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Introducción}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\paragraph{Pregunta inicial:}  
+¿Qué desafíos enfrenta el entrenamiento de redes neuronales y cómo podemos mitigarlos para mejorar su desempeño?  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Desarrollo}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection*{Actividad 1: Deducción del método de retropropagación}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]  
+    \item \textbf{Clase magistral:}  
+    Explicación detallada del método de retropropagación:
+    \begin{itemize}[leftmargin=*]
+        \item Introducción a la retropropagación y su propósito en redes neuronales.
+        \item Deducción paso a paso del algoritmo, desde la función de pérdida hasta el cálculo de gradientes usando la regla de la cadena.
+    \end{itemize}  
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Cómo se utiliza la regla de la cadena en el cálculo de gradientes?  
+    \item ¿Qué rol desempeña la función de pérdida en la retropropagación?  
+    \item ¿Por qué es fundamental calcular los gradientes de manera eficiente en redes neuronales?  
+\end{itemize}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection*{Actividad 2: Regularización y optimización en redes neuronales}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]  
+    \item \textbf{Clase magistral:}  
+    Presentación de conceptos clave:
+    \begin{itemize}[leftmargin=*]
+        \item Regularización: L1, L2 y Dropout.
+        \item Early stopping como estrategia para evitar el sobreajuste.
+        \item Diferentes optimizadores: SGD, Adam, RMSProp, etc.
+        \item Learning rate adaptativo y su impacto en el entrenamiento.
+    \end{itemize}  
+    \item \textbf{Ejercicio práctico:}  
+    Implementación guiada en un notebook de Python:
+    \begin{itemize}[leftmargin=*]
+        \item Configurar y entrenar una red neuronal básica.
+        \item Aplicar técnicas de regularización y evaluar resultados.
+        \item Comparar el rendimiento utilizando diferentes  optimizadores.
+        \item Implementar early stopping y observar su impacto en el sobreajuste.
+    \end{itemize}  
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Cómo afecta la regularización al sobreajuste?  
+    \item ¿Cuáles son las diferencias principales entre SGD y Adam como optimizadores?  
+    \item ¿Qué ventajas ofrece el learning rate adaptativo frente a un learning rate constante?  
+\end{itemize}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Cierre}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{Tarea:}  
+    Desarrollar los ejercicios planteados en el siguiente cuaderno, usando mejoras en el entrenamiento de la red, y entregarlo por el aula virtual:
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/07-Perceptron.ipynb}{07-Perceptron.ipynb}.
+    \end{quote}
+
+\paragraph{Preguntas para reflexionar:}  
+\begin{enumerate}[leftmargin=*]  
+    \item ¿Qué técnicas de regularización funcionan mejor en diferentes escenarios?  
+    \item ¿Cómo podrías mejorar el desempeño de una red neuronal sin cambiar su arquitectura?  
+    \item ¿Cómo afecta el tamaño del dataset al rendimiento del modelo y la necesidad de regularización?  
+\end{enumerate}  
+
+\paragraph{Para la próxima clase:}  
+Exploración de arquitecturas avanzadas como redes convolucionales y recurrentes. Previsualizar el notebook: \href{https://example.com}{Arquitecturas Avanzadas}.
+
+
+\end{document} 
