@@ -1,0 +1,164 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 16: Árboles de decisión}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la actividad:}
+\begin{itemize}[leftmargin=*]
+    \item Comprender los fundamentos teóricos de los Árboles de Decisión y su uso en clasificación y regresión.
+    \item Analizar los criterios principales asociados con la construcción y optimización de árboles de decisión (parada, selección, clasificación, partición y poda).
+    \item Implementar un Árbol de Decisión en Python mediante un cuaderno de Jupyter.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:}
+¿Por qué es importante la interpretabilidad en los modelos de aprendizaje automático y cómo los Árboles de Decisión nos ayudan a lograrla?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection*{Actividad 1: Retroalimentación de la clase invertida}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+Se conecta lo aprendido en casa con la utilidad práctica de los Árboles de Decisión en tareas de clasificación y regresión. Esta actividad busca reforzar los conceptos clave y vincularlos con aplicaciones prácticas para destacar la importancia de los Árboles de Decisión como modelos interpretables y efectivos.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}  
+    \item \textbf{Resumen rápido:}  
+    Breve recapitulación de conceptos clave:
+    \begin{itemize}[leftmargin=*]  
+        \item Interpretabilidad de los Árboles de Decisión mediante reglas basadas en características.  
+        \item Entropía e información ganada como métricas para la construcción del árbol.  
+    \end{itemize}  
+
+    \item \textbf{Discusión:}  
+    Reflexión grupal sobre aplicaciones reales y decisiones de diseño:  
+    \begin{itemize}[leftmargin=*]  
+        \item ¿Cuándo es preferible un Árbol de Decisión frente a otros modelos?  
+        \item ¿Cómo afecta la poda al rendimiento y la interpretabilidad del árbol?  
+        \item Identificación de ejemplos prácticos de su uso, como la clasificación de clientes o predicciones en salud.  
+    \end{itemize}  
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Qué representa la ganancia de información en un Árbol de Decisión?  
+    \item ¿Qué ventajas tiene la interpretabilidad de un Árbol de Decisión?  
+\end{itemize}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection*{Actividad 2: Clase magistral sobre criterios y poda}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]  
+    \item \textbf{Explicación teórica:}  
+        \begin{itemize}[leftmargin=*]  
+            \item Criterio de parada: ¿Cuándo detener la división?  
+            \item Criterio de selección: Métricas como ganancia de información, índice Gini.  
+            \item Criterio de clasificación: Cómo asignar etiquetas finales a las hojas.  
+            \item Criterio de partición: Estrategias para dividir datos en subconjuntos.  
+            % \item Poda del árbol: Métodos de poda pre-pruning y post-pruning para evitar sobreajuste.  
+        \end{itemize}  
+    \item \textbf{Discusión guiada:} Comparación de criterios según el tipo de problema (clasificación vs regresión).  
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Por qué es importante el criterio de parada?  
+    % \item ¿Cuál es la ventaja de usar post-pruning frente a pre-pruning?  
+\end{itemize}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3: Implementación práctica de Árboles de Decisión}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad se enfoca en aplicar Árboles de Decisión utilizando Python en un cuaderno de Jupyter. Los estudiantes experimentarán con criterios de partición, poda y parámetros como la profundidad máxima, conectando teoría con aplicaciones prácticas en tareas de clasificación.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]  
+    \item \textbf{Implementación en Python:} Los estudiantes trabajarán en un cuaderno de Jupyter previamente preparado.  
+    \begin{quote}  
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/18-Arboles-Decision.ipynb}{13-Arboles-Decision.ipynb}.  
+    \end{quote}  
+    \item \textbf{Experimentación guiada:} Los estudiantes modificarán parámetros del Árbol de Decisión:  
+        \begin{itemize}[leftmargin=*]  
+            \item Cambiar el criterio de partición (\texttt{'gini'} a \texttt{'entropy'}).  
+            \item Ajustar la profundidad máxima (\texttt{max\_depth}).  
+            \item Probar con diferentes tamaños de conjuntos de datos.  
+        \end{itemize}  
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Cómo afectan los diferentes criterios de partición a la estructura del árbol?  
+    \item ¿Qué impacto tiene limitar la profundidad máxima en el modelo?  
+    \item ¿Cómo podemos interpretar los resultados visuales del árbol?  
+\end{itemize}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Cierre}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{Tarea:}  
+Implementar un Árbol de Decisión utilizando un conjunto de datos real y comparar los resultados al variar los criterios de partición, poda y profundidad máxima.  
+
+\paragraph{Pregunta de investigación:}  
+\begin{enumerate}[leftmargin=*]  
+    \item ¿Qué significa podar un árbol de decisión? ¿Cómo se poda un árbol?
+\end{enumerate}  
+
+\paragraph{Para la próxima clase:}  
+Visualizar el siguiente video sobre Retropropagación:
+    \begin{quote}
+        Enlace al video: \href{https://www.youtube.com/watch?v=J4Wdy0Wc_xQ}{StatQuest: Random Forests Part 1}.
+    \end{quote}
+
+\end{document} 
