@@ -1,0 +1,139 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 17: Árboles de decisión y métodos combinados}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la actividad:}
+\begin{itemize}[leftmargin=*]
+    \item Comprender el funcionamiento de los métodos combinados como bagging, boosting y bosques aleatorios.  
+    \item Implementar bosques aleatorios y boosting en un entorno práctico, evaluando resultados.  
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+¿Por qué combinar varios modelos puede mejorar el rendimiento de un modelo de aprendizaje automático?  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\subsection*{Actividad 1: Clase magistral sobre métodos combinados}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+
+En esta actividad, los estudiantes conocerán las bases teóricas y conceptuales de los métodos combinados en aprendizaje automático: bagging, boosting y bosques aleatorios. Se destacará cómo estos métodos combinan múltiples modelos individuales para mejorar la precisión, reducir la varianza y manejar problemas de sobreajuste. Se usarán ejemplos y discusiones guiadas para consolidar los conceptos.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]  
+    \item \textbf{Exposición teórica: }
+    Presentación de los conceptos clave:
+    \begin{itemize}  
+        \item \textbf{Bagging (Bootstrap Aggregating):} Cómo se generan múltiples modelos a partir de muestras bootstrap para reducir la varianza. Se destacará el uso de árboles de decisión como modelo base.
+        \item \textbf{Boosting:} Explicación del aprendizaje secuencial, donde cada modelo corrige los errores de los anteriores.
+        \item \textbf{Bosques aleatorios:} Introducción a la técnica de combinación de árboles de decisión, resaltando el uso de selección aleatoria de atributos para mejorar la generalización.
+    \end{itemize}  
+
+\end{itemize}  
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]  
+    \item ¿Qué diferencias fundamentales existen entre bagging y boosting?  
+    \item ¿Cómo ayudan los bosques aleatorios a reducir el sobreajuste en comparación con un único árbol de decisión?  
+    \item ¿Cuáles son las principales ventajas de combinar múltiples modelos en problemas de aprendizaje automático?  
+\end{itemize}  
+
+\subsection*{Actividad 2: Bosques Aleatorios}
+
+En esta actividad, los estudiantes implementarán un modelo de bosques aleatorios para explorar cómo combina múltiples árboles de decisión para reducir la varianza y mejorar la precisión. Se analizará el impacto de los hiperparámetros, como el número de estimadores y la selección aleatoria de atributos, en el rendimiento del modelo.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Implementación práctica:}  
+    Los estudiantes accederán a un cuaderno de Jupyter preparado para esta actividad. El cuaderno incluye un ejemplo de clasificación utilizando un conjunto de datos real y simulado.  
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14-Bosques-Aleatorios.ipynb}{14-Bosques-Aleatorios.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué parámetros afectan el rendimiento de un modelo de bosque aleatorio?   
+\end{itemize}  
+
+\subsection*{Actividad 3: Boosting y Bagging}
+
+Los estudiantes implementarán modelos de boosting y bagging para entender cómo estas técnicas combinan modelos débiles para mejorar el rendimiento. Se compararán las diferencias en el enfoque de aprendizaje (paralelo vs. secuencial) y su impacto en sesgo y varianza.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Implementación práctica:}  
+    Los estudiantes trabajarán con un cuaderno de Jupyter para implementar un ejemplo básico de bagging y boosting, ajustando parámetros como el número de estimadores y la tasa de aprendizaje.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/15-Boosting-Bagging.ipynb}{15-Boosting-Bagging.ipynb}.
+    \end{quote}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Cierre}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+\paragraph{Tarea:}  
+Implementar un Bosque aleatorio utilizando un conjunto de datos real y comparar los resultados al variar los criterios de partición, poda y profundidad máxima.  
+
+\paragraph{Pregunta de investigación:}  
+\begin{enumerate}[leftmargin=*]  
+    \item ¿Cómo influyen los métodos combinados en la detección de anomalías en datasets con ruido?
+    \item ¿Cómo podrían los métodos combinados adaptarse a datasets dinámicos o en streaming?
+\end{enumerate}  
+
+
+
+\end{document} 
