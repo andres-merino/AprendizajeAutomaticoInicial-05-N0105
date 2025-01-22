@@ -1,0 +1,230 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+\usepackage{booktabs}
+
+% -- Datos 
+\institucion{Escuela de Ciencias Físicas y Matemática}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 18: Validación cruzada y Optimización de Hiperparámetros}
+\autor{Andrés Merino}
+\fecha{Semestre 2024-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos para tablas
+\input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+\begin{itemize}[leftmargin=*]
+    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    % \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la actividad:}
+\begin{itemize}[leftmargin=*]
+    \item Comprender los conceptos de validación cruzada y su importancia en la evaluación de modelos.
+    \item Aplicar técnicas de optimización de hiperparámetros (Grid Search y Random Search) en modelos de aprendizaje automático.
+    \item Implementar el guardado y carga de modelos entrenados para reutilización.
+    \item Diseñar un esquema de trabajo estructurado para proyectos de aprendizaje automático.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+¿Cómo evaluamos correctamente un modelo para asegurarnos de que no está sobreajustado o subajustado?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Validación cruzada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad se centra en comprender la validación cruzada y su importancia en la evaluación de modelos. Se explorarán diferentes tipos de validación cruzada y su impacto en las métricas de desempeño del modelo.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se cubrirán los siguientes conceptos clave:
+    \begin{itemize}
+        \item Propósito de la validación cruzada.
+        \item Tipos de validación cruzada: hold-out, K-Fold y LOOCV.
+        \item Ventajas y desventajas de cada tipo.
+    \end{itemize}
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter preparado con ejemplos sobre validación cruzada.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/21-Validacion-Cruzada.ipynb}{21-Validación Cruzada.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué ventajas tiene el uso de K-Fold sobre el hold-out?
+    \item ¿Cómo afecta el tamaño de \(k\) en la validación cruzada?
+    \item ¿Por qué es importante medir la variabilidad en los resultados de validación cruzada?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Optimización de hiperparámetros}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad introduce las técnicas de optimización de hiperparámetros, como Grid Search y Random Search. Los estudiantes aprenderán a configurar búsquedas de hiperparámetros y a evaluar sus resultados.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se cubrirán los siguientes temas:
+    \begin{itemize}
+        \item Diferencia entre parámetros aprendidos e hiperparámetros.
+        \item Importancia de la optimización de hiperparámetros.
+        \item Grid Search: concepto y configuración.
+        \item Random Search: concepto, ventajas y configuración.
+        \item Comparación entre ambos métodos: eficiencia y uso.
+    \end{itemize}
+    \item \textbf{Implementación en Python:} Los estudiantes explorarán un cuaderno de Jupyter con ejemplos prácticos de Grid Search y Random Search.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/22-Optimizacion-Hiperparametros.ipynb}{22-Optimización de Hiperparámetros.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Cuáles son las principales diferencias entre Grid Search y Random Search?
+    \item ¿Cómo afecta la validación cruzada en la búsqueda de hiperparámetros?
+    \item ¿En qué casos sería más eficiente usar Random Search en lugar de Grid Search?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3: Guardado y lectura de modelos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad aborda la importancia de guardar y cargar modelos entrenados para evitar costos computacionales y asegurar reproducibilidad. 
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se discutirán los siguientes temas:
+    \begin{itemize}
+        \item Beneficios de guardar modelos: eficiencia y despliegue.
+        \item Métodos de serialización: \texttt{pickle} y \texttt{joblib}.
+        \item Buenas prácticas al guardar modelos (compatibilidad y versiones de librerías).
+        \item Precauciones al cargar modelos en diferentes entornos.
+    \end{itemize}
+    \item \textbf{Implementación en Python:} Los estudiantes practicarán con un cuaderno de Jupyter que incluye ejemplos sobre cómo guardar y cargar modelos entrenados.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/21-Guardado-Lectura-Modelos.ipynb}{21-Guardado y Lectura de Modelos.ipynb}.
+    \end{quote}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Cuáles son las diferencias entre \texttt{pickle} y \texttt{joblib}?
+    \item ¿Qué problemas pueden surgir al cargar un modelo en otro entorno?
+    \item ¿Cómo podrías manejar cambios de versiones en las librerías usadas para entrenar un modelo?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 4: Esquema de trabajo para proyectos de Aprendizaje Automático}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Esta actividad guía a los estudiantes en el diseño de un flujo de trabajo completo para proyectos de Aprendizaje Automático, destacando las mejores prácticas y cada etapa clave del proceso.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se cubrirá el flujo de trabajo típico en Aprendizaje Automático, del cuadro 1.
+
+    \begin{table}[h]
+        \centering\small
+        \begin{tabular}{p{4.5cm}p{8.5cm}l}
+            \toprule
+            \textbf{Paso} & \textbf{Detalle} & \textbf{Datos} \\ \midrule
+            Limpieza de datos 
+            & Manejar valores faltantes, duplicados y atípicos según el contexto del problema. 
+            & Completo \\ \midrule
+            Análisis exploratorio 
+            & Visualiza distribuciones, correlaciones y patrones en los datos para entender su estructura. 
+            & Completo \\ \midrule
+            Selección de atributos (opcional) 
+            & Elige atributos relevantes usando técnicas estadísticas, de importancia de modelos o reducción de dimensionalidad. Puede ubicarse aquí o en otros puntos. 
+            & Completo \\ \midrule
+            Separar train-test 
+            & Divide los datos en entrenamiento y prueba. 
+            & Completo \\ \midrule
+            Benchmark inicial 
+            & Entrena varios modelos usando train y evalúa su desempeño en test. 
+            & Train y Test \\ \midrule
+            Seleccionar modelos 
+            & Elige los mejores modelos según el benchmark inicial. 
+            &  \\ \midrule
+            Validación cruzada y ajuste de hiperparámetros
+            & Realiza búsqueda de hiperparámetros junto con validación cruzada para los modelos seleccionados. 
+            & Train \\ \midrule
+            Seleccionar mejor modelo 
+            & Escoge el modelo más prometedor tras la validación cruzada. 
+            &  \\ \midrule
+            Evaluar en test 
+            & Evalúa el modelo seleccionado en el conjunto de prueba. 
+            & Test \\ \midrule
+            Reentrenar con todos 
+            & Reentrena el modelo final con todos los datos (train + test combinados). 
+            & Completo \\ \midrule
+            Guardar modelo 
+            & Serializa el modelo para despliegue en producción. 
+            &  \\ \bottomrule
+        \end{tabular}
+        \caption{Esquema de trabajo para proyectos de Aprendizaje Automático.}
+    \end{table}
+\end{itemize}
+
+\paragraph{Verificación de aprendizaje:}  
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué pasos son imprescindibles en un flujo de trabajo de Aprendizaje Automático?
+    \item ¿Cómo garantizas la reproducibilidad en cada etapa del proceso?
+    \item ¿Qué herramientas y librerías usarías para automatizar este esquema?
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Pregunta de investigación:}  
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué métodos avanzados de optimización de hiperparámetros existen (como Bayesian Optimization) y en qué casos podrían ser útiles?
+\end{enumerate}
+    
+\paragraph{Para la próxima clase:}  
+Ya no hay próxima clase :C
+
+
+\end{document} 
