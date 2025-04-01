@@ -5,10 +5,26 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
+
+% Definición del nuevo ambiente
+\NewEnviron{materiales}{%
+    \begin{minipage}{12cm}
+        \vspace{0.1mm}
+        \begin{itemize}[leftmargin=*]
+            \BODY % Contenido de la lista
+        \end{itemize}
+        \vspace{1mm}
+    \end{minipage}
+}
+
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
@@ -16,7 +32,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Clase 08: Algoritmos de Agrupamiento Jerárquico}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -36,7 +52,8 @@
 
 \subsection*{RdA de la asignatura:}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} 
+    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,7 +172,7 @@ Los estudiantes utilizarán un cuaderno de Jupyter para implementar y experiment
     \item \textbf{Exploración del cuaderno de Jupyter:}  
     Se proporcionará un cuaderno de Jupyter con ejemplos iniciales de implementación de agrupamiento jerárquico.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/07-Agrupamiento-Jerarquico.ipynb}{07-Agrupamiento-Jerarquico.ipynb}.
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
     \end{quote}
 
     \item \textbf{Modificación del código:}  

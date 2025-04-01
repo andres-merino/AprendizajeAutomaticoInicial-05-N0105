@@ -5,6 +5,26 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{environ}  % Para definir nuevos entornos
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% Definición del nuevo ambiente
+\NewEnviron{materiales}{%
+    \begin{minipage}{12cm}
+        \vspace{0.1mm}
+        \begin{itemize}[leftmargin=*]
+            \BODY % Contenido de la lista
+        \end{itemize}
+        \vspace{1mm}
+    \end{minipage}
+}
+
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
@@ -12,7 +32,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Clase 03: Conjuntos de Entrenamiento y Validación}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -32,7 +52,8 @@
 
 \subsection*{RdA de la asignatura:}
 \begin{itemize}
-    \item Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 1:} 
+    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
 \subsection*{RdA de la actividad:}
@@ -103,12 +124,13 @@ print(X_reduced[:5])
 
 En esta actividad, se abordará la importancia de dividir un conjunto de datos en entrenamiento, prueba y validación. Se explicarán los métodos más comunes: \texttt{train\_test\_split}, k-fold cross-validation, leave-one-out y leave-p-out.
 
-
-
-\paragraph{Recursos:} 
-\begin{itemize}
-    \item Presentación teórica sobre partición de datos.
-    \item Jupyter Notebook: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/03-Conjuntos-Entrenamiento-Prueba.ipynb}{03-Conjuntos-Entrenamiento-Prueba}.
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Exploración del cuaderno de Jupyter:}  
+    Se proporcionarán ejemplos prácticos de cómo dividir conjuntos de datos en entrenamiento, prueba y validación utilizando diferentes estrategias.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-Conjuntos-Entrenamiento-Prueba.ipynb}{03-Conjuntos-Entrenamiento-Prueba}.
+    \end{quote}
 \end{itemize}
 
 \paragraph{Ejercicio práctico:}  \hspace{0pt}

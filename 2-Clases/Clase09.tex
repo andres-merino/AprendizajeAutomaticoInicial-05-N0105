@@ -5,10 +5,26 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
+
+% Definición del nuevo ambiente
+\NewEnviron{materiales}{%
+    \begin{minipage}{12cm}
+        \vspace{0.1mm}
+        \begin{itemize}[leftmargin=*]
+            \BODY % Contenido de la lista
+        \end{itemize}
+        \vspace{1mm}
+    \end{minipage}
+}
+
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
@@ -16,7 +32,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Clase 09: Agrupamiento k-Means}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -39,7 +55,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} 
+    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 \subsection*{Resultados específicos:}
@@ -96,38 +113,9 @@
 \begin{itemize}[leftmargin=*]
     \item \textbf{Preparación:} 
     Los estudiantes accederán a un cuaderno de Google Colab preparado para esta actividad. El cuaderno incluye una implementación básica de k-Means con datos simulados.
-    \item \textbf{Ejercicio guiado:}
-    Los estudiantes ejecutarán y modificarán el siguiente código base:
-\begin{pycodigo}
-\begin{lstlisting}[language=Python]
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
-
-# Generar datos de ejemplo
-X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.60, random_state=42)
-
-# Visualizar los datos
-plt.scatter(X[:, 0], X[:, 1], s=50)
-plt.title("Datos de ejemplo")
-plt.show()
-
-# Aplicar k-Means
-kmeans = KMeans(n_clusters=4, init='k-means++', random_state=42)
-kmeans.fit(X)
-y_kmeans = kmeans.predict(X)
-
-# Visualizar los clusters
-plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap='viridis')
-centers = kmeans.cluster_centers_
-plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.75, label='Centroides')
-plt.title("Clusters encontrados")
-plt.legend()
-plt.show()
-\end{lstlisting}
-\end{pycodigo}
-
+    \begin{quote}
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/09-Agrupamiento-kMeans.ipynb}{09-Agrupamiento-kMeans.ipynb}.
+    \end{quote}
     \item \textbf{Experimentación:} 
     Los estudiantes cambiarán los parámetros del algoritmo, como el número de clusters (\texttt{n\_clusters}) y el método de inicialización (\texttt{init}), para observar cómo afectan los resultados.
 \end{itemize}
