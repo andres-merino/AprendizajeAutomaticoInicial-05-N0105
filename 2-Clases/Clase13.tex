@@ -5,10 +5,26 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
+
+% Definición del nuevo ambiente
+\NewEnviron{materiales}{%
+    \begin{minipage}{12cm}
+        \vspace{0.1mm}
+        \begin{itemize}[leftmargin=*]
+            \BODY % Contenido de la lista
+        \end{itemize}
+        \vspace{1mm}
+    \end{minipage}
+}
+
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
@@ -16,7 +32,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Clase 13: Perceptrón Sigmoide y Perceptrón Multiclase}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -40,7 +56,8 @@
 \subsection*{RdA de la asignatura:}
 \begin{itemize}[leftmargin=*]
     % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} 
+    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
     % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
 \end{itemize}
 
@@ -69,7 +86,6 @@
 \subsection*{Actividad 1: Perceptrón Sigmoide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Descripción:} 
 En esta actividad, se explorará el funcionamiento del perceptrón sigmoide, abordando sus funciones de combinación, activación y pérdida. Se derivará el gradiente necesario para el entrenamiento mediante la metodología de clase magistral, combinada con aprendizaje práctico para la implementación.
 
 \paragraph{¿Cómo lo haremos?}  
@@ -82,7 +98,7 @@ En esta actividad, se explorará el funcionamiento del perceptrón sigmoide, abo
     \end{itemize}
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/12-Perceptron-Sigmoide.ipynb}{12-Perceptron-Sigmoide.ipynb}.
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/13_1-Perceptron-Sigmoide.ipynb}{13\_1-Perceptron-Sigmoide.ipynb}.
     \end{quote}
 \end{itemize}
 
@@ -109,7 +125,7 @@ Esta actividad se centra en el perceptrón multiclase, destacando las funciones 
     \end{itemize}
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/13-Perceptron-Multiclase.ipynb}{12-Perceptron-Multiclase.ipynb}.
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/13_2-Perceptron-Multiclase.ipynb}{13\_2-Perceptron-Multiclase.ipynb}.
     \end{quote}
 \end{itemize}
 

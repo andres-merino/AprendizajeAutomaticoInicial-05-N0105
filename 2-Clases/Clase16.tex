@@ -5,10 +5,26 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
+
+% Definición del nuevo ambiente
+\NewEnviron{materiales}{%
+    \begin{minipage}{12cm}
+        \vspace{0.1mm}
+        \begin{itemize}[leftmargin=*]
+            \BODY % Contenido de la lista
+        \end{itemize}
+        \vspace{1mm}
+    \end{minipage}
+}
+
 
 % -- Datos 
 \institucion{Escuela de Ciencias Físicas y Matemática}
@@ -16,7 +32,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Clase 16: Árboles de decisión}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -40,7 +56,8 @@
 \subsection*{RdA de la asignatura:}
 \begin{itemize}[leftmargin=*]
     % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} 
+    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
     % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
 \end{itemize}
 
@@ -127,7 +144,7 @@ Esta actividad se enfoca en aplicar Árboles de Decisión utilizando Python en u
 \begin{itemize}[leftmargin=*]  
     \item \textbf{Implementación en Python:} Los estudiantes trabajarán en un cuaderno de Jupyter previamente preparado.  
     \begin{quote}  
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/18-Arboles-Decision.ipynb}{13-Arboles-Decision.ipynb}.  
+        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/16-Arboles-Decision.ipynb}{16-Arboles-Decision.ipynb}.  
     \end{quote}  
     \item \textbf{Experimentación guiada:} Los estudiantes modificarán parámetros del Árbol de Decisión:  
         \begin{itemize}[leftmargin=*]  
