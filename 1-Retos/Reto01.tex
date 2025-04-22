@@ -17,7 +17,7 @@
 \asignatura{Aprendizaje Automático Inicial}
 \tema{Reto no. 1: Aprendizaje no supervisado}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -40,51 +40,48 @@
 \end{itemize}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Descripción}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section{Descripción}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
-En el contexto de un aumento significativo de la violencia en el país, la Policía Científica busca mejorar sus estrategias de prevención y acción a través del análisis de datos. Como analistas de datos, tu misión es identificar patrones significativos y reducir la complejidad de los datos para extraer información valiosa.
+Desde hace más de 15 años, la PUCE ha liderado estudios sobre el mal de Chagas en Ecuador, recolectando datos sobre viviendas, condiciones sanitarias, materiales de construcción, presencia de animales, prácticas domésticas y características del entorno natural. Este valioso conjunto de datos permite analizar los factores que podrían incidir en la presencia del vector y el riesgo de transmisión.
 
-\subsection*{Pregunta esencial}
+Tu rol como analista de datos será identificar patrones ocultos que permitan generar \textit{perfiles de viviendas con características de riesgo similares}, usando técnicas de clustering y reducción de dimensiones.
+
+\subsection*{Pregunta esencial}  
 \begin{itemize}[leftmargin=*]
-\item ¿Cómo pueden las técnicas de clustering y reducción de dimensiones ayudar a identificar patrones ocultos en los datos y facilitar decisiones informadas en el manejo de eventos violentos?
+\item ¿Qué perfiles de viviendas presentan condiciones que favorecen la presencia del vector del Chagas y cómo podemos visualizarlos de manera clara para apoyar intervenciones de salud pública?
 \end{itemize}
 
-\subsection*{Reto}
+\subsection*{Reto}  
 
-Como parte de un equipo de análisis de datos, tu misión es desentrañar patrones clave dentro de un conjunto de datos complejos sobre eventos violentos en el país. El reto consiste en aplicar técnicas de clustering y reducción de dimensiones para extraer información valiosa y visualmente clara que pueda ser utilizada por la Policía Científica para mejorar sus estrategias. Tu objetivo final será entregar:
+Formas parte del equipo de ciencia de datos del proyecto PUCE-Chagas. Tu reto es descubrir agrupaciones de viviendas que compartan características estructurales, sanitarias y ambientales relevantes para la presencia del vector. Para ello, aplicarás técnicas de clustering y reducción de dimensiones para producir visualizaciones e informes comprensibles que puedan ser utilizados por profesionales de salud pública y líderes comunitarios. Tu objetivo final será entregar:
 \begin{itemize}[leftmargin=*]
 \item Un Jupyter Notebook replicable, que incluya código y visualizaciones técnicas para explorar y analizar los datos.
-\item Un informe divulgativo para la Policía Científica que presente los hallazgos clave de manera clara y accesible, con visualizaciones comprensibles.
+\item Un informe divulgativo para instituciones públicas y comunidades, que presente los hallazgos clave de manera clara y accesible, con visualizaciones comprensibles.
 \end{itemize}
 
-\subsection*{Preguntas guía}
+\subsection*{Preguntas guía}  
 \begin{itemize}[leftmargin=*]
-\item ¿Cómo se preprocesan los datos para su análisis efectivo?
-\item ¿Qué algoritmos de clustering son más adecuados para este tipo de datos?
-\item ¿Qué criterios usarás para evaluar la calidad de los clusters obtenidos?
-\item ¿Cómo puede la reducción de dimensiones facilitar la visualización de patrones complejos?
-\item ¿Cómo puedes comunicar los hallazgos de manera efectiva a un público no técnico?
+\item ¿Qué variables son más relevantes para caracterizar condiciones de riesgo?
+\item ¿Cómo transformar las variables para análisis cuantitativo?
+\item ¿Qué tipos de agrupaciones emergen del análisis?
+\item ¿Qué relaciones se observan entre materiales de construcción, acceso a agua, presencia de animales y riesgo entomológico?
+\item ¿Cómo pueden visualizarse y comunicarse estos patrones de forma accesible para la acción comunitaria?
 \end{itemize}
 
-\subsection*{Actividades guía}
+\subsection*{Actividades guía}  
 \begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
-\item Investigar las técnicas de clustering (como K-Means, DBSCAN) y reducción de dimensiones (PCA, t-SNE).
-\item Preprocesar el dataset:
-    \begin{itemize}[leftmargin=*]
-    \item Manejo de valores nulos.
-    \item Estandarización de variables.
-    \item Codificación de variables categóricas.
+\item Investigar técnicas de clustering (K-Means, DBSCAN) y reducción de dimensiones (PCA, UMAP, t-SNE).
+\item Explorar el conjunto de datos:
+    \begin{itemize}
+    \item Identificar variables relevantes para análisis de riesgo (presencia de animales, materiales, cercanía a basura, palmas, tipo de agua, etc.). Tomar de 10 a 20 variables.
+    \item Transformar variables categóricas (e.g. tipo de techo, material del piso) y normalizar variables cuantitativas (e.g. distancias).
     \end{itemize}
-\item Aplicar clustering para identificar agrupaciones significativas en los datos.
-\item Evaluar los agrupamientos para obtener el mejor posible.
-\item Implementar reducción de dimensiones para visualizar las relaciones entre variables y clusters.
-\item Generar visualizaciones técnicas y explicativas:
-    \begin{itemize}[leftmargin=*]
-    \item Gráficos de dispersión y mapas de calor.
-    \item Representaciones tridimensionales para datos complejos.
-    \end{itemize}
+\item Aplicar técnicas de clustering para agrupar viviendas por condiciones de riesgo.
+\item Reducir dimensiones para facilitar la visualización de los datos en 2D o 3D.
+\item Comparar diferentes algoritmos de clustering y justificar la elección.
+\item Elaborar gráficos que muestren claramente los perfiles de riesgo.
 \item Redactar un informe final, estructurando los hallazgos en:
     \begin{itemize}[leftmargin=*]
     \item Introducción al problema.
@@ -94,57 +91,58 @@ Como parte de un equipo de análisis de datos, tu misión es desentrañar patron
     \end{itemize}
 \end{enumerate}
 
-\subsection*{Recursos}
+\subsection*{Recursos}  
 \begin{itemize}[leftmargin=*]
-\item Dataset confidencial proporcionado por la Policía Científica (previo acuerdo de confidencialidad).
+\item Conjunto de datos del proyecto PUCE-Chagas (acceso en el aula virtual).
+\item Tutoriales y notebooks de clustering y reducción de dimensiones compartidos en clase.
 \item Documentación de Scikit-learn, Pandas y Matplotlib.
 \item Tutoriales y ejemplos sobre clustering y reducción de dimensiones dados en clases.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Producto}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Producto}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
-\subsection{Jupyter Notebook}
-El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros analistas reproduzcan el análisis con datasets similares. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\section*{Producto}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
-\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-\item \textbf{Título y descripción inicial:} Incluye un título descriptivo, los autores y una breve introducción que explique el problema, los objetivos del análisis y las técnicas utilizadas.
-
-\item \textbf{Carga y descripción de datos:} Código para cargar el dataset proporcionado. Análisis exploratorio inicial que describa las variables más relevantes y sus características (tipos, distribuciones, etc.).
-
-\item \textbf{Preprocesamiento de datos:} Limpieza del dataset, incluyendo manejo de valores nulos, codificación de variables categóricas y normalización. Explicación de los pasos tomados y justificación de las decisiones.
-
-\item \textbf{Análisis con clustering:} Aplicación de algoritmos de clustering, como \texttt{K-Means}, \texttt{DBSCAN} o jerárquico.  Visualizaciones técnicas que representen los resultados, como gráficos de dispersión coloreados por cluster.
-
-\item \textbf{Reducción de dimensiones:} Implementación de técnicas como PCA o t-SNE para reducir las dimensiones de los datos. Visualización en 2D o 3D de los datos en el espacio reducido, resaltando los patrones principales.
-
-\item \textbf{Interpretación de resultados:} Discusión breve de los clusters formados y cómo las técnicas aplicadas ayudan a entender los datos.
-
-\item \textbf{Conclusión técnica:} Resumen de los hallazgos técnicos y limitaciones del análisis.
-\end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Informe Divulgativo}
-El informe divulgativo debe estar dirigido a un público no técnico, como responsables de la toma de decisiones en la Policía Científica.  Debe estar hecho en \LaTeX{}, en el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato proporcionado}, e incluir bibliografía relevante (tanto que vincule la aplicación de las técnicas con el tipo de datos).
+\subsection{Jupyter Notebook}  
+El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros equipos de análisis puedan aplicar el mismo proceso a nuevas comunidades. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases y contener:
 
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+\item \textbf{Título y descripción inicial:} Presentación del equipo, contexto del problema, objetivos del análisis y justificación del enfoque metodológico.
 
-\item \textbf{Introducción:} Contexto del problema, relevancia del análisis y objetivos de la investigación.
+\item \textbf{Carga y descripción de datos:} Lectura del conjunto de datos, descripción de las variables más relevantes (materiales de la vivienda, presencia de animales, condiciones sanitarias, proximidad de residuos, etc.) y análisis exploratorio inicial.
 
-\item \textbf{Metodología:} Breve descripción de las técnicas utilizadas (clustering, reducción de dimensiones) y su utilidad.
+\item \textbf{Preprocesamiento de datos:} Transformación y limpieza de los datos, manejo de valores faltantes, codificación de variables categóricas, estandarización de variables numéricas y justificación de las decisiones tomadas.
 
-\item \textbf{Resultados principales:} Explicación de los clusters encontrados y sus características principales. Gráficos comprensibles que muestren patrones relevantes, como la distribución de eventos por tipo o área.
+\item \textbf{Análisis con clustering:} Aplicación de al menos dos algoritmos de agrupamiento (como \texttt{K-Means} y \texttt{DBSCAN}) sobre subconjuntos de variables seleccionadas. Visualización técnica de los clusters y análisis de cohesión y separación.
 
-\item \textbf{Implicaciones prácticas:} Interpretación de los resultados en términos de acciones concretas para la Policía Científica.
+\item \textbf{Reducción de dimensiones:} Uso de técnicas como \texttt{PCA}, \texttt{t-SNE} o \texttt{UMAP} para representar los datos en espacios de dos o tres dimensiones. Gráficos que ilustren visualmente los clusters y sus diferencias.
 
-\item \textbf{Recomendaciones:} Sugerencias basadas en el análisis, como estrategias de intervención o necesidades de datos adicionales.
+\item \textbf{Interpretación de resultados:} Análisis de los perfiles de viviendas emergentes a partir de los agrupamientos. Relación con variables de riesgo entomológico y condiciones estructurales y sanitarias.
 
-\item \textbf{Conclusión:} Resumen breve de los hallazgos y su importancia para la resolución del problema.
-
+\item \textbf{Conclusión técnica:} Resumen de hallazgos, reflexión sobre la calidad del agrupamiento y limitaciones del análisis. Propuestas para futuras mejoras o extensiones del trabajo.
 \end{enumerate}
 
+\subsection{Informe Divulgativo}  
+El informe divulgativo debe estar dirigido a autoridades de salud pública, responsables comunitarios y actores sociales involucrados en la erradicación del mal de Chagas. Deberá elaborarse en \LaTeX{}, siguiendo el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE}, e incluir visualizaciones claras y recomendaciones prácticas.
+
+\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+
+\item \textbf{Introducción:} Contextualización del problema del Chagas en Ecuador, objetivo del estudio y relevancia del análisis de datos para la prevención.
+
+\item \textbf{Metodología:} Explicación clara de las técnicas utilizadas (clustering y reducción de dimensiones), su propósito y valor en el análisis de datos complejos.
+
+\item \textbf{Resultados principales:} Descripción de los perfiles de viviendas identificados, gráficos comprensibles, mapas o representaciones visuales que permitan a los tomadores de decisiones entender rápidamente los hallazgos.
+
+\item \textbf{Implicaciones prácticas:} Discusión de cómo los resultados pueden guiar intervenciones focalizadas, campañas de prevención, mejora de servicios y priorización territorial.
+
+\item \textbf{Recomendaciones:} Sugerencias prácticas basadas en los hallazgos, orientadas a mejorar condiciones habitacionales, sanitarias y de control del vector.
+
+\item \textbf{Conclusión:} Cierre que resuma la importancia del uso de datos para combatir enfermedades como el Chagas, con énfasis en el trabajo colaborativo entre ciencia, salud y comunidad.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
@@ -244,6 +242,8 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
         \item Uso de gráficos y tablas adecuadamente formateados (1.5 puntos).
     \end{itemize}
 \end{enumerate}
+
+
 
 
 \end{document}
