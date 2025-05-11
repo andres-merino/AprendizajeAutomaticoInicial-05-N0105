@@ -6,15 +6,18 @@
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
-
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
 
 % -- Datos 
-\institucion{Escuela de Ciencias Físicas y Matemática}
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
-\tema{Reto no. 1}
+\tema{Reto no. 2: Aprendizaje supervisado}
 \autor{Andrés Merino}
-\fecha{Semestre 2024-2}
+\fecha{Semestre 2025-1}
 
 \logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
 \definecolor{colortext}{HTML}{0030A1}
@@ -30,44 +33,216 @@
 
 \encabezado
 
-\vspace*{-10mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Indicaciones}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Indicaciones}
 \begin{itemize}[leftmargin=*]
 \item 
-    En esta actividad se evalúa si el estudiante \textit{(Criterio 3.3) utiliza conceptos estadísticos básicos para el análisis de datos relevantes en la práctica, como tasas de crecimiento, dosificación de medicamentos, análisis de poblaciones, etc.}
-\item 
-    
+    En esta actividad se evalúa si el estudiante \textit{Criterio 3.2: Aplica modelos de aprendizaje supervisado en escenarios del mundo real, ajustando los modelos para maximizar su precisión y eficiencia mediante técnicas de ajuste de hiperparámetros y regularización.}
 \end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objetivos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Descripción}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+A partir del trabajo realizado en el reto anterior, el equipo de investigación de la PUCE ha solicitado continuar con el análisis del conjunto de datos de viviendas para abordar un nuevo objetivo: desarrollar modelos predictivos que permitan anticipar el \textit{estatus entomológico} de una vivienda, es decir, si presenta o no indicios de la presencia del vector del mal de Chagas.
 
-\subsection{Pregunta esencial}
+Este nuevo enfoque requiere aplicar modelos de \textbf{aprendizaje supervisado}, en donde se utilizará la variable `Status entomológico` como etiqueta, a partir de las demás variables del entorno, materiales de construcción, servicios básicos, animales presentes, prácticas higiénicas y condiciones ambientales.
 
+\subsection*{Pregunta esencial}
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué características de una vivienda permiten anticipar la presencia del vector del Chagas, y cómo pueden los modelos supervisados apoyar acciones preventivas y decisiones comunitarias?
+\end{itemize}
 
-\subsection{Reto}
+\subsection*{Reto}
 
+Tu misión es desarrollar un modelo supervisado que prediga el estatus entomológico de una vivienda, contribuyendo a priorizar acciones de intervención, fumigación o concienciación en comunidades vulnerables. Deberás:
+
+\begin{itemize}[leftmargin=*]
+    \item Preprocesar el conjunto de datos del proyecto Chagas.
+    \item Entrenar y evaluar al menos tres modelos supervisados distintos.
+    \item Comunicar los hallazgos de forma técnica y también comprensible para equipos de salud pública.
+\end{itemize}
+
+Tu objetivo final será entregar:
+\begin{itemize}[leftmargin=*]
+    \item Un \texttt{Jupyter Notebook} documentado, que contenga el desarrollo completo del modelo y visualizaciones.
+    \item Un informe técnico de divulgación para equipos de intervención.
+\end{itemize}
+
+\subsection*{Preguntas guía}
+\begin{itemize}[leftmargin=*]
+    \item ¿Qué variables son más relevantes para la predicción del estatus entomológico?
+    \item ¿Qué tipo de codificación es adecuada para las variables categóricas?
+    \item ¿Qué algoritmos ofrecen mejor desempeño y explicabilidad en este contexto?
+    \item ¿Cómo se puede interpretar el modelo para guiar decisiones prácticas?
+    \item ¿Qué recomendaciones concretas se derivan del modelo generado?
+\end{itemize}
+
+\subsection*{Actividades guía}
+\begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
+    \item Revisar y seleccionar las variables predictoras que puedan influir en la presencia del vector.
+    \item Preprocesar el dataset:
+        \begin{itemize}
+            \item Limpieza y codificación de variables.
+            \item Análisis de balanceo de clases.
+            \item Escalado y selección de características.
+        \end{itemize}
+    \item Dividir los datos en conjunto de entrenamiento y prueba.
+    \item Entrenar al menos tres modelos (p. ej. regresión logística, árboles de decisión, Random Forest, redes neuronales).
+    \item Evaluar los modelos con métricas de clasificación (accuracy, precision, recall, F1-score, AUC).
+    \item Optimizar el modelo con mejor desempeño utilizando técnicas como GridSearchCV.
+    \item Interpretar los resultados, destacando las variables más influyentes.
+    \item Generar visualizaciones como:
+        \begin{itemize}
+            \item Matriz de confusión.
+            \item Importancia de variables.
+            \item Curvas ROC.
+        \end{itemize}
+    \item Redactar un informe claro, accesible y útil para equipos comunitarios.
+\end{enumerate}
+
+\subsection*{Recursos}
+\begin{itemize}[leftmargin=*]
+    \item Dataset del proyecto PUCE sobre el mal de Chagas.
+    \item Bibliotecas: Scikit-learn, Pandas, Seaborn, Matplotlib, Plotly.
+    \item Cuadernos y ejemplos proporcionados en clase sobre aprendizaje supervisado.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Producto}
+\section*{Producto}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Jupyter Notebook}
+El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros equipos puedan usar el mismo enfoque para analizar datos similares en nuevas comunidades. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases.
 
+\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+    \item \textbf{Título y descripción inicial:} Título claro del proyecto, autores y una breve introducción al problema del Chagas y los objetivos del modelo predictivo.
+
+    \item \textbf{Carga y descripción de datos:} Lectura del dataset, identificación de la variable objetivo (`Status entomológico`) y descripción inicial de variables relevantes (estructura de la vivienda, tipo de agua, animales presentes, etc.).
+
+    \item \textbf{Preprocesamiento de datos:} Limpieza de datos, codificación de variables categóricas, imputación de valores faltantes, escalado de variables numéricas y análisis de balanceo de clases. Justificación de cada decisión.
+
+    \item \textbf{Entrenamiento de modelos supervisados:} Implementación de al menos tres modelos distintos (como regresión logística, Random Forest, y redes neuronales). Visualización de curvas de aprendizaje o métricas clave.
+
+    \item \textbf{Evaluación de modelos:} Evaluación con métricas como accuracy, precisión, recall, F1-score y AUC. Comparación en una tabla resumen y representación gráfica (matriz de confusión, curvas ROC).
+
+    \item \textbf{Optimización de modelos:} Ajuste de hiperparámetros del mejor modelo con técnicas como Grid Search o Random Search. Justificación de los parámetros elegidos.
+
+    \item \textbf{Interpretación de resultados:} Análisis de las variables más influyentes y discusión sobre cómo estas se relacionan con el riesgo de presencia del vector.
+
+    \item \textbf{Conclusión técnica:} Resumen de hallazgos, limitaciones del análisis y sugerencias para aplicaciones futuras del modelo.
+\end{enumerate}
+
+\subsection{Informe Divulgativo}
+El informe divulgativo debe estar dirigido a un público no técnico, como responsables comunitarios, autoridades sanitarias y organizaciones sociales. Debe estar hecho en \LaTeX{}, siguiendo el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE}, con lenguaje claro y visualizaciones interpretables.
+
+\begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
+    \item \textbf{Introducción:} Contextualización del problema del Chagas y de la necesidad de modelos predictivos. Objetivo del análisis y relevancia para la salud pública.
+
+    \item \textbf{Metodología:} Breve explicación de los modelos supervisados utilizados, sin entrar en detalles técnicos, y por qué se eligieron para este problema.
+
+    \item \textbf{Resultados principales:} Descripción del modelo seleccionado, sus predicciones más relevantes, y cómo estas permiten identificar viviendas en riesgo. Gráficos comprensibles (ej. semáforos de riesgo, mapas conceptuales, barras de importancia de variables).
+
+    \item \textbf{Implicaciones prácticas:} Cómo los resultados pueden apoyar decisiones de intervención (como priorización de fumigaciones, campañas informativas o mejoras estructurales).
+
+    \item \textbf{Recomendaciones:} Acciones sugeridas con base en los datos: reforzar ciertos servicios, enfocarse en tipos específicos de vivienda, entre otros.
+
+    \item \textbf{Conclusión:} Relevancia del uso de datos e inteligencia artificial para combatir el mal de Chagas, y la importancia de continuar recolectando y analizando información con enfoque preventivo.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Jupyter Notebook (30 puntos totales)}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{Título y descripción inicial (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Contextualiza el problema del Chagas y plantea claramente los objetivos del modelo predictivo (1 punto).
+        \item Describe brevemente las técnicas de aprendizaje supervisado aplicadas (1 punto).
+    \end{itemize}
+
+    \item \textbf{Carga y descripción de datos (4 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Presenta las variables relevantes con un análisis exploratorio básico (3 puntos).
+        \item Incluye representaciones gráficas adecuadas de distribuciones y relaciones (1 punto).
+    \end{itemize}
+
+    \item \textbf{Preprocesamiento de datos (5 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Limpieza e imputación adecuadas (2 puntos).
+        \item Codificación y normalización bien implementadas (2 puntos).
+        \item Justificación de las decisiones de preprocesamiento (1 punto).
+    \end{itemize}
+
+    \item \textbf{Entrenamiento de modelos supervisados (6 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Entrenamiento correcto de al menos tres modelos supervisados distintos (3 puntos).
+        \item Visualización y explicación de los resultados por modelo (3 puntos).
+    \end{itemize}
+
+    \item \textbf{Evaluación de modelos (5 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Uso adecuado de métricas de clasificación (accuracy, recall, F1, AUC) (3 puntos).
+        \item Inclusión de gráficas como matrices de confusión o curvas ROC (2 puntos).
+    \end{itemize}
+
+    \item \textbf{Optimización de modelos (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Aplicación de técnicas de ajuste de hiperparámetros (2 puntos).
+        \item Justificación y análisis de los cambios en rendimiento (1 punto).
+    \end{itemize}
+
+    \item \textbf{Interpretación de resultados (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Identifica y analiza variables clave para la predicción del estatus entomológico (1.5 puntos).
+        \item Relación de los hallazgos con el problema sanitario (0.5 puntos).
+    \end{itemize}
+
+    \item \textbf{Conclusión técnica (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Resumen técnico claro de hallazgos y desempeño de modelos (2 puntos).
+        \item Limitaciones identificadas y posibles mejoras futuras (1 punto).
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Informe Divulgativo (20 puntos totales)}
+\begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
+    \item \textbf{Introducción (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Presenta el contexto del mal de Chagas y el propósito del análisis (2 puntos).
+        \item Define claramente los objetivos del informe (1 punto).
+    \end{itemize}
+
+    \item \textbf{Metodología (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Describe de forma sencilla las técnicas utilizadas (2 puntos).
+        \item Explica cómo estas técnicas permiten abordar el problema (1 punto).
+    \end{itemize}
+
+    \item \textbf{Resultados principales (6 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Presenta los hallazgos de forma comprensible y contextualizada (3 puntos).
+        \item Utiliza visualizaciones claras e interpretables por público no técnico (3 puntos).
+    \end{itemize}
+
+    \item \textbf{Implicaciones prácticas (4 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Relaciona resultados con acciones concretas de intervención (2.5 puntos).
+        \item Reflexiona sobre el impacto en salud pública y priorización de zonas (1.5 puntos).
+    \end{itemize}
+
+    \item \textbf{Recomendaciones (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Plantea acciones claras y realistas con base en el modelo (2 puntos).
+    \end{itemize}
+
+    \item \textbf{Conclusión (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Resume la importancia del uso de modelos para combatir el Chagas (1.5 puntos).
+        \item Muestra conciencia sobre los límites y el valor del análisis (0.5 puntos).
+    \end{itemize}
+\end{enumerate}
+
 
 \end{document}
