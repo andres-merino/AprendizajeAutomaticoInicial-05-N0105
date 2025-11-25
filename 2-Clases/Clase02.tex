@@ -1,31 +1,17 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
 
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
 
-% -- Datos
+% -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -38,90 +24,136 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
+% -- Comandos adicionales (comentados si no se usan)
+% \input{aleph-codigo}
 
 \begin{document}
 
 \encabezado
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 1:} 
-    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-\begin{enumerate}[leftmargin=*]
-    \item Definir qué es aprendizaje supervisado y no supervisado.
-    \item Identificar los tipos de tareas asociadas (clasificación, regresión y agrupamiento).
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Definir qué es aprendizaje supervisado y no supervisado, identificando los tipos de tareas asociadas (clasificación, regresión y agrupamiento).
     \item Enumerar los principales modelos utilizados en cada tipo de tarea.
     \item Comprender las métricas comunes utilizadas para medir distancias.
-\end{enumerate}
+\end{itemize}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Pregunta inicial:}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
 Si tuvieras un conjunto de datos de imágenes de flores, ¿qué datos se necesitaría para construir un modelo que identifique su tipo automáticamente?
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{Actividad 1: Definición de aprendizaje supervisado y no supervisado (10 minutos)}  
-Explicaremos las definiciones básicas:
-\begin{itemize}
-    \item \textbf{Supervisado:} El modelo aprende a partir de datos etiquetados, buscando una relación entre entradas y salidas. 
-    \item \textbf{No supervisado:} El modelo identifica patrones en datos no etiquetados. 
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Definición de aprendizaje supervisado y no supervisado}
 
-\paragraph{Recursos:} Presentación visual con ejemplos.  
-
-\paragraph{Verificación de aprendizaje:} Presentación de ejemplos para determinar tipo de aprendizaje.
-
-\subsection*{Actividad 2: Tipos de tareas y modelos principales  (20 minutos)}  
-Explicaremos los tipos de tareas y los modelos más utilizados:
-\begin{itemize}
-    \item \textbf{Clasificación:} Regresión logística, SVM, Árboles de decisión, Redes neuronales.
-    \item \textbf{Regresión:} Regresión lineal, Regresión polinómica, KNN, Redes neuronales.
-    \item \textbf{Agrupamiento:} Modelos: K-Means, DBSCAN, Hierarchical Clustering.
-\end{itemize}
-
-\paragraph{Recursos:} Cuadro resumen.  
-
-\paragraph{Verificación de aprendizaje:} Presentación de ejemplos para determinar tipo de tarea.
-
-\subsection*{Actividad 3: Explicación de métricas de distancia (15 minutos)}  
-Detallaremos las métricas más comunes:
-\begin{itemize}
-    \item Euclidiana: $\sqrt{\sum (x_i - y_i)^2}$
-    \item Mahalanobis: Basada en la covarianza.
-    \item Hamming: Comparación binaria.
-    \item Minkowski: Generalización de las métricas Euclidiana y Manhattan.
-\end{itemize}
+En esta actividad se explicarán las definiciones básicas del aprendizaje supervisado y no supervisado mediante clase magistral con presentación visual y ejemplos prácticos para identificar cada tipo de aprendizaje.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Exploración del cuaderno de Jupyter:}  
-    Se proporcionará un cuaderno de Jupyter con ejemplos prácticos de cálculo de distintas métricas de distancia utilizadas en aprendizaje automático.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/02-Metricas-Distancia.ipynb}{02-Metricas-Distancia}.
-    \end{quote}
+    \item \textbf{Conceptos fundamentales:}  
+    Se presentarán las definiciones: Aprendizaje supervisado (el modelo aprende a partir de datos etiquetados, buscando una relación entre entradas y salidas) y aprendizaje no supervisado (el modelo identifica patrones en datos no etiquetados).
+    \item \textbf{Presentación de ejemplos:}
+    Se mostrarán casos prácticos para que los estudiantes identifiquen el tipo de aprendizaje correspondiente.
+
+    
 \end{itemize}
 
-\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Tipos de tareas y modelos principales}
 
-\paragraph{Tarea:}  
-    No se deja tarea.
+En esta actividad se explicarán los tipos de tareas del aprendizaje automático y los modelos más utilizados en cada una, mediante clase magistral con cuadro resumen y ejemplos de aplicación.
 
-\paragraph{Pregunta de investigación:}  
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clasificación de tareas:}  
+    Se presentarán las tres tareas principales:
     \begin{itemize}
-        \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa?
-        \item ¿Cómo afecta la escala de las variables a las métricas de distancia? ¿Cómo podemos solucionarlo?
-        \item ¿Qué es el método del codo (Elbow Method) en KMeans?
+        \item \textbf{Clasificación:} Regresión logística, SVM, Árboles de decisión, Redes neuronales.
+        \item \textbf{Regresión:} Regresión lineal, Regresión polinómica, KNN, Redes neuronales.
+        \item \textbf{Agrupamiento:} K-Means, DBSCAN, Hierarchical Clustering.
     \end{itemize}
+    \item \textbf{Análisis de ejemplos:}
+    Se presentarán casos prácticos para que los estudiantes identifiquen el tipo de tarea correspondiente.
+    
+\end{itemize}
 
-\end{document} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3: Explicación de métricas de distancia}
+
+En esta actividad se detallarán las métricas de distancia más comunes utilizadas en aprendizaje automático, mediante exploración de un cuaderno de Jupyter con ejemplos prácticos de cálculo.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Métricas de distancia:}  
+    Se presentarán las métricas más comunes:
+    \begin{itemize}
+        \item Euclidiana: $\sqrt{\sum (x_i - y_i)^2}$
+        \item Mahalanobis: Basada en la covarianza.
+        \item Hamming: Comparación binaria.
+        \item Minkowski: Generalización de las métricas Euclidiana y Manhattan.
+    \end{itemize}
+    % \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    % \begin{quote}
+    %     Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/02-Metricas-Distancia.ipynb}{02-Metricas-Distancia.ipynb}.
+    % \end{quote}
+    % \item \textbf{Experimentación:} 
+    
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cuál es la diferencia fundamental entre el aprendizaje supervisado y el no supervisado?
+    % Respuesta: Supervisado usa datos etiquetados (objetivo conocido) para aprender una función de mapeo entre entradas y salidas, haciendo predicciones. No supervisado trabaja con datos sin etiquetas, buscando patrones, estructuras o agrupaciones naturales sin un objetivo predefinido.
+    
+    \item ¿Qué tipo de problemas se resuelven con aprendizaje supervisado y cuáles con no supervisado?
+    % Respuesta: Supervisado: clasificación (spam/no spam), regresión (predicción de precios), reconocimiento de patrones con ejemplos conocidos. No supervisado: clustering (segmentación de clientes), reducción de dimensionalidad (visualización), detección de anomalías, descubrimiento de patrones ocultos.
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Explica con un ejemplo práctico cómo decidirías entre usar aprendizaje supervisado o no supervisado para un problema de negocio real.
+    % Respuesta: Ejemplo e-commerce: supervisado si tengo histórico de "clientes que compraron/no compraron" (clasificación de conversión). No supervisado si quiero descubrir segmentos naturales de clientes sin criterio predefinido (clustering por comportamiento). Decisión: ¿tengo el outcome que quiero predecir? → supervisado. ¿Quiero explorar estructura sin objetivo específico? → no supervisado.
+    
+    \item Si tienes datos etiquetados, ¿siempre debes usar aprendizaje supervisado?
+    % Respuesta: No siempre. Razones para usar no supervisado con datos etiquetados: (1) Exploración inicial: descubrir clusters naturales antes de modelar, (2) Detección de outliers: identificar datos anómalos que pueden afectar el entrenamiento, (3) Feature engineering: PCA para crear features, (4) Validación de etiquetas: verificar si los clusters coinciden con etiquetas (posibles errores de etiquetado). Usar ambos es común: no supervisado para exploración, supervisado para predicción.
+\end{enumerate}
+
+\paragraph{Tarea:} 
+    Identificar un conjunto de datos con la menos 5 características sobre los cuales se pueda aplicar modelos de aprendizaje supervisado y no supervisado, el cual será usado en los talleres durante todo el curso.
+
+\paragraph{Pregunta de investigación:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa?
+    \item ¿Cómo afecta la escala de las variables a las métricas de distancia? ¿Cómo podemos solucionarlo?
+    \item ¿Qué es el método del codo (Elbow Method) en KMeans?
+\end{enumerate}
+    
+\paragraph{Para la próxima clase:}
+
+
+\end{document}
