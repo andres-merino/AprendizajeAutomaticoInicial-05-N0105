@@ -29,7 +29,6 @@
 \begin{document}
 
 \encabezado
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,10 +44,18 @@
 \subsection*{RdA de la clase:}
 % Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
-    \item Comprender las técnicas principales de preprocesado de datos: limpieza, normalización, discretización y reducción de dimensionalidad.
-    \item Aplicar métodos de partición de conjuntos de datos: leave-one-out, leave-p-out y k-fold cross-validation.
-    \item Identificar la importancia de los conjuntos de validación en el ajuste y evaluación de modelos.
+    \item Comprender las técnicas principales de preprocesado de datos: escalado, discretización y reducción de dimensionalidad.
+    \item Aplicar división de conjuntos de datos en entrenamiento y prueba para evaluar modelos de aprendizaje automático.
 \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Actividad previa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}
+    \item Revisar conjuntos de datos seleccionados por los estudiantes y brindar retroalimentación.
+    \item Explicación de la distancia de Mahalanobis.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
@@ -56,8 +63,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-Si desarrollas un algoritmo para predecir comportamientos futuros a partir de datos históricos, ¿cómo comprobarías que sus aciertos no se deben únicamente a que «vio» demasiado los ejemplos originales?
-
+\begin{itemize}
+    \item 
+    Si en un modelo una de las varaibles, por ejemplo, la edad, tiene un rango de valores entre 0 y 100, y otra variable, por ejemplo, el ingreso anuel, tiene un rango entre \$0 y \$100000, ¿qué problemas podrían surgir al calcular distancias entre puntos en este espacio de características?
+    \item 
+    ¿Si en un examen de matemática te evalúan con exactamente los mismos ejercicios que practicaste, qué tan bien crees que mediría tu conocimiento real de la materia?
+\end{itemize}
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,12 +77,12 @@ Si desarrollas un algoritmo para predecir comportamientos futuros a partir de da
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Preprocesado de Datos}
 
-En esta actividad los estudiantes aprenderán las técnicas básicas de preprocesado de datos mediante clase magistral y práctica en cuaderno de Jupyter, incluyendo limpieza, normalización, discretización y reducción de dimensionalidad para preparar datos de aprendizaje automático.
+En esta actividad los estudiantes aprenderán las técnicas básicas de preprocesado de datos mediante clase magistral y práctica en cuaderno de Jupyter, incluyendo escalado, discretización y reducción de dimensionalidad para preparar datos de aprendizaje automático.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Conceptos fundamentales:}  
-    Se presentarán las técnicas de preprocesado: normalización, discretización, one-hot-encoding y reducción de dimensionalidad.
+    Se presentarán las técnicas de preprocesado: escalado, discretización, one-hot-encoding y reducción de dimensionalidad.
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-1-Procesado-Datos.ipynb}{03-1-Preprocesado-Datos.ipynb}.
@@ -87,7 +99,7 @@ En esta actividad se abordará la importancia de dividir un conjunto de datos en
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Métodos de partición:}  
-    Se presentarán las estrategias de división de datos.
+    Se presentarán las necesidad de particionar conjuntos de datos.
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-2-Conjuntos-Entrenamiento-Prueba.ipynb}{03-2-Conjuntos-Entrenamiento-Prueba.ipynb}.
@@ -117,7 +129,7 @@ En esta actividad se abordará la importancia de dividir un conjunto de datos en
 \end{enumerate}
 
 \paragraph{Tarea:} 
-    Realizar el procesamiento de datos necesarios al conjunto de datos seleccionado en la clase anterior.
+    Realizar el procesamiento de datos necesarios al conjunto de datos seleccionado en la clase anterior y subirlo al repositorio de GitHub.
 
 \paragraph{Pregunta de investigación:} 
 \begin{enumerate}[leftmargin=*]
@@ -125,7 +137,8 @@ En esta actividad se abordará la importancia de dividir un conjunto de datos en
     \item ¿Realizar one-hot encoding agrega colinealidad a las caracterísitcas? Ver: \href{https://blog.dailydoseofds.com/p/the-most-overlooked-problem-with}{The Problem With One-Hot Encoding}
 \end{enumerate}
     
-\paragraph{Para la próxima clase:} Se debe tener el conjunto de datos preprocesados y listos en el repositorio.
+\paragraph{Para la próxima clase:} 
+    Se debe tener el conjunto de datos preprocesados y listos en el repositorio.
 
 
 \end{document}
