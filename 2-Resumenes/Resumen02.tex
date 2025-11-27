@@ -1,0 +1,184 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 2: Conceptos básicos del Aprendizaje Automático}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+
+
+\begin{document}
+
+\encabezado
+
+
+\begin{defi}[Aprendizaje Automático]
+    El Aprendizaje Automático (Machine Learning) es una subdisciplina de la Inteligencia Artificial que se centra en el desarrollo de algoritmos y modelos que permiten a las máquinas aprender a partir de datos sin ser explícitamente programadas para cada tarea específica.
+\end{defi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tipos de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{defi}[Aprendizaje Supervisado]
+    Sea $X \subseteq \mathbb{R}^n$ y $Y\subseteq \mathbb{R}$, al conjunto:
+    \[
+        \{(x, y) : x \in X, y \in Y\},
+    \]
+    se lo denomina conjunto de datos de entrenamiento, a los elementos $(x_i, y_i)$ se los denomina \textbf{instancias} o ejemplos de entrenamiento, donde $x_i \in \mathbb{R}^n$ son las \textbf{características} de las instancias y $y_i \in Y$ son las \textbf{etiquetas} asociadas (variable objetivo). El \textbf{aprendizaje supervisado} busca determinar una función 
+    \[
+        \func{f}{\mathbb{R}^n}{\mathbb{R}}
+    \]
+    que aproxime la etiqueta $y$ de una instancia $x \in \mathbb{R}^n$, es decir, $f(x) \approx y$.
+\end{defi}
+
+\begin{defi}[Aprendizaje No Supervisado]
+    Sea $X \subseteq \mathbb{R}^n$, al conjunto:
+    \[
+        \{x : x \in X\},
+    \]
+    se lo denomina conjunto de datos de entrenamiento, a los elementos $x_i$ se los denomina \textbf{instancias} o ejemplos de entrenamiento, donde $x_i \in \mathbb{R}^n$ son las \textbf{características} de las instancias. El \textbf{aprendizaje no supervisado} busca determinar una función
+    \[
+        \func{f}{\mathbb{R}^n}{\{1, 2, \dots, k\}}
+    \]
+    que asigne a cada instancia $x \in \mathbb{R}^n$ un grupo o clúster.
+\end{defi}
+
+\pagebreak
+\section{Tipos de tareas}
+
+\begin{defi}[Clasificación]
+    La \textbf{clasificación} es una tarea de \textbf{aprendizaje supervisado} donde el conjunto de etiquetas es un conjunto finito y discreto.
+\end{defi}
+
+\begin{defi}[Regresión]
+    La \textbf{regresión} es una tarea de \textbf{aprendizaje supervisado} donde el conjunto de etiquetas es un conjunto continuo.
+\end{defi}
+
+\begin{defi}[Agrupamiento]
+    El \textbf{agrupamiento} es una tarea de \textbf{aprendizaje no supervisado} donde se busca agrupar las instancias en función de sus características.
+\end{defi}
+
+\subsection{Modelos principales}
+
+\begin{center}
+    \begin{tabular}{l c c c}
+        \toprule
+        \textbf{Métodos} & \multicolumn{2}{c}{\textbf{Supervis.}} & \textbf{No super.} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-4}
+        & Clasificación & Regresión & Agrupamiento \\
+        \midrule
+        $k$-NN & $\times$ & & \\
+        SVM & $\times$ & $\times$ & \\
+        Árboles de decisión & $\times$ & $\times$ & \\
+        Redes neuronales & $\times$ & $\times$ & \\
+        Agrupamiento jerárquico & & & $\times$ \\
+        $k$-means & & & $\times$ \\
+        DBSCAN & & & $\times$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\section{Métricas}
+
+\begin{defi}
+    Dado un conjunto $X$, una \text{métrica} o \text{distancia} es una función
+    \[
+        \func{d}{X \times X}{\mathbb{R}}
+    \]
+    que cumple las siguientes propiedades para todo $x, y, z \in X$:
+    \begin{enumerate}
+        \item $d(x, y) \geq 0$ (no negatividad)
+        \item $d(x, y) = 0$ si y solo si $x = y$ (identidad)
+        \item $d(x, y) = d(y, x)$ (simetría)
+        \item $d(x, z) \leq d(x, y) + d(y, z)$ (desigualdad triangular)
+    \end{enumerate}
+\end{defi}
+
+\begin{defi}[Distancia Euclidiana]
+    En $\mathbb{R}^n$, la \textbf{distancia euclidiana} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+    \[
+        d_2(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}.
+    \]
+\end{defi}
+
+\begin{defi}[Distancia de Manhattan]
+    En $\mathbb{R}^n$, la \textbf{distancia de Manhattan} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+    \[
+        d_1(x, y) = \sum_{i=1}^{n} |x_i - y_i|.
+    \]
+\end{defi}
+
+\begin{defi}[Distancia de Minkowski]
+    En $\mathbb{R}^n$, la \textbf{distancia de Minkowski} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+    \[
+        d_p(x, y) = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{1/p},
+    \]
+    donde $p \geq 1$.
+\end{defi}
+
+\begin{advertencia}
+    La distancia de Minkowski generaliza tanto la distancia euclidiana ($p=2$) como la distancia de Manhattan ($p=1$).
+\end{advertencia}
+
+\begin{advertencia}
+    La distancia euclidiana puede representarse por medio del producto de matrices como:
+    \[
+        d_2(x, y) = \sqrt{(x - y)^T (x - y)}.
+    \]
+\end{advertencia}
+
+\begin{defi}[Distancia de Mahalanobis]
+    En $\mathbb{R}^n$, dado un conjunto de datos con media $\mu$ y matriz de covarianza $S$, la \textbf{distancia de Mahalanobis} se define como:
+    \[
+        d_M(x, y) = \sqrt{(x - y)^T S^{-1} (x - y)}.
+    \]
+\end{defi}
+
+\begin{defi}[Hamming]
+    En $\mathbb{R}^n$, la \textbf{distancia de Hamming} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+    \[
+        d_H(x, y) = \sum_{i=1}^{n} \delta(x_i, y_i),
+    \]
+    donde
+    \[
+        \delta(x_i, y_i) =
+        \begin{cases}
+            0 & \text{si } x_i = y_i, \\
+            1 & \text{si } x_i \neq y_i.
+        \end{cases}
+    \]
+    Es decir, cuenta el número de posiciones en las que los elementos correspondientes son diferentes.
+\end{defi}
+
+\begin{defi}[Distancia Coseno]
+    En $\mathbb{R}_{\geq 0}^n$, la \textbf{distancia coseno} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+    \[
+        d_{\cos}(x, y) = 1 - \frac{x \cdot y}{\|x\| \|y\|}.
+    \]
+\end{defi}
+
+\begin{advertencia}
+    La distancia coseno no es una métrica en el sentido estricto, ya que no cumple con la identidad; por esto se la llama una \textbf{pseudo-métrica}.
+\end{advertencia}
+
+\end{document}

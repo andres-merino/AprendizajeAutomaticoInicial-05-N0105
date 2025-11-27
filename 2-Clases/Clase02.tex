@@ -30,7 +30,14 @@
 \begin{document}
 
 \encabezado
-% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Actividad previa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+    \item Revisar el control de lectura, solicitar ejemplos de modelos que sean de Inteligencia Artificia y modelos que no lo sean.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -38,14 +45,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
-% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
     \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
     \item Definir qué es aprendizaje supervisado y no supervisado, identificando los tipos de tareas asociadas (clasificación, regresión y agrupamiento).
     \item Enumerar los principales modelos utilizados en cada tipo de tarea.
@@ -75,6 +80,8 @@ En esta actividad se explicarán las definiciones básicas del aprendizaje super
     Se presentarán las definiciones: Aprendizaje supervisado (el modelo aprende a partir de datos etiquetados, buscando una relación entre entradas y salidas) y aprendizaje no supervisado (el modelo identifica patrones en datos no etiquetados).
     \item \textbf{Presentación de ejemplos:}
     Se mostrarán casos prácticos para que los estudiantes identifiquen el tipo de aprendizaje correspondiente.
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará la sección uno del archivo \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
 
     
 \end{itemize}
@@ -89,12 +96,19 @@ En esta actividad se explicarán los tipos de tareas del aprendizaje automático
     \item \textbf{Clasificación de tareas:}  
     Se presentarán las tres tareas principales:
     \begin{itemize}
-        \item \textbf{Clasificación:} Regresión logística, SVM, Árboles de decisión, Redes neuronales.
-        \item \textbf{Regresión:} Regresión lineal, Regresión polinómica, KNN, Redes neuronales.
-        \item \textbf{Agrupamiento:} K-Means, DBSCAN, Hierarchical Clustering.
+        \item {Clasificación} 
+        \item {Regresión} 
+        \item {Agrupamiento} 
     \end{itemize}
     \item \textbf{Análisis de ejemplos:}
     Se presentarán casos prácticos para que los estudiantes identifiquen el tipo de tarea correspondiente.
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará la sección dos del archivo \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
+    \item \textbf{Planteamiento de ejemplos:}
+    Los estudiantes interacturán con un chatbot para plantear ejemplos adicionales de cada tipo de tarea y modelo. Utilizar un prompt como:
+    \begin{quote}
+        Plantéame cinco ejemplos prácticos simples y cinco complejos de problemas que se resuelven con clasificación, regresión y agrupamiento, sin indicar directa o indirectamente el tipo de tarea. En total 10 ejemplos u estén mezclados los tipos de tareas. No menciones los nombres de las tareas en las respuestas ni alusiones a etiquetas, clasificación, predicción, etc.
+    \end{quote}
     
 \end{itemize}
 
@@ -109,15 +123,12 @@ En esta actividad se detallarán las métricas de distancia más comunes utiliza
     Se presentarán las métricas más comunes:
     \begin{itemize}
         \item Euclidiana: $\sqrt{\sum (x_i - y_i)^2}$
+        \item Manhattan: $\sum |x_i - y_i|$
         \item Mahalanobis: Basada en la covarianza.
-        \item Hamming: Comparación binaria.
         \item Minkowski: Generalización de las métricas Euclidiana y Manhattan.
     \end{itemize}
-    % \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    % \begin{quote}
-    %     Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/02-Metricas-Distancia.ipynb}{02-Metricas-Distancia.ipynb}.
-    % \end{quote}
-    % \item \textbf{Experimentación:} 
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará la sección tres del archivo \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
     
 \end{itemize}
 
@@ -128,32 +139,28 @@ En esta actividad se detallarán las métricas de distancia más comunes utiliza
 \paragraph{Verificación de aprendizaje:} 
 \begin{enumerate}[leftmargin=*]
     \item ¿Cuál es la diferencia fundamental entre el aprendizaje supervisado y el no supervisado?
-    % Respuesta: Supervisado usa datos etiquetados (objetivo conocido) para aprender una función de mapeo entre entradas y salidas, haciendo predicciones. No supervisado trabaja con datos sin etiquetas, buscando patrones, estructuras o agrupaciones naturales sin un objetivo predefinido.
     
     \item ¿Qué tipo de problemas se resuelven con aprendizaje supervisado y cuáles con no supervisado?
-    % Respuesta: Supervisado: clasificación (spam/no spam), regresión (predicción de precios), reconocimiento de patrones con ejemplos conocidos. No supervisado: clustering (segmentación de clientes), reducción de dimensionalidad (visualización), detección de anomalías, descubrimiento de patrones ocultos.
 \end{enumerate}
 
 \paragraph{Preguntas tipo entrevista:} 
 \begin{enumerate}[leftmargin=*]
     \item Explica con un ejemplo práctico cómo decidirías entre usar aprendizaje supervisado o no supervisado para un problema de negocio real.
-    % Respuesta: Ejemplo e-commerce: supervisado si tengo histórico de "clientes que compraron/no compraron" (clasificación de conversión). No supervisado si quiero descubrir segmentos naturales de clientes sin criterio predefinido (clustering por comportamiento). Decisión: ¿tengo el outcome que quiero predecir? → supervisado. ¿Quiero explorar estructura sin objetivo específico? → no supervisado.
     
     \item Si tienes datos etiquetados, ¿siempre debes usar aprendizaje supervisado?
-    % Respuesta: No siempre. Razones para usar no supervisado con datos etiquetados: (1) Exploración inicial: descubrir clusters naturales antes de modelar, (2) Detección de outliers: identificar datos anómalos que pueden afectar el entrenamiento, (3) Feature engineering: PCA para crear features, (4) Validación de etiquetas: verificar si los clusters coinciden con etiquetas (posibles errores de etiquetado). Usar ambos es común: no supervisado para exploración, supervisado para predicción.
 \end{enumerate}
 
 \paragraph{Tarea:} 
-    Identificar un conjunto de datos con la menos 5 características sobre los cuales se pueda aplicar modelos de aprendizaje supervisado y no supervisado, el cual será usado en los talleres durante todo el curso.
+    Identificar un conjunto de datos con la menos 5 características sobre los cuales se pueda aplicar modelos de aprendizaje supervisado y no supervisado, el cual será usado en los talleres durante todo el curso. No se debe usar conjuntos de datos muy conocidos como Iris, MNIST, Titanic, CaBoston Housing Prices, Wine Quality, etc. Se puede usar sitios como Kaggle, UCI Machine Learning Repository, Datos Abiertos del Ecuador, etc.
 
 \paragraph{Pregunta de investigación:} 
 \begin{enumerate}[leftmargin=*]
-    \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa?
-    \item ¿Cómo afecta la escala de las variables a las métricas de distancia? ¿Cómo podemos solucionarlo?
-    \item ¿Qué es el método del codo (Elbow Method) en KMeans?
+    \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa? (ver \href{https://youtu.be/xXhLvheEF7o?si=d9utsZOrSU1cCGyv}{Distancia euclidiana y distancia de Mahalanobis})
+    \item ¿Cuándo se emplea la distancia de Minkoski con $p$ diferente de 1 y 2?
 \end{enumerate}
     
 \paragraph{Para la próxima clase:}
+    Llevar la descripción del conjunto de datos seleccionado para la tarea, indicando la fuente, número de registros, número de características, tipo de características (numéricas, categóricas, etc.) y una breve descripción del problema que se pretende resolver con los datos.
 
 
 \end{document}
