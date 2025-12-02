@@ -96,6 +96,10 @@ Esta actividad combina clase magistral, recursos multimedia y ejercicio práctic
     \end{quote}
     
     \item \textbf{Experimentación:} 
+    \begin{itemize}
+        \item Aumenta el conjunto de datos con más muestras y observa cómo cambian las métricas de evaluación.
+        \item Cambia el umbral y calcula las nuevas métricas de evaluación. Observa cómo varían. Apunta algunos datos para diferentes umbrales y luego colócalos en un plano cartesiano (FPR vs TPR).
+    \end{itemize}
     
 \end{itemize}
 
@@ -120,7 +124,9 @@ Esta actividad combina clase magistral y ejercicio práctico mediante cuaderno d
     \end{quote}
 
     \item \textbf{Experimentación:} 
-    
+    \begin{itemize}
+        \item Multiplica los valores de y por un factor constante (por ejemplo, 10) y observa cómo cambian las métricas de evaluación. ¿Qué métricas son sensibles a la escala de los datos?
+    \end{itemize}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,13 +136,10 @@ Esta actividad combina clase magistral y ejercicio práctico mediante cuaderno d
 \paragraph{Verificación de aprendizaje:} 
 \begin{enumerate}[leftmargin=*]
     \item ¿Qué información proporciona la matriz de confusión y cuáles son sus cuatro componentes principales?
-    % Respuesta: La matriz de confusión muestra el rendimiento de un modelo de clasificación comparando las predicciones con los valores reales. Sus cuatro componentes son: Verdaderos Positivos (TP), Falsos Positivos (FP), Verdaderos Negativos (TN) y Falsos Negativos (FN).
     
     \item ¿Cuál es la diferencia entre Precisión (Precision) y Sensibilidad (Recall)?
-    % Respuesta: Precision mide qué proporción de las predicciones positivas fueron correctas (TP/(TP+FP)), mientras que Recall mide qué proporción de los casos positivos reales fueron identificados correctamente (TP/(TP+FN)).
     
     \item ¿Por qué el MSE penaliza más los errores grandes que el MAE en modelos de regresión?
-    % Respuesta: El MSE eleva al cuadrado los errores, lo que amplifica los errores grandes. Por ejemplo, un error de 10 contribuye 100 al MSE pero solo 10 al MAE, haciendo que el MSE sea más sensible a valores atípicos.
 \end{enumerate}
 
 \paragraph{Preguntas tipo entrevista:} 
@@ -145,8 +148,6 @@ Esta actividad combina clase magistral y ejercicio práctico mediante cuaderno d
     
     \item Si un modelo tiene un Accuracy del 95\%, ¿significa que es un buen modelo para cualquier problema de clasificación?
 \end{enumerate}
-
-% \paragraph{Tarea:} Elegir un conjunto de datos de clasificación o regresión y aplicar las métricas aprendidas para evaluar el rendimiento de un modelo.
 
 \paragraph{Pregunta de investigación:} 
 \begin{enumerate}[leftmargin=*]
