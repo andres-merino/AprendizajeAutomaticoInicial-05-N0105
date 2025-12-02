@@ -1,0 +1,139 @@
+\documentclass[a4,11pt]{aleph-notas}
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 05: Evaluación de modelos}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+\begin{document}
+
+\encabezado
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la clase:}
+\begin{itemize}[leftmargin=*]
+    \item Diferenciar entre métricas de validación interna y externa en modelos no supervisados.
+    \item Comprender y calcular los conceptos de Cohesión y Separación.
+    \item Interpretar y aplicar el Coeficiente de Silueta para evaluar la calidad de una partición.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+En ausencia de etiquetas verdaderas, ¿cómo definimos matemáticamente que un grupo de datos es «bueno» o «compacto»?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Socialización de la Clase Invertida}
+
+Revisión de los conceptos trabajados individualmente con ChatGPT sobre la calidad de las particiones.
+
+\paragraph{¿Cómo lo haremos?}  
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Dinámica de discusión:}  
+Se seleccionarán estudiantes al azar para definir los siguientes conceptos basándose en su interacción previa con el asistente virtual:
+\begin{enumerate}[leftmargin=*]
+    \item {El diámetro de un grupo (cohesión):} 
+    Discusión sobre la distancia máxima entre puntos del mismo grupo y su relación con la compacidad.
+    
+    \item {La separación entre grupos:} 
+    Análisis de la distancia entre centroides o entre los puntos más cercanos de grupos distintos.
+    
+    \item {Relación Calidad/Métrica:}
+    ¿Por qué buscamos minimizar el diámetro y maximizar la separación simultáneamente?
+\end{enumerate}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Métricas de calidad general}
+
+Clase magistral breve para formalizar la métrica que combina los conceptos anteriores.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:} Se explicarán las siguientes métricas: Índice de Dunn, Coeficiente de Silueta y el índice de Davies-Bouldin.
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-06-N0105/blob/main/2-Notebooks/05-2-Evaluacion-de-Modelos-Agrupamiento}{05-2-Evaluacion-de-Modelos-Agrupamiento.ipynb}.
+    \end{quote}
+
+    \item \textbf{Experimentación:} 
+    \begin{itemize}
+        \item Probar las métricas con diferentes números de agrupamientos, ¿cómo varían los valores?
+    \end{itemize}
+    
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cómo se calcula la cohesión (inercia) de un clúster y el diámetro de un clúster?
+    
+    \item ¿Cómo se calcula la separación entre dos clústeres?
+    
+    \item Si obtengo un Coeficiente de Silueta global de 0.85, ¿qué indica sobre la estructura de mis grupos?
+    
+    \item ¿Qué sucede con el valor de la cohesión (inercia) a medida que aumentamos el número de clústeres $K$ hasta que $K=N$ (número de datos)?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Tienes un conjunto de datos con alta dimensionalidad. ¿El Coeficiente de Silueta es confiable o deberías usar otra métrica?
+    \item ¿Cuál es el coeficiente de silueta de un conjunto en el que solo existe un único clúster? 
+\end{enumerate}
+
+\paragraph{Pregunta de investigación:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué son las métricas de validación externa (ej. Índice de Rand, Información Mutua Ajustada) y cuándo se pueden utilizar?
+\end{enumerate}
+    
+\paragraph{Para la próxima clase:} Revisar estos videos:
+\begin{itemize}
+    \item \href{https://youtu.be/7My_PBhxeP4?si=WPy9BCqiZe45dzOm}{Análisis de componentes principales (PCA)}
+    \item \href{https://youtu.be/vSczTbgc8Rc?si=VKavkJYVFUZ72vrT}{SVD Visualized, Singular Value Decomposition explained}
+\end{itemize}
+
+\end{document}
+
+
+\end{document}
