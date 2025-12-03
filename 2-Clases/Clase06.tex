@@ -1,31 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
-
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -40,41 +23,45 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 1:} 
-    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-    \begin{itemize}[leftmargin=*]
-        \item Comprender la importancia de la selección y extracción de atributos en la construcción de modelos eficientes.
-        \item Implementar métodos básicos como PCA y SVD para reducir dimensionalidad.
-        \item Analizar aplicaciones de factorización de matrices no negativas en aprendizaje automático.
-    \end{itemize}
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender la importancia de la selección y extracción de atributos en la construcción de modelos eficientes.
+    \item Implementar métodos básicos como PCA y SVD para reducir dimensionalidad.
+    \item Analizar aplicaciones de factorización de matrices no negativas en aprendizaje automático.
+\end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
 ¿Por qué es importante reducir la dimensionalidad de un conjunto de datos al construir un modelo de aprendizaje automático?
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Selección de Atributos}
 
-Se preparará un modelo GPT interactivo con el cual los estudiantes podrán explorar conceptos clave, ventajas y desventajas de técnicas de selección de atributos.
+Se preparará un modelo GPT interactivo mediante clase interactiva con el cual los estudiantes podrán explorar conceptos clave, ventajas y desventajas de técnicas de selección de atributos.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -83,79 +70,82 @@ Se preparará un modelo GPT interactivo con el cual los estudiantes podrán expl
     \begin{quote}
         Enlace al GPT: \href{https://chatgpt.com/g/g-674f787b286c8191aee6a93bde4ede57-tutor-aa-seleccion-de-atributos}{Tutor AA - Selección de Atributos}
     \end{quote}
+    
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Los estudiantes responderán las preguntas del GPT proporcionado.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Análisis de Componentes Principales (PCA)}
 
-Se utilizará un modelo GPT para repasar conceptos clave de PCA y guiar a los estudiantes en su implementación práctica.
+Se utilizará un modelo GPT para repasar conceptos clave de PCA mediante clase interactiva y se guiará a los estudiantes en su implementación práctica con cuaderno de Jupyter.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Clase interactiva:}  Los estudiantes interactuarán con un modelo GPT diseñado para sus conocimientos en PCA.
+    \item \textbf{Clase interactiva:}  
+    Los estudiantes interactuarán con un modelo GPT diseñado para evaluar sus conocimientos en PCA.
     \begin{quote}
         Enlace al GPT: \href{https://chatgpt.com/g/g-674f7cde85ac81918e2a05a692ae0ee9-evluador-aa-pca}{Evaluador AA - PCA}
     \end{quote}
-
-    \item \textbf{Exploración del cuaderno de Jupyter:}  
-       Se proporcionará un cuaderno de Jupyter con ejemplos prácticos de implementación del Análisis de Componentes Principales (PCA) en la reducción de dimensionalidad.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06_1-Reduccion-Dimensionalidad.ipynb}{06\_1-Reduccion-Dimensionalidad}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06-1-Reduccion-Dimensionalidad.ipynb}{06-1-Reduccion-Dimensionalidad.ipynb}.
     \end{quote}
-     
+    
+    \item \textbf{Experimentación:} Realiza un análisis PCA con un número diferente de componentes principales y observa cómo afecta a la carga de cada componente.
+    
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Los estudiantes responderán las preguntas del GPT proporcionado.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 3: Descomposición en Valores Singulares (SVD)}
 
-Clase magistral para explicar los fundamentos de SVD, seguida de un ejemplo práctico de implementación en Python.
+Clase magistral para explicar los fundamentos de SVD mediante introducción matemática, seguida de ejemplo práctico de implementación en cuaderno de Jupyter y discusión guiada sobre el significado de las matrices resultantes.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Clase magistral:}  
     Introducción matemática a SVD y sus aplicaciones en reducción de dimensionalidad y sistemas de recomendación.
-
-    \item \textbf{Ejemplo práctico en Python:}  
-    \item \textbf{Exploración del cuaderno de Jupyter:}  
-       Se proporcionará un cuaderno de Jupyter con ejemplos prácticos de implementación de la Descomposición en Valores Singulares (SVD) para el análisis de datos.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06_2-SVD.ipynb}{06\_2-SVD}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06_2-SVD.ipynbb}{06-2-SVD.ipynb}.
     \end{quote}
-    \item \textbf{Discusión guiada:}  
-    Los estudiantes analizarán el significado de cada matriz resultante (U, S, VT) y cómo estas se relacionan con la matriz original.
+    
+    \item \textbf{Experimentación:} Amplía los datos del ejemplo agregando más usuarios y películas. Luego, implementa la SVD para realizar otra clasificación de conceptos.
+    
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Los estudiantes responderán cómo se puede usar SVD para compresión de datos y reducción de ruido.
 
-\subsection*{Actividad 4: Factorización de Matrices No Negativas}
-
-Lectura asignada sobre aplicaciones prácticas de factorización de matrices no negativas (NMF).
-
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Lectura asignada:}  
-    Artículo \href{https://mro.massey.ac.nz/server/api/core/bitstreams/7dbd6b5e-4d71-490a-b1b6-654e40181693/content}{“Non-negative Matrix Factorization: ASurvey”}.  
-    \item \textbf{Análisis:}  
-    Leer el resumen y la introducción del artículo para discutirlo la siguiente clase.
-\end{itemize}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Tarea:} Culminar la Actividad 4.
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué es PCA y cuál es su objetivo principal en la reducción de dimensionalidad?
     
+    \item ¿Cuál es la diferencia entre selección de atributos y extracción de características?
     
+    \item ¿Para qué se utiliza la descomposición SVD en aprendizaje automático?
+
+    \item En el SVD, ¿qué representan las matrices $U$, $\Sigma$ y $V^T$?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Tienes un dataset con 1000 características y solo 100 muestras. ¿Por qué esto es problemático y cómo usarías PCA para abordarlo? ¿Cuántos componentes principales deberías retener?
+    
+    \item Si PCA reduce las dimensiones de mi dataset de 100 a 10 características, ¿significa que las 90 características descartadas no eran importantes?
+\end{enumerate}
+
+\paragraph{Tarea:} Leer la introducción al artículo \href{https://mro.massey.ac.nz/server/api/core/bitstreams/7dbd6b5e-4d71-490a-b1b6-654e40181693/content}{Non-negative Matrix Factorization: A Survey}.
+
 \paragraph{Pregunta de investigación:} 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=*]
     \item ¿Puedo hacer PCA para datos categóricos?
     \item ¿Qué sistemas de recomendación usan SVD?
-
 \end{enumerate}
     
+\paragraph{Para la próxima clase:} Ver el video \href{https://youtu.be/WM7XaTyX7O8?si=gaJaezErTAaJLJp9}{QUÉ es el Aprendizaje No Supervisado}.
 
 
-\end{document} 
+\end{document}
