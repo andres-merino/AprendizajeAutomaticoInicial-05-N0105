@@ -1,105 +1,128 @@
-\documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
+\documentclass[aspectratio=169]{beamer}
+% -- Formato
+\input{formatoBeamerPUCE}
 
-% -- Paquetes adicionales 
-\usepackage{enumitem}
+% -- Paquetes adicionales
 \usepackage{aleph-comandos}
-\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{multicol} % Para organizar el texto en la Diapositiva 2
+\usepackage{tikz}
+
+% -- Comandos extra
 
 
-% -- Datos 
-\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
-\carrera{Ciencia de Datos}
-\asignatura{Aprendizaje Automático Inicial}
-\tema{Resumen no. 1: Introducción al Aprendizaje Automático}
-\autor{Andrés Merino}
-\fecha{Periodo 2025-2}
-
-\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
-\definecolor{colortext}{HTML}{0030A1}
-\definecolor{colordef}{HTML}{0030A1}
-\fuente{montserrat}
+% -- Datos
+\title{Introducción al Aprendizaje Automático}
+\author{Andrés Merino T.}
+\institute{Aprendizaje Automático Inicial}
+\date{Noviembre 2025}
 
 
-% -- Comandos adicionales
-\setlist[enumerate]{label=\roman*.}
-
-
-\begin{document}
-
-\encabezado
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introducción al Aprendizaje Automático}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
 
-\begin{defi}[Inteligencia Artificial]
-    La Inteligencia Artificial (IA) es una rama de la informática que se enfoca en la creación de sistemas capaces de realizar tareas que requieren «inteligencia humana», tales como el reconocimiento de voz, la toma de decisiones, el procesamiento del lenguaje natural, y la resolución de problemas.
-\end{defi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -- Página de título
+\fondo{inicio}
+\begin{frame}[plain]
+\addtocounter{framenumber}{-1}
+    \titlepage
+\end{frame}
 
-\begin{defi}[Aprendizaje Automático]
-    El Aprendizaje Automático (Machine Learning) es una subdisciplina de la Inteligencia Artificial que se centra en el desarrollo de algoritmos y modelos que permiten a las máquinas aprender a partir de datos sin ser explícitamente programadas para cada tarea específica.
-\end{defi}
+\fondo{blanco}
 
 
-\begin{defi}[Minería de datos]
-    La minería de datos es el proceso de extraer conocimiento de grandes volúmenes de datos, identificando patrones y reglas que permitan entender y predecir eventos que generaron dichos datos.
-\end{defi}
-
-\begin{defi}[Metodología CRISP-DM]
-    CRISP-DM es una metodología estándar en minería de datos que sigue una secuencia de fases:
-    \begin{itemize}
-        \item \textbf{Comprensión del negocio}: Definir los objetivos de negocio y plantear metas de minería de datos.
-        \item \textbf{Comprensión de los datos}: Analizar la calidad y características de los datos.
-        \item \textbf{Preparación de los datos}: Seleccionar, limpiar y preparar los datos para el modelado.
-        \item \textbf{Modelado}: Aplicar técnicas de minería de datos para construir modelos predictivos o descriptivos.
-        \item \textbf{Evaluación}: Validar los modelos para asegurar que cumplen los objetivos del negocio.
-        \item \textbf{Despliegue}: Implementar los resultados y modelos en el entorno de la organización.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fondo{celeste}
+\section{Hitos de la Inteligencia Artificial}
+\fondo{blanco}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]{Hitos de la Inteligencia Artificial}
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{1943:} Primer modelo de neurona artificial (McCulloch y Pitts).
+        \item \textbf{1950:} Turing propone el «{Test de Turing}».
+        \item \textbf{1956:} Conferencia de Dartmouth, se acuña el término «{Inteligencia Artificial}» (McCarthy).
+        \item \textbf{1966:} {ELIZA}, el primer chatbot (lenguaje natural básico).
+        \item \textbf{1974-1980:} Primer «{Invierno de la IA}», cortes de financiación.
     \end{itemize}
-\end{defi}
+\end{frame}
+\begin{frame}[t]{Hitos de la Inteligencia Artificial}
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{1997:} Deep Blue (IBM) derrota a Garry Kasparov (ajedrez).
+        \item \textbf{2016:} AlphaGo (Google) derrota a Lee Sedol (Go).
+        \item \textbf{2022:} Lanzamiento público de ChatGPT.
+        \item \textbf{2023-Presente:} Era de la IA Generativa.
+    \end{itemize}
+\end{frame}
 
-\subsection{Tipos de aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fondo{celeste}
+\section{Definición de IA}
+\fondo{blanco}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{defi}[Aprendizaje Supervisado]
-    Dado un conjunto de datos de entrenamiento 
-    \[
-        \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\},
-    \]
-    donde $x_i \in \mathbb{R}^n$ son las características de las instancias y $y_i \in Y$ son las etiquetas asociadas (variable objetivo), el \textbf{aprendizaje supervisado} busca determinar una función 
-    \[
-        \func{f}{\mathbb{R}^n}{Y}
-    \]
-    que aproxime la etiqueta $y$ de una instancia $x \in \mathbb{R}^n$.
-\end{defi}
+\begin{frame}[t]{Principales Definiciones de IA}
+    \begin{block}{Alan Turing (1950)}
+        La inteligencia se define por si puede \textbf{actuar de manera indistinguible} de un humano (Test de Turing).
+    \end{block}
 
-\begin{defi}[Aprendizaje No Supervisado]
-    Dado un conjunto de datos de entrenamiento 
-    \[
-        \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\},
-    \]
-    donde $x_i \in \mathbb{R}^n$ son las características de las instancias que no posee etiquetas asociadas, el \textbf{aprendizaje no supervisado} busca determinar una función  
-    \[
-        h: \mathbb{R}^d \to \{C_1, C_2, \dots, C_k\}
-    \]
-    que asigne cada instancia $x_i$ a un grupo (clúster) $C_j$ bajo algún criterio.
-\end{defi}
+    \begin{block}{Claude Shannon et al. (1955 - Dartmouth)}
+        Cada aspecto del aprendizaje o cualquier otra característica de la inteligencia puede describirse con tanta precisión que se pueda construir una máquina que lo simule.
+    \end{block}
+\end{frame}
 
+\begin{frame}[t]{Principales Definiciones de IA}
+    \begin{block}{Marvin Minsky (1967)}
+        La inteligencia artificial es la ciencia de hacer que las máquinas hagan cosas que requerirían inteligencia si las hiciera un humano.
+    \end{block}
+    
+    \begin{block}{Stuart Russell (1995)}
+        La IA es el estudio de agentes que reciben percepciones del entorno y realizan acciones.
+    \end{block}
+\end{frame}
 
-\subsection{Tipos de tareas}
+\begin{frame}[t]{Principales Definiciones de IA}
+    \begin{block}{Nils J. Nilsson (2005)}
+        El estudio del comportamiento inteligente en las máquinas – es decir, diseñar sistemas que perciban, razonen, aprendan, se comuniquen y actúen en entornos complejos
+    \end{block}
 
-\begin{defi}[Clasificación]
-    La clasificación es una tarea de aprendizaje supervisado donde el conjunto de etiquetas es finito o discreto. Un caso típico es la clasificación binaria donde $Y = \{0, 1\}$.
-\end{defi}
+    \begin{block}{Comisión Europea (Ley de IA - 2024)}
+        Sistemas basados en máquinas que {infieren} a partir de la entrada cómo generar salidas (predicciones, contenido) que {influyen} en entornos físicos o virtuales.
+    \end{block}
+\end{frame}
 
-\begin{defi}[Regresión]
-    La regresión es una tarea de aprendizaje supervisado que donde el conjunto de etiquetas se entiende como un conjunto continuo. 
-\end{defi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fondo{celeste}
+\section{Definición de Aprendizaje Automático}
+\fondo{blanco}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{defi}[Agrupamiento]
-    El agrupamiento (clustering) es una tarea de aprendizaje no supervisado que consiste en particionar un conjunto de datos $\{x_1, x_2, \dots, x_n\}$, donde $x_i \in \mathbb{R}^d$, en $k$ grupos o clústeres $\{C_1, C_2, \dots, C_k\}$.
-\end{defi}
+\begin{frame}[t]{Definiciones de Aprendizaje Automático (Machine Learning)}
 
+    \begin{block}{Arthur Samuel (1959)}
+        El campo de estudio que da a las computadoras la capacidad de aprender sin ser explícitamente programadas.
+    \end{block}
 
+    \begin{block}{Tom Mitchell (1997) - Definición Formal}
+        Se dice que un programa de computadora aprende de la {experiencia $E$} con respecto a alguna clase de {tareas $T$} y medida de {desempeño $P$}, si su desempeño en $T$, medido por $P$, {mejora con la experiencia $E$}.
+    \end{block}
+\end{frame}
+
+% --- Diapositiva 4: Hitos del Aprendizaje Automático ---
+\begin{frame}[t]{Hitos del Aprendizaje Automático}
+    \begin{itemize}
+        \item \textbf{1958:} Frank Rosenblatt crea el «{Perceptrón}», la primera red neuronal capaz de aprender patrones simples.
+        \item \textbf{1969:} Minsky y Papert publican «{Perceptrons}». Demuestran que las redes de una capa no podían resolver problemas {no lineales} (como XOR). Congeló la investigación.
+        \item \textbf{1986:} Rumelhart, Hinton y Williams popularizan el algoritmo de «{Backpropagation}» (retropropagación), permitiendo entrenar {redes neuronales profundas} (multicapa).
+    \end{itemize}
+\end{frame}
+\begin{frame}[t]{Hitos del Aprendizaje Automático}
+    \begin{itemize}
+        \item \textbf{1990s:} Cambio al enfoque {estadístico} (Statistical Shift). Dominio de algoritmos como {Support Vector Machines} (SVM) y {Random Forests}.
+        \item \textbf{2012:} {AlexNet}, una red neuronal convolucional profunda gana la competición ImageNet, detonando la revolución del {Deep Learning}.
+        \item \textbf{2017:} Publicación de «{Attention Is All You Need}». Introducción de la arquitectura «{Transformer}», base de todos los Modelos de Lenguaje Grande (LLM) actuales.
+    \end{itemize}
+\end{frame}
 
 \end{document}
