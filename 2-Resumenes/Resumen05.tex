@@ -1,0 +1,217 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 5: Evaluación de modelos de aprendizaje automático}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+
+
+\begin{document}
+
+\encabezado
+
+\section{Modelos de clasificación}
+
+Consideremos un problema de clasificación binaria $\func{f}{X}{\{0,1\}}$
+y un modelo de clasificación $\func{\hat{f}}{X}{\{0,1\}}$ que intenta aproximar a $f$. Además, sea un conjunto de datos $D = \{(x_i,y_i)\}_{i=1}^n$ el conjunto de datos utilizado para evaluar el desempeño del modelo, donde $y_i = f(x_i)$.
+
+Definimos los siguientes términos:
+
+
+\begin{center}
+\footnotesize 
+\begin{tabular}{p{5cm}@{\hspace{5mm}}l@{\hspace{15mm}}l}
+\toprule
+\textbf{Medida} & \textbf{Definición} & \textbf{Igual a} \\[5mm]
+\midrule
+número de positivos & $Pos = \displaystyle\sum_{x \in D} I[f(x) = 1]$ & \\[5mm]
+número de negativos & $Neg = \displaystyle\sum_{x \in D} I[f(x) = 0]$ & \\[5mm]
+verdaderos positivos & $TP = \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]$ & \\[5mm]
+verdaderos negativos & $TN = \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 0]$ & \\[5mm]
+falsos positivos & $FP = \displaystyle\sum_{x \in D} I[\hat{f}(x) = 1, f(x) = 0]$ & \\[5mm]
+falsos negativos & $FN = \displaystyle\sum_{x \in D} I[\hat{f}(x) = 0, f(x) = 1]$ & \\[5mm]
+\textbf{exactitud} (accuracy) & $acc = \dfrac{1}{|Te|} \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x)]$ &  $\dfrac{TP+TN}{|D|}$\\[5mm]
+\textbf{error} & $err = \dfrac{1}{|Te|} \displaystyle\sum_{x \in D} I[\hat{f}(x) \neq f(x)]$ &  $\dfrac{FP+FN}{|D|}$ \\[5mm]
+\textbf{precisión}, confianza & $pre = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]}{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 1]}$ & $\dfrac{TP}{TP + FP}$ \\[5mm]
+tasa de verdaderos positivos, \textbf{sensibilidad} (recall) & $tpr = rec = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]}{\displaystyle\sum_{x \in D} I[f(x) = 1]}$ &  $\dfrac{TP}{FN + TP}$\\[5mm]
+tasa de verdaderos negativos, \textbf{especificidad} & $tnr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 0]}{\displaystyle\sum_{x \in D} I[f(x) = 0]}$ &  \\[5mm]
+tasa de falsos positivos & $fpr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 1, f(x) = 0]}{\displaystyle\sum_{x \in D} I[f(x) = 0]}$ &  \\[5mm]
+tasa de falsos negativos & $fnr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 0, f(x) = 1]}{\displaystyle\sum_{x \in D} I[f(x) = 1]}$ & \\[5mm]
+\textbf{Puntuación F1} & $F1 = 2 \cdot \dfrac{pre \cdot rec}{pre + rec}$ & \\[5mm]
+\bottomrule
+\end{tabular}
+\end{center}
+
+Con esto, la matriz de confusión queda definida como:
+\begin{center}\small
+\begin{tabular}{c|c|c}
+    & Predicción: 1 & Predicción: 0 \\
+    \hline
+    Real: 1 & $TP$ & $FN$ \\
+    \hline
+    Real: 0 & $FP$ & $TN$ \\
+\end{tabular}
+\end{center}
+
+\paragraph{Precisión:} Proporción de instancias clasificadas como positivas que son realmente positivas. Se prioriza cuando el costo de un Falso Positivo es alto.
+
+Un ejemplo claro es un filtro de correo spam en un entorno corporativo. Aquí, clasificar un correo importante (legítimo) como spam (Falso Positivo) es grave, pues podría perderse información crítica. Por ello, se prefiere que el modelo sea muy conservador: solo debe marcar como spam si está totalmente seguro, incluso si eso significa dejar pasar algunos correos basura a la bandeja de entrada (baja sensibilidad).
+
+\begin{center}\small
+\begin{tabular}{c|c|c}
+    & Predicción: Spam (1) & Predicción: No Spam (0) \\
+    \hline
+    Real: Spam (1) & 30 (TP) & 50 (FN) \\
+    \hline
+    Real: No Spam (0) & {1 (FP)} & 919 (TN) \\
+\end{tabular}
+\end{center}
+En este caso, minimizamos los Falsos Positivos para maximizar la precisión:
+\[pre = \frac{TP}{TP + FP} = \frac{30}{30 + 1} = \frac{30}{31} \approx 0.968\]
+Esto indica un 96.8\% de confianza. Aunque se filtraron pocos correos de spam del total real (muchos FN), garantizamos que lo que se capturó era efectivamente basura.
+
+\paragraph{Sensibilidad (recall):} Proporción de instancias positivas que fueron correctamente identificadas. Se prioriza cuando el costo de un Falso Negativo es alto.
+
+El mejor ejemplo es el diagnóstico médico de una enfermedad grave y contagiosa. El objetivo es detectar a todos los individuos enfermos. Es preferible alarmar a un paciente sano para realizarle más pruebas (Falso Positivo) que enviar a casa a un paciente enfermo diciéndole que está sano (Falso Negativo), ya que esto tendría consecuencias fatales.
+
+\begin{center}\small
+\begin{tabular}{c|c|c}
+    & Predicción: Enfermo (1) & Predicción: Sano (0) \\
+    \hline
+    Real: Enfermo (1) & 98 (TP) & {2 (FN)} \\
+    \hline
+    Real: Sano (0) & 60 (FP) & 840 (TN) \\
+\end{tabular}
+\end{center}
+Aquí buscamos minimizar los Falsos Negativos a toda costa:
+\[rec = \frac{TP}{TP + FN} = \frac{98}{98 + 2} = \frac{98}{100} = 0.98\]
+El modelo tiene una sensibilidad del 98\%. Detecta casi todos los casos reales, sacrificando la precisión (muchos falsos positivos) en favor de la seguridad.
+
+\subsection{Curva ROC}
+
+Dado un modelo de clasificación binaria que produce probabilidades, es decir,
+\[
+\func{\hat{f}}{X}{[0,1]},
+\]
+dado un umbral de decisión $\theta \in [0,1]$, definimos la función de clasificación binaria asociada como
+\[
+\hat{f}_\theta(x) = \begin{cases}
+1 & \text{si } \hat{f}(x) \geq \theta, \\
+0 & \text{si } \hat{f}(x) < \theta.
+\end{cases}
+\]
+Para cada valor de $\theta$, podemos calcular las métricas del modelo, por ejemplo, la tasa de verdaderos positivos ($tpr_\theta$) y la tasa de falsos positivos ($fpr_\theta$).
+
+\begin{defi}[Curva ROC]
+    La \textbf{curva ROC} (Receiver Operating Characteristic) es la representación gráfica de los pares $(fpr_\theta, tpr_\theta)$ al variar el umbral $\theta$ en el intervalo $[0,1]$.
+\end{defi}
+
+\begin{defi}[Área bajo la curva ROC (AUC)]
+    El \textbf{AUC} (Area Under the Curve) es el área bajo la curva ROC. Un AUC de 1 indica un modelo perfecto, mientras que un AUC de 0.5 indica un modelo sin capacidad discriminativa (equivalente a una clasificación aleatoria).
+\end{defi}
+
+\begin{advertencia}
+    Podemos establecer los siguientes rangos para interpretar el AUC:
+    \begin{itemize}
+        \item $[0.97, 1.00)$: Excelente
+        \item $[0.90, 0.97)$: Muy bueno
+        \item $[0.75, 0.90)$: Bueno
+        \item $[0.60, 0.75)$: Regular
+        \item $[0.50, 0.60)$: Malo
+    \end{itemize}
+\end{advertencia}
+
+\section{Modelos de regresión}
+
+Consideremos un problema de regresión $\func{f}{X}{\R}$ y un modelo de regresión $\func{\hat{f}}{X}{\R}$ que intenta aproximar a $f$. Además, sea un conjunto de datos $D = \{(x_i,y_i)\}_{i=1}^n$ el conjunto de datos utilizado para evaluar el desempeño del modelo, donde $y_i = f(x_i)$.
+
+Definimos las siguientes métricas de evaluación:
+\begin{center}
+\footnotesize
+\begin{tabular}{p{7cm}@{\hspace{5mm}}l}
+\toprule
+\textbf{Medida} & \textbf{Definición} \\[5mm]
+\midrule
+\textbf{Error absoluto medio} (MAE) & $MAE = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} |\hat{f}(x_i) - f(x_i)|$ \\[5mm]
+\textbf{Error cuadrático medio} (MSE) & $MSE = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} (\hat{f}(x_i) - f(x_i))^2$ \\[5mm]
+\textbf{Raíz del error cuadrático medio} (RMSE) & $RMSE = \sqrt{MSE} = \sqrt{\dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} (\hat{f}(x_i) - f(x_i))^2}$ \\[5mm]
+\textbf{Coeficiente de determinación} ($R^2$) & $R^2 = 1 - \dfrac{\displaystyle\sum_{i=1}^{n} (\hat{f}(x_i) - f(x_i))^2}{\displaystyle\sum_{i=1}^{n} (f(x_i) - \bar{y})^2}$ , donde $\bar{y} = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} f(x_i)$ \\[5mm]
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Modelos de agrupamiento}
+
+Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde cada $C_i$ es un conjunto de datos que representa un clúster, tenemos las siguientes definiciones
+\begin{itemize}
+    \item \textbf{Centroide del clúster:} Es el punto medio del clúster, calculado como el promedio de todos los puntos en el clúster
+    \[
+    \mu_i = \frac{1}{|C_i|} \sum_{x \in C_i} x.
+    \]
+    \item \textbf{Diámetro del clúster:} Mide la distancia máxima entre dos puntos dentro del mismo clúster
+    \[
+    diam(C_i) = \max_{x,y \in C_i} d(x,y).
+    \]
+    \item \textbf{Inercia:} Mide la cohesión interna de los clústeres, definida como la suma de las distancias cuadráticas entre cada punto y el centroide de su clúster
+    \[
+    I_i = \sum_{x \in C_i} d(x, \mu_i)^2.
+    \] 
+    \item \textbf{Distancia promedio dentro del clúster:} Mide la distancia promedio entre los puntos y el centroide del clúster
+    \[
+    S_i = \frac{1}{|C_i|} \sum_{x \in C_i} d(x, \mu_i).
+    \]
+    \item \textbf{Cohesión de Silueta:} Mide la distancia promedio entre un punto y todos los demás puntos en el mismo clúster
+    \[
+        a(x_i) = \frac{1}{|C_i| - 1} \sum_{\substack{x_j \in C_k \\ j \neq i}} d(x_i, x_j).
+    \]
+    \item \textbf{Distancia entre clústeres:} Mide la distancia mínima entre puntos de dos clústeres diferentes
+    \[
+    d(C_i, C_j) = \min_{x \in C_i, y \in C_j} d(x,y).
+    \]
+    \item \textbf{Distancia entre centroides:} Mide la distancia entre los centroides de dos clústeres
+    \[
+    d_c(C_i, C_j)= d(\mu_i, \mu_j).
+    \]
+    \item \textbf{Separación de Silueta:} Mide la distancia promedio entre un punto y todos los puntos en el clúster más cercano al que no pertenece
+    \[
+        b(x_i) = \min_{j \neq i} \frac{1}{|C_j|} \sum_{x_k \in C_j} d(x_i, x_k).
+    \]
+\end{itemize}
+
+Con esto, definimos las siguientes métricas de evaluación:
+\begin{center}
+\footnotesize
+\begin{tabular}{p{7cm}@{\hspace{5mm}}l}
+\toprule
+\textbf{Medida} & \textbf{Definición} \\[5mm]
+\midrule
+\textbf{Inercia total} & $I_{total} = \displaystyle\sum_{i=1}^{K} I_i = \displaystyle\sum_{i=1}^{K} \displaystyle\sum_{x \in C_i} d(x, \mu_i)^2$ \\[5mm]
+\textbf{Índice de Davies-Bouldin} & $DB = \dfrac{1}{K} \displaystyle\sum_{i=1}^{K} \max_{j \neq i} \left( \dfrac{S_i + S_j}{d_c(C_i, C_j)} \right)$ \\[5mm]
+\textbf{Índice de Dunn} & $Dunn = \dfrac{\min_{i \neq j} d(C_i, C_j)}{\max_{1 \leq k \leq K} diam(C_k)}$ \\[5mm]
+\textbf{Índice de Silueta} & $S = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{|D|} \dfrac{b(x_i) - a(x_i)}{\max\{a(x_i), b(x_i)\}}$ \\[5mm]
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\end{document}
