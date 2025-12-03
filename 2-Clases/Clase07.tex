@@ -1,31 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
-
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -41,9 +24,6 @@
 \fuente{montserrat}
 
 
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
@@ -57,31 +37,41 @@
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 1:} 
-    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-    \begin{itemize}[leftmargin=*]
-        \item Comprender qué es el aprendizaje no supervisado y sus aplicaciones generales.
-        \item Diferenciar entre los tipos de agrupamiento: exclusivo, superposición, jerárquico y probabilístico.
-        \item Identificar preguntas clave y reflexiones iniciales sobre el tema mediante la interacción con un modelo de IA.
-    \end{itemize}
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender qué es el aprendizaje no supervisado y sus aplicaciones generales.
+    \item Diferenciar entre los tipos de agrupamiento: exclusivo, superposición y jerárquico.
+\end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-¿Cómo podríamos encontrar patrones en un conjunto de datos sin etiquetas?
+Imagina que el Profesor Oak pierde todos los datos sobre los «Tipos» (Fuego, Agua, Planta, etc.). Si solo tenemos sus estadísticas numéricas (Ataque, Defensa, Velocidad), ¿podría un algoritmo redescubrir por sí solo que Charizard y Blastoise pertenecen a diferentes grupos basados en sus características?
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Introducción al Aprendizaje No Supervisado}
 
-Se utilizará un video introductorio para familiarizar a los estudiantes con el concepto de aprendizaje no supervisado y sus aplicaciones en problemas de datos sin etiquetas.
+Se utilizará un video introductorio mediante proyección y discusión para familiarizar a los estudiantes con el concepto de aprendizaje no supervisado y sus aplicaciones en problemas de datos sin etiquetas.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -90,21 +80,18 @@ Se utilizará un video introductorio para familiarizar a los estudiantes con el 
     \begin{quote}
         Enlace al video: \href{https://www.youtube.com/watch?v=WM7XaTyX7O8}{Qué es el Aprendizaje No Supervisado}.
     \end{quote}
+    
     \item \textbf{Interacción con ChatGPT:}  
-    Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con los términos o conceptos que no entendieron durante la visualización.
+    Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con los términos o conceptos que no entendieron durante la visualización. Términos sugeridos para investigar: K-Means, Clusterización jerárquica, DBSCAN, Modelos de mezclas gaussianas, Ruido en los datos, Detección de anomalías.
+    
+    \item \textbf{Discusión grupal:}
+    Los estudiantes compartirán los términos que investigaron y las respuestas proporcionadas por ChatGPT.
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Se llevará a cabo una discusión grupal donde los estudiantes compartirán:
-\begin{itemize}[leftmargin=*]
-    \item Los términos que investigaron.
-    \item Las respuestas proporcionadas por ChatGPT.
-\end{itemize}
-Términos guía para las preguntas: K-Means, Clusterización jerárquica, DBSCAN, Modelos de mezclas gaussianas, Ruido en los datos, Detección de anomalías.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Definiciones clave}
 
-En esta actividad, los estudiantes explorarán las definiciones y características de los principales tipos de agrupamiento en el aprendizaje no supervisado.
+En esta actividad los estudiantes explorarán las definiciones y características de los principales tipos de agrupamiento en el aprendizaje no supervisado mediante clase magistral, exploración con ChatGPT y búsqueda de referencias científicas en Consensus.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -114,80 +101,66 @@ En esta actividad, los estudiantes explorarán las definiciones y característic
         \item \textbf{Agrupamiento exclusivo:} Cada dato pertenece exclusivamente a un único grupo. Ejemplo: k-means.
         \item \textbf{Agrupamiento con superposición:} Los datos pueden pertenecer a múltiples grupos con grados de pertenencia. Ejemplo: clustering difuso (\textit{fuzzy clustering}).
         \item \textbf{Agrupamiento jerárquico:} Los datos son organizados en una estructura de árbol jerárquico. Ejemplo: dendrogramas.
-        \item \textbf{Agrupamiento probabilístico:} Los datos se asignan a clústeres basándose en modelos probabilísticos. Ejemplo: Gaussian Mixture Models (GMMs).
     \end{itemize}
+    
     \item \textbf{Exploración guiada:}  
     Los estudiantes realizarán dos tareas principales en grupos pequeños:
     \begin{enumerate}
-        \item \textbf{Preguntar a ChatGPT:} Cada grupo formulará las siguientes preguntas al modelo:
+        \item \textbf{Preguntar a ChatGPT:} Cada grupo formulará las siguientes preguntas a la herramienta:
         \begin{itemize}
             \item ¿Cuál es la principal diferencia entre el agrupamiento jerárquico y el agrupamiento exclusivo?
-            \item ¿Cuándo es preferible usar un modelo probabilístico como GMM frente a k-means?
+            \item ¿Cuándo es preferible usar un modelo probabilístico frente a k-means?
             \item ¿Qué limitaciones tienen los métodos de agrupamiento con superposición en aplicaciones reales?
         \end{itemize}
-        \item \textbf{Búsqueda de referencias:} Usando la plataforma \href{https://consensus.app/}{Consensus}, los estudiantes buscarán un artículo científico que respalde o amplíe las respuestas obtenidas de ChatGPT. Deberán identificar la idea principal del artículo y cómo se relaciona con el tema discutido.
+        \item \textbf{Búsqueda de referencias:} Usando la plataforma \href{https://consensus.app/}{Consensus}, los estudiantes buscarán un artículo científico que respalde o amplíe las respuestas obtenidas de ChatGPT, identificando la idea principal del artículo y cómo se relaciona con el tema discutido.
     \end{enumerate}
+    
+    \item \textbf{Presentación de hallazgos:}
+    Cada grupo presentará un resumen de las respuestas obtenidas de ChatGPT y la referencia científica encontrada en Consensus.
+    
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Cada grupo presentará sus hallazgos de la siguiente manera:
-\begin{itemize}[leftmargin=*]
-    \item Resumen de las respuestas obtenidas de ChatGPT.
-    \item Referencia científica encontrada en Consensus y cómo esta valida o amplía las respuestas del modelo.
-\end{itemize}
-El docente facilitará la discusión y aclarará dudas adicionales sobre los conceptos.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 3: Efecto de la Normalización en la Clusterización}
 
-En esta actividad, los estudiantes analizarán cómo las diferentes técnicas de normalización pueden afectar el resultado de los algoritmos de clusterización.
+En esta actividad los estudiantes analizarán mediante exploración de cuaderno de Jupyter cómo las diferentes técnicas de normalización pueden afectar el resultado de los algoritmos de clusterización.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Presentación inicial:}  
-    Se presenta un gráfico que muestra cómo diferentes normalizaciones (por ejemplo, \textit{StandardScaler}, \textit{MinMaxScaler}, \textit{RobustScaler}, \textit{Normalizer}) afectan la distribución de los datos en un espacio bidimensional.
+    Se presenta un gráfico que muestra cómo diferentes normalizaciones (StandardScaler, MinMaxScaler, Normalizer) afectan la distribución de los datos en un espacio bidimensional.
     
     \item \textbf{Exploración individual:}  
     Cada estudiante deberá analizar el gráfico y responder preguntas como:
     \begin{itemize}
         \item ¿Cuál técnica de normalización parece más adecuada para separar los grupos visualmente?
-        \item ¿Cómo podrían estas diferencias impactar en algoritmos como k-means o clustering jerárquico?
     \end{itemize}
-
-     \item \textbf{Exploración del cuaderno de Jupyter:}  
-        Se proporcionará un cuaderno de Jupyter con ejemplos prácticos sobre el efecto de la normalización y el escalado en el agrupamiento K-Means.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/07-Normalizacion.ipynb}{07-Normalizacion}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/07-Normalizacion-Agrupamiento.ipynb}{07-Normalizacion-Agrupamiento.ipynb}.
     \end{quote}
 
+    \item \textbf{Experimentación:} Agrega otras normalizaciones (por ejemplo, RobustScaler) y observa cómo afectan los resultados.
+    
 \end{itemize}
 
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item Cada estudiante dará un análisis breve que incluya:
-        \begin{itemize}
-            \item Observaciones sobre cómo la normalización afecta los resultados de k-means.
-            \item Una conclusión sobre qué técnica consideran más adecuada para este conjunto de datos y por qué.
-        \end{itemize}
-\end{itemize}
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Tarea:}  
-Los estudiantes deberán realizar las siguientes actividades de forma individual:
-\begin{itemize}[leftmargin=*]
-    \item Buscar en \href{https://www.kaggle.com/}{Kaggle} un conjunto de datos que sea adecuado para implementar un algoritmo de clusterización. Ejemplos de conjuntos de datos incluyen: segmentación de clientes, agrupación de películas o canciones, o análisis de patrones en datos demográficos.
-    \item Descargar el conjunto de datos seleccionado e identificar qué características podrían necesitar preprocesamiento (como normalización o manejo de valores faltantes).
-\end{itemize}
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]   
+    \item ¿Cuál es la diferencia principal entre agrupamiento exclusivo y agrupamiento con superposición?
+    
+    \item ¿Por qué es importante seleccionar una técnica de normalización adecuada antes de aplicar un algoritmo de clusterización?
+\end{enumerate}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
     \item ¿Cómo podrían detectarse anomalías en un conjunto de datos usando aprendizaje no supervisado?
-    \item ¿Qué factores pueden dificultar la identificación de clústeres claros en datos reales, y cómo podrías abordarlos?
 \end{enumerate}
-    
 
 
-\end{document} 
+
+\end{document}
