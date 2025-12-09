@@ -1,0 +1,85 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 6: Descomposición en Valores Singulares (SVD)}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+
+
+\begin{document}
+
+\encabezado
+
+\begin{teo}
+    Sea \(A \in \mathbb{R}^{m \times n}\) una matriz de rango \(r\). Entonces, existen únicas matrices \(U \in \mathbb{R}^{m \times m}\), \(V \in \mathbb{R}^{n \times n}\) y \(\Sigma \in \mathbb{R}^{m \times n}\) tal que
+    \[
+        A = U \Sigma V^T,
+    \]
+    donde
+    \begin{itemize}
+        \item $U$ y $V$ son matrices ortogonales.
+        \item $\Sigma$ es una matriz diagonal con entradas no negativas en la diagonal.
+        \item Las entradas de $\Sigma$ están ordenadas de manera decreciente.
+    \end{itemize}
+
+    A los valores en la diagonal de \(\Sigma\) se les llama valores singulares de \(A\), y las columnas de \(U\) y \(V\) se llaman vectores singulares izquierdos y derechos, respectivamente.
+\end{teo}
+
+\begin{proof}
+    Supongamos que la descomposición existe, es decir, \(A = U \Sigma V^T\), nuestro objetivo es encontrar las matrices \(U\), \(\Sigma\) y \(V\).
+
+    Primero, consideremos la matriz \(A^T A\), esta es simétrica; por el teorema espectral, también es diagonalizable y todos sus valores propios son no negativos. Sea \(P\) la matriz cuyas columnas son los vectores propios ortonormales de \(A^T A\), y sea \(D\) la matriz diagonal cuyos elementos son los valores propios correspondientes. Entonces, podemos escribir
+    \[
+        A^T A = P D P^T.
+    \]
+    Por otro lado, como suponemos que \(A = U \Sigma V^T\), tenemos
+    \[
+        A^T A = (U \Sigma V^T)^T (U \Sigma V^T) = V \Sigma^T U^T U \Sigma V^T = V \Sigma^T \Sigma V^T.
+    \]
+    Comparando ambas expresiones para \(A^T A\), obtenemos
+    \[
+        P D P^T = P \Sigma^T \Sigma P^T.
+    \]
+    Así, podemos tomar
+    \[
+        V = P, \quad \Sigma^T \Sigma = D.
+    \]
+    Como tanto $D$ y $\Sigma$ son diagonales, tenemos que $\sigma_{ii}^2 = \lambda_{ii}$. Por otro lado, como los valores propios de \(A^T A\) son no negativos, podemos tomar
+    \[
+        \sigma_{ii} = \sqrt{\lambda_{ii}}.
+    \]
+
+    Ahora, tomemos $v_i$ las columnas de $V$ y $u_i$ las columnas de $U$. Observemos que, como $V$ es ortogonal, tenemos que $V^T v_i = e_i$, donde $e_i$ es el vector canónico. Entonces, de $A = U\Sigma V^T$, tenemos que
+    \[
+        A v_i = U \Sigma V^T v_i = U \Sigma e_i = U \sigma_{ii} e_i = \sigma_{ii} u_i,
+    \]
+    así, podemos tomar
+    \[
+        u_i = \frac{1}{\sigma_{ii}} A v_i.
+    \]
+    De esta manera, tenemos la descomposición en valores singulares.
+\end{proof}
+    
+
+
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[a4,11pt]{aleph-notas}
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 04: Mi primer modelo}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+\begin{document}
+
+\encabezado
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Actividad previa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+    \item Solicitar llenar el foro «¿Qué aprendí esta semana?» del aula virtual.
+    \item Cuestionar sobre la colinealidad al aplicar one-hot encoding.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la clase:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}[leftmargin=*]
+\item Identificar las etapas esenciales del flujo de trabajo del entrenamiento de un modelo supervisado.
+\item Implementar la división de un conjunto de datos en entrenamiento y prueba mediante Python.
+\item Entrenar un modelo de regresión lineal y evaluar su desempeño.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Pregunta inicial:}
+¿Cómo se aplica el aprendizaje supervisado para predecir valores continuos en un conjunto de datos usando Python?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: El flujo de trabajo del aprendizaje supervisado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Esta actividad presenta los elementos fundamentales del flujo de trabajo: generación de datos, separación en conjuntos, entrenamiento y evaluación. Se desarrollará mediante clase magistral apoyada con ejemplos y discusión guiada.
+
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Presentación del flujo:} Se revisarán las etapas: definición del problema, construcción del conjunto de datos, división en entrenamiento y prueba, entrenamiento del modelo, predicción y métricas.
+\item \textbf{Discusión guiada:} Se plantearán preguntas para reflexionar sobre la importancia de cada etapa.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Implementación en Python de un modelo de regresión lineal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+La actividad se desarrollará mediante trabajo práctico guiado en Python, utilizando un conjunto de datos simulado.
+
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+\begin{quote}
+Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/04-Mi-primer-modelo.ipynb}{04-Mi-primer-modelo.ipynb}.
+\end{quote}
+\item \textbf{Entrenamiento y evaluación:} Se ejecutará el modelo de regresión lineal, se obtendrán predicciones y se calcularán métricas como el error cuadrático medio.
+\item \textbf{Experimentación:} 
+\begin{itemize}
+    \item Cambiar el tamaño del conjunto de entrenamiento y observar el impacto en las métricas.
+\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3: Taller de implementación}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Los estudiantes trabajarán para implementar un modelo de regresión lineal desde cero, siguiendo los pasos aprendidos, sobre el conjunto de datos \texttt{kingCountyHouseData}.
+
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Desarrollo del taller:} Los estudiantes aplicarán los conceptos aprendidos para dividir los datos, entrenar el modelo y evaluar su desempeño. Se utilizará la siguiente plantilla:
+    \begin{quote}
+    Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/01-Mi-segundo-modelo-Plantilla.ipynb}{01-Mi-segundo-modelo-Plantilla.ipynb}.
+    \end{quote}
+    \item \textbf{Soporte y guía:} El instructor estará disponible para resolver dudas y proporcionar retroalimentación durante la actividad.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Verificación de aprendizaje:}
+\begin{itemize}[leftmargin=*]
+\item ¿Qué etapas conforman el flujo de trabajo del aprendizaje supervisado?
+\item ¿Cómo se divide un conjunto de datos en entrenamiento y prueba utilizando Python?
+\item ¿Qué hacen los métodos \texttt{fit()}, \texttt{transform()} y \texttt{predict()} en scikit-learn?
+\end{itemize}
+
+\paragraph{Tarea:}
+    Completar la tareas «Repositorio de GitHub para tareas» y «Mi segundo modelo», del aula virtual.
+
+
+\end{document} 

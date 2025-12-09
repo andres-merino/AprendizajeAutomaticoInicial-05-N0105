@@ -1,0 +1,135 @@
+% -- Paquetes base
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{booktabs}
+\usepackage{iftex}
+\usepackage{enumitem}
+\usepackage{silence}
+    \WarningsOff[beamerthememetropolis]
+
+   
+% -- Tipo de letra
+\ifPDFTeX % LaTeX y pdfLaTeX
+    \RequirePackage[defaultfam]{montserrat}
+        \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+        \AtBeginEnvironment{ttfamily}{\Large}
+    \RequirePackage[OT1]{eulervm}
+    \renewcommand{\labelitemi}{$\bullet$}
+    \DeclareMathSizes{10}{10.78}{7}{7}
+\else % XeLaTeX
+    \RequirePackage[OT1]{eulervm}
+    \RequirePackage{fontspec}
+    \setmainfont{montserrat}
+    \DeclareSymbolFont{operators}{\encodingdefault}{\familydefault}{m}{n}
+    \setmonofont[Scale=1.14]{Latin Modern Mono} 
+    \renewcommand{\labelitemi}{$\bullet$}
+    \DeclareMathSizes{10}{10.78}{7}{7}
+\fi
+
+% -- Espaciado
+\addtolength{\abovedisplayskip}{-2.5mm}
+\addtolength{\belowdisplayskip}{-2.5mm}
+\setlength{\parskip}{0.3\baselineskip}
+
+% -- Fondos
+\newcommand{\fondo}[1]{
+    % Selecciona el fondo
+    \setbeamertemplate{background}{\includegraphics[width=\paperwidth]{Fondo/#1}}
+    \ifthenelse{\equal{#1}{blanco}}{\setlength{\headsep}{42pt}}{\setlength{\headsep}{0pt}}
+    }
+
+% -- Formato 
+\usetheme{metropolis}
+\metroset{titleformat=smallcaps, numbering=fraction}
+\usecolortheme{orchid}
+    \definecolor{azul}{RGB}{19, 67, 131}
+    \definecolor{gris}{RGB}{88, 88, 87}
+    \definecolor{celeste}{RGB}{26, 160, 220}
+    % -- Título en hoja de título
+    \setbeamercolor{title}{fg=white}
+    % -- Título de secciones
+    \setbeamercolor{titlelike}{fg=white}
+    % -- Texto
+    \setbeamercolor{normal text}{fg=gris}
+    % -- Título de diapositiva
+    \setbeamercolor{frametitle}{fg=azul,bg=}
+    % -- Color de fondo en bloques
+    \setbeamercolor{block title}{fg=white,bg=azul}
+    \setbeamercolor{block body}{bg=azul!15}
+    \setbeamercolor{block title alerted}{fg=white,bg=celeste}
+    \setbeamercolor{block body alerted}{bg=celeste!15}
+    % -- Texto en hoja de título
+    \setbeamercolor{author}{fg=white}
+    \setbeamerfont{author}{series=\bfseries}
+    \setbeamercolor{date}{fg=white}
+    \setbeamerfont{date}{series=\bfseries}
+    \setbeamercolor{institute}{fg=white}
+    \setbeamerfont{institute}{series=\bfseries}
+    % -- Barra de progreso
+    \setbeamercolor{progress bar}{bg=white, fg=white}
+    % -- Linea de separación en la página de título
+    \makeatletter
+    \setbeamertemplate{title separator}{
+        \begin{tikzpicture}
+            \fill[white] (0,0) rectangle (0.8\textwidth, \metropolis@titleseparator@linewidth);
+        \end{tikzpicture}%
+        \par%
+    }
+    \makeatother
+    % -- Bloques redomdeados
+    \setbeamertemplate{blocks}[rounded][shadow=true]
+    % -- Caja de postit
+    \setbeamercolor{postit}{fg=white,bg=celeste}
+    \newenvironment{postitbox}[1][5cm]
+        {~\begin{beamercolorbox}[sep=0.2em,wd=#1,rounded=true,shadow=true]{postit}}
+        {\end{beamercolorbox}~}
+    % -- Caja de postit para imagen
+    \newcommand{\postitimg}[2][5cm]
+        {
+        ~\begin{beamercolorbox}[sep=0em,wd=#1,rounded=true,shadow=true]{postit}
+        \includegraphics[width=\linewidth]{#2}
+        \end{beamercolorbox}~
+        }
+    % -- Número de diapositiva
+    \setbeamercolor{frame numbering}{fg=white}
+    \setbeamerfont{page number in head/foot}{size=\tiny}
+    \setbeamertemplate{footline}{
+        \begin{beamercolorbox}[wd=\textwidth, center, sep=16.5mm]{footline}%
+            \usebeamerfont{page number in head/foot}%
+            \usebeamertemplate*{frame numbering}
+        \end{beamercolorbox}%
+    }
+    % -- Tabla de contenidos
+    \makeatletter
+    \patchcmd{\beamer@sectionintoc}
+      {\vfill}
+      {\vskip\itemsep}
+      {}
+      {}
+    \makeatother  
+    \setbeamertemplate{section in toc}{%
+    \inserttocsectionnumber.  \inserttocsection \par}
+    % -- Agregar margen superior
+    \addtolength{\headsep}{14mm}
+    \addtobeamertemplate{frametitle}{\vspace*{-2mm}}{\vspace*{-3mm}}
+
+ % -- Formato de bibliografía
+\usepackage{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+% -- Adaptar apa al español (2023)
+    \makeatletter
+    \DefineBibliographyExtras{spanish}{ 
+        % Código para corregir &
+        \setcounter{smartand}{1}
+    	\let\lbx@finalnamedelim=\lbx@es@smartand
+    	\let\lbx@finallistdelim=\lbx@es@smartand
+        % Código para corregir coma final
+        \renewcommand*{\apablx@ifrevnameappcomma}[2]{#2}
+        \let\finalandcomma=\empty
+    }
+    \makeatother
+    \setlength{\bibhang}{\parindent}
+% -- Fin de adaptar apa al español (2023)   
+    
+

@@ -114,11 +114,10 @@
             \renewcommand{\labelitemi}{$\bullet$}
             \DeclareMathSizes{10}{10.78}{7}{7}
         \else % XeLaTeX
-            \RequirePackage[OT1]{eulervm}
             \RequirePackage{fontspec}
-            \setmainfont{montserrat}
-            \DeclareSymbolFont{operators}{\encodingdefault}{\familydefault}{m}{n}
-            \DeclareMathSizes{10}{10.78}{7}{7}
+            \setmainfont{Montserrat}
+            \RequirePackage[math-style=upright]{unicode-math}
+            \setmathfont{Euler Math}[Scale=MatchLowercase]
             \renewcommand{\labelitemi}{$\bullet$}
         \fi
     }{}

@@ -1,0 +1,164 @@
+\documentclass[a4,11pt]{aleph-notas}
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{array}
+\usepackage{booktabs}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+}
+
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Clase 05: Evaluación de modelos}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+% -- Comandos adicionales (comentados si no se usan)
+% \input{aleph-codigo}
+
+\begin{document}
+
+\encabezado
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la clase:}
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender la importancia de la evaluación de modelos y su impacto en la toma de decisiones.
+    \item Explicar y calcular las métricas para modelos de clasificación (matriz de confusión, ACC, PRE, REC, F1, Curva ROC).
+    \item Interpretar y calcular las métricas para modelos de regresión (MAE, MSE, RMSE).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:} 
+¿Cómo sabemos si un modelo de aprendizaje automático está funcionando bien y es confiable en un contexto práctico?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Explorando la Evaluación de Modelos de Clasificación}
+
+Esta actividad combina clase magistral, recursos multimedia y ejercicio práctico en equipos mediante cuaderno de Jupyter para comprender las métricas derivadas de la matriz de confusión y analizar casos donde cada métrica sea más relevante.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}  
+    Se explicará la matriz de confusión y cómo calcular las métricas derivadas (Precisión, Sensibilidad, F1-Score, Accuracy), presentando un cuadro resumen para facilitar el aprendizaje.
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen05.pdf}{Resumen05.pdf}
+    
+    \item \textbf{Video explicativo:}  
+    Los estudiantes verán un video que explica en detalle los conceptos de Precisión (Precision) y Sensibilidad (Recall):
+    \begin{quote}
+        \url{https://www.youtube.com/watch?v=JXvHsw1WzF4&t=116s}
+    \end{quote}
+    
+    \item \textbf{Discusión guiada con ChatGPT:}  
+    Se plantearán interactuar con ChatGPT mediante el siguiente prompt:
+    \begin{quote}\small
+        Quiero ejemplos prácticos en los que haya que tomar una decisión entre priorizar el Recall (sensibilidad) o la Precisión en un modelo de clasificación. Genera dos casos diferentes, asegurándote de incluir una breve descripción del contexto, las consecuencias de maximizar cada métrica y la razón por la cual una de ellas sería más importante en ese caso. Los casos deben ser variados y abarcar aplicaciones como medicina, finanzas, seguridad, marketing y tecnología.
+    \end{quote}
+    Luego de leer los casos, utiliza este prompt:
+    \begin{quote}\small
+        Vas a ser mi tutor de Aprendizaje Supervisado. Quiero evaluar mi capacidad para decidir cuándo es mejor priorizar el Recall o la Precisión en un modelo de clasificación. Plantea un caso práctico en el que deba tomar esta decisión. Debe incluir un contexto breve, una descripción del problema y una instrucción clara que me pida tomar una decisión entre Recall o Precisión con una breve justificación. Luego pídeme que responde y, con base en mi respuesta, dame retroalimentación o un razonamiento sobre cuál métrica sería mejor priorizar y por qué. Posterior a eso, plantéame otro caso.
+    \end{quote}
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/05-1-Evaluacion-de-Modelos-Clasificacion.ipynb}{05-1-Evaluacion-de-Modelos-Clasificacion.ipynb}.
+    \end{quote}
+    
+    \item \textbf{Experimentación:} 
+    \begin{itemize}
+        \item Aumenta el conjunto de datos con más muestras y observa cómo cambian las métricas de evaluación.
+        \item Cambia el umbral y calcula las nuevas métricas de evaluación. Observa cómo varían. Apunta algunos datos para diferentes umbrales y luego colócalos en un plano cartesiano (FPR vs TPR).
+    \end{itemize}
+    
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Evaluación de Modelos de Regresión}
+
+Esta actividad combina clase magistral y ejercicio práctico mediante cuaderno de Jupyter para aprender a calcular métricas para modelos de regresión, incluyendo MAE, MSE y RMSE.
+
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}  
+    Se explicarán los conceptos clave de las métricas de evaluación para modelos de regresión:
+    \begin{itemize}
+        \item MAE (Mean Absolute Error): Error absoluto medio.
+        \item MSE (Mean Squared Error): Error cuadrático medio.
+        \item RMSE (Root Mean Squared Error): Raíz cuadrada del MSE.
+    \end{itemize}
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen05.pdf}{Resumen05.pdf}
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/05-1-Evaluacion-de-Modelos-Regresion.ipynb}{05-1-Evaluacion-de-Modelos-Regresion.ipynb}.
+    \end{quote}
+
+    \item \textbf{Experimentación:} 
+    \begin{itemize}
+        \item Multiplica los valores de y por un factor constante (por ejemplo, 10) y observa cómo cambian las métricas de evaluación. ¿Qué métricas son sensibles a la escala de los datos?
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué información proporciona la matriz de confusión y cuáles son sus cuatro componentes principales?
+    
+    \item ¿Cuál es la diferencia entre Precisión (Precision) y Sensibilidad (Recall)?
+    
+    \item ¿Por qué el MSE penaliza más los errores grandes que el MAE en modelos de regresión?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item En un sistema de detección de fraudes bancarios, ¿priorizarías Precision o Recall? 
+    
+    \item Si un modelo tiene un Accuracy del 95\%, ¿significa que es un buen modelo para cualquier problema de clasificación?
+\end{enumerate}
+
+\paragraph{Pregunta de investigación:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Existen más métricas de evaluación de modelos de clasificación? Ver: Gráfico K-S, Índice Jaccard, Gráfico de ganancia y elevación
+    \item ¿Qué métricas existen para evaluar modelos de clasificación para múltiples clases?
+\end{enumerate}
+    
+\paragraph{Para la próxima clase:} Realizar la Clase invertida: Métricas de modelos de agrupamiento, disponible en el aula virtual.
+
+
+\end{document}

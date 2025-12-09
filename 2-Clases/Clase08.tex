@@ -1,30 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -39,110 +23,90 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
+% -- Comandos adicionales (comentados si no se usan)
+% \input{aleph-codigo}
 
 \begin{document}
 
 \encabezado
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-
+% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
-    \item Describir y diferenciar los algoritmos jerárquicos aglomerativos y divisivos, junto con sus ventajas y desventajas.
+    \item Describir y diferenciar los algoritmos jerárquicos aglomerativos y divisivos, junto con sus criterios de enlace.
     \item Analizar y construir dendogramas para entender los resultados de un agrupamiento jerárquico.
-    \item Aplicar diferentes criterios de enlace en algoritmos de agrupamiento jerárquico.
     \item Implementar algoritmos de agrupamiento jerárquico en un conjunto de datos utilizando Python.
-
 \end{itemize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
- Si tuvieras que organizar toda una biblioteca sin etiquetas, solo viendo los libros, ¿cómo agruparías los más parecidos entre sí?
-
+A veces queremos agrupar a los Pokémon solo en «Legendarios vs. Comunes» (2 grupos), pero otras veces necesitamos dividirlos por sus 18 Tipos elementales. ¿Existe algún algoritmo que no nos obligue a decidir el número de grupos desde el principio, sino que nos permita «cortar» la clasificación al nivel de detalle que nosotros queramos después de ver los datos?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Presentación teórica sobre algoritmos de agrupamiento jerárquico}
 
-Se introducirá a los estudiantes los fundamentos del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, y los criterios de enlace para calcular las distancias entre grupos. También se explicará el uso de los dendogramas como herramienta visual para entender las jerarquías de los grupos.
+Se introducirá a los estudiantes los fundamentos del agrupamiento jerárquico mediante clase magistral, incluyendo los métodos aglomerativos y divisivos, los criterios de enlace para calcular distancias entre grupos, y el uso de dendogramas como herramienta visual.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Introducción a los algoritmos jerárquicos:}  
-    Explicaremos los principios de los algoritmos aglomerativos y divisivos. Se destacará cómo los métodos aglomerativos comienzan con cada punto como un clúster individual y los unen iterativamente, mientras que los divisivos parten de un clúster único y lo dividen sucesivamente.
-    
-    \item \textbf{Dendogramas:}  
-    Introduciremos los dendogramas como una herramienta para visualizar la jerarquía de los agrupamientos. Analizaremos cómo interpretar las uniones y las distancias representadas en el gráfico.
-    
-    \item \textbf{Criterios de enlace:}  
-    Explicaremos los tres criterios principales para determinar las distancias entre clústeres:
+    \item \textbf{Clase magistral:}  
+    Se explicarán los conceptos teóricos del agrupamiento jerárquico, incluyendo:
     \begin{itemize}
-        \item \textbf{Enlace sencillo (Single Linkage):} Distancia mínima entre dos clústeres.
-        \item \textbf{Enlace completo (Complete Linkage):} Distancia máxima entre dos clústeres.
-        \item \textbf{Enlace promedio (Average Linkage):} Promedio de todas las distancias entre puntos de los dos clústeres.
+        \item Métodos aglomerativos vs. divisivos.
+        \item Criterios de enlace: simple, completo y promedio.
+        \item Interpretación de dendogramas.
     \end{itemize}
 
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-Los estudiantes deberán:
-\begin{itemize}[leftmargin=*]
-    \item Identificar correctamente las diferencias entre los métodos aglomerativos y divisivos.
-    \item Explicar qué representa un dendograma y cómo se interpreta.
-    \item Comparar los efectos de los diferentes criterios de enlace en un ejemplo dado.
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen08.pdf}{Resumen08.pdf}
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
+    \end{quote}
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 2 : Agrupamiento jerárquico con una lista de números}
+\subsection*{Actividad 2: Agrupamiento jerárquico con una lista de números}
 
-Se realizará un ejercicio práctico para agrupar una lista de números utilizando un enfoque jerárquico. Se construirán grupos utilizando diferentes criterios de enlace y se visualizará el proceso en un dendograma manual.
+Se realizará un ejercicio práctico manual para agrupar una lista de números utilizando un enfoque jerárquico, construyendo grupos con diferentes criterios de enlace y visualizando el proceso en un dendograma.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Datos iniciales:}  
-    Se trabajará con la siguiente lista de números: \\[1mm]
-    \texttt{[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]}
-    
-    \item \textbf{Cálculo de distancias:}  
-    Se calcularán las distancias absolutas entre todos los pares de números para construir una matriz de distancias inicial. La distancia entre dos números será la diferencia absoluta entre ellos.
-    
-    \item \textbf{Construcción del dendograma:}  
-    Se fusionarán los números o grupos más cercanos según el criterio de enlace seleccionado:
-    \begin{itemize}
-        \item \textbf{Enlace sencillo:} Se tomará la distancia mínima entre elementos de los dos grupos.
-        \item \textbf{Enlace completo:} Se tomará la distancia máxima entre elementos de los dos grupos.
-        \item \textbf{Enlace promedio:} Se calculará el promedio de todas las distancias entre elementos de los dos grupos.
-    \end{itemize}
+    Se trabajará con la siguiente lista de números: \texttt{[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]}.
     
     \item \textbf{Representación manual:}  
     A medida que se fusionan los grupos, se registrarán los pasos y se dibujará un dendograma manualmente en el pizarrón o en hojas de trabajo distribuidas a los estudiantes.
+    
 \end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-Replicar el proceso con otro conjunto de números.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 3 : Visualización de video sobre algoritmos de agrupamiento jerárquico}
+\subsection*{Actividad 3: Visualización de video sobre algoritmos de agrupamiento jerárquico}
 
-Se utilizará un video educativo para que los estudiantes comprendan los conceptos fundamentales del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, los criterios de enlace, y la interpretación de dendogramas.
+Se utilizará un video educativo mediante proyección y discusión para que los estudiantes comprendan los conceptos fundamentales del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, los criterios de enlace, y la interpretación de dendogramas.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -151,72 +115,67 @@ Se utilizará un video educativo para que los estudiantes comprendan los concept
     \begin{quote}
         Enlace al video: \href{https://youtu.be/8QCBl-xdeZI?si=TYfeBv0pZGRS_0zS}{Hierarchical Cluster Analysis}.
     \end{quote}
+    
     \item \textbf{Interacción con ChatGPT:}  
     Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con términos o conceptos que no comprendieron durante la visualización.
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-Se realizará una discusión grupal donde los estudiantes compartirán:
-\begin{itemize}[leftmargin=*]
-    \item Las preguntas que realizaron a ChatGPT.
-    \item Las respuestas que obtuvieron y cómo estas les ayudaron a comprender mejor el tema.
+    
+    \item \textbf{Discusión grupal:}
+    Los estudiantes compartirán las preguntas que realizaron a ChatGPT y las respuestas que obtuvieron.
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 4: Implementación del agrupamiento jerárquico}
 
-Los estudiantes utilizarán un cuaderno de Jupyter para implementar y experimentar con algoritmos de agrupamiento jerárquico sobre varios conjuntos de datos, observando cómo las métricas y criterios de enlace afectan los resultados.
+Los estudiantes utilizarán un cuaderno de Jupyter mediante exploración práctica para implementar y experimentar con algoritmos de agrupamiento jerárquico sobre varios conjuntos de datos, observando cómo las métricas y criterios de enlace afectan los resultados.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Exploración del cuaderno de Jupyter:}  
-    Se proporcionará un cuaderno de Jupyter con ejemplos iniciales de implementación de agrupamiento jerárquico.
+    \item \textbf{Explicación de la experimentación:}  
+    Los estudiantes experimentarán modificando criterios de enlace (single, complete, average), métricas de distancia (euclidean, manhattan, cosine) y aplicando el agrupamiento sobre diferentes datasets.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
     \end{quote}
-
-    \item \textbf{Modificación del código:}  
-    Los estudiantes experimentarán modificando las siguientes variables y funciones:
-    \begin{itemize}
-        \item \textbf{Criterios de enlace:} Cambiar entre «single», «complete» y «average».
-        \item \textbf{Métricas de distancia:} Probar métricas como «euclidean», «manhattan» o «cosine».
-        \item \textbf{Conjuntos de datos:} Aplicar el agrupamiento jerárquico sobre al menos tres datasets diferentes provistos en el cuaderno.
-    \end{itemize}
-
-    \item \textbf{Visualización de resultados:}  
-    Utilizar los dendogramas generados para interpretar las estructuras jerárquicas de los datos.
+    
+    \item \textbf{Experimentación:} Genera el agrupamiento con diferentes métricas y métodos de enlaces. ¿Qué diferencias observas?
+    
 \end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-Los estudiantes deberán completar los ejercicios del cuaderno y responder a las siguientes preguntas:
-    \begin{itemize}
-        \item ¿Qué impacto tienen las métricas de distancia y los criterios de enlace en la forma final de los dendogramas?
-        \item ¿Qué criterio de enlace produjo resultados más consistentes para los datasets analizados?
-        \item ¿Qué observaciones se pueden hacer sobre la jerarquía en los datos de cada conjunto?
-    \end{itemize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cuál es la diferencia principal entre los métodos aglomerativos y divisivos en agrupamiento jerárquico?
+    
+    \item ¿Qué información proporciona un dendograma y cómo se interpreta?
+    
+    \item ¿Cómo difieren los tres criterios de enlace principales (simple, completo y promedio) y cuándo usaría cada uno?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Tienes un dataset de clientes con múltiples características. Aplicaste clustering jerárquico con enlace simple y obtuviste un cluster gigante con casi todos los datos. ¿Qué problema está ocurriendo y cómo lo resolverías?
+    
+    \item ¿Qué ventajas tiene el clustering jerárquico divisivo sobre el aglomerativo en términos de eficiencia computacional y calidad de los clusters formados?
+\end{enumerate}
 
 \paragraph{Tarea:}  
-    Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/03-Agrupamiento-Jerarquico.ipynb}{03-Agrupamiento-Jerarquico.ipynb}.
-    \end{quote}
+Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
+\begin{quote}
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/03-Agrupamiento-Jerarquico.ipynb}{03-Agrupamiento-Jerarquico.ipynb}.
+\end{quote}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
-    \item ¿Qué información podemos obtener de un dendograma que no podemos obtener directamente de otros modelos?
-    \item ¿Cómo afecta el criterio de enlace (sencillo, completo o promedio) a la forma final de los grupos en el agrupamiento jerárquico?
     \item ¿En qué casos prácticos sería más útil un método divisivo en lugar de uno aglomerativo?
+    \item ¿Cómo afecta la elección de la métrica de distancia (euclidiana, Manhattan, coseno) en los resultados del agrupamiento jerárquico?
 \end{enumerate}
     
+\paragraph{Para la próxima clase:}  Leer la sección 12.1 del artículo \href{https://link.springer.com/article/10.1140/epjs/s11734-021-00209-7}{Beginning with machine learning: a comprehensive primer}.
 
 
-\end{document} 
+\end{document}

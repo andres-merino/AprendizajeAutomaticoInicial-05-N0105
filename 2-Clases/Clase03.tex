@@ -1,30 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -39,145 +23,125 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
+% -- Comandos adicionales (comentados si no se usan)
+% \input{aleph-codigo}
 
 \begin{document}
 
 \encabezado
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Actividad previa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{itemize}
+    \item Revisar conjuntos de datos seleccionados por los estudiantes y brindar retroalimentación.
+    \item Explicación de la distancia de Mahalanobis.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
-\begin{itemize}
-    \item \textbf{RdA 1:} 
-    Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
+% Se toma uno de los siguientes
+\begin{itemize}[leftmargin=*]
+    \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-\begin{itemize}
-    \item Comprender las técnicas principales de preprocesado de datos, como limpieza, normalización, discretización y reducción de dimensionalidad.
-    \item Aplicar métodos de partición de conjuntos de datos, como leave-one-out, leave-p-out y k-fold cross-validation.
-    \item Identificar la importancia de los conjuntos de validación en el proceso de ajuste y evaluación de modelos.
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender las técnicas principales de preprocesado de datos: escalado, discretización y reducción de dimensionalidad.
+    \item Aplicar división de conjuntos de datos en entrenamiento y prueba para evaluar modelos de aprendizaje automático.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-¿Cómo podemos asegurar que nuestro modelo generalice bien y no simplemente memorice los datos?
-
-
-\section*{Desarrollo}
-
-\subsection*{Actividad 1: Preprocesado de Datos (30 minutos)}  
-
-En esta actividad, los estudiantes aprenderán las técnicas básicas de preprocesado de datos, incluyendo limpieza, normalización, discretización y reducción de dimensionalidad. Estas técnicas son fundamentales para preparar los datos para modelos de aprendizaje automático, asegurando su calidad y optimizando su representación.
-
-
-\paragraph{Recursos:} 
 \begin{itemize}
-    \item Presentación teórica sobre preprocesado de datos.
-    \item Jupyter Notebook con ejemplos de preprocesado utilizando \texttt{scikit-learn}.
-    \item Conjunto de datos Iris (disponible en \texttt{scikit-learn}).
+    \item 
+    Si en un modelo una de las varaibles, por ejemplo, la edad, tiene un rango de valores entre 0 y 100, y otra variable, por ejemplo, el ingreso anuel, tiene un rango entre \$0 y \$100000, ¿qué problemas podrían surgir al calcular distancias entre puntos en este espacio de características?
+    \item 
+    ¿Si en un examen de matemática te evalúan con exactamente los mismos ejercicios que practicaste, qué tan bien crees que mediría tu conocimiento real de la materia?
 \end{itemize}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Ejercicio práctico:} \hspace{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Preprocesado de Datos}
 
-\begin{pycodigo}
-\begin{lstlisting}[language=Python]
-import pandas as pd
-from sklearn.datasets import load_iris
-from sklearn.preprocessing import StandardScaler, KBinsDiscretizer
-from sklearn.decomposition import PCA
-
-# Cargar datos
-data = load_iris()
-X, y = data.data, data.target
-
-# Normalización
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-# Discretización
-discretizer = KBinsDiscretizer(n_bins=3, encode='ordinal', strategy='uniform')
-X_discretized = discretizer.fit_transform(X_scaled)
-
-# Reducción de dimensionalidad
-pca = PCA(n_components=2)
-X_reduced = pca.fit_transform(X_discretized)
-
-print("Datos preprocesados:")
-print(X_reduced[:5])
-\end{lstlisting}
-\end{pycodigo}
-
-\paragraph{Verificación de aprendizaje:} Con un conjunto de datos con al menos 5 características numéricas y 1 categórica (puede ser proporcionado o descargado de una fuente como \texttt{Kaggle} o \texttt{UCI Machine Learning Repository}). Deben realizar las siguientes tareas:
-\begin{enumerate}
-    \item Identificar valores faltantes, valores atípicos y datos redundantes, y proponer una estrategia para manejarlos.
-    \item Estandarizar las variables numéricas y codificar las categóricas (por ejemplo, con \texttt{One-Hot Encoding} o \texttt{Label Encoding}).
-    \item Aplicar reducción de dimensionalidad utilizando \texttt{PCA} o seleccionando un subconjunto de características basado en correlaciones.
-\end{enumerate}
-
-\subsection*{Actividad 2: Conjuntos de Entrenamiento y Test (40 minutos)}  
-
-En esta actividad, se abordará la importancia de dividir un conjunto de datos en entrenamiento, prueba y validación. Se explicarán los métodos más comunes: \texttt{train\_test\_split}, k-fold cross-validation, leave-one-out y leave-p-out.
+En esta actividad los estudiantes aprenderán las técnicas básicas de preprocesado de datos mediante clase magistral y práctica en cuaderno de Jupyter, incluyendo escalado, discretización y reducción de dimensionalidad para preparar datos de aprendizaje automático.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Exploración del cuaderno de Jupyter:}  
-    Se proporcionarán ejemplos prácticos de cómo dividir conjuntos de datos en entrenamiento, prueba y validación utilizando diferentes estrategias.
+    \item \textbf{Conceptos fundamentales:}  
+    Se presentarán las técnicas de preprocesado: escalado, discretización, one-hot-encoding y reducción de dimensionalidad.
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen03.pdf}{Resumen03.pdf}
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-Conjuntos-Entrenamiento-Prueba.ipynb}{03-Conjuntos-Entrenamiento-Prueba}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-1-Procesado-Datos.ipynb}{03-1-Preprocesado-Datos.ipynb}.
     \end{quote}
+    \item \textbf{Experimentación:} Realizar los ejercicios propuestos en el cuaderno.
+    
 \end{itemize}
 
-\paragraph{Ejercicio práctico:}  \hspace{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Conjuntos de Entrenamiento y Test}
 
-\begin{pycodigo}
-\begin{lstlisting}[language=Python]
-from sklearn.model_selection import train_test_split, KFold, cross_val_score
-from sklearn.ensemble import RandomForestClassifier
+En esta actividad se abordará la importancia de dividir un conjunto de datos en entrenamiento y prueba mediante exploración de cuaderno de Jupyter.
 
-# Dividir datos en entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X_reduced, y, test_size=0.2, random_state=42)
+\paragraph{¿Cómo lo haremos?}  
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Métodos de partición:}  
+    Se presentarán las necesidad de particionar conjuntos de datos.
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-2-Conjuntos-Entrenamiento-Prueba.ipynb}{03-2-Conjuntos-Entrenamiento-Prueba.ipynb}.
+    \end{quote}
+    \item \textbf{Experimentación:} Realizar los ejercicios propuestos en el cuaderno.
+    
+\end{itemize}
 
-# Validación cruzada
-kfold = KFold(n_splits=5, shuffle=True, random_state=42)
-model = RandomForestClassifier()
-scores = cross_val_score(model, X_train, y_train, cv=kfold)
-
-print("Scores de validación cruzada:", scores)
-print("Promedio de scores:", scores.mean())
-\end{lstlisting}
-\end{pycodigo}
-
-
-\paragraph{Verificación de aprendizaje:} Con un conjunto de datos  (por ejemplo, el conjunto \textit{Titanic}), realice las siguientes actividades:
-\begin{enumerate}
-    \item Implementar al menos tres métodos de partición:
-    \begin{itemize}
-        \item División simple (\texttt{train\_test\_split}).
-        \item Validación cruzada estratificada.
-        \item k-fold cross-validation (sin entrenar modelos).
-    \end{itemize}
-    \item Dividir el conjunto de datos utilizando cada método y observar las proporciones de clases en cada subconjunto.
-\end{enumerate}
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Tarea:} Aplicar todo lo aprendido en un conjunto nuevo de datos.
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿En qué rangos queda una variable luego de aplicar cada tipo de normalización?
     
+    \item ¿Cuál es la diferencia entre discretizar una variable usando igual amplitud o igual frecuencia?
+    
+    \item ¿Dónde ingresan el concepto de valores propios en el ACP?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Describe la diferencia entre discretización y one-hot encoding.
+    
+    \item ¿Qué método de normalización utilizarías para variables categóricas antes de entrenar un modelo?
+\end{enumerate}
+
+\paragraph{Tarea:} 
+    Realizar el procesamiento de datos necesarios al conjunto de datos seleccionado en la clase anterior y subirlo al repositorio de GitHub.
+
 \paragraph{Pregunta de investigación:} 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=*]
     \item ¿Qué estrategias existen para manejar conjuntos de datos desbalanceados al realizar particiones de entrenamiento y prueba?
-    \item ¿Cómo afecta el tamaño relativo de los conjuntos de entrenamiento y prueba al desempeño de un modelo?
-    \item ¿Qué tipos de problemas se pueden enfrentar al evaluar modelos con conjuntos de datos extremadamente pequeños? ¿Cómo puede abordarse este desafío?
+    \item ¿Realizar one-hot encoding agrega colinealidad a las caracterísitcas? Ver: \href{https://blog.dailydoseofds.com/p/the-most-overlooked-problem-with}{The Problem With One-Hot Encoding}
 \end{enumerate}
     
+\paragraph{Para la próxima clase:} 
+    Se debe tener el conjunto de datos preprocesados y listos en el repositorio.
 
 
-\end{document} 
+\end{document}
