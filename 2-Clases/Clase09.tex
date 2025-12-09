@@ -1,36 +1,20 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
 
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
-
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
-\tema{Clase 09: Agrupamiento k-Means}
+\tema{Clase 09: Agrupamiento $k$-Means}
 \autor{Andrés Merino}
 \fecha{Periodo 2025-2}
 
@@ -39,14 +23,17 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Actividad previa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+    \item Realizar el cuestionario de este \href{https://gemini.google.com/share/475317ea89c6}{enlace} sobre la sección 12.1 del artículo Beginning with machine learning: a comprehensive primer.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -54,17 +41,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
-\subsection*{Resultados específicos:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la clase:}
+% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
-    \item Comprender el funcionamiento del algoritmo k-Means y su pseudocódigo.
-    \item Analizar criterios para la selección del valor de \( k \).
-    \item Explorar métodos derivados del algoritmo k-Means y sus aplicaciones prácticas.
-    \item Implementar el algoritmo k-Means en un entorno práctico, evaluando resultados.
+    \item Comprender el funcionamiento del algoritmo $k$-Means, su pseudocódigo y criterios para la selección del valor de $k$.
+    \item Explorar métodos derivados del algoritmo $k$-Means y sus aplicaciones prácticas.
+    \item Implementar el algoritmo $k$-Means en un entorno práctico, evaluando resultados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,94 +61,109 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-¿Qué significa agrupar datos y cómo podríamos identificar patrones en un conjunto de datos sin etiquetas?
+Imagina que eres el planificador urbano de la región de Kanto y tienes presupuesto para construir exactamente tres Centros Pokémon. ¿En qué coordenadas del mapa los colocarían para que la distancia promedio que cualquier entrenador tenga que caminar para curar a su equipo sea la mínima posible?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 1: Introducción al algoritmo k-Means}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Introducción al algoritmo $k$-Means}
+
+Se introducirá a los estudiantes el algoritmo $k$-Means mediante visualización de video y clase magistral, explicando su concepto, pseudocódigo y la importancia del valor de $k$, seguido de discusión sobre aplicaciones prácticas.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Video introductorio:} 
-    Visualización del video \href{https://youtu.be/2kfY0R34Dy0?si=60bbeVyyJ1g7WX63}{K Means Clustering}, que explica de manera visual y dinámica el concepto y pasos del algoritmo k-Means.
+    Visualización del video que explica de manera visual y dinámica el concepto y pasos del algoritmo $k$-Means.
+    \begin{quote}
+        Enlace al video: \href{https://youtu.be/2kfY0R34Dy0?si=60bbeVyyJ1g7WX63}{K Means Clustering}.
+    \end{quote}
+    
     \item \textbf{Clase magistral:} 
     Presentación de los elementos teóricos principales:
     \begin{itemize}
-        \item Concepto de k-Means.
+        \item Concepto de $k$-Means.
         \item Pseudocódigo del algoritmo.
-        \item Importancia del valor de \(k\).
+        \item Importancia del valor de $k$.
     \end{itemize}
-    \item \textbf{Discusión:}
-    Reflexión grupal sobre cómo se aplicaría k-Means en problemas reales. Los estudiantes compartirán ideas sobre escenarios prácticos.
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cuáles son los pasos principales del algoritmo k-Means?
-    \item ¿Qué significa minimizar la inercia en el contexto de k-Means?
-    \item ¿Qué ocurre si seleccionamos un valor incorrecto de \(k\)?
+    
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen09.pdf}{Resumen09.pdf}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 2: Implementación práctica de k-Means}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Implementación práctica de $k$-Means}
+
+Los estudiantes utilizarán un cuaderno de Google Colab mediante exploración práctica para implementar $k$-Means con datos simulados, experimentando con diferentes parámetros del algoritmo como el número de clusters y el método de inicialización.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Preparación:} 
-    Los estudiantes accederán a un cuaderno de Google Colab preparado para esta actividad. El cuaderno incluye una implementación básica de k-Means con datos simulados.
+    \item \textbf{Explicación de parámetros:} 
+    Se explicará cómo los parámetros del algoritmo (número de clusters, método de inicialización) afectan los resultados del agrupamiento.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/09-Agrupamiento-kMeans.ipynb}{09-Agrupamiento-kMeans.ipynb}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/09-Agrupamiento-kMeans.ipynb}{09-Agrupamiento-kMeans.ipynb}.
     \end{quote}
+    
     \item \textbf{Experimentación:} 
-    Los estudiantes cambiarán los parámetros del algoritmo, como el número de clusters (\texttt{n\_clusters}) y el método de inicialización (\texttt{init}), para observar cómo afectan los resultados.
-\end{itemize}
-
-\begin{ejer}
-Modifique el código para:
-\begin{enumerate}[leftmargin=*]
-    \item Utilizar \(k = 3\) y comparar el resultado con \(k = 4\).
-    \item Cambiar el método de inicialización a \texttt{'random'} y observar los efectos en la convergencia.
-\end{enumerate}
-\end{ejer}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo cambia la agrupación al modificar \(k\)?
-    \item ¿Qué ventajas tiene la inicialización \texttt{k-means++} sobre \texttt{random}?
-    \item ¿Cómo interpretarías los centroides obtenidos?
+    Modifique el código para:
+    \begin{itemize}[leftmargin=*]
+        \item Utilizar $k=3$ y comparar el resultado con $k=4$.
+        \item Cambiar el método de inicialización a 'random' y observar los efectos en la convergencia.
+    \end{itemize}
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Tarea:}
-    Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/03-Agrupamiento-Jerarquico.ipynb}{04-Agrupamiento-kMeans.ipynb}.
-    \end{quote}
-    Adicional, visualizar el siguiente video:
-    \begin{quote}
-        Enlace al video: \href{https://youtu.be/mICySHB0fh4?si=YuMBh5uQs4xyRt5u}{K-means (o K-medias) para detección de Clusters}.
-    \end{quote}
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cuáles son los pasos principales del algoritmo $k$-Means?
+    
+    \item ¿Qué significa minimizar la inercia en el contexto de $k$-Means y cómo se relaciona con la calidad del agrupamiento?
+    
+    \item ¿Cómo afecta la elección del valor de $k$ a los resultados del algoritmo y qué métodos existen para seleccionar un valor adecuado?
+\end{enumerate}
 
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]
+    \item Aplicaste $k$-Means a datos de clientes y obtuviste 3 clusters, pero visualmente los datos parecen tener formas alargadas y no circulares. ¿Por qué $k$-Means no funciona bien aquí y qué alternativas propondrías?
+    
+    \item Ejecuté $k$-Means 10 veces con los mismos datos y obtuve resultados ligeramente diferentes cada vez. ¿Cómo lo solventas?
+\end{enumerate}
+
+\paragraph{Tarea:}
+Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
+\begin{quote}
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/04-Agrupamiento-kMeans.ipynb}{04-Agrupamiento-kMeans.ipynb}.
+\end{quote}
+Adicional, visualizar el siguiente video:
+\begin{quote}
+    Enlace al video: \href{https://youtu.be/mICySHB0fh4?si=YuMBh5uQs4xyRt5u}{K-means (o K-medias) para detección de Clusters}.
+\end{quote}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
-    \item ¿Qué alternativas existen al algoritmo k-Means y en qué escenarios son más útiles?
+    \item ¿Qué alternativas existen al algoritmo $k$-Means y en qué escenarios son más útiles?
     \begin{quote}
-        Ver estos dos videos: \href{https://www.youtube.com/watch?v=RDZUdRSDOok}{Clustering with DBSCAN}; \href{https://www.youtube.com/watch?v=HMis89lGdkA}{Identifica Clusters con DBSCAN}
+        Ver estos dos videos: \href{https://www.youtube.com/watch?v=RDZUdRSDOok}{Clustering with DBSCAN}; \href{https://www.youtube.com/watch?v=HMis89lGdkA}{Identifica Clusters con DBSCAN}.
     \end{quote}
-    \item ¿Cómo se podrían mejorar los resultados de k-Means en presencia de datos con formas no esféricas?
+    \item ¿Cómo se podrían mejorar los resultados de $k$-Means en presencia de datos con formas no esféricas?
     \item ¿Qué otras métricas se pueden usar para evaluar la calidad de los clusters generados?
 \end{enumerate}
 
-\paragraph{Para la próxima clase:}  
-Realizar la actividad de Clase invertida sobre Aprendizaje Supervisado, disponible aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/02Est-AprendizajeSupervisado.pdf}{02Est-AprendizajeSupervisado.pdf}.
+\paragraph{Para la próxima clase:}
+\begin{itemize}
+    \item La siguiente sesión se destinará para el desarrollo del Reto 1.
+    \item La sesión subsiguiente se tendrá evaluación.
+    \item Realizar la Clase invertida: Aprendizaje Supervisado, disponible en el aula virtual y aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/02Est-AprendizajeSupervisado.pdf}{02Est-AprendizajeSupervisado.pdf}.
+
+\end{itemize}
+
+ 
 
 \end{document}

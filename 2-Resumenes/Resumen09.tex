@@ -1,0 +1,64 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+\usepackage[spanish, ruled, vlined, onelanguage]{algorithm2e}
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 9: Agrupamiento $k$-Means}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+\SetAlCapFnt{\normalfont\bfseries}
+\SetAlgoCaptionSeparator{\par\nobreak}
+\SetAlCapNameFnt{\unskip\itshape}
+\SetKwInOut{Input}{Entrada}
+\SetKwInOut{Output}{Salida}
+
+\begin{document}
+
+\encabezado
+
+\section{Agrupamiento $k$-Means}
+
+\begin{algorithm}[H]
+    \SetKwInput{KwInput}{Entrada}
+    \caption{Pseudocódigo del algoritmo $k$-means}
+
+    \Input{$D$ (conjunto de datos) y $k$ (número de clústeres)}
+    \Output{El conjunto de clústeres $P$}
+
+    Inicializar los clústeres vacíos $P \leftarrow \{p_1, p_2, \dots, p_k\}$\;
+    Seleccionar los \emph{centroides} iniciales $\zeta_1, \zeta_2, \dots, \zeta_k$\;
+    
+    \While{Condición de parada no satisfecha}{
+        \tcc{Fase de asignación}
+        \For{todo $d_i \in D$}{
+            Encontrar el índice $j$ tal que la distancia $d(d_i, \zeta_j)$ sea mínima\;
+            Asignar la instancia $d_i$ al clúster $p_j$\;
+        }
+        
+        \tcc{Fase de actualización}
+        \For{todo $p_i \in P$}{
+            Recalcular $\zeta_i$ como el promedio de los puntos $d \in p_i$\;
+        }
+    }
+    \Return{$P$}
+\end{algorithm}
+
+\end{document}
