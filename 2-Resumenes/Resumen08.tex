@@ -1,0 +1,119 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+\usepackage[spanish, ruled, vlined, onelanguage]{algorithm2e}
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 6: Algoritmos de Agrupamiento Jerárquico}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+\SetAlCapFnt{\normalfont\bfseries}
+\SetAlgoCaptionSeparator{\par\nobreak}
+\SetAlCapNameFnt{\unskip\itshape}
+\SetKwInOut{Input}{Entrada}
+\SetKwInOut{Output}{Salida}
+
+\begin{document}
+
+\encabezado
+
+\section{Algoritmo Aglomerativo}
+
+\begin{algorithm}[H]
+   
+    \caption{Pseudocódigo del agrupamiento jerárquico aglomerativo (AHC)}
+    
+    \Input{$D$ (conjunto de datos individuales)}
+    \Output{Estructura jerárquica de clústeres}
+    
+    Inicializar $\ell \leftarrow 0$\;
+    Inicializar el conjunto de clústeres $C_\ell \leftarrow D$\;
+    
+    \While{$|C_\ell| > 1$}{
+        Encontrar par $c_i, c_j \in C_\ell$ tal que $L(c_i, c_j)$ sea mínima\;
+        Crear nuevo clúster $c_* \leftarrow c_i \cup c_j$\;
+        Actualizar $C_{\ell+1} \leftarrow (C_\ell \setminus \{c_i, c_j\}) \cup \{c_*\}$\;
+        $\ell \leftarrow \ell + 1$\;
+    }
+    
+    \Return{$C_\ell$}
+\end{algorithm}
+
+\subsection{Tipos de enlace}
+
+\begin{defi}[Función de enlace]
+    Una función de enlace es una función
+    \[
+        \func{L}{\mathcal{P}(X) \times \mathcal{P}(X)}{\mathbb{R}}
+    \]
+    que asigna una distancia entre dos clústeres $A$ y $B$, dada una distancia $d$ entre puntos de $X$.
+\end{defi}
+
+\begin{defi}[Enlace simple]
+    La distancia entre dos clústeres es la distancia mínima entre los puntos de ambos clústeres. Es decir, dados $A$ y $B$ dos conjuntos, la distancia entre ellos es:
+    \[
+        L(A,B) = \min_{x \in A, y \in B} d(x,y)
+    \]
+\end{defi}
+
+\begin{defi}[Enlace completo]
+    La distancia entre dos clústeres es la distancia máxima entre los puntos de ambos clústeres. Es decir, dados $A$ y $B$ dos conjuntos, la distancia entre ellos es:
+    \[
+        L(A,B) = \max_{x \in A, y \in B} d(x,y)
+    \]
+\end{defi}
+
+\begin{defi}[Enlace promedio]
+    La distancia entre dos clústeres es el promedio de las distancias entre los puntos de ambos clústeres. Es decir, dados $A$ y $B$ dos conjuntos, la distancia entre ellos es:
+    \[
+        L(A,B) = \frac{1}{|A||B|} \sum_{x \in A} \sum_{y \in B} d(x,y)
+    \]  
+\end{defi}
+
+\begin{defi}[Enlace de centroide]
+    La distancia entre dos clústeres es la distancia entre los centroides de ambos clústeres. Es decir, dados $A$ y $B$ dos conjuntos, la distancia entre ellos es:
+    \[
+        L(A,B) = d\left( \frac{1}{|A|} \sum_{x \in A} x, \frac{1}{|B|} \sum_{y \in B} y \right)
+    \]
+\end{defi}
+
+\section{Algoritmo Divisivo}
+
+\begin{algorithm}[H]
+   
+    \caption{Pseudocódigo del agrupamiento jerárquico divisivo (DHC)}
+    
+    \Input{$D$ (conjunto de datos individuales)}
+    \Output{Estructura jerárquica de clústeres}
+    
+    Inicializar $\ell \leftarrow 0$\;
+    Inicializar el conjunto de clústeres $C_\ell \leftarrow \{D\}$\;
+    
+    \While{exista $c \in C_\ell$ que se pueda dividir}{
+        Seleccionar clúster $c \in C_\ell$ para dividir\;
+        Dividir $c$ en subclústeres $c_1, c_2, \ldots, c_k$\;
+        Actualizar $C_{\ell+1} \leftarrow (C_\ell \setminus \{c\}) \cup \{c_1, c_2, \ldots, c_k\}$\;
+        $\ell \leftarrow \ell + 1$\;
+    }
+    
+    \Return{$C_\ell$}
+\end{algorithm}
+
+\end{document}
