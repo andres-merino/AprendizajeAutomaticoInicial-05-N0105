@@ -1,28 +1,13 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
-}
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
 }
 
 % -- Datos 
@@ -38,14 +23,9 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -53,16 +33,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
-    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
     \item Comprender los fundamentos del algoritmo kNN, sus ventajas, desventajas y parámetros principales.
     \item Implementar el algoritmo kNN en Python y evaluar su desempeño en un problema práctico.
@@ -81,110 +59,98 @@ Imagina que estás organizando una fiesta y no sabes si alguien prefiere pizza o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 1: Introducción al algoritmo kNN}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Socialización de la Clase Invertida}
 
-En esta actividad, los estudiantes conocerán el algoritmo kNN, sus fundamentos, ventajas, desventajas y parámetros clave. Se iniciará con la visualización de un video y se continuará con una discusión guiada sobre los conceptos más importantes.
+Revisión de los conceptos trabajados individualmente con ChatGPT sobre los conceptos de aprendizaje supervisado.
+
+\paragraph{¿Cómo lo haremos?}  
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Dinámica de discusión:}  
+Se seleccionarán estudiantes al azar para definir los siguientes conceptos basándose en su interacción previa con el asistente virtual:
+\begin{enumerate}[leftmargin=*]
+    \item ¿Dónde se puede aplicar aprendizaje supervisado?
+    
+    \item ¿Qué modelos existen de aprendizaje supervisado para regresión?
+    \item ¿Qué modelos existen de aprendizaje supervisado para clasificación?
+    
+    \item ¿Cuál es el significado de «underfit»?
+    \item ¿Cuál es el significado de «overfit»?
+\end{enumerate}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Introducción al algoritmo kNN}
+
+En esta actividad los estudiantes conocerán el algoritmo kNN mediante visualización de video, interacción con ChatGPT y clase magistral, explorando sus fundamentos, ventajas, desventajas y parámetros clave.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Proyección de video:}  
-    Se presentará un video educativo que explique qué es el aprendizaje no supervisado.
+    Se presentará un video educativo que explique el algoritmo k-Nearest Neighbors.
     \begin{quote}
         Enlace al video: \href{https://www.youtube.com/watch?v=0p0o5cmgLdE}{K Nearest Neighbors}.
     \end{quote}
+    
     \item \textbf{Interacción con ChatGPT:}  
     Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con los términos o conceptos nuevos.
-    \item \textbf{Clase magistral:} Se explicará cómo funciona kNN en detalle: 
-        \begin{itemize}
-            \item Concepto de "vecinos más cercanos".
-            \item Parámetros importantes (valor de k, peso por distancia).
-            \item Ventajas y desventajas del algoritmo.
-        \end{itemize}
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-Se plantearán preguntas rápidas para los estudiantes:
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo decide kNN la clase de un punto nuevo cuando $k=3$?
-    \item Si $k=1$, ¿cómo afecta esto al modelo en términos de sensibilidad al ruido?
+    
+    \item \textbf{Clase magistral:} 
+    Se explicará cómo funciona kNN en detalle: 
+    \begin{itemize}
+        \item Concepto de «vecinos más cercanos».
+        \item Parámetros importantes (valor de $k$, peso por distancia).
+        \item Ventajas y desventajas del algoritmo.
+    \end{itemize}
+    
+    \item \textbf{Implementación en Python:} 
+    
+    \item \textbf{Experimentación:} 
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Implementación práctica del algoritmo kNN}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En esta actividad, los estudiantes implementarán el algoritmo kNN utilizando Python. Se trabajará con un cuaderno de Jupyter que incluye un ejemplo guiado y un ejercicio práctico.
+En esta actividad los estudiantes implementarán el algoritmo kNN mediante exploración de cuaderno de Jupyter, trabajando con un ejemplo guiado y experimentando con diferentes valores de k, métricas de distancia y tamaños de conjunto de prueba.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Preparación:}  
-    Los estudiantes accederán a un cuaderno de Google Colab preparado para esta actividad. El cuaderno contiene un ejemplo básico de clasificación utilizando kNN.
+    \item \textbf{Explicación de parámetros:}  
+    Se explicarán los parámetros clave del algoritmo: valor de k (número de vecinos), métricas de distancia (euclidean, manhattan) y su impacto en el rendimiento del modelo.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/10-kNN.ipynb}{10-kNN.ipynb}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/10-kNN.ipynb}{10-kNN.ipynb}.
     \end{quote}
-
-    \item \textbf{Ejercicio guiado:}  
-    Los estudiantes ejecutarán y modificarán el siguiente código base:
-\begin{pycodigo}
-\begin{lstlisting}[language=Python]
-# Importar librerías necesarias
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
-
-# Cargar el dataset Iris
-iris = load_iris()
-X, y = iris.data, iris.target
-
-# Dividir los datos en entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-# Crear y entrenar el modelo kNN con k=3
-modelo = KNeighborsClassifier(n_neighbors=3)
-modelo.fit(X_train, y_train)
-
-# Realizar predicciones y evaluar el modelo
-y_pred = modelo.predict(X_test)
-print("Precisión del modelo:", accuracy_score(y_test, y_pred))
-\end{lstlisting}
-\end{pycodigo}
-
+    
     \item \textbf{Experimentación:}  
-    Los estudiantes modificarán el código para experimentar con:
-    \begin{itemize}[leftmargin=*]
-        \item Cambiar el valor de \(k\) y observar cómo afecta la precisión.
-        \item Probar diferentes métricas de distancia, como \texttt{'manhattan'} o \texttt{'euclidean'}.
-        \item Usar una proporción diferente en el conjunto de prueba (\texttt{test\_size}).
-    \end{itemize}
-\end{itemize}
-
-\begin{ejer}
-Modifique el código para:
-\begin{enumerate}[leftmargin=*]
-    \item Establecer \(k = 5\) y comparar los resultados con \(k = 3\).
-    \item Utilizar la métrica de distancia \texttt{'manhattan'} en lugar de \texttt{'euclidean'}.
-    \item Cambiar el tamaño del conjunto de prueba a \(40\%\) y analizar el impacto en la precisión.
-\end{enumerate}
-\end{ejer}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo afecta el valor de \(k\) la precisión del modelo?
-    \item ¿Qué diferencias observaste al usar la métrica \texttt{'manhattan'} en comparación con \texttt{'euclidean'}?
-    \item ¿Cómo influye el tamaño del conjunto de prueba en los resultados del modelo?
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\paragraph{Verificación de aprendizaje:} 
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cómo decide kNN la clase de un punto nuevo cuando k=3?
+    
+    \item ¿Por qué es importante normalizar los datos antes de aplicar kNN?
+    
+    \item ¿Cuáles son las principales ventajas y desventajas del algoritmo kNN?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:} 
+\begin{enumerate}[leftmargin=*]  
+    \item Si aumento k de 1 a 100, ¿siempre mejorará la generalización del modelo porque considera más vecinos?
+\end{enumerate}
+
 \paragraph{Tarea:}
-    Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/05-kNN.ipynb}{05-kNN.ipynb}.
-    \end{quote}
+Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
+\begin{quote}
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/05-kNN.ipynb}{05-kNN.ipynb}.
+\end{quote}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
@@ -193,11 +159,10 @@ Modifique el código para:
 \end{enumerate}
 
 \paragraph{Para la próxima clase:}  
-Visualizar el siguiente video sobre SVM:
-    \begin{quote}
-        Enlace al video: \href{https://www.youtube.com/watch?v=jo9slrXKKNo}{¿Qué es una SVM?}.
-    \end{quote}
+\begin{itemize}
+    \item Visualizar el video \href{https://www.youtube.com/watch?v=jo9slrXKKNo}{¿Qué es una SVM?}.
+    \item Leer las secciones 10.1, 10.2, 10.3, 10.4 y 10.5  del artículo \href{https://link.springer.com/article/10.1140/epjs/s11734-021-00209-7}{Beginning with machine learning: a comprehensive primer}.
+\end{itemize}
 
 
-
-\end{document} 
+\end{document}
