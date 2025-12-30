@@ -1,35 +1,20 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
-}
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
 }
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
-\tema{Clase 12: Redes neuronales}
+\tema{Clase 12: Introducción a las redes neuronales: perceptrón lineal}
 \autor{Andrés Merino}
 \fecha{Periodo 2025-2}
 
@@ -38,14 +23,10 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
-
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -53,15 +34,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf
-    {RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
-    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
+% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
     \item Explicar los conceptos básicos de las redes neuronales y su inspiración biológica.
     \item Analizar las funciones de combinación y de activación como componentes esenciales del perceptrón.
@@ -82,88 +62,90 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Retroalimentación de la Clase Invertida}
-En esta actividad, los estudiantes revisarán los conceptos clave de las redes neuronales, comenzando con su inspiración biológica y el funcionamiento del perceptrón simple. A través de una discusión guiada, se profundizará en el papel de las funciones de activación y el descenso del gradiente como fundamentos esenciales para el aprendizaje automático.
+
+En esta actividad los estudiantes revisarán mediante discusión guiada los conceptos clave de las redes neuronales, comenzando con su inspiración biológica, el funcionamiento del perceptrón simple, las funciones de activación y el descenso del gradiente.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item Discusión inicial para resolver dudas y profundizar en los conceptos de la clase invertida:
+    \item \textbf{Discusión inicial:}
+    Se resolverán dudas y se profundizará en los conceptos de la clase invertida:
     \begin{itemize}
         \item Inspiración biológica de las redes neuronales.
         \item Funcionamiento básico del perceptrón simple.
         \item Funciones de activación.
         \item Descenso del gradiente.
     \end{itemize}
-    \item Reflexión grupal para conectar la teoría con casos prácticos.
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Qué conceptos clave destacan en la inspiración biológica de las redes neuronales?
-    \item ¿Cómo funciona un perceptrón simple?
-    \item ¿Qué papel juegan las funciones de activación en una red neuronal?
+   
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Clase Magistral - Fundamentos de Redes Neuronales}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En esta actividad, los estudiantes explorarán los fundamentos teóricos de las redes neuronales. Se abordará la historia de su desarrollo, las funciones de combinación y activación, así como el funcionamiento del perceptrón. La clase magistral permitirá conectar estos conceptos con aplicaciones prácticas y preparar a los estudiantes para la implementación práctica.
+En esta actividad los estudiantes explorarán mediante clase magistral los fundamentos teóricos de las redes neuronales, abordando su historia, las funciones de combinación y activación, y el funcionamiento del perceptrón.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Historia:} Breve revisión histórica del desarrollo de las redes neuronales, destacando el perceptrón.
-    \item \textbf{Fundamentos:} Presentación teórica sobre:
+    \item \textbf{Historia:}
+    Breve revisión histórica del desarrollo de las redes neuronales, destacando el perceptrón de Rosenblatt y su evolución.
+    
+    \item \textbf{Fundamentos:}
+    Presentación teórica sobre:
     \begin{itemize}
-        \item Funciones de combinación.
-        \item Funciones de activación (ejemplos: sigmoide, ReLU, etc.).
+        \item Funciones de combinación (suma ponderada de entradas).
+        \item Funciones de activación (sigmoide, ReLU, tanh, escalón).
     \end{itemize}
-    \item \textbf{Introducción al Perceptrón:} Explicación detallada de su estructura y funcionamiento.
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo se combinan las entradas en un perceptrón simple?
-    \item ¿Qué tipos de funciones de activación existen y cuándo son útiles?
+    
+    \item \textbf{Introducción al Perceptrón:}
+    Explicación detallada de su estructura (entradas, pesos, sesgo, función de activación, salida) y funcionamiento.
+    
+        \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen12.pdf}{Resumen12.pdf}
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 3: Implementación Práctica - Cuaderno de Jupyter}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En esta actividad, los estudiantes pondrán en práctica los conceptos aprendidos mediante la implementación de un perceptrón simple en un cuaderno de Jupyter. Experimentarán con diferentes configuraciones, como tasas de aprendizaje y pesos iniciales, para observar su impacto en el entrenamiento y el rendimiento, desarrollando así una comprensión más profunda del modelo.
+En esta actividad los estudiantes pondrán en práctica mediante exploración de cuaderno de Jupyter los conceptos aprendidos implementando un perceptrón simple, experimentando con diferentes configuraciones de tasas de aprendizaje y pesos iniciales.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Preparación:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \item \textbf{Exploración guiada:}
+    Se implementará un perceptrón simple siguiendo instrucciones detalladas en el cuaderno, observando cómo aprende realizar una regresión lineal.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks12-Perceptron-Lineal.ipynb}{12-Perceptron-Lineal.ipynb}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/12-Perceptron-Lineal.ipynb}{12-Perceptron-Lineal.ipynb}.
     \end{quote}
-    \item \textbf{Exploración guiada:} Se implementará un perceptrón simple siguiendo instrucciones detalladas en el cuaderno.
-    \item \textbf{Experimentación:} Los estudiantes modificarán parámetros como tasa de aprendizaje para observar el impacto en el rendimiento.
-\end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo afecta la tasa de aprendizaje al entrenamiento del perceptrón?
+    \item \textbf{Experimentación:} Los estudiantes modificarán parámetros como la tasa de aprendizaje y los pesos iniciales para observar su impacto en el proceso de aprendizaje del perceptrón.
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\paragraph{Verificación de aprendizaje:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué es un perceptrón y cuáles son sus componentes principales?
+    
+    \item ¿Cómo afecta la tasa de aprendizaje al entrenamiento del perceptrón?
+\end{enumerate}
+
 \paragraph{Tarea:}
-    No queda tarea.
+No queda tarea.
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
     \item ¿Qué limitaciones presenta un perceptrón simple y cómo se pueden superar con redes más complejas?
-    \item ¿Qué ventajas tiene el uso de funciones de activación no lineales?
+    \item ¿Una red neuronal puede aproximar cualquier tipo de funciones?
 \end{enumerate}
 
 \paragraph{Para la próxima clase:}  
-Preparar la actividad invertida sobre Redes Neuronales, disponible aquí:  
-\begin{quote}  
-    \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/04Est-RedesNeuronales-II.pdf}{04Est-RedesNeuronales-II.pdf}.  
-\end{quote}  
+\begin{itemize}
+    \item Visualizar el video \href{https://youtu.be/_0wdproot34?si=z6FHp27sh5b4CH32}{Funciones de activación a detalle}.
+    \item Visualizar el video \href{https://youtu.be/wzMMyTx7DKk?si=NfsF9j1sd13IsXqO}{Funciones de Activación de Redes Neuronales}.
+\end{itemize}
 
-\end{document} 
+\end{document}

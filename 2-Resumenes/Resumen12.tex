@@ -1,0 +1,167 @@
+\documentclass[a4,11pt]{aleph-notas}
+% Se puede ver la documentación aquí: 
+% https://github.com/alephsub0/LaTeX_aleph-notas
+
+% -- Paquetes adicionales 
+\usepackage{enumitem}
+\usepackage{aleph-comandos}
+\usepackage{booktabs}
+\usepackage[spanish, ruled, vlined, onelanguage]{algorithm2e}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.markings}
+
+% -- Datos 
+\institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
+\carrera{Ciencia de Datos}
+\asignatura{Aprendizaje Automático Inicial}
+\tema{Resumen no. 12: Introducción a las redes neuronales: perceptrón}
+\autor{Andrés Merino}
+\fecha{Periodo 2025-2}
+
+\logouno[0.14\textwidth]{Logos/logoPUCE_04_ac}
+\definecolor{colortext}{HTML}{0030A1}
+\definecolor{azul}{HTML}{0030A1}
+\definecolor{rojo}{HTML}{A10030}
+\definecolor{verde}{HTML}{30A100}
+\definecolor{colordef}{HTML}{0030A1}
+\fuente{montserrat}
+
+
+% -- Comandos adicionales
+\setlist[enumerate]{label=\roman*.}
+\SetAlCapFnt{\normalfont\bfseries}
+\SetAlgoCaptionSeparator{\par\nobreak}
+\SetAlCapNameFnt{\unskip\itshape}
+\SetKwInOut{Input}{Entrada}
+\SetKwInOut{Output}{Salida}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+
+\encabezado
+
+\section*{Historia}
+
+\begin{itemize}
+    \item 1943: McCulloch y Pitts proponen un modelo matemático de neurona.
+    \item 1958: Rosenblatt desarrolla el perceptrón, un algoritmo de aprendizaje supervisado.
+    \item 1969: Minsky y Papert publican \textit{Perceptrons}, destacando limitaciones del perceptrón.
+    \item 1986: Rumelhart, Hinton y Williams introducen el algoritmo de retropropagación.
+    \item 1989: LeCun y sus colegas aplican redes neuronales (LeNet) a la clasificación de dígitos manuscritos.
+    \item 2010: Popularización del uso de GPUs para el entrenamiento de redes neuronales.
+    \item 2012: Hinton y sus colegas ganan el concurso ImageNet con una red profunda.
+    \item 2017: Vaswani et al. introducen el modelo Transformer.
+\end{itemize}
+
+\section*{Definición de perceptrón}
+
+Consideremos un problema de aprendizaje supervisado con un conjunto de datos
+\[
+\mathcal{D} = \{(x^{(i)}, y^{(i)})\}_{i=1}^N,
+\]
+donde \(x^{(i)} \in \mathbb{R}^d\) representa el vector de características y
+\(y^{(i)} \in \mathbb{R}\) la etiqueta asociada.
+
+Un \textbf{perceptrón} se define mediante la composición de las siguientes funciones:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Función de combinación}
+    \[
+        \func{a}{\mathbb{R}^d \times \mathbb{R}^d \times \mathbb{R}}{\mathbb{R}},
+    \]
+    Por ejemplo,
+    \[
+        a(x,w,b) = w^\top x + b.
+    \]
+
+    \item \textbf{Función de activación}
+    \[
+        \func{\sigma}{\mathbb{R}}{\mathbb{R}},
+    \]
+    Por ejemplo,
+    \[
+        \sigma(a) = a.
+    \]
+
+    \item \textbf{Función de salida}
+    \[
+        \func{h}{\mathbb{R}^d \times \mathbb{R}^d \times \mathbb{R} }{\mathbb{R}},
+    \]
+    definida como la composición
+    \[
+        \hat y = h(x,w,b) = \sigma (a(x,w,b)).
+    \]
+
+    \item \textbf{Función de pérdida}
+    \[
+        \func{L}{\mathbb{R}^N \times \mathbb{R}^N}{\mathbb{R}}.
+    \]
+    Por ejemplo,
+    \[
+        L(y,\hat y) = \frac{1}{N} \sum_{i=1}^N (y^{(i)} - \hat y^{(i)})^2.
+    \]
+\end{itemize}
+
+Con esto, 
+\[
+    L(y, \hat y)
+    = \frac{1}{N} \sum_{i=1}^N \bigl(y^{(i)} - h(x^{(i)},w,b)\bigr)^2=
+    \frac{1}{N} \sum_{i=1}^N \bigl(y^{(i)} - \sigma(a(x^{(i)},w,b))\bigr)^2.
+\]
+
+El objetivo del aprendizaje es encontrar los parámetros \((w^\ast,b^\ast)\)
+que minimizan la función de pérdida sobre el conjunto de datos:
+\[
+    (w^\ast,b^\ast)
+    =
+    \argmin_{w \in \mathbb{R}^d,\, b \in \mathbb{R}}
+    \frac{1}{N} \sum_{i=1}^N L\bigl(y^{(i)}, \sigma(a(x^{(i)},w,b))\bigr).
+\]
+
+En el ejemplo, esto se traduce en:
+\[
+    (w^\ast,b^\ast)
+    =
+    \argmin_{w \in \mathbb{R}^d,\, b \in \mathbb{R}}
+    \frac{1}{N} \sum_{i=1}^N \bigl(y^{(i)} - (w^\top x^{(i)} + b)\bigr)^2,
+\]
+lo cual es equivalente a una regresión lineal.
+
+\subsection*{Entrenamiento}
+
+El entrenamiento del perceptrón implica ajustar los parámetros \(w\) y \(b\) utilizando un algoritmo de optimización, como el descenso por gradiente.
+
+Para esto, calculamos las derivadas parciales de la función de pérdida con respecto a los parámetros:
+\[
+    \frac{\partial L}{\partial w} 
+    = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w}
+    = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \sigma}{\partial a} \cdot \frac{\partial a}{\partial w}
+    = \frac{2}{N} \sum_{i=1}^N ( \hat y^{(i)} - y^{(i)} ) \cdot 1 \cdot x^{(i)},
+\]
+\[
+    \frac{\partial L}{\partial b} 
+    = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial b}
+    = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \sigma}{\partial a} \cdot \frac{\partial a}{\partial b}
+    = \frac{2}{N} \sum_{i=1}^N ( \hat y^{(i)} - y^{(i)} ) \cdot 0 \cdot 1.
+\]
+De esta manera, tomamos valores aleatorios iniciales para \(w\) y \(b\), y actualizamos iterativamente:
+\[
+    \begin{pmatrix}
+        w \\ b
+    \end{pmatrix}
+    \leftarrow
+    \begin{pmatrix}
+        w \\ b
+    \end{pmatrix}
+    - \eta
+    \begin{pmatrix}
+        \frac{\partial L}{\partial w} \\[6pt]
+        \frac{\partial L}{\partial b}
+    \end{pmatrix},
+\]
+donde \(\eta\) es la tasa de aprendizaje. A cada actilización se le denomina \textbf{época}.
+
+
+
+\end{document}
