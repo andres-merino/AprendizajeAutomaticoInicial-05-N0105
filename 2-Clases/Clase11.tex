@@ -1,30 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
 }
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
-}
-
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -39,14 +23,10 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
-
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -54,153 +34,144 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
-    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Resultados específicos:}  
-\begin{itemize}[leftmargin=*]  
-    \item Comprender el funcionamiento del algoritmo de Máquinas de Soporte Vectorial (SVM) y sus fundamentos matemáticos.  
-    \item Identificar y comparar diferentes funciones de kernel en SVM.  
-    \item Implementar SVM en Python con Scikit-learn para resolver problemas de clasificación.  
-\end{itemize}  
+\subsection*{RdA de la clase:}
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender el funcionamiento del algoritmo de Máquinas de Soporte Vectorial (SVM) y sus fundamentos matemáticos.
+    \item Identificar y comparar diferentes funciones de kernel en SVM.
+    \item Implementar SVM en Python con Scikit-learn para resolver problemas de clasificación.
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Introducción}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\paragraph{Pregunta inicial:}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:}
 ¿Cómo podríamos diseñar una frontera que no solo divida los datos correctamente, sino que lo haga de manera óptima para nuevos datos desconocidos?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Desarrollo}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection*{Actividad 1: Introducción a SVM}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Introducción a SVM}
 
-En esta actividad, los estudiantes conocerán las Máquinas de Soporte Vectorial (SVM), sus fundamentos teóricos, ventajas, desventajas y parámetros clave. Se iniciará con la visualización de un video introductorio, seguido de una explicación teórica y una discusión guiada para reflexionar sobre los conceptos más importantes del algoritmo.
+En esta actividad los estudiantes conocerán las Máquinas de Soporte Vectorial (SVM) mediante visualización de video y clase magistral, explorando sus fundamentos teóricos sobre margen máximo, hiperplanos, vectores de soporte y optimización cuadrática.
 
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]  
-    \item \textbf{Video introductorio:}  
-    Ver el video \href{https://www.youtube.com/watch?v=jo9slrXKKNo}{¿Qué es una SVM?}, que explica el concepto de margen máximo, hiperplanos y vectores de soporte.  
-    \item \textbf{Clase magistral:}  
-    Presentación de los elementos teóricos principales:  
-    \begin{itemize}  
-        \item Margen máximo y vectores de soporte.  
-        \item Problema de optimización cuadrática.  
-    \end{itemize}  
-\end{itemize}  
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]  
-    \item ¿Qué es un margen máximo y por qué es importante?  
-    \item ¿Cómo identifica SVM los vectores de soporte?  
-\end{itemize}  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection*{Actividad 2: Implementación práctica de SVM lineal}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-En esta actividad, los estudiantes implementarán un modelo SVM con un kernel lineal para resolver un problema de clasificación. Mediante el uso de un cuaderno Jupyter, explorarán cómo ajustar parámetros clave y analizarán el impacto de estos ajustes en la separación de las clases. Esto les permitirá comprender la relación entre teoría y práctica en el uso de SVM para datos linealmente separables.
-
-
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]  
-    \item \textbf{Preparación:}  
-    Los estudiantes accederán a un cuaderno Jupyter preparado para esta actividad. El cuaderno incluye una implementación básica de un SVM lineal con datos simulados.  
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Revisión de tarea:} Se realizará el siguiente cuestionario a estudiantes de manera aleatoria para revisar la lectura previas:
     \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/11-SVM.ipynb}{11-SVM.ipynb}.
+        Enlace al cuestionario: \href{https://gemini.google.com/share/a88a74d2db79}{Cuestionario: Máquinas de Soporte Vectorial (SVM)}.
     \end{quote}
-    \item \textbf{Ejercicio guiado:}  
-    Los estudiantes ejecutarán y modificarán el siguiente código base:  
-\begin{pycodigo}  
-\begin{lstlisting}[language=Python]  
-from sklearn.datasets import make_blobs
-from sklearn.model_selection import train_test_split  
-from sklearn.svm import SVC  
-from sklearn.metrics import accuracy_score  
+    \item \textbf{Video introductorio:}
+    Ver el video que explica el concepto de margen máximo, hiperplanos y vectores de soporte.
+    \begin{quote}
+        Enlace al video: \href{https://www.youtube.com/watch?v=jo9slrXKKNo}{¿Qué es una SVM?}.
+    \end{quote}
+    
+    \item \textbf{Clase magistral:}
+    Presentación de los elementos teóricos principales:
+    \begin{itemize}
+        \item Margen máximo y vectores de soporte.
+        \item Problema de optimización cuadrática.
+    \end{itemize}
+    
+    \item \textbf{Materiales de apoyo:} 
+    Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen11.pdf}{Resumen11.pdf}
+    
+\end{itemize}
 
-# Generar datos de ejemplo  
-X, y = make_blobs(n_samples=100, centers=2, cluster_std=4.0, random_state=42)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Implementación práctica de SVM lineal}
 
-# Dividir los datos en entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+En esta actividad los estudiantes implementarán un modelo SVM con kernel lineal mediante exploración de cuaderno Jupyter para resolver un problema de clasificación, ajustando parámetros clave y analizando el impacto en la separación de las clases.
 
-# Entrenar un SVM lineal  
-modelo = SVC(kernel='linear')  
-modelo.fit(X, y)  
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Explicación de parámetros:}
+    Se explicará el parámetro C y su impacto en el margen y la clasificación (valores pequeños de C crean márgenes más amplios tolerando más errores, valores grandes de C crean márgenes más estrictos).
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/11-SVM.ipynb}{11-SVM.ipynb}.
+    \end{quote}
+    
+    \item \textbf{Experimentación:} 
+    \begin{itemize}
+        \item Pruébalo con un kernel polinómico de grado 2 y 3, y observa cómo cambia la visualización de las regiones de decisión.
+        \item Genera datos con la función make\_moons y observa cómo cambia la visualización de las regiones de decisión con diferentes kernels.
+        \item Para un conjunto de datos no linealmente separable, prueba un kernel polinomial con diferentes grados; realiza un gráfico de la precisión del modelo en función del grado del kernel.
+    \end{itemize}
+    
+\end{itemize}
 
-# Evaluar el modelo  
-y_pred = modelo.predict(X_test)
-print("Precisión del modelo:", accuracy_score(y_test, y_pred))
-\end{lstlisting}  
-\end{pycodigo}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 3: Introducción a los kernels y su aplicación}
 
-    \item \textbf{Experimentación:}  
-    Los estudiantes ajustarán el valor de \( C \) para observar los cambios en la clasificación y en el margen.  
-\end{itemize}  
+En esta actividad los estudiantes explorarán mediante video, interacción con ChatGPT y clase magistral cómo los kernels permiten a las SVM abordar problemas de clasificación no lineales, analizando diferentes tipos de kernels y su efecto en la separación de datos.
 
-\begin{ejer}  
-Modifique el código para:  
-\begin{enumerate}[leftmargin=*]  
-    \item Cambiar el valor de \( C \) a \( 0.1 \) y \( 10 \). Compare los resultados.  
-\end{enumerate}  
-\end{ejer}  
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Video sobre kernels:}
+    Visualización del video que explica el kernel trick en SVM.
+    \begin{quote}
+        Enlace al video: \href{https://youtu.be/Q7vT0--5VII?si=lR6W66Cde65fEz1a}{The Kernel Trick in Support Vector Machine}.
+    \end{quote}
+    
+    \item \textbf{Interacción con ChatGPT:}
+    Los estudiantes formularán preguntas al modelo sobre términos nuevos relacionados con kernels y espacios de características.
+    
+    \item \textbf{Clase magistral:}
+    Comparación de kernels comunes:
+    \begin{itemize}
+        \item Lineal.
+        \item Polinomial.
+        \item Radial (RBF).
+        \item Sigmoide.
+    \end{itemize}
+       
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection*{Actividad 3: Introducción a los kernels y su aplicación}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En esta actividad, los estudiantes explorarán cómo los kernels permiten a las SVM abordar problemas de clasificación no lineales. A través de un video introductorio, una interacción con ChatGPT y ejemplos prácticos, los estudiantes analizarán diferentes tipos de kernels, como el RBF y el polinomial, y experimentarán cómo estas transformaciones afectan la separación de los datos en espacios de mayor dimensionalidad.
+\paragraph{Verificación de aprendizaje:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué es un margen máximo en SVM y por qué es importante maximizarlo?
+    
+    \item ¿Qué son los vectores de soporte y cuál es su rol en el algoritmo SVM?
+    
+    \item ¿Cómo funciona el kernel trick y por qué es útil en SVM?
+\end{enumerate}
 
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]  
-    \item \textbf{Video sobre kernels:}  
-    Visualización del video \href{https://youtu.be/Q7vT0--5VII?si=lR6W66Cde65fEz1a}{The Kernel Trick in Support Vector Machine}.  
-    \item \textbf{Interacción con ChatGPT:}  
-    Los estudiantes formularán preguntas al modelo sobre términos nuevos.
-    \item \textbf{Clase magistral:}  
-    Comparación de kernels comunes:  
-    \begin{itemize}  
-        \item Lineal.  
-        \item Polinomial.  
-        \item Radial (RBF).  
-        \item Sigmoide.  
-    \end{itemize}  
-    \item \textbf{Ejemplo práctico:}  
-    Implementación de un SVM con kernel RBF usando datos simulados.  
-\end{itemize}  
+\paragraph{Preguntas tipo entrevista:}
+\begin{enumerate}[leftmargin=*]
+    \item Tienes un problema de clasificación binaria con 100,000 características y solo 500 muestras. ¿Por qué SVM podría ser una buena elección aquí?
+    
+    \item Has entrenado un SVM con kernel RBF y obtienes 100\% de accuracy en entrenamiento pero solo 60\% en test. ¿Qué está ocurriendo y cómo lo solucionarías?
+\end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Cierre}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\paragraph{Tarea:}
+Desarrollar los ejercicios planteados en el siguiente cuaderno:
+\begin{quote}
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/06-SVM.ipynb}{06-SVM.ipynb}.
+\end{quote}
 
-\paragraph{Tarea:}  
-Desarrollar los ejercicios planteados en el siguiente cuaderno:  
-\begin{quote}  
-    Enlace al cuaderno: \href{https://example.com/svm_practice}{SVM Practice Notebook}.  
-\end{quote}  
+\paragraph{Pregunta de investigación:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cómo se utiliza SVM para regresión?
+\end{enumerate}
 
-\paragraph{Pregunta de investigación:}  
-\begin{enumerate}[leftmargin=*]  
-    \item ¿Cómo elegir un kernel adecuado para un problema específico?  
-    \item ¿Qué ventajas tiene el kernel RBF frente al kernel lineal?  
-    \item ¿Cómo afecta la transformación de características en SVM a la capacidad del modelo para generalizar?  
-\end{enumerate}  
+\paragraph{Para la próxima clase:}
+Realizar la Clase invertida: Redes Neuronales, disponible en el aula virtual y aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/03Est-RedesNeuronales.pdf}{03Est-RedesNeuronales.pdf}.
 
-\paragraph{Para la próxima clase:}  
-Preparar la actividad invertida sobre Redes Neuronales, disponible aquí:  
-\begin{quote}  
-    \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/03Est-RedesNeuronales.pdf}{03Est-RedesNeuronales.pdf}.  
-\end{quote}  
-
-
-
-\end{document} 
+\end{document}
