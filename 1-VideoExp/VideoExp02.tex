@@ -6,7 +6,8 @@
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
-
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
@@ -30,27 +31,72 @@
 
 \encabezado
 
-\vspace*{-10mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Indicaciones}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Indicaciones}
 \begin{itemize}[leftmargin=*]
 \item 
-    En esta actividad se evalúa si el estudiante \textit{(Criterio 3.1) aplica los principios de lógica matemática, teoría de conjuntos y números reales para la resolución de problemas prácticos.}
+    En esta actividad se evalúa si el estudiante \textit{(Criterio 1.3) explica los métodos de aprendizaje supervisado, sus características, aplicaciones, alcance y limitaciones.}
 \item 
-    
+    Se espera la utilización de herramientas tecnológicas para crear una presentación interactiva que cumpla con los estándares establecidos en la rúbrica.
+\item 
+    La presentación deberá tener una duración máxima de 7 minutos.
 \end{itemize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Descripción}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Preparación del Material:} Se debe elaborar una presentación interactiva sobre los métodos de aprendizaje supervisado.
+    \begin{itemize}
+        \item Incluirán características principales, aplicaciones, alcance y limitaciones de los métodos de aprendizaje  supervisado.
+        \item Utilizarán herramientas tecnológicas para diseñar y presentar los contenidos.
+    \end{itemize}
+    \item \textbf{Estructura de la Presentación:}
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{Introducción:} Explicación general del aprendizaje supervisado y su importancia en el campo de la ciencia de datos.
+        \item \textbf{Desarrollo:}
+        \begin{itemize}
+            \item Descripción de métodos clave (al menos dos).
+            \item Características técnicas de los métodos presentados.
+            \item Ejemplos prácticos y aplicaciones reales.
+        \end{itemize}
+        \item \textbf{Conclusión:} Resumen del alcance y las limitaciones de los métodos discutidos.
+    \end{itemize}
+    \item \textbf{Claridad y Profundidad:} La presentación deberá ser clara, estructurada y dirigida a un público con conocimientos básicos en aprendizaje automático.
+    \item \textbf{Duración y Entrega:} 
+    \begin{itemize}
+        \item La duración máxima de la presentación es de 7 minutos.
+        \item Se deberá entregar el enlace (de OneDrive) al video de la exposición a través del aula virtual antes de la fecha límite establecida.
+    \end{itemize}
+\end{enumerate}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{center}\small
+% \begin{tabular}{p{3cm}*{4}{p{4.8cm}}}
+\begin{tabular}{L{3cm}*{4}{L{2.8cm}}}
+\toprule
+\textbf{Indicador} & \textbf{Excelente (4)} & \textbf{Bueno (3)} & \textbf{Mejorable (2)} & \textbf{Deficiente (1)} \\ \midrule
+\textbf{Métodos de Aprendizaje Supervisado} & Explica claramente los métodos y su contexto. & Describe los métodos de forma adecuada. & Menciona los métodos superficialmente. & No describe correctamente los métodos. \\ \midrule
+\textbf{Características} & Detalla las principales características. & Menciona características con claridad moderada. & Describe características de forma incompleta. & No aborda las características principales. \\ \midrule
+\textbf{Aplicaciones} & Identifica y explica aplicaciones prácticas. & Describe aplicaciones relevantes sin ejemplos. & Menciona aplicaciones sin profundidad. & No menciona aplicaciones prácticas. \\ \midrule
+\textbf{Alcance y Limitaciones} & Detalla el alcance y las limitaciones con ejemplos. & Menciona alcance y limitaciones brevemente. & Describe alcance o limitaciones superficialmente. & No aborda alcance ni limitaciones. \\ \midrule
+\textbf{Interacción Tecnológica} & Integra herramientas de forma innovadora. & Usa herramientas adecuadamente. & Uso básico de herramientas. & No usa herramientas relevantes. \\ \midrule
+\textbf{Uso del Tiempo} & Cumple estrictamente con los 7 minutos. & Gestiona el tiempo con ligeros desbalances. & Excede o no utiliza todo el tiempo asignado. & No respeta el tiempo asignado. \\ \midrule
+\textbf{Diseño} & Diseño profesional y coherente. & Diseño visualmente agradable. & Diseño funcional pero poco atractivo. & Diseño desorganizado. \\ \midrule
+\textbf{Claridad y Fluidez} & Expone con claridad y fluidez. & Expone claramente, con algunas interrupciones. & Exposición comprensible pero poco fluida. & Exposición confusa o interrumpida. \\ \bottomrule
+\end{tabular}
+\end{center}
 
 \end{document}
