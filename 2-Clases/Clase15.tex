@@ -1,28 +1,13 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
-}
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
 }
 
 % -- Datos 
@@ -38,14 +23,10 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
-
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -53,102 +34,115 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
-    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
-\subsection*{Resultados específicos:}  
-\begin{itemize}[leftmargin=*]  
-    \item Comprender el método de retropropagación y su deducción matemática.  
-    \item Revisar las técnicas de optimización en el entrenamiento de redes neuronales.  
-\end{itemize}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{RdA de la clase:}
+% Máximo 3 resultados
+\begin{itemize}[leftmargin=*]
+    \item Comprender el método de retropropagación y su deducción matemática.
+    \item Revisar las técnicas de optimización en el entrenamiento de redes neuronales.
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Introducción}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\paragraph{Pregunta inicial:}  
-¿Qué desafíos enfrenta el entrenamiento de redes neuronales y cómo podemos mitigarlos para mejorar su desempeño?  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Pregunta inicial:}
+Si una red tiene miles de conexiones, ¿cómo puede saber exactamente qué conexión ajustar y en qué dirección, sin “probar a ciegas” una por una?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Desarrollo}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desarrollo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection*{Actividad 1: Deducción del método de retropropagación}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 1: Deducción del método de retropropagación}
 
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]  
-    \item \textbf{Clase magistral:}  
+En esta actividad se explicará mediante clase magistral el método de retropropagación, incluyendo su propósito en redes neuronales y la deducción paso a paso del algoritmo usando la regla de la cadena para calcular gradientes eficientemente.
+
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}
     Explicación detallada del método de retropropagación:
-    \begin{itemize}[leftmargin=*]
-        \item Introducción a la retropropagación y su propósito en redes neuronales.
-        \item Deducción paso a paso del algoritmo, desde la función de pérdida hasta el cálculo de gradientes usando la regla de la cadena.
-    \end{itemize}  
-\end{itemize}  
+    \begin{itemize}
+        \item Introducción a la retropropagación y su propósito en redes neuronales (optimizar pesos mediante gradiente descendente).
+        \item Deducción paso a paso del algoritmo: desde la función de pérdida hasta el cálculo de gradientes usando la regla de la cadena.
+        \item Forward pass (propagación hacia adelante) y backward pass (retropropagación de errores).
+    \end{itemize}
+   
+\end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]  
-    \item ¿Cómo se utiliza la regla de la cadena en el cálculo de gradientes?  
-    \item ¿Qué rol desempeña la función de pérdida en la retropropagación?  
-    \item ¿Por qué es fundamental calcular los gradientes de manera eficiente en redes neuronales?  
-\end{itemize}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 2: Regularización y optimización en redes neuronales}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection*{Actividad 2: Regularización y optimización en redes neuronales}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+En esta actividad se presentarán mediante clase magistral y ejercicio práctico en cuaderno de Jupyter las técnicas de regularización (L1, L2, Dropout, Early stopping) y diferentes optimizadores (SGD, Adam, RMSProp), evaluando su impacto en el rendimiento del modelo.
 
-\paragraph{¿Cómo lo haremos?}  
-\begin{itemize}[leftmargin=*]  
-    \item \textbf{Clase magistral:}  
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clase magistral:}
     Presentación de conceptos clave:
-    \begin{itemize}[leftmargin=*]
-        \item Regularización: L1, L2 y Dropout.
-        \item Early stopping como estrategia para evitar el sobreajuste.
-        \item Diferentes optimizadores: SGD, Adam, RMSProp, etc.
-        \item Learning rate adaptativo y su impacto en el entrenamiento.
-    \end{itemize}  
-    \item \textbf{Ejercicio práctico:}  
-    Implementación guiada en un notebook de Python:
-    \begin{itemize}[leftmargin=*]
+    \begin{itemize}
+        \item Regularización: L1 (Lasso), L2 (Ridge) y Dropout (desactivación aleatoria de neuronas).
+        \item Early stopping como estrategia para evitar el sobreajuste (detener entrenamiento cuando validation loss deja de mejorar).
+        \item Diferentes optimizadores: SGD (Stochastic Gradient Descent), Adam (Adaptive Moment Estimation), RMSProp, y sus características.
+        \item Learning rate adaptativo y su impacto en la convergencia del entrenamiento.
+    \end{itemize}
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
+    \begin{quote}
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/15-Entrenamiento-Redes.ipynb}{15-Entrenamiento-Redes.ipynb}.
+    \end{quote}
+    
+    \item \textbf{Ejercicio práctico:}
+    Implementación guiada de:
+    \begin{itemize}
         \item Configurar y entrenar una red neuronal básica.
         \item Aplicar técnicas de regularización y evaluar resultados.
-        \item Comparar el rendimiento utilizando diferentes  optimizadores.
+        \item Comparar el rendimiento utilizando diferentes optimizadores.
         \item Implementar early stopping y observar su impacto en el sobreajuste.
-    \end{itemize}  
-\end{itemize}  
+    \end{itemize}
+    
+    
+\end{itemize}
 
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]  
-    \item ¿Cómo afecta la regularización al sobreajuste?  
-    \item ¿Cuáles son las diferencias principales entre SGD y Adam como optimizadores?  
-    \item ¿Qué ventajas ofrece el learning rate adaptativo frente a un learning rate constante?  
-\end{itemize}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Cierre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Cierre}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\paragraph{Verificación de aprendizaje:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Cómo se utiliza la regla de la cadena en el cálculo de gradientes durante la retropropagación?
+    % Respuesta: La regla de la cadena descompone el cálculo del gradiente de la función de pérdida respecto a cada peso en productos de derivadas parciales. Para un peso wᵢⱼ en la capa l: ∂L/∂wᵢⱼ = ∂L/∂aⱼ · ∂aⱼ/∂zⱼ · ∂zⱼ/∂wᵢⱼ, donde L es la pérdida, zⱼ es la entrada ponderada (suma), aⱼ es la activación, y wᵢⱼ es el peso. La retropropagación calcula estos gradientes eficientemente en un solo backward pass, reutilizando cálculos intermedios. Cada capa recibe el gradiente de la pérdida respecto a sus salidas y lo propaga hacia atrás multiplicando por las derivadas locales, hasta llegar a los pesos de la primera capa.
+    
+    \item ¿Cómo afecta la regularización al sobreajuste y cuáles son las diferencias entre L1, L2 y Dropout?
+    % Respuesta: La regularización previene overfitting penalizando la complejidad del modelo. L2 (Ridge): añade λΣw² a la pérdida, penalizando pesos grandes, forzando pesos pequeños distribuidos - suaviza el modelo sin eliminar características. L1 (Lasso): añade λΣ|w|, tiende a hacer pesos exactamente cero - realiza selección de características automática, útil para modelos sparse. Dropout: durante entrenamiento desactiva aleatoriamente neuronas (típicamente 20-50%), forzando la red a no depender de neuronas específicas - equivalente a entrenar ensemble de redes. L1/L2 afectan directamente la función de pérdida; Dropout modifica la arquitectura durante entrenamiento. En práctica, se combinan: L2 + Dropout es común en redes profundas.
+    
+    \item ¿Cuáles son las diferencias principales entre SGD y Adam como optimizadores?
+    % Respuesta: SGD (Stochastic Gradient Descent): actualización simple wₜ₊₁ = wₜ - α·∇L, usa tasa de aprendizaje fija, requiere tuning cuidadoso, converge lento pero puede alcanzar mínimos más generalizables. Adam (Adaptive Moment Estimation): mantiene medias móviles del gradiente (momento) y del gradiente al cuadrado (RMSProp), ajusta automáticamente la tasa de aprendizaje por parámetro, converge más rápido, menos sensible a inicialización, funciona bien "out of the box". Ventajas de Adam: (1) Tasa adaptativa, (2) Maneja sparse gradients, (3) Menos hiperparámetros críticos. Desventajas: (1) Mayor uso de memoria, (2) Puede generalizar peor que SGD con momentum. Recomendación: Adam para prototipado rápido, SGD+momentum para optimización final.
+\end{enumerate}
 
-\paragraph{Tarea:}  
-    Desarrollar los ejercicios planteados en el siguiente cuaderno, usando mejoras en el entrenamiento de la red, y entregarlo por el aula virtual:
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/07-Perceptron.ipynb}{07-Perceptron.ipynb}.
-    \end{quote}
+\paragraph{Preguntas tipo entrevista:}
+\begin{enumerate}[leftmargin=*]
+    \item Tu red neuronal tiene un validation loss que oscila erráticamente durante el entrenamiento, mientras que el training loss disminuye suavemente. ¿Qué podría estar causando esto y cómo lo resolverías?
+    % Respuesta: Causas posibles: (1) Learning rate muy alto: causa actualizaciones grandes que hacen saltar entre diferentes regiones del espacio de pérdida, (2) Batch size muy pequeño: alta varianza en estimación de gradientes, (3) Dataset de validación muy pequeño: varianza natural en la evaluación, (4) Data augmentation agresivo en validación (no debería hacerse), (5) Problemas de estabilidad numérica. Soluciones: (1) Reducir learning rate (empezar con 1e-3, probar 1e-4), (2) Usar learning rate scheduler (decay, ReduceLROnPlateau), (3) Aumentar batch size si la memoria lo permite, (4) Implementar gradient clipping para estabilizar, (5) Usar batch normalization, (6) Verificar que validation no use augmentation, (7) Aumentar dataset de validación. Monitorear: si training también oscila, es el learning rate; si solo validation oscila, es tamaño de dataset o batch.
+    
+    \item Estás entrenando una red muy profunda (50+ capas) y los gradientes en las primeras capas son extremadamente pequeños (≈10⁻¹⁰). ¿Qué está pasando y cómo lo solucionarías?
+    % Respuesta: Esto es "vanishing gradient problem": en backpropagation, los gradientes se multiplican por las derivadas de las funciones de activación en cada capa. Si estas derivadas son <1 (como sigmoid: max 0.25, tanh: max 1), el producto de muchas derivadas pequeñas resulta en gradientes exponencialmente pequeños, impidiendo que las capas iniciales aprendan. Soluciones: (1) Usar ReLU en lugar de sigmoid/tanh (derivada 1 para x>0, mitiga el problema), (2) Batch Normalization: normaliza activaciones entre capas, estabiliza gradientes, (3) Residual connections (ResNet): permiten gradientes fluir directamente a través de skip connections, (4) Gradient clipping: previene exploding gradients, (5) Inicialización apropiada (He/Xavier): mantiene varianza de activaciones, (6) Learning rate más alto para capas tempranas. También considerar: arquitecturas más shallow pueden ser suficientes, o usar técnicas como LSTM (para secuencias) que manejan long-term dependencies.
+\end{enumerate}
 
-\paragraph{Preguntas para reflexionar:}  
-\begin{enumerate}[leftmargin=*]  
-    \item ¿Qué técnicas de regularización funcionan mejor en diferentes escenarios?  
-    \item ¿Cómo podrías mejorar el desempeño de una red neuronal sin cambiar su arquitectura?  
-    \item ¿Cómo afecta el tamaño del dataset al rendimiento del modelo y la necesidad de regularización?  
-\end{enumerate}  
+\paragraph{Pregunta de investigación:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué técnicas de regularización funcionan mejor en diferentes escenarios?
+    \item ¿Cómo podrías mejorar el desempeño de una red neuronal sin cambiar su arquitectura?
+    \item ¿Cómo afecta el tamaño del dataset al rendimiento del modelo y la necesidad de regularización?
+\end{enumerate}
 
-\paragraph{Para la próxima clase:}  
-Exploración de arquitecturas avanzadas como redes convolucionales y recurrentes. Previsualizar el notebook: \href{https://example.com}{Arquitecturas Avanzadas}.
+\paragraph{Para la próxima clase:}
+Realizar la Clase invertida: Redes Neuronales, disponible en el aula virtual y aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/04Est-ArbolDecision.pdf}{04Est-ArbolDecision.pdf}.
 
 
-\end{document} 
+\end{document}

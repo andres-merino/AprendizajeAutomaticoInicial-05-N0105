@@ -1,35 +1,20 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
-% https://github.com/alephsub0/LaTeX_aleph-notas
 
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{environ}  % Para definir nuevos entornos
 \hypersetup{
     urlcolor=blue,
     linkcolor=blue,
-}
-
-% Definición del nuevo ambiente
-\NewEnviron{materiales}{%
-    \begin{minipage}{12cm}
-        \vspace{0.1mm}
-        \begin{itemize}[leftmargin=*]
-            \BODY % Contenido de la lista
-        \end{itemize}
-        \vspace{1mm}
-    \end{minipage}
 }
 
 % -- Datos 
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
-\tema{Clase 14: Perceotrón multicapa}
+\tema{Clase 14: Perceptrón multicapa}
 \autor{Andrés Merino}
 \fecha{Periodo 2025-2}
 
@@ -38,14 +23,10 @@
 \definecolor{colordef}{HTML}{0030A1}
 \fuente{montserrat}
 
-
-% -- Comandos para tablas
-\input{aleph-codigo}
-
 \begin{document}
 
 \encabezado
-
+% En todo el documento, las indicaciones deben ser simples y directas, con una sola oración.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Resultado de Aprendizaje}
@@ -53,15 +34,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la asignatura:}
+% Se toma uno de los siguientes
 \begin{itemize}[leftmargin=*]
-    % \item \textbf{RdA 1:} Plantear los conceptos fundamentales del aprendizaje automático, incluyendo los principios básicos, técnicas de preprocesado de datos, métodos de evaluación y ajuste de modelos, destacando su importancia en el análisis y resolución de problemas de datos.
-    \item \textbf{RdA 2:} 
-    Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
-    % \item \textbf{RdA 3:} Resolver problemas prácticos mediante el uso de modelos de aprendizaje automático, ajustándolos para la mejora de su rendimiento y precisión.
+    \item \textbf{RdA 2:} Aplicar modelos de aprendizaje automático supervisado y no supervisado, así como su validación y optimización, en la resolución de problemas tanto reales como simulados.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{RdA de la clase:}
+% Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
     \item Comprender las arquitecturas básicas de redes neuronales, enfocándose en el Perceptrón Multicapa.
     \item Implementar el Perceptrón Multicapa en problemas de regresión, clasificación binaria y multiclase.
@@ -74,7 +54,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-¿Cómo se implementan redes neuronales utilizando frameworks predefinidos?
+Si una sola neurona no es capaz de captar patrones complejos, ¿qué cambia cuando varias neuronas se organizan y cooperan entre sí?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
@@ -82,60 +62,82 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Introducción a las arquitecturas de redes neuronales}
+
+En esta actividad se presentará mediante clase magistral la arquitectura básica del Perceptrón Multicapa, explicando su estructura de capas (entrada, ocultas, salida), ventajas sobre el perceptrón simple y capacidad para resolver problemas no linealmente separables.
+
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Clase magistral:} 
-    Presentación teórica sobre arquitectura básica del Perceptrón Multicapa
-\end{itemize}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Qué es el Perceptrón Multicapa y cuál es su principal ventaja sobre el Perceptrón simple?
+    Presentación teórica sobre:
+    \begin{itemize}
+        \item Arquitectura básica del Perceptrón Multicapa (capas de entrada, ocultas y salida).
+        \item Ventajas sobre el perceptrón simple (capacidad de aprender funciones no lineales).
+        \item Hiperparámetros clave (número de capas, neuronas por capa, funciones de activación).
+    \end{itemize}
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Implementación práctica del Perceptrón Multicapa}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+En esta actividad los estudiantes implementarán el Perceptrón Multicapa mediante exploración de cuadernos de Jupyter para diferentes tipos de problemas: regresión, clasificación binaria, clasificación multiclase y un caso práctico real.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Regresión:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14_1-Perceptron-Multicapa-Regresion.ipynb}{14\_1-Perceptron-Multicapa-Regresion.ipynb}.
-    \end{quote}
-    \item \textbf{Clasificación Binaria} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14_2-Perceptron-Multicapa-Clasificacion.ipynb}{14\_2-Perceptron-Multicapa-Clasificacion.ipynb}.
-    \end{quote}
-    \item \textbf{Clasificación Multiclase:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14_3-Perceptron-Multicapa-Multiclase.ipynb}{14\_3-Perceptron-Multicapa-Multiclase.ipynb}.
-    \end{quote}
-    \item \textbf{Caso Práctico:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14_4-Perceptron-Practica.ipynb}{14\_4-Perceptron-Practica.ipynb}.
-    \end{quote}
-\end{itemize}
-
-\begin{ejer}
-En cada cuaderno, realizar los ejercicios señalados.
-\end{ejer}
-
-\paragraph{Verificación de aprendizaje:}  
-\begin{itemize}[leftmargin=*]
-    \item ¿Cómo se ajustan los hiperparámetros para optimizar el modelo?
-    \item ¿Qué diferencias existen entre la implementación para regresión y clasificación?
+    \item \textbf{Explicación de casos de uso:}
+    Se explicará cómo el Perceptrón Multicapa se adapta a diferentes tipos de problemas mediante la configuración de la capa de salida y la función de pérdida apropiada.
+    
+    \item \textbf{Implementación en Python:} Los estudiantes accederán a cuadernos de Jupyter previamente preparados para cada tipo de problema.
+    \begin{itemize}
+        \item \textbf{Regresión:}
+        \begin{quote}
+            Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14-1-Perceptron-Multicapa-Regresion.ipynb}{14-1-Perceptron-Multicapa-Regresion.ipynb}.
+        \end{quote}
+        
+        \item \textbf{Clasificación Binaria:}
+        \begin{quote}
+            Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14-2-Perceptron-Multicapa-Clasificacion.ipynb}{14-2-Perceptron-Multicapa-Clasificacion.ipynb}.
+        \end{quote}
+        
+        \item \textbf{Clasificación Multiclase:}
+        \begin{quote}
+            Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14-3-Perceptron-Multicapa-Multiclase.ipynb}{14-3-Perceptron-Multicapa-Multiclase.ipynb}.
+        \end{quote}
+        
+        \item \textbf{Caso Práctico:}
+        \begin{quote}
+            Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/14-4-Perceptron-Practica.ipynb}{14-4-Perceptron-Practica.ipynb}.
+        \end{quote}
+    \end{itemize}
+    
+    \item \textbf{Experimentación:} Cambia la arquitectura de la red y las funciones de activación hasta obtener un mejor ajuste.
+    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Cierre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\paragraph{Verificación de aprendizaje:}
+\begin{enumerate}[leftmargin=*]
+    \item ¿Qué es el Perceptrón Multicapa y cuál es su principal ventaja sobre el perceptrón simple?
+    
+    \item ¿Cómo se ajustan los hiperparámetros para optimizar el modelo de Perceptrón Multicapa?
+\end{enumerate}
+
+\paragraph{Preguntas tipo entrevista:}
+\begin{enumerate}[leftmargin=*]
+    \item Estás entrenando un Perceptrón Multicapa y observas que el loss de entrenamiento disminuye constantemente pero el loss de validación aumenta después de cierta época. ¿Qué está ocurriendo y cómo lo solucionarías?
+    
+    \item Tienes que elegir entre un Perceptrón Multicapa con 2 capas ocultas de 100 neuronas cada una, o 4 capas ocultas de 50 neuronas cada una. Ambos tienen aproximadamente el mismo número de parámetros. ¿Cuál elegirías y por qué?
+    % Respuesta: Depende del problema, pero generalmente preferiría la red más profunda (4 capas × 50 neuronas) por: (1) Redes profundas aprenden representaciones jerárquicas más ricas: capas iniciales detectan características simples, capas profundas combinan en abstracciones complejas, (2) Mejor capacidad de generalización teórica con mismos parámetros, (3) Permite aprender funciones más complejas. Sin embargo, consideraciones: (1) Redes más profundas son más difíciles de entrenar (vanishing/exploding gradients) - requieren batch normalization, skip connections, (2) Mayor riesgo de overfitting - necesitan más regularización, (3) Más costosas computacionalmente. Empezaría con la red más simple (2×100), validaría resultados, y solo incrementaría profundidad si los datos y el problema lo justifican. La profundidad óptima se determina experimentalmente con validación cruzada.
+\end{enumerate}
+
 \paragraph{Tarea:}
-    Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
-    \begin{quote}
-        Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/07-Perceptron.ipynb}{07-Perceptron.ipynb}.
-    \end{quote}
+Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por el aula virtual:
+\begin{quote}
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/07-Perceptron.ipynb}{07-Perceptron.ipynb}.
+\end{quote}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
@@ -146,8 +148,9 @@ En cada cuaderno, realizar los ejercicios señalados.
 
 \paragraph{Para la próxima clase:}  
 Visualizar el siguiente video sobre Retropropagación:
-    \begin{quote}
-        Enlace al video: \href{https://youtu.be/eNIqz_noix8?si=RzQqVstBn3TFKDk7}{Backpropagation}.
-    \end{quote}
+\begin{quote}
+    Enlace al video: \href{https://youtu.be/eNIqz_noix8?si=RzQqVstBn3TFKDk7}{Backpropagation}.
+\end{quote}
 
-\end{document} 
+
+\end{document}
