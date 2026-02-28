@@ -5,7 +5,7 @@
 % -- Paquetes adicionales 
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
-\usepackage{booktabs} 
+\usepackage{booktabs}
 
 
 % -- Datos 
@@ -179,9 +179,9 @@ Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde c
     \[
     S_i = \frac{1}{|C_i|} \sum_{x \in C_i} d(x, \mu_i).
     \]
-    \item \textbf{Cohesión de Silueta:} Mide la distancia promedio entre un punto y todos los demás puntos en el mismo clúster
+    \item \textbf{Cohesión de Silueta:} Mide la distancia promedio entre un punto y todos los demás puntos en el mismo clúster, para $x \in C_i$
     \[
-        a(x_i) = \frac{1}{|C_i| - 1} \sum_{\substack{x_j \in C_k \\ j \neq i}} d(x_i, x_j).
+        a(x) = \frac{1}{|C_i| - 1} \sum_{y \in C_i} d(x, y).
     \]
     \item \textbf{Distancia entre clústeres:} Mide la distancia mínima entre puntos de dos clústeres diferentes
     \[
@@ -191,9 +191,9 @@ Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde c
     \[
     d_c(C_i, C_j)= d(\mu_i, \mu_j).
     \]
-    \item \textbf{Separación de Silueta:} Mide la distancia promedio entre un punto y todos los puntos en el clúster más cercano al que no pertenece
+    \item \textbf{Separación de Silueta:} Mide la distancia promedio entre un punto y todos los puntos en el clúster más cercano al que no pertenece, para $x\in C_i$
     \[
-        b(x_i) = \min_{j \neq i} \frac{1}{|C_j|} \sum_{x_k \in C_j} d(x_i, x_k).
+        b(x) = \min_{j \neq i} \frac{1}{|C_j|} \sum_{y\in C_j} d(x, y).
     \]
 \end{itemize}
 
