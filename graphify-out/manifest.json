@@ -1,0 +1,277 @@
+{
+  "aleph-examen.cls": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "5bbee7ea12768faf39187094ec74b9f8",
+    "semantic_hash": "5bbee7ea12768faf39187094ec74b9f8"
+  },
+  "aleph-notas.cls": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "43692cc947c370dafcdc1af1d29dbe1b",
+    "semantic_hash": "43692cc947c370dafcdc1af1d29dbe1b"
+  },
+  ".github/workflows/latex_build.yml": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "873228a817619b6665fcaeef1e7eeca4",
+    "semantic_hash": "873228a817619b6665fcaeef1e7eeca4"
+  },
+  "LICENSE.md": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "db089f10b35b92799a417c020bcea3cc",
+    "semantic_hash": "db089f10b35b92799a417c020bcea3cc"
+  },
+  "README.md": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "dbeef5aa5cbe15309718a2489af04b90",
+    "semantic_hash": "dbeef5aa5cbe15309718a2489af04b90"
+  },
+  "0-Cronograma/Cronograma.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "b291537905ecb4833ded723b030f6d7f",
+    "semantic_hash": "b291537905ecb4833ded723b030f6d7f"
+  },
+  "1-Retos/Reto01.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "76412d1a64d496b6eb98a69df9fc5689",
+    "semantic_hash": "76412d1a64d496b6eb98a69df9fc5689"
+  },
+  "1-Retos/Reto02.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "50d33e738818413ad582f52b1ebd1bf7",
+    "semantic_hash": "50d33e738818413ad582f52b1ebd1bf7"
+  },
+  "1-VideoExp/VideoExp01.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "59585702b830defd2c23b6d0fd31825e",
+    "semantic_hash": "59585702b830defd2c23b6d0fd31825e"
+  },
+  "1-VideoExp/VideoExp02.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "1572b1f8f506d218336590e28b14d907",
+    "semantic_hash": "1572b1f8f506d218336590e28b14d907"
+  },
+  "2-ClaseInvertida/01Est-MetricasAgrupamiento.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "00ed560364a1e8b76dd2bb070771f8fb",
+    "semantic_hash": "00ed560364a1e8b76dd2bb070771f8fb"
+  },
+  "2-ClaseInvertida/02Est-AprendizajeSupervisado.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "9e48673f6cf603a0457cc497b766494b",
+    "semantic_hash": "9e48673f6cf603a0457cc497b766494b"
+  },
+  "2-ClaseInvertida/03Est-RedesNeuronales.pdf": {
+    "mtime": 1787083018.9657784,
+    "ast_hash": "b5d3ad8a5cb62682d6cfedabd5623526",
+    "semantic_hash": "b5d3ad8a5cb62682d6cfedabd5623526"
+  },
+  "2-ClaseInvertida/04Est-ArbolDecision.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "e8a931d766ed5b23500ddfecef9fa383",
+    "semantic_hash": "e8a931d766ed5b23500ddfecef9fa383"
+  },
+  "2-Clases/Clase00.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "59492ea0c5c73c9ce18ab7ede79d030c",
+    "semantic_hash": "59492ea0c5c73c9ce18ab7ede79d030c"
+  },
+  "2-Clases/Clase01.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "626d881c1754edc743db3a207d324008",
+    "semantic_hash": "626d881c1754edc743db3a207d324008"
+  },
+  "2-Clases/Clase02.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "4af0826290d08995343e4737c571e2f6",
+    "semantic_hash": "4af0826290d08995343e4737c571e2f6"
+  },
+  "2-Clases/Clase03.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "b212d490a8bc43abc8b46061af29aa44",
+    "semantic_hash": "b212d490a8bc43abc8b46061af29aa44"
+  },
+  "2-Clases/Clase04.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "d1dc1db37f4869b4e7862a458b5c14f6",
+    "semantic_hash": "d1dc1db37f4869b4e7862a458b5c14f6"
+  },
+  "2-Clases/Clase05-1.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "add1ddbff3af98b8c6f639801fd2dfcb",
+    "semantic_hash": "add1ddbff3af98b8c6f639801fd2dfcb"
+  },
+  "2-Clases/Clase05-2.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "0603d66026b1386a2d0a12625b281c44",
+    "semantic_hash": "0603d66026b1386a2d0a12625b281c44"
+  },
+  "2-Clases/Clase06.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "8352e8a8fa195e0cf25229edb28ec581",
+    "semantic_hash": "8352e8a8fa195e0cf25229edb28ec581"
+  },
+  "2-Clases/Clase07.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "6b662b2c016dd1e02651f9dd1f2f413a",
+    "semantic_hash": "6b662b2c016dd1e02651f9dd1f2f413a"
+  },
+  "2-Clases/Clase08.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "3d684663a00ea88565caf767b994a4b5",
+    "semantic_hash": "3d684663a00ea88565caf767b994a4b5"
+  },
+  "2-Clases/Clase09.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "389eb9af5f816bef516354e145c459ba",
+    "semantic_hash": "389eb9af5f816bef516354e145c459ba"
+  },
+  "2-Clases/Clase10.pdf": {
+    "mtime": 1787083018.9823475,
+    "ast_hash": "7f09f93f3c4c49796115396cbc9ee14f",
+    "semantic_hash": "7f09f93f3c4c49796115396cbc9ee14f"
+  },
+  "2-Clases/Clase11.pdf": {
+    "mtime": 1787083018.997972,
+    "ast_hash": "38093283a024acf9663aaadddaf3136d",
+    "semantic_hash": "38093283a024acf9663aaadddaf3136d"
+  },
+  "2-Clases/Clase12.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "2b40704ac7203a40ad4f6ddc97b9d388",
+    "semantic_hash": "2b40704ac7203a40ad4f6ddc97b9d388"
+  },
+  "2-Clases/Clase13.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "38c0bb3de65755db4026d8b4599ef64e",
+    "semantic_hash": "38c0bb3de65755db4026d8b4599ef64e"
+  },
+  "2-Clases/Clase14.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "738dd661e2346cb023158c4da73c5361",
+    "semantic_hash": "738dd661e2346cb023158c4da73c5361"
+  },
+  "2-Clases/Clase15.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "72f27307498acbd27ff65d16d92841f3",
+    "semantic_hash": "72f27307498acbd27ff65d16d92841f3"
+  },
+  "2-Clases/Clase16.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "05d929a9e271f3af34602868de321ded",
+    "semantic_hash": "05d929a9e271f3af34602868de321ded"
+  },
+  "2-Clases/Clase17.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "2c50a65b8ffb4f1494a3bd08693d8b2b",
+    "semantic_hash": "2c50a65b8ffb4f1494a3bd08693d8b2b"
+  },
+  "2-Clases/Clase18.pdf": {
+    "mtime": 1787083018.9989672,
+    "ast_hash": "2a916c3eac7e91f7f1a85bda538e3e46",
+    "semantic_hash": "2a916c3eac7e91f7f1a85bda538e3e46"
+  },
+  "2-Resumenes/Resumen01.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "78f39c63028f8eca7a4b7c0361a060d7",
+    "semantic_hash": "78f39c63028f8eca7a4b7c0361a060d7"
+  },
+  "2-Resumenes/Resumen02.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "1bc3ecdf6f740d28420a52846b38ed6e",
+    "semantic_hash": "1bc3ecdf6f740d28420a52846b38ed6e"
+  },
+  "2-Resumenes/Resumen03.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "b06d3294804893febd1b22ce866eff36",
+    "semantic_hash": "b06d3294804893febd1b22ce866eff36"
+  },
+  "2-Resumenes/Resumen05.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "d32fef33c7f82a085835134b46e1d7df",
+    "semantic_hash": "d32fef33c7f82a085835134b46e1d7df"
+  },
+  "2-Resumenes/Resumen06.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "c9a5d29499f05385087459d37b3a7f6e",
+    "semantic_hash": "c9a5d29499f05385087459d37b3a7f6e"
+  },
+  "2-Resumenes/Resumen08.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "0d868d151aac6bf490fe137b76071445",
+    "semantic_hash": "0d868d151aac6bf490fe137b76071445"
+  },
+  "2-Resumenes/Resumen09.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "ca3693603a115b1cd448fc20484696a3",
+    "semantic_hash": "ca3693603a115b1cd448fc20484696a3"
+  },
+  "2-Resumenes/Resumen11.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "53f911e5e642fe8aca27f13a2e539ffa",
+    "semantic_hash": "53f911e5e642fe8aca27f13a2e539ffa"
+  },
+  "2-Resumenes/Resumen12.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "00fc045ed6b5d3aead47c1b94e34bc0d",
+    "semantic_hash": "00fc045ed6b5d3aead47c1b94e34bc0d"
+  },
+  "2-Resumenes/Resumen13.pdf": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "07a1a8ca340674f3d6a59ab3b5d69fdb",
+    "semantic_hash": "07a1a8ca340674f3d6a59ab3b5d69fdb"
+  },
+  "Fondo/blanco.pdf": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "5475ba77a8dfdb5ddaff8f09f453c471",
+    "semantic_hash": "5475ba77a8dfdb5ddaff8f09f453c471"
+  },
+  "Fondo/celeste.pdf": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "4f23c0a7683bd4560aba395e374174df",
+    "semantic_hash": "4f23c0a7683bd4560aba395e374174df"
+  },
+  "Fondo/final.pdf": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "fa1a712f0fe396fd2e156711132701ec",
+    "semantic_hash": "fa1a712f0fe396fd2e156711132701ec"
+  },
+  "Fondo/inicio.pdf": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "d019ddf9a38c0f63a359a09b84fec93f",
+    "semantic_hash": "d019ddf9a38c0f63a359a09b84fec93f"
+  },
+  "2-Notebooks/img/img01.png": {
+    "mtime": 1787083019.049086,
+    "ast_hash": "56827bc5feb50d6a3cb2c81cd451a5c4",
+    "semantic_hash": "56827bc5feb50d6a3cb2c81cd451a5c4"
+  },
+  "2-Notebooks/img/img02.png": {
+    "mtime": 1787083019.049086,
+    "ast_hash": "278e8931d14dc7cee644a8a6830494c0",
+    "semantic_hash": "278e8931d14dc7cee644a8a6830494c0"
+  },
+  "2-Resumenes/img/Alan_turing_header.jpg": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "719e51095a8d463b76db14cf09fbddb8",
+    "semantic_hash": "719e51095a8d463b76db14cf09fbddb8"
+  },
+  "2-Resumenes/img/Claude.jpg": {
+    "mtime": 1787083019.065592,
+    "ast_hash": "aabb6b43e692b147f2052a463f9ff46a",
+    "semantic_hash": "aabb6b43e692b147f2052a463f9ff46a"
+  },
+  "2-Resumenes/img/Dartmouth.jpg": {
+    "mtime": 1787083019.0812168,
+    "ast_hash": "7132d7ce4899d7d5093975379e2f8760",
+    "semantic_hash": "7132d7ce4899d7d5093975379e2f8760"
+  },
+  "2-Resumenes/img/Turing.jpg": {
+    "mtime": 1787083019.081837,
+    "ast_hash": "719e51095a8d463b76db14cf09fbddb8",
+    "semantic_hash": "719e51095a8d463b76db14cf09fbddb8"
+  },
+  "Logos/logoPUCE_04_ac.png": {
+    "mtime": 1787083019.0823438,
+    "ast_hash": "917b67f4971d213cc792c1194fa50084",
+    "semantic_hash": "917b67f4971d213cc792c1194fa50084"
+  }
+}
