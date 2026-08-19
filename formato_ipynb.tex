@@ -1,0 +1,58 @@
+% Caga del paquete
+\usepackage{listings}
+
+% Recuadro para código
+\definecolor{cellborder}{HTML}{CFCFCF}
+\definecolor{cellbackground}{HTML}{F7F7F7}
+\newtcolorbox{ipynbcodigo}
+    {breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder,top=0mm,bottom=-3.3mm, before upper=\LineaIn}
+% Recuadro para salida
+\newtcolorbox{ipynbsalida}[1][0mm]
+    {breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder,top=#1,bottom=0mm, before upper=\footnotesize\LineaOut}
+% Recuadro para código
+\definecolor{colcod}{RGB}{174,218,255}
+\newtcolorbox{pycodigo}
+    {icono=\faKeyboardO,color=colcod,
+     postit,left=15mm,bottom=1.8mm}
+% Texto de In y Out
+\definecolor{incolor}{HTML}{303F9F}
+\definecolor{outcolor}{HTML}{D84315}
+\newcommand{\LineaIn}{
+    \llap{\scriptsize\ttfamily\color{incolor}[In]:\hspace{6pt}}%
+    \vspace{-1.24\baselineskip}
+    }
+\newcommand{\LineaOut}{
+    \llap{\scriptsize\ttfamily\color{outcolor}[Out]:\hspace{6pt}}%
+    \vspace{-0.95\baselineskip}
+    }
+    
+
+% Estilo para python
+\lstloadlanguages{Python}
+
+% Configuración de estilo
+\definecolor{codverde}{rgb}{0,0.6,0}
+\definecolor{codgris}{rgb}{0.5,0.5,0.5}
+\definecolor{coduva}{rgb}{0.58,0,0.82}
+\definecolor{codazul}{rgb}{0.0,0,0.8}
+\lstset{
+    language=Python,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{coduva},
+    commentstyle=\color{codgris},
+    emph={[2]from,import,pass,return}, emphstyle={[2]\color{codverde}},
+    emph={[3]range,print,display,Matrix}, emphstyle={[3]\color{codazul}},
+    emph={[4]for,in,def}, emphstyle={[4]\color{blue}},
+    breaklines=true,
+    prebreak=\mbox{{\color{gray}\tiny$\searrow$}},
+    extendedchars=true,
+    literate=   {á}{{\'a}}1
+                {é}{{\'e}}1 
+                {í}{{\'i}}1 
+                {ó}{{\'o}}1 
+                {ú}{{\'u}}1 
+                {ñ}{{\~n}}1,
+    showstringspaces=false,
+}
+
+\usepackage{fancyvrb} % verbatim replacement that allows latex
