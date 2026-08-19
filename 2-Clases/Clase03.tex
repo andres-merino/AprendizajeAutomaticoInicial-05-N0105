@@ -56,6 +56,7 @@
 \begin{itemize}[leftmargin=*]
     \item Comprender las técnicas principales de preprocesado de datos: escalado, discretización y reducción de dimensionalidad.
     \item Aplicar división de conjuntos de datos en entrenamiento y prueba para evaluar modelos de aprendizaje automático.
+    \item Construir un flujo reproducible de preprocesamiento y partición, ajustando las transformaciones solo con los datos de entrenamiento para evitar fuga de información.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +67,7 @@
 \paragraph{Pregunta inicial:} 
 \begin{itemize}
     \item 
-    Si en un modelo una de las varaibles, por ejemplo, la edad, tiene un rango de valores entre 0 y 100, y otra variable, por ejemplo, el ingreso anuel, tiene un rango entre \$0 y \$100000, ¿qué problemas podrían surgir al calcular distancias entre puntos en este espacio de características?
+    Si en un modelo una de las variables, por ejemplo, la edad, tiene un rango de valores entre 0 y 100, y otra variable, por ejemplo, el ingreso anual, tiene un rango entre \$0 y \$100000, ¿qué problemas podrían surgir al calcular distancias entre puntos en este espacio de características?
     \item 
     ¿Si en un examen de matemática te evalúan con exactamente los mismos ejercicios que practicaste, qué tan bien crees que mediría tu conocimiento real de la materia?
 \end{itemize}
@@ -88,7 +89,7 @@ En esta actividad los estudiantes aprenderán las técnicas básicas de preproce
     Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen03.pdf}{Resumen03.pdf}
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
-        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-1-Procesado-Datos.ipynb}{03-1-Preprocesado-Datos.ipynb}.
+        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-1-Procesado-Datos.ipynb}{03-1-Procesado-Datos.ipynb}.
     \end{quote}
     \item \textbf{Experimentación:} Realizar los ejercicios propuestos en el cuaderno.
     
@@ -102,7 +103,9 @@ En esta actividad se abordará la importancia de dividir un conjunto de datos en
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Métodos de partición:}  
-    Se presentarán las necesidad de particionar conjuntos de datos.
+    Se presentará la necesidad de particionar conjuntos de datos, incluyendo el uso de particiones estratificadas cuando la variable objetivo esté desbalanceada.
+    \item \textbf{Flujo reproducible y prevención de fuga de información:}
+    Se organizarán la imputación, codificación y normalización en un \textit{Pipeline} y, cuando existan variables de distinto tipo, en un \textit{ColumnTransformer}. Estas transformaciones se ajustarán únicamente con el conjunto de entrenamiento y luego se aplicarán a validación o prueba.
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/03-2-Conjuntos-Entrenamiento-Prueba.ipynb}{03-2-Conjuntos-Entrenamiento-Prueba.ipynb}.
@@ -132,16 +135,16 @@ En esta actividad se abordará la importancia de dividir un conjunto de datos en
 \end{enumerate}
 
 \paragraph{Tarea:} 
-    Realizar el procesamiento de datos necesarios al conjunto de datos seleccionado en la clase anterior y subirlo al repositorio de GitHub.
+    Realizar el procesamiento de datos necesario para el conjunto seleccionado en la clase anterior y subirlo al repositorio de GitHub.
 
 \paragraph{Pregunta de investigación:} 
 \begin{enumerate}[leftmargin=*]
     \item ¿Qué estrategias existen para manejar conjuntos de datos desbalanceados al realizar particiones de entrenamiento y prueba?
-    \item ¿Realizar one-hot encoding agrega colinealidad a las caracterísitcas? Ver: \href{https://blog.dailydoseofds.com/p/the-most-overlooked-problem-with}{The Problem With One-Hot Encoding}
+    \item ¿Realizar one-hot encoding agrega colinealidad a las características? Ver: \href{https://blog.dailydoseofds.com/p/the-most-overlooked-problem-with}{The Problem With One-Hot Encoding}
 \end{enumerate}
     
 \paragraph{Para la próxima clase:} 
-    Se debe tener el conjunto de datos preprocesados y listos en el repositorio.
+    Se debe tener el conjunto de datos preprocesado y listo en el repositorio.
 
 
 \end{document}

@@ -47,7 +47,7 @@
 \subsection*{RdA de la clase:}
 % Máximo 3 resultados
 \begin{itemize}[leftmargin=*]
-    \item Comprender la importancia de la evaluación de modelos y su impacto en la toma de decisiones.
+    \item Seleccionar métricas y umbrales de decisión según el contexto, el desbalance de clases y el costo de los distintos tipos de error.
     \item Explicar y calcular las métricas para modelos de clasificación (matriz de confusión, ACC, PRE, REC, F1, Curva ROC).
     \item Interpretar y calcular las métricas para modelos de regresión (MAE, MSE, RMSE).
 \end{itemize}
@@ -73,6 +73,7 @@ Esta actividad combina clase magistral, recursos multimedia y ejercicio práctic
 \begin{itemize}[leftmargin=*]
     \item \textbf{Clase magistral:}  
     Se explicará la matriz de confusión y cómo calcular las métricas derivadas (Precisión, Sensibilidad, F1-Score, Accuracy), presentando un cuadro resumen para facilitar el aprendizaje.
+    También se contrastarán las curvas ROC y precisión-recall, el efecto del desbalance de clases y la calibración de las probabilidades para seleccionar métricas y umbrales coherentes con el contexto.
     \item \textbf{Materiales de apoyo:} 
     Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen05.pdf}{Resumen05.pdf}
     
@@ -101,6 +102,8 @@ Esta actividad combina clase magistral, recursos multimedia y ejercicio práctic
     \begin{itemize}
         \item Aumenta el conjunto de datos con más muestras y observa cómo cambian las métricas de evaluación.
         \item Cambia el umbral y calcula las nuevas métricas de evaluación. Observa cómo varían. Apunta algunos datos para diferentes umbrales y luego colócalos en un plano cartesiano (FPR vs TPR).
+        \item Compara las curvas ROC y precisión-recall en una versión balanceada y otra desbalanceada del conjunto de datos. Justifica cuál representa mejor el desempeño en cada caso.
+        \item Elige un umbral para un caso de salud pública y explica el compromiso entre falsos negativos, falsos positivos y calibración de las probabilidades.
     \end{itemize}
     
 \end{itemize}

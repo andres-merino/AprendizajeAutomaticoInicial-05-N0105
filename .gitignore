@@ -4,3 +4,8 @@
 
 *-Sol*
 *Prof-*
+
+# Entornos y artefactos locales
+.venv/
+__pycache__/
+graphify-out/

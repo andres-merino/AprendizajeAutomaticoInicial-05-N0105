@@ -67,6 +67,7 @@ Tu objetivo final será entregar:
 \begin{itemize}[leftmargin=*]
     \item Un \texttt{Jupyter Notebook} documentado, que contenga el desarrollo completo del modelo y visualizaciones.
     \item Un informe técnico de divulgación para equipos de intervención.
+    \item Una ficha del modelo que sintetice su uso previsto, desempeño, limitaciones y condiciones de uso responsable.
 \end{itemize}
 
 \subsection*{Preguntas guía}
@@ -74,6 +75,8 @@ Tu objetivo final será entregar:
     \item ¿Qué variables son más relevantes para la predicción del estatus entomológico?
     \item ¿Qué tipo de codificación es adecuada para las variables categóricas?
     \item ¿Qué algoritmos ofrecen mejor desempeño y explicabilidad en este contexto?
+    \item ¿Qué costo tienen los falsos negativos y qué umbral de decisión resulta razonable para la intervención?
+    \item ¿El desempeño cambia entre subgrupos o comunidades y qué riesgos introduce esa variación?
     \item ¿Cómo se puede interpretar el modelo para guiar decisiones prácticas?
     \item ¿Qué recomendaciones concretas se derivan del modelo generado?
 \end{itemize}
@@ -81,24 +84,27 @@ Tu objetivo final será entregar:
 \subsection*{Actividades guía}
 \begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
     \item Revisar y seleccionar las variables predictoras que puedan influir en la presencia del vector.
-    \item Preprocesar el dataset:
+    \item Separar primero los datos en conjuntos estratificados de entrenamiento y prueba, preservando el conjunto de prueba para la evaluación final.
+    \item Construir un flujo reproducible de preprocesamiento:
         \begin{itemize}
             \item Limpieza y codificación de variables.
             \item Análisis de balanceo de clases.
             \item Escalado y selección de características.
+            \item Ajuste de imputación, codificación, escalado y selección únicamente con los datos de entrenamiento para evitar fuga de información.
         \end{itemize}
-    \item Dividir los datos en conjunto de entrenamiento y prueba.
     \item Entrenar al menos tres modelos (p. ej. regresión logística, árboles de decisión, Random Forest, redes neuronales).
-    \item Evaluar los modelos con métricas de clasificación (accuracy, precision, recall, F1-score, AUC).
-    \item Optimizar el modelo con mejor desempeño utilizando técnicas como GridSearchCV.
-    \item Interpretar los resultados, destacando las variables más influyentes.
+    \item Evaluar los modelos con métricas de clasificación adecuadas al balance de clases (accuracy, precision, recall, F1-score, ROC-AUC y PR-AUC).
+    \item Seleccionar y justificar un umbral de decisión considerando especialmente el costo sanitario de los falsos negativos y la calibración de las probabilidades.
+    \item Optimizar el modelo con mejor desempeño utilizando validación cruzada y técnicas como GridSearchCV.
+    \item Interpretar los resultados, destacando las variables más influyentes y revisando el desempeño en subgrupos relevantes cuando los datos lo permitan.
     \item Generar visualizaciones como:
         \begin{itemize}
             \item Matriz de confusión.
             \item Importancia de variables.
-            \item Curvas ROC.
+            \item Curvas ROC y precisión-recall.
         \end{itemize}
     \item Redactar un informe claro, accesible y útil para equipos comunitarios.
+    \item Elaborar una ficha del modelo con uso previsto, usuarios, datos, métricas, umbral, limitaciones, riesgos y medidas de supervisión humana.
 \end{enumerate}
 
 \subsection*{Recursos}
@@ -107,6 +113,15 @@ Tu objetivo final será entregar:
     \item Bibliotecas: Scikit-learn, Pandas, Seaborn, Matplotlib, Plotly.
     \item Cuadernos y ejemplos proporcionados en clase sobre aprendizaje supervisado.
 \end{itemize}
+
+\subsection*{Hitos de seguimiento}
+Los hitos son espacios de retroalimentación formativa y no reemplazan la entrega final.
+\begin{enumerate}[leftmargin=*, label={\textbf{Hito \arabic*.}}]
+    \item \textbf{30-nov:} definición de variable objetivo, partición de datos, métrica principal y plan para tratar el desbalance.
+    \item \textbf{7-dic:} comparación preliminar de al menos tres modelos bajo el mismo esquema de validación.
+    \item \textbf{9-dic:} propuesta de optimización, umbral de decisión y borrador de la ficha del modelo.
+    \item \textbf{16-dic:} entrega final del notebook, informe divulgativo y ficha del modelo.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Producto}
@@ -120,17 +135,17 @@ El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente r
 
     \item \textbf{Carga y descripción de datos:} Lectura del dataset, identificación de la variable objetivo (`Status entomológico`) y descripción inicial de variables relevantes (estructura de la vivienda, tipo de agua, animales presentes, etc.).
 
-    \item \textbf{Preprocesamiento de datos:} Limpieza de datos, codificación de variables categóricas, imputación de valores faltantes, escalado de variables numéricas y análisis de balanceo de clases. Justificación de cada decisión.
+    \item \textbf{Preprocesamiento de datos:} Partición estratificada antes de ajustar transformaciones; limpieza, codificación, imputación, escalado y análisis de balanceo de clases dentro de un flujo reproducible. Justificación de cada decisión y de cómo se evitó la fuga de información.
 
     \item \textbf{Entrenamiento de modelos supervisados:} Implementación de al menos tres modelos distintos (como regresión logística, Random Forest, y redes neuronales). Visualización de curvas de aprendizaje o métricas clave.
 
-    \item \textbf{Evaluación de modelos:} Evaluación con métricas como accuracy, precisión, recall, F1-score y AUC. Comparación en una tabla resumen y representación gráfica (matriz de confusión, curvas ROC).
+    \item \textbf{Evaluación de modelos:} Evaluación con métricas como accuracy, precisión, recall, F1-score, ROC-AUC y PR-AUC. Comparación en una tabla resumen, matrices de confusión, curvas ROC y precisión-recall. Justificación del umbral de decisión y análisis del costo de los errores.
 
     \item \textbf{Optimización de modelos:} Ajuste de hiperparámetros del mejor modelo con técnicas como Grid Search o Random Search. Justificación de los parámetros elegidos.
 
     \item \textbf{Interpretación de resultados:} Análisis de las variables más influyentes y discusión sobre cómo estas se relacionan con el riesgo de presencia del vector.
 
-    \item \textbf{Conclusión técnica:} Resumen de hallazgos, limitaciones del análisis y sugerencias para aplicaciones futuras del modelo.
+    \item \textbf{Conclusión técnica y ficha del modelo:} Resumen de hallazgos, limitaciones, uso previsto, riesgos, supervisión humana, instrucciones de reproducción y sugerencias para aplicaciones futuras.
 \end{enumerate}
 
 \subsection{Informe Divulgativo}
@@ -143,7 +158,7 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Resultados principales:} Descripción del modelo seleccionado, sus predicciones más relevantes, y cómo estas permiten identificar viviendas en riesgo. Gráficos comprensibles (ej. semáforos de riesgo, mapas conceptuales, barras de importancia de variables).
 
-    \item \textbf{Implicaciones prácticas:} Cómo los resultados pueden apoyar decisiones de intervención (como priorización de fumigaciones, campañas informativas o mejoras estructurales).
+    \item \textbf{Implicaciones prácticas:} Cómo los resultados pueden apoyar decisiones de intervención (como priorización de fumigaciones, campañas informativas o mejoras estructurales), qué daños podrían causar los errores y por qué el modelo debe apoyar, no reemplazar, el criterio profesional.
 
     \item \textbf{Recomendaciones:} Acciones sugeridas con base en los datos: reforzar ciertos servicios, enfocarse en tipos específicos de vivienda, entre otros.
 
@@ -171,8 +186,8 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
     \item \textbf{Preprocesamiento de datos (5 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Limpieza e imputación adecuadas (2 puntos).
-        \item Codificación y normalización bien implementadas (2 puntos).
-        \item Justificación de las decisiones de preprocesamiento (1 punto).
+        \item Codificación y normalización dentro de un flujo reproducible ajustado solo con datos de entrenamiento (2 puntos).
+        \item Justificación de las decisiones y prevención explícita de fuga de información (1 punto).
     \end{itemize}
 
     \item \textbf{Entrenamiento de modelos supervisados (6 puntos)}
@@ -183,8 +198,9 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Evaluación de modelos (5 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Uso adecuado de métricas de clasificación (accuracy, recall, F1, AUC) (3 puntos).
-        \item Inclusión de gráficas como matrices de confusión o curvas ROC (2 puntos).
+        \item Selección justificada de métricas, incluyendo ROC-AUC y PR-AUC cuando corresponda (2 puntos).
+        \item Matrices de confusión, curvas ROC y precisión-recall, junto con un umbral de decisión justificado (2 puntos).
+        \item Análisis de calibración y del costo de falsos negativos y falsos positivos (1 punto).
     \end{itemize}
 
     \item \textbf{Optimización de modelos (3 puntos)}
@@ -195,14 +211,15 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Interpretación de resultados (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Identifica y analiza variables clave para la predicción del estatus entomológico (1.5 puntos).
-        \item Relación de los hallazgos con el problema sanitario (0.5 puntos).
+        \item Identifica y analiza variables clave para la predicción del estatus entomológico (1 punto).
+        \item Relaciona los hallazgos con el problema sanitario y examina diferencias entre subgrupos cuando los datos lo permiten (1 punto).
     \end{itemize}
 
-    \item \textbf{Conclusión técnica (3 puntos)}
+    \item \textbf{Conclusión técnica y ficha del modelo (3 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Resumen técnico claro de hallazgos y desempeño de modelos (2 puntos).
-        \item Limitaciones identificadas y posibles mejoras futuras (1 punto).
+        \item Resumen técnico claro de hallazgos y desempeño (1 punto).
+        \item Limitaciones, riesgos, uso previsto y medidas de supervisión humana (1 punto).
+        \item Ficha del modelo e instrucciones suficientes para reproducir el flujo (1 punto).
     \end{itemize}
 \end{enumerate}
 
@@ -228,8 +245,8 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Implicaciones prácticas (4 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Relaciona resultados con acciones concretas de intervención (2.5 puntos).
-        \item Reflexiona sobre el impacto en salud pública y priorización de zonas (1.5 puntos).
+        \item Relaciona resultados con acciones concretas de intervención (2 puntos).
+        \item Reflexiona sobre el impacto en salud pública, los posibles daños de los errores y la necesidad de supervisión humana (2 puntos).
     \end{itemize}
 
     \item \textbf{Recomendaciones (2 puntos)}
