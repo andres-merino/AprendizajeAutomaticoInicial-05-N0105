@@ -7,13 +7,10 @@
 
 <br />
 <div align="center">
-
 <h1 align="center">Aprendizaje Automático Inicial (05-N0105)</h1>
-
-Material del curso para el período 2026-2 de la carrera de Ciencia de Datos de la Pontificia Universidad Católica del Ecuador.
-
-[Reportar un problema](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/issues) · [Solicitar un cambio](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/issues)
-
+  <p>Material del curso para el período 2026-2 de la carrera de Ciencia de Datos de la Pontificia Universidad Católica del Ecuador.</p>
+  <p><a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf">Cronograma</a> &middot; <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/">Clases</a> &middot; <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/">Resúmenes</a> &middot; <a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105">Mostrar código fuente</a></p>
+  <p><a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/issues">Reportar un problema</a> · <a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/issues">Solicitar un cambio</a></p>
 </div>
 
 ## Descripción
@@ -127,7 +124,7 @@ Distribuido bajo la licencia MIT.
 [issues-shield]: https://img.shields.io/github/issues/andres-merino/AprendizajeAutomaticoInicial-05-N0105.svg?style=for-the-badge
 [issues-url]: https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/issues
 [license-shield]: https://img.shields.io/github/license/andres-merino/AprendizajeAutomaticoInicial-05-N0105.svg?style=for-the-badge
-[license-url]: https://es.wikipedia.org/wiki/Licencia_MIT
+[license-url]: https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
 [linkedin-url-aemt]: https://www.linkedin.com/in/andr%C3%A9s-merino-010a9b12b/
 [LaTeX]: https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=fff&style=for-the-badge

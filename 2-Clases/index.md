@@ -3,22 +3,16 @@
 
 <br />
 <div align="center">
-
 <h1 align="center">Guiones de clase</h1>
-
-Aprendizaje Automático Inicial (05-N0105)
-
-Ciencia de Datos · Pontificia Universidad Católica del Ecuador
-
-[Inicio](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/) · [Cronograma](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf) · [Resúmenes](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/)
-
-[Mostrar código fuente](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Clases)
-
+  <p>Aprendizaje Automático Inicial (05-N0105)</p>
+  <p>Ciencia de Datos · Pontificia Universidad Católica del Ecuador</p>
+  <p><a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/">Inicio</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf">Cronograma</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/">Resúmenes</a></p>
+  <p><a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Clases">Mostrar código fuente</a></p>
 </div>
 
 ## Descripción
 
-Guiones para orientar las actividades del curso. Un mismo guion puede desarrollarse en una o varias sesiones.
+Guiones para orientar las actividades del curso.
 
 ## Materiales
 
@@ -44,6 +38,4 @@ Guiones para orientar las actividades del curso. Un mismo guion puede desarrolla
 | 17 | [Árboles de decisión y métodos combinados](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/Clase17.pdf) |
 | 18 | [Validación cruzada y Optimización de Hiperparámetros](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/Clase18.pdf) |
 
-La [plantilla del guion](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Clases/Clase00.tex) está disponible en el repositorio.
 
-Los títulos abren los documentos PDF publicados.

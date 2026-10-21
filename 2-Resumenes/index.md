@@ -3,17 +3,11 @@
 
 <br />
 <div align="center">
-
 <h1 align="center">Resúmenes</h1>
-
-Aprendizaje Automático Inicial (05-N0105)
-
-Ciencia de Datos · Pontificia Universidad Católica del Ecuador
-
-[Inicio](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/) · [Cronograma](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf) · [Clases](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/)
-
-[Mostrar código fuente](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Resumenes)
-
+  <p>Aprendizaje Automático Inicial (05-N0105)</p>
+  <p>Ciencia de Datos · Pontificia Universidad Católica del Ecuador</p>
+  <p><a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/">Inicio</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf">Cronograma</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/">Clases</a></p>
+  <p><a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Resumenes">Mostrar código fuente</a></p>
 </div>
 
 ## Descripción
@@ -35,4 +29,3 @@ Materiales de consulta y repaso de los conceptos del curso.
 | 12 | [Introducción a las redes neuronales: perceptrón](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen12.pdf) |
 | 13 | [Perceptrón Sigmoide y Perceptrón Multiclase](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen13.pdf) |
 
-Los títulos abren los documentos PDF publicados.
