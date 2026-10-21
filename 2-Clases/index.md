@@ -1,13 +1,9 @@
-<!-- Encabezado -->
-[![MIT License](https://img.shields.io/badge/Licencia-MIT-green.svg?style=for-the-badge)](https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/LICENSE.md)
-
 <br />
 <div align="center">
 <h1 align="center">Guiones de clase</h1>
   <p>Aprendizaje Automático Inicial (05-N0105)</p>
-  <p>Ciencia de Datos · Pontificia Universidad Católica del Ecuador</p>
-  <p><a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/">Inicio</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/0-Cronograma/Cronograma.pdf">Cronograma</a> · <a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/">Resúmenes</a></p>
-  <p><a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Clases">Mostrar código fuente</a></p>
+  <p>Material del curso de la carrera de Ciencia de Datos de la Pontificia Universidad Católica del Ecuador.</p>
+  <p><a href="https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/">Inicio</a> · <a href="https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/tree/main/2-Clases">Mostrar código fuente</a></p>
 </div>
 
 ## Descripción
@@ -38,4 +34,10 @@ Guiones para orientar las actividades del curso.
 | 17 | [Árboles de decisión y métodos combinados](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/Clase17.pdf) |
 | 18 | [Validación cruzada y Optimización de Hiperparámetros](https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Clases/Clase18.pdf) |
 
+## Créditos
 
+**Andrés Merino** ([aemerinot@gmail.com](mailto:aemerinot@gmail.com), [aemerinot@puce.edu.ec](mailto:aemerinot@puce.edu.ec))
+
+Docente-investigador en la Pontificia Universidad Católica del Ecuador
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andr%C3%A9s-merino-010a9b12b/)
