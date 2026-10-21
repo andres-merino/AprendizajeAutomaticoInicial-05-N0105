@@ -1,6 +1,6 @@
 \documentclass[a4,11pt]{aleph-notas}
 
-% -- Paquetes adicionales 
+% -- Paquetes adicionales
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
@@ -10,7 +10,7 @@
     linkcolor=blue,
 }
 
-% -- Datos 
+% -- Datos
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -31,8 +31,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-    \item Solicitar llenar el foro «¿Qué aprendí esta semana?» del aula virtual.
-    \item Cuestionar sobre la colinealidad al aplicar one-hot encoding.
+    \item Recuperar la separación entre características y variable objetivo y la diferencia entre entrenamiento y prueba.
+    \item Revisar las decisiones de preprocesamiento de la clase anterior, recordando que sus parámetros se aprenden solo de entrenamiento.
 \end{itemize}
 
 
@@ -56,7 +56,7 @@
 \begin{itemize}[leftmargin=*]
 \item Identificar las etapas esenciales del flujo de trabajo del entrenamiento de un modelo supervisado.
 \item Implementar la división de un conjunto de datos en entrenamiento y prueba mediante Python.
-\item Entrenar un modelo de regresión lineal y evaluar su desempeño.
+\item Entrenar un modelo de regresión lineal e interpretar su error en datos de prueba como primera aproximación a la evaluación.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +78,8 @@ Esta actividad presenta los elementos fundamentales del flujo de trabajo: genera
 
 \paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
-\item \textbf{Presentación del flujo:} Se revisarán las etapas: definición del problema, construcción del conjunto de datos, división en entrenamiento y prueba, entrenamiento del modelo, predicción y métricas.
+\item \textbf{Presentación del flujo:} Se revisarán las etapas: definición del problema, elección de características y objetivo, división de los datos, preparación cuando sea necesaria, entrenamiento, predicción y evaluación.
+\item \textbf{Alcance del ejemplo:} La regresión lineal se usará para recorrer el flujo completo, sin desarrollar aquí su teoría. Entrenar significa estimar sus coeficientes con datos de entrenamiento; prueba permite observar el error en datos separados. Si se comparan alternativas para elegir una, se necesita validación y se reserva prueba para la evaluación final.
 \item \textbf{Discusión guiada:} Se plantearán preguntas para reflexionar sobre la importancia de cada etapa.
 
 \end{itemize}
@@ -93,12 +94,13 @@ La actividad se desarrollará mediante trabajo práctico guiado en Python, utili
 \begin{itemize}[leftmargin=*]
 \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
 \begin{quote}
-Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/04-Mi-primer-modelo.ipynb}{04-Mi-primer-modelo.ipynb}.
+Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/04-Mi-primer-modelo.ipynb}{04-Mi-primer-modelo.ipynb}.
 \end{quote}
-\item \textbf{Entrenamiento y evaluación:} Se ejecutará el modelo de regresión lineal, se obtendrán predicciones y se calcularán métricas como el error cuadrático medio.
-\item \textbf{Experimentación:} 
+\item \textbf{Entrenamiento y evaluación:} Identificar qué datos recibe \texttt{fit}, obtener predicciones con \texttt{predict} y calcular el error cuadrático medio (MSE) en prueba. Interpretarlo en unidades cuadradas de la variable objetivo, sin asumir que un valor aislado permite declarar que el modelo es bueno.
+\item \textbf{Experimentación:}
 \begin{itemize}
-    \item Cambiar el tamaño del conjunto de entrenamiento y observar el impacto en las métricas.
+    \item Cambiar la proporción de prueba manteniendo fija la semilla y registrar tamaños y MSE en una tabla; explicar que también cambian las observaciones evaluadas y que el conjunto simulado es pequeño.
+    \item Explicar por qué no se debe elegir la partición o la semilla que produzca el menor error de prueba.
 \end{itemize}
 \end{itemize}
 
@@ -106,15 +108,16 @@ Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomatico
 \subsection*{Actividad 3: Taller de implementación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los estudiantes trabajarán para implementar un modelo de regresión lineal desde cero, siguiendo los pasos aprendidos, sobre el conjunto de datos \texttt{kingCountyHouseData}.
+Los estudiantes iniciarán un modelo de regresión lineal usando scikit-learn, siguiendo los pasos aprendidos, sobre el conjunto de datos \texttt{kingCountyHouseData}. La práctica se completará como tarea y se retomará en el taller de implementación previsto en el cronograma.
 
 \paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Desarrollo del taller:} Los estudiantes aplicarán los conceptos aprendidos para dividir los datos, entrenar el modelo y evaluar su desempeño. Se utilizará la siguiente plantilla:
+    \item \textbf{Desarrollo del taller:} Predecir \texttt{price} a partir de \texttt{bedrooms}, \texttt{bathrooms}, \texttt{sqft\_living}, \texttt{sqft\_lot} y \texttt{floors}, documentando la fuente y revisando tipos y faltantes. Separar los datos antes de ajustar cualquier transformación y usar la siguiente plantilla:
     \begin{quote}
-    Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/01-Mi-segundo-modelo-Plantilla.ipynb}{01-Mi-segundo-modelo-Plantilla.ipynb}.
+    Enlace al cuaderno: \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Ejercicios/01-Mi-segundo-modelo-Plantilla.ipynb}{01-Mi-segundo-modelo-Plantilla.ipynb}.
     \end{quote}
-    \item \textbf{Soporte y guía:} El instructor estará disponible para resolver dudas y proporcionar retroalimentación durante la actividad.
+    \item \textbf{Evidencia del taller:} Preparar una primera versión del notebook con características y objetivo, dimensiones de las particiones, modelo ajustado, tabla de valores reales y predichos y una interpretación breve del MSE.
+    \item \textbf{Soporte y guía:} El instructor revisará la secuencia de trabajo y las decisiones documentadas; no se exige probar transformaciones no vistas en clase.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,10 +129,13 @@ Los estudiantes trabajarán para implementar un modelo de regresión lineal desd
 \item ¿Qué etapas conforman el flujo de trabajo del aprendizaje supervisado?
 \item ¿Cómo se divide un conjunto de datos en entrenamiento y prueba utilizando Python?
 \item ¿Qué hacen los métodos \texttt{fit()}, \texttt{transform()} y \texttt{predict()} en scikit-learn?
+\item ¿Por qué un error pequeño calculado sobre los datos de entrenamiento no demuestra que el modelo generalice?
 \end{itemize}
 
 \paragraph{Tarea:}
-    Completar la tareas «Repositorio de GitHub para tareas» y «Mi segundo modelo», del aula virtual.
+    Completar las tareas «Repositorio de GitHub para tareas» y «Mi segundo modelo» del aula virtual, documentando las decisiones y las limitaciones del resultado.
+
+\paragraph{Reflexión de cierre:} Participar en el foro «¿Qué aprendí esta semana?» explicando una decisión del flujo que ahora puedas justificar y una duda que quede pendiente.
 
 
-\end{document} 
+\end{document}

@@ -45,7 +45,7 @@
 
 - En cada revisión semanal, consultar tanto las evaluaciones de esa semana como las próximas que requieren preparación o envío anticipado. Incluir consignas, rúbricas, datos, materiales de apoyo e hitos de seguimiento cuando correspondan.
 - Informar qué evaluaciones hay que alistar, para qué fecha y qué falta revisar. No esperar a la fecha de entrega para revisar una actividad que debe enviarse antes.
-- Para la primera semana (26 al 29 de octubre de 2026), revisar introducción al curso, conceptos básicos, conjuntos de entrenamiento y validación y preparación de datos. El Reto 1 debe estar listo para su envío el 27 de octubre.
+- Para la primera semana (26 al 29 de octubre de 2026), revisar las clases 01–04: introducción, conceptos básicos, partición y preparación básica de datos, y primer modelo supervisado. El taller Mi segundo modelo se inicia al cierre de esa semana y se completa en el taller de implementación de la segunda semana. El Reto 1 debe estar listo para su envío el 27 de octubre.
 - Referencia inicial de hitos del cronograma, todos de 2026; comprobar siempre el archivo fuente por si cambia:
   - Reto 1: envío el 27 de octubre; hito 3 el 17 de noviembre; entrega final el 20 de noviembre. Revisar la consigna para los demás hitos.
   - Cuestionario 1: 11 de noviembre.
