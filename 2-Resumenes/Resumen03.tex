@@ -1,14 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
+% Se puede ver la documentación aquí:
 % https://github.com/alephsub0/LaTeX_aleph-notas
 
-% -- Paquetes adicionales 
+% -- Paquetes adicionales
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
 
 
-% -- Datos 
+% -- Datos
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -31,6 +31,11 @@
 \encabezado
 
 
+\section{Preparación y partición}
+Para evaluar un modelo supervisado, separar primero entrenamiento, validación y prueba. Aprender medias, escalas, categorías y límites de intervalos únicamente con entrenamiento; aplicar después esas mismas transformaciones a los otros conjuntos. En Python, \texttt{fit} aprende parámetros y \texttt{transform} los aplica. No volver a ajustar usando prueba.
+
+Las transformaciones no son pasos obligatorios para todos los modelos: elegirlas según las variables, la distancia y el propósito del análisis. En un análisis exploratorio no supervisado de un conjunto fijo, se puede preparar ese conjunto completo, dejando explícito el alcance de las conclusiones.
+
 \section{Normalización de datos}
 
 \begin{defi}[Normalización por el máximo]
@@ -52,8 +57,16 @@
     \[
     x_i' = \frac{x_i - \mu}{\sigma}
     \]
-    donde \(\mu\) es la media del conjunto de datos y \(\sigma\) es la desviación estándar. 
+    donde \(\mu\) es la media del conjunto de datos y \(\sigma\) es la desviación estándar.
 \end{defi}
+
+\subsection*{Elección y límites}
+\begin{itemize}[leftmargin=*]
+    \item La división por el máximo requiere un máximo distinto de cero; no equivale a dividir por el máximo absoluto. Con valores negativos no garantiza el rango $[0,1]$.
+    \item Min-Max requiere un rango no nulo en la fórmula. Lleva los datos usados para ajustarlo a $[0,1]$, pero valores nuevos pueden quedar fuera de ese intervalo. Es sensible a extremos.
+    \item La estandarización requiere desviación no nula en la fórmula. Produce media cero y varianza uno en los datos de ajuste, sin imponer un rango ni convertir su distribución en normal.
+    \item Identificar las variables constantes y decidir su tratamiento antes de aplicar estas fórmulas.
+\end{itemize}
 
 \section{Discretización de datos}
 
@@ -67,6 +80,8 @@
 \begin{defi}[Discretización de igual frecuencia]
     Dado un conjunto de datos continuo \(X = \{x_1, x_2, \ldots, x_n\}\) y un número \(k\) de intervalos, la discretización de igual frecuencia divide los datos en \(k\) intervalos de tal manera que cada intervalo contenga aproximadamente el mismo número de datos. Cada dato \(x_i\) se asigna al intervalo correspondiente.
 \end{defi}
+
+\paragraph{Cuándo discretizar:} Usar intervalos cuando aporten una interpretación útil, reconociendo la pérdida de detalle. Los valores repetidos pueden impedir obtener intervalos de igual frecuencia exacta. Aprender los límites con entrenamiento y documentar cómo se asignan valores nuevos.
 
 \newpage
 \section{Datos categóricos}
@@ -100,8 +115,12 @@ Ejemplo: En la siguiente tabla se aplica la codificación One-Hot a la variable 
         0 & 0 & 1 \\
         0 & 1 & 0 \\
         1 & 0 & 0 \\
-        \bottomrule 
+        \bottomrule
     \end{tabular}
 \end{center}
+
+\paragraph{Cuándo codificar:} One-hot permite representar características nominales sin inventar un orden entre categorías. Los códigos numéricos de una categoría no son magnitudes. Aprender las categorías con entrenamiento y definir cómo se tratarán categorías nuevas. Esta transformación de características se distingue de la representación de la variable objetivo.
+
+\paragraph{Comprobación:} Si entrenamiento tiene mínimo 10 y máximo 20, Min-Max transforma 25 en 1,5. No recalcular el máximo con ese dato nuevo para forzar el rango.
 
 \end{document}

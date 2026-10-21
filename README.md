@@ -53,7 +53,7 @@ jupyter notebook
 
 ## Mapa del curso
 
-El guion de clase presenta la secuencia didáctica; el notebook desarrolla la demostración computacional; el ejercicio propone práctica adicional. Un guion largo puede apoyarse en varios notebooks.
+El guion de clase presenta la secuencia didáctica; el notebook desarrolla la demostración computacional; el ejercicio propone práctica adicional. Un guion puede apoyarse en varios notebooks.
 
 | Unidad | Tema | Clase | Notebook(s) | Ejercicio | Resumen |
 |---:|---|---|---|---|---|

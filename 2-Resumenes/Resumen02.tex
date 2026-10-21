@@ -1,14 +1,14 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
+% Se puede ver la documentación aquí:
 % https://github.com/alephsub0/LaTeX_aleph-notas
 
-% -- Paquetes adicionales 
+% -- Paquetes adicionales
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
 
 
-% -- Datos 
+% -- Datos
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -42,7 +42,7 @@
 \begin{defi}[Aprendizaje Supervisado]
     Sea $X \subseteq \mathbb{R}^n$ y $Y\subseteq \mathbb{R}$, al conjunto:
     \[
-        \{(x, y) : x \in X, y \in Y\},
+        D=\{(x_i,y_i)\}_{i=1}^{m},\quad x_i\in X,\;y_i\in Y,
     \]
     se lo denomina conjunto de datos de entrenamiento, a los elementos $(x_i, y_i)$ se los denomina \textbf{instancias} o ejemplos de entrenamiento, donde $x_i \in \mathbb{R}^n$ son las \textbf{características} de las instancias y $y_i \in Y$ son las \textbf{etiquetas} asociadas (variable objetivo). El \textbf{aprendizaje supervisado} busca determinar una función 
     \[
@@ -54,9 +54,9 @@
 \begin{defi}[Aprendizaje No Supervisado]
     Sea $X \subseteq \mathbb{R}^n$, al conjunto:
     \[
-        \{x : x \in X\},
+        D=\{x_i\}_{i=1}^{m},\quad x_i\in X,
     \]
-    se lo denomina conjunto de datos de entrenamiento, a los elementos $x_i$ se los denomina \textbf{instancias} o ejemplos de entrenamiento, donde $x_i \in \mathbb{R}^n$ son las \textbf{características} de las instancias. El \textbf{aprendizaje no supervisado} busca determinar una función
+    se lo denomina conjunto de datos de entrenamiento, a los elementos $x_i$ se los denomina \textbf{instancias} o ejemplos de entrenamiento, donde $x_i \in \mathbb{R}^n$ son las \textbf{características} de las instancias. El \textbf{aprendizaje no supervisado} busca descubrir estructura en los datos sin utilizar etiquetas objetivo. En particular, el agrupamiento busca determinar una función
     \[
         \func{f}{\mathbb{R}^n}{\{1, 2, \dots, k\}}
     \]
@@ -87,7 +87,7 @@
         \cmidrule(lr){2-3} \cmidrule(lr){4-4}
         & Clasificación & Regresión & Agrupamiento \\
         \midrule
-        $k$-NN & $\times$ & & \\
+        $k$-NN & $\times$ & $\times$ & \\
         SVM & $\times$ & $\times$ & \\
         Árboles de decisión & $\times$ & $\times$ & \\
         Redes neuronales & $\times$ & $\times$ & \\
@@ -148,11 +148,15 @@
 \end{advertencia}
 
 \begin{defi}[Distancia de Mahalanobis]
-    En $\mathbb{R}^n$, dado un conjunto de datos con media $\mu$ y matriz de covarianza $S$, la \textbf{distancia de Mahalanobis} se define como:
+    En $\mathbb{R}^n$, dada una matriz de covarianza $S$ simétrica y definida positiva, la \textbf{distancia de Mahalanobis} se define como:
     \[
         d_M(x, y) = \sqrt{(x - y)^T S^{-1} (x - y)}.
     \]
 \end{defi}
+
+\begin{advertencia}
+    Si la covarianza es singular, la inversa de la fórmula de Mahalanobis no existe. En un problema supervisado, estimar la covarianza solo con entrenamiento. Cambiar unidades o escalas también cambia las distancias euclidiana y de Manhattan.
+\end{advertencia}
 
 \begin{defi}[Hamming]
     En $\mathbb{R}^n$, la \textbf{distancia de Hamming} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
@@ -170,15 +174,15 @@
     Es decir, cuenta el número de posiciones en las que los elementos correspondientes son diferentes.
 \end{defi}
 
-\begin{defi}[Distancia Coseno]
-    En $\mathbb{R}_{\geq 0}^n$, la \textbf{distancia coseno} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
+\begin{defi}[Disimilitud coseno]
+    Para vectores no nulos de $\mathbb{R}^n$, la \textbf{disimilitud coseno} entre dos puntos $x = (x_1, x_2, \dots, x_n)$ y $y = (y_1, y_2, \dots, y_n)$ se define como:
     \[
         d_{\cos}(x, y) = 1 - \frac{x \cdot y}{\|x\| \|y\|}.
     \]
 \end{defi}
 
 \begin{advertencia}
-    La distancia coseno no es una métrica en el sentido estricto, ya que no cumple con la identidad; por esto se la llama una \textbf{pseudo-métrica}.
+    La disimilitud coseno no es, en general, una métrica ni una pseudométrica: puede incumplir la desigualdad triangular. Además, vectores distintos con la misma dirección tienen disimilitud cero. Por ejemplo, para $x=(1,0)$, $y=(1,1)$ y $z=(0,1)$, se tiene $d(x,z)=1>2-\sqrt{2}=d(x,y)+d(y,z)$. No está definida para el vector nulo.
 \end{advertencia}
 
 \end{document}

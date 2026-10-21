@@ -1,8 +1,8 @@
 \documentclass[a4,11pt]{aleph-notas}
-% Se puede ver la documentación aquí: 
+% Se puede ver la documentación aquí:
 % https://github.com/alephsub0/LaTeX_aleph-notas
 
-% -- Paquetes adicionales 
+% -- Paquetes adicionales
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
@@ -11,7 +11,7 @@
     linkcolor=blue,
 }
 
-% -- Datos 
+% -- Datos
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -35,120 +35,109 @@
 
 \section{Indicaciones}
 \begin{itemize}[leftmargin=*]
-\item 
+\item
     En esta actividad se evalúa si el estudiante \textit{Criterio 3.1: Aplica modelos de aprendizaje no supervisado en casos prácticos complejos, analizando los resultados y proponiendo mejoras basadas en métricas de rendimiento.}
 \end{itemize}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section{Descripción}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descripción}
 
-Desde hace más de 15 años, la PUCE ha liderado estudios sobre el mal de Chagas en Ecuador, recolectando datos sobre viviendas, condiciones sanitarias, materiales de construcción, presencia de animales, prácticas domésticas y características del entorno natural. Este valioso conjunto de datos permite analizar los factores que podrían incidir en la presencia del vector y el riesgo de transmisión.
+\begin{center}
+    \large\bf Ecuador y sus residuos: descubrir perfiles de gestión municipal
+\end{center}
 
-Tu rol como analista de datos será identificar patrones ocultos que permitan generar \textit{perfiles de viviendas con características de riesgo similares}, usando técnicas de clustering y reducción de dimensiones.
+La gestión de residuos combina recolección, barrido, separación y disposición final. Comparar municipios exige considerar sus diferencias de escala y la información que efectivamente reportan. El reto consiste en descubrir perfiles de gestión a partir de datos públicos y explicar qué necesidades de apoyo podrían explorarse para cada perfil.
 
-\subsection*{Pregunta esencial}  
+\subsection*{Pregunta esencial}
+¿Qué perfiles de gestión de residuos aparecen en los registros municipales del Ecuador y cómo comunicar sus diferencias para orientar preguntas y propuestas de mejora?
+
+\subsection*{Base de datos y acceso}
+Se utilizará exclusivamente la edición 2024 de la \textbf{Estadística de Información Ambiental Económica en GAD Municipales: Gestión de Residuos Sólidos}, publicada por el INEC. El archivo \texttt{BDD\_GIRS\_2024\_VF.csv} contiene 221 registros y 213 columnas; no se utilizarán todas para agrupar. El separador es punto y coma y los decimales usan coma; la codificación Windows-1252 permite leer los nombres con tildes. Conservar \texttt{CantonId} como texto para no perder ceros iniciales.
 \begin{itemize}[leftmargin=*]
-\item ¿Qué perfiles de viviendas presentan condiciones que favorecen la presencia del vector del Chagas y cómo podemos visualizarlos de manera clara para apoyar intervenciones de salud pública?
+    \item \href{https://www.ecuadorencifras.gob.ec/gad-municipales/}{Portal oficial}: sección Gestión Integral de Residuos Sólidos; descargar la base CSV, el diccionario, el formulario y la guía de uso correspondientes a esa edición.
+    \item \href{https://www.ecuadorencifras.gob.ec/documentos/web-inec/Encuestas_Ambientales/Municipios/2024/grs/2_BDD_DATOS_ABIERTOS_GRS_GADM_2024_12_CSV.zip}{Descarga oficial de la base CSV comprimida}.
+    \item \href{https://anda.inec.gob.ec/anda5/index.php/catalog/1294/data-dictionary/F18?file_name=BDD_GIRS_2024_VF}{Catálogo y descripción de variables}: contrastar los nombres y las definiciones con los archivos descargados.
+\end{itemize}
+Registrar fuente, edición, nombre del archivo y fecha de descarga en el notebook. Si cambia un enlace, localizar el recurso desde el portal sin sustituir silenciosamente la edición. La fecha de referencia de los datos no es una fecha de entrega.
+
+\subsection*{Rol y productos}
+Actúas como parte de un equipo de análisis que prepara una nota para técnicos municipales. Entregarás un notebook reproducible en Colab y un informe divulgativo que explique los perfiles, sus límites y propuestas de mejora fundamentadas. No se busca entrenar un clasificador ni construir una clasificación oficial de municipios.
+
+\subsection*{Preguntas guía}
+\begin{itemize}[leftmargin=*]
+    \item ¿Los grupos reflejan prácticas de gestión o principalmente el tamaño de las operaciones?
+    \item ¿Qué diferencias hay entre cero, dato faltante y pregunta que no aplica?
+    \item ¿Qué cambia al usar cantidades absolutas frente a indicadores relativos?
+    \item ¿Qué características distinguen a los grupos y qué municipios quedan poco representados por su perfil?
+    \item ¿Qué conclusiones permanecen al cambiar el número de grupos o la inicialización?
 \end{itemize}
 
-\subsection*{Reto}  
-
-Formas parte del equipo de ciencia de datos del proyecto PUCE-Chagas. Tu reto es descubrir agrupaciones de viviendas que compartan características estructurales, sanitarias y ambientales relevantes para la presencia del vector. Para ello, aplicarás técnicas de clustering y reducción de dimensiones para producir visualizaciones e informes comprensibles que puedan ser utilizados por profesionales de salud pública y líderes comunitarios. Tu objetivo final será entregar:
-\begin{itemize}[leftmargin=*]
-\item Un Jupyter Notebook replicable, que incluya código y visualizaciones técnicas para explorar y analizar los datos.
-\item Un informe divulgativo para instituciones públicas y comunidades, que presente los hallazgos clave de manera clara y accesible, con visualizaciones comprensibles.
-\end{itemize}
-
-\subsection*{Preguntas guía}  
-\begin{itemize}[leftmargin=*]
-\item ¿Qué variables son más relevantes para caracterizar condiciones de riesgo?
-\item ¿Cómo transformar las variables para análisis cuantitativo?
-\item ¿Qué tipos de agrupaciones emergen del análisis?
-\item ¿Qué relaciones se observan entre materiales de construcción, acceso a agua, presencia de animales y riesgo entomológico?
-\item ¿Cómo pueden visualizarse y comunicarse estos patrones de forma accesible para la acción comunitaria?
-\end{itemize}
-
-\subsection*{Actividades guía}  
-\begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
-\item Investigar técnicas de clustering (K-Means, DBSCAN) y reducción de dimensiones (PCA, UMAP, t-SNE).
-\item Explorar el conjunto de datos:
-    \begin{itemize}
-    \item Identificar variables relevantes para análisis de riesgo (presencia de animales, materiales, cercanía a basura, palmas, tipo de agua, etc.). Tomar de 10 a 20 variables.
-    \item Transformar variables categóricas (e.g. tipo de techo, material del piso) y normalizar variables cuantitativas (e.g. distancias).
-    \end{itemize}
-\item Aplicar técnicas de clustering para agrupar viviendas por condiciones de riesgo.
-\item Reducir dimensiones para facilitar la visualización de los datos en 2D o 3D.
-\item Comparar diferentes algoritmos de clustering y justificar la elección.
-\item Elaborar gráficos que muestren claramente los perfiles de riesgo.
-\item Redactar un informe final, estructurando los hallazgos en:
-    \begin{itemize}[leftmargin=*]
-    \item Introducción al problema.
-    \item Metodología aplicada.
-    \item Resultados obtenidos y su interpretación.
-    \item Recomendaciones basadas en los hallazgos.
-    \end{itemize}
+\subsection*{Actividades guía}
+\begin{enumerate}[leftmargin=*, label={\arabic*.}]
+    \item \textbf{Auditar los datos:} verificar la unidad de observación, los identificadores únicos, los duplicados, los tipos, las unidades y la disponibilidad de información. No mezclar ediciones ni incorporar totales como si fueran municipios.
+    \item \textbf{Elegir características:} proponer entre 4 y 8 variables numéricas o indicadores derivados, priorizando cobertura y pertinencia. Para cada característica, registrar código original, definición, unidad, transformación y motivo de inclusión. No completar el número de características con variables redundantes o con escasa información.
+    \item \textbf{Preparar la matriz:} tratar faltantes y valores no aplicables según el diccionario; revisar atípicos y escalas. No convertir categorías codificadas en números en cantidades continuas. Reservar identificadores y categorías para describir los grupos, sin incluirlos en las distancias.
+    \item \textbf{Evitar duplicar información:} no incluir simultáneamente un total y todos sus componentes sin justificar su peso. Construir proporciones solo con denominadores válidos y unidades compatibles; no inventar población ni otros denominadores ausentes de la base.
+    \item \textbf{Comparar agrupamientos:} aplicar K-Means y agrupamiento jerárquico sobre la misma matriz preparada, comparar al menos tres valores de $k$ entre 2 y 6 y justificar el enlace y la distancia del método jerárquico. Si se usa Ward, emplear distancia euclidiana.
+    \item \textbf{Evaluar:} comparar silueta, tamaños de grupos e interpretación sustantiva. Revisar varias inicializaciones de K-Means con semillas registradas y discutir si cambian las conclusiones. No elegir una solución únicamente porque maximiza una métrica o produce una figura atractiva.
+    \item \textbf{Visualizar con PCA:} reportar varianza explicada individual y acumulada, representar los grupos en dos componentes e interpretar las variables que más contribuyen a ellas. Calcular las métricas en la matriz usada para agrupar, no en la proyección destinada solo a visualizar.
+    \item \textbf{Comunicar:} caracterizar cada grupo con tamaños y valores en unidades originales; asignar nombres descriptivos y proponer acciones vinculadas a sus características, señalando qué información adicional se necesita.
 \end{enumerate}
 
-\subsection*{Recursos}  
+\subsection*{Pistas para la selección de características}
+Como punto de partida, revisar \texttt{VB} (vías barridas), \texttt{CSB} (cobertura del servicio de barrido), \texttt{CRR} (residuos recolectados, toneladas/mes), \texttt{TROT} (orgánicos tratados, toneladas/mes) y \texttt{RI} (inorgánicos recuperados, kg/mes). Son candidatas, no una selección obligatoria: comprobar sus unidades y justificar su uso antes de agrupar.
 \begin{itemize}[leftmargin=*]
-\item Conjunto de datos del proyecto PUCE-Chagas (acceso en el aula virtual).
-\item Tutoriales y notebooks de clustering y reducción de dimensiones compartidos en clase.
-\item Documentación de Scikit-learn, Pandas y Matplotlib.
+    \item \texttt{CSB} tiene cinco valores vacíos y cuatro superiores a uno; investigar y justificar su tratamiento, sin recortar automáticamente a uno.
+    \item \texttt{TROT} y \texttt{RI} contienen muchos ceros; distinguir ausencia de actividad reportada de falta de información según el formulario.
+    \item Las variables de composición, como \texttt{PORG}, tienen información en 108 municipios; incluirlas puede cambiar considerablemente el conjunto analizado.
+    \item \texttt{RI} y \texttt{RIR} representan recuperación de inorgánicos en unidades distintas; no incluir ambas como características independientes.
+    \item El diccionario presenta diferencias entre kg/año y kg/mes en campos como \texttt{MR4441}; no usar campos de unidad ambigua sin resolver y documentar esa discrepancia.
+    \item \texttt{Pob} está descrita como población urbana proyectada con referencia a 2022; no asumir que representa la población cantonal total de 2024 ni usarla como denominador de todo el servicio municipal.
 \end{itemize}
+
+\subsection*{Requisitos y decisiones del equipo}
+Es obligatorio entregar ambos productos, justificar la preparación, comparar los dos algoritmos para al menos tres valores de $k$, presentar silueta y tamaños, discutir varias inicializaciones de K-Means e interpretar PCA. El equipo decide las características concretas, su tratamiento, los valores de $k$ dentro del rango indicado y la solución final, justificando esas decisiones. Las variables sugeridas y los tipos de gráficos son orientaciones; la rúbrica mantiene las puntuaciones de cada apartado.
+
+\subsection*{Alcance de las conclusiones}
+El análisis es exploratorio sobre los registros de una edición. No requiere una partición supervisada de entrenamiento y prueba, pues no se evalúa predicción de etiquetas; esto no elimina la necesidad de discutir estabilidad y limitaciones. Los grupos no son una medición causal, un ranking de desempeño ni evidencia suficiente para asignar recursos. No eliminar municipios atípicos solo para mejorar la silueta. No reconstruir identificaciones eliminadas por la fuente ni elaborar mapas si la información pública no permite una correspondencia territorial verificable.
 
 \subsection*{Hitos de seguimiento}
-Los hitos son espacios de retroalimentación formativa y no reemplazan la entrega final.
+Las fechas de envío, seguimiento y entrega se consultan en el cronograma y el aula virtual.
 \begin{enumerate}[leftmargin=*, label={\textbf{Hito \arabic*.}}]
-    \item \textbf{9-nov:} selección inicial de variables y plan justificado de preprocesamiento.
-    \item \textbf{12-nov:} propuesta de algoritmos de agrupamiento y técnica de reducción de dimensiones.
-    \item \textbf{17-nov:} borrador de resultados, visualizaciones y métricas de calidad de los agrupamientos.
-    \item \textbf{20-nov:} entrega final del notebook y del informe divulgativo.
+    \item Auditoría inicial y propuesta de características con plan justificado de preparación.
+    \item Matriz preparada y propuesta de comparación de los dos algoritmos y PCA.
+    \item Borrador con tabla comparativa, perfiles, visualizaciones y discusión de estabilidad.
+    \item Entrega final del notebook y del informe divulgativo.
 \end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\section*{Producto}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% Pendiente de decisión docente: tamaño de equipos, canal de entrega,
+% extensión del informe y política de uso de IA.
 
-\subsection{Jupyter Notebook}  
-El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros equipos de análisis puedan aplicar el mismo proceso a nuevas comunidades. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases y contener:
-
+\section*{Producto}
+\subsection{Jupyter Notebook}
+Usar el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} y organizar el notebook para trabajar en Colab:
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-\item \textbf{Título y descripción inicial:} Presentación del equipo, contexto del problema, objetivos del análisis y justificación del enfoque metodológico.
-
-\item \textbf{Carga y descripción de datos:} Lectura del conjunto de datos, descripción de las variables más relevantes (materiales de la vivienda, presencia de animales, condiciones sanitarias, proximidad de residuos, etc.) y análisis exploratorio inicial.
-
-\item \textbf{Preprocesamiento de datos:} Transformación y limpieza de los datos, manejo de valores faltantes, codificación de variables categóricas, estandarización de variables numéricas y justificación de las decisiones tomadas.
-
-\item \textbf{Análisis con clustering:} Aplicación de al menos dos algoritmos de agrupamiento (como \texttt{K-Means} y \texttt{DBSCAN}) sobre subconjuntos de variables seleccionadas. Visualización técnica de los clusters y análisis de cohesión y separación.
-
-\item \textbf{Reducción de dimensiones:} Uso de técnicas como \texttt{PCA}, \texttt{t-SNE} o \texttt{UMAP} para representar los datos en espacios de dos o tres dimensiones. Gráficos que ilustren visualmente los clusters y sus diferencias.
-
-\item \textbf{Interpretación de resultados:} Análisis de los perfiles de viviendas emergentes a partir de los agrupamientos. Relación con variables de riesgo entomológico y condiciones estructurales y sanitarias.
-
-\item \textbf{Conclusión técnica:} Resumen de hallazgos, reflexión sobre la calidad del agrupamiento y limitaciones del análisis. Propuestas para futuras mejoras o extensiones del trabajo.
+    \item \textbf{Título y objetivos:} equipo, pregunta de análisis y alcance.
+    \item \textbf{Fuente y exploración:} instrucciones de carga del CSV, edición, dimensiones observadas, auditoría y diccionario de las características elegidas.
+    \item \textbf{Preparación:} decisiones sobre unidades, faltantes, atípicos, indicadores y escalado, indicando cuántos registros se conservan y por qué.
+    \item \textbf{Agrupamiento:} configuraciones, semillas, métricas, tamaños y comparación de los dos métodos para los valores de $k$ elegidos.
+    \item \textbf{PCA:} varianza explicada, contribuciones de variables y proyección coloreada por grupo, distinguiendo visualización de evaluación.
+    \item \textbf{Interpretación:} tabla de perfiles en unidades originales, ejemplos de registros y discusión de estabilidad.
+    \item \textbf{Conclusiones:} respuesta a la pregunta, limitaciones y propuestas fundamentadas.
 \end{enumerate}
 
-\subsection{Informe Divulgativo}  
-El informe divulgativo debe estar dirigido a autoridades de salud pública, responsables comunitarios y actores sociales involucrados en la erradicación del mal de Chagas. Deberá elaborarse en \LaTeX{}, siguiendo el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE}, e incluir visualizaciones claras y recomendaciones prácticas.
-
+\subsection{Informe divulgativo}
+Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE} en \LaTeX{}.
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-
-\item \textbf{Introducción:} Contextualización del problema del Chagas en Ecuador, objetivo del estudio y relevancia del análisis de datos para la prevención.
-
-\item \textbf{Metodología:} Explicación clara de las técnicas utilizadas (clustering y reducción de dimensiones), su propósito y valor en el análisis de datos complejos.
-
-\item \textbf{Resultados principales:} Descripción de los perfiles de viviendas identificados, gráficos comprensibles, mapas o representaciones visuales que permitan a los tomadores de decisiones entender rápidamente los hallazgos.
-
-\item \textbf{Implicaciones prácticas:} Discusión de cómo los resultados pueden guiar intervenciones focalizadas, campañas de prevención, mejora de servicios y priorización territorial.
-
-\item \textbf{Recomendaciones:} Sugerencias prácticas basadas en los hallazgos, orientadas a mejorar condiciones habitacionales, sanitarias y de control del vector.
-
-\item \textbf{Conclusión:} Cierre que resuma la importancia del uso de datos para combatir enfermedades como el Chagas, con énfasis en el trabajo colaborativo entre ciencia, salud y comunidad.
+    \item \textbf{Introducción:} problema, fuente y alcance del análisis.
+    \item \textbf{Metodología:} explicación accesible de la preparación, el agrupamiento y PCA.
+    \item \textbf{Resultados:} perfiles descriptivos con tamaños y gráficos comprensibles, sin presentar los números de grupo como un orden de calidad.
+    \item \textbf{Implicaciones:} oportunidades de mejora por perfil y evidencia que las sustenta.
+    \item \textbf{Recomendaciones:} propuestas específicas con límites y necesidades de información adicional.
+    \item \textbf{Conclusión:} hallazgos principales y precauciones para su uso.
 \end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Jupyter Notebook (30 puntos totales)}
@@ -158,44 +147,44 @@ El informe divulgativo debe estar dirigido a autoridades de salud pública, resp
         \item Introducción que contextualiza el problema y los objetivos (1 punto).
         \item Breve descripción de las técnicas utilizadas (1 punto).
     \end{itemize}
-    
+
     \item \textbf{Carga y descripción de datos (4 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Descripción de las variables relevantes, análisis exploratorio básico (3 puntos).
         \item Identificación y representación gráfica adecuada de distribuciones (1 punto).
     \end{itemize}
-    
+
     \item \textbf{Preprocesamiento de datos (5 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Limpieza de datos correctamente implementada (3 puntos).
         \item Justificación clara de las decisiones tomadas en el preprocesamiento (2 puntos).
     \end{itemize}
-    
+
     \item \textbf{Análisis con clustering (8 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Implementación adecuada de al menos dos algoritmos de clustering (4 puntos).
         \item Visualizaciones técnicas que representen los resultados (2 puntos).
         \item Explicación de la calidad de los clusters obtenidos (2 puntos).
     \end{itemize}
-    
+
     \item \textbf{Reducción de dimensiones (4 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Implementación de una técnica de reducción de dimensiones (2 puntos).
         \item Visualizaciones técnicas en 2D o 3D que resalten patrones clave (2 puntos).
     \end{itemize}
-    
+
     \item \textbf{Interpretación de resultados (2 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Discusión clara de los clusters formados y los patrones identificados (1.5 puntos).
         \item Relación de los resultados con el problema inicial (0.5 puntos).
     \end{itemize}
-    
+
     \item \textbf{Conclusión técnica (2 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Resumen conciso de los hallazgos técnicos (1.5 puntos).
         \item Identificación de limitaciones y posibles mejoras (0.5 puntos).
     \end{itemize}
-    
+
     \item \textbf{Legibilidad y simpleza del código (3 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Código bien comentado, organizado en secciones claras (1.5 puntos).
@@ -210,30 +199,30 @@ El informe divulgativo debe estar dirigido a autoridades de salud pública, resp
         \item Contextualiza el problema y la relevancia del análisis (2 puntos).
         \item Explica claramente los objetivos de la investigación (1 punto).
     \end{itemize}
-    
+
     \item \textbf{Metodología (2 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Breve descripción de las técnicas utilizadas  (1.5 puntos).
         \item Explicación de cómo estas técnicas ayudan a entender los datos (0.5 puntos).
     \end{itemize}
-    
+
     \item \textbf{Resultados principales (5 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Explicación de los clusters encontrados y sus características (2.5 puntos).
         \item Uso de gráficos comprensibles y relevantes para el público objetivo (2.5 puntos).
     \end{itemize}
-    
+
     \item \textbf{Implicaciones prácticas (3 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Relación de los resultados con acciones concretas (2 puntos).
         \item Interpretación de patrones significativos y su importancia (1 punto).
     \end{itemize}
-    
+
     \item \textbf{Recomendaciones (2 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Propuestas claras y aplicables basadas en los resultados del análisis (2 puntos).
     \end{itemize}
-    
+
     \item \textbf{Conclusión (3 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Resumen breve y relevante de los hallazgos (2 puntos).

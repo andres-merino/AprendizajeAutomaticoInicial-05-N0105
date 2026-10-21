@@ -1,6 +1,6 @@
 \documentclass[a4,11pt]{aleph-notas}
 
-% -- Paquetes adicionales 
+% -- Paquetes adicionales
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{array}
@@ -11,7 +11,7 @@
 }
 
 
-% -- Datos 
+% -- Datos
 \institucion{Facultad de Ciencias Exactas, Naturales y Ambientales}
 \carrera{Ciencia de Datos}
 \asignatura{Aprendizaje Automático Inicial}
@@ -36,7 +36,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-    \item Revisar el control de lectura, solicitar ejemplos de modelos que sean de Inteligencia Artificia y modelos que no lo sean.
+    \item Revisar el control de lectura, solicitar ejemplos de modelos que sean de Inteligencia Artificial y modelos que no lo sean.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +62,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Pregunta inicial:} 
+\paragraph{Pregunta inicial:}
 Si tuvieras un conjunto de datos de imágenes de flores, ¿qué datos se necesitaría para construir un modelo que identifique su tipo automáticamente?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,22 +70,23 @@ Si tuvieras un conjunto de datos de imágenes de flores, ¿qué datos se necesit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection*{Actividad 1: Definición de aprendizaje supervisado y no supervisado}
 
 En esta actividad se explicarán las definiciones básicas del aprendizaje supervisado y no supervisado mediante clase magistral con presentación visual y ejemplos prácticos para identificar cada tipo de aprendizaje.
 
-\paragraph{¿Cómo lo haremos?}  
+\paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
     \item \textbf{Visualización de video:}
-    Se presentará el video \href{https://youtu.be/oT3arRRB2Cw?si=ot9JjoIYtF3NWvun}{¿Qué es el Aprendizaje Supervisado y No Supervisado?} para introducir el tema.  
-    \item \textbf{Conceptos fundamentales:}  
+    Se presentará el video \href{https://youtu.be/oT3arRRB2Cw?si=ot9JjoIYtF3NWvun}{¿Qué es el Aprendizaje Supervisado y No Supervisado?} para introducir el tema.
+    \item \textbf{Conceptos fundamentales:}
     Se presentarán las definiciones: Aprendizaje supervisado (el modelo aprende a partir de datos etiquetados, buscando una relación entre entradas y salidas) y aprendizaje no supervisado (el modelo identifica patrones en datos no etiquetados).
     \item \textbf{Presentación de ejemplos:}
     Se mostrarán casos prácticos para que los estudiantes identifiquen el tipo de aprendizaje correspondiente.
-    \item \textbf{Materiales de apoyo:} 
+    \item \textbf{Materiales de apoyo:}
     Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
 
-    
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,25 +94,29 @@ En esta actividad se explicarán las definiciones básicas del aprendizaje super
 
 En esta actividad se explicarán los tipos de tareas del aprendizaje automático y los modelos más utilizados en cada una, mediante clase magistral con cuadro resumen y ejemplos de aplicación.
 
-\paragraph{¿Cómo lo haremos?}  
+\paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Clasificación de tareas:}  
+    \item \textbf{Clasificación de tareas:}
     Se presentarán las tres tareas principales:
     \begin{itemize}
-        \item {Clasificación} 
-        \item {Regresión} 
-        \item {Agrupamiento} 
+        \item {Clasificación}
+        \item {Regresión}
+        \item {Agrupamiento}
     \end{itemize}
     \item \textbf{Análisis de ejemplos:}
     Se presentarán casos prácticos para que los estudiantes identifiquen el tipo de tarea correspondiente.
-    \item \textbf{Materiales de apoyo:} 
+    \item \textbf{Materiales de apoyo:}
     Se utilizará la sección dos del archivo \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
     \item \textbf{Planteamiento de ejemplos:}
-    Los estudiantes interacturán con un chatbot para plantear ejemplos adicionales de cada tipo de tarea y modelo. Utilizar un prompt como:
-    \begin{quote}
-        Plantéame cinco ejemplos prácticos simples y cinco complejos de problemas que se resuelven con clasificación, regresión y agrupamiento, sin indicar directa o indirectamente el tipo de tarea. En total 10 ejemplos u estén mezclados los tipos de tareas. No menciones los nombres de las tareas en las respuestas ni alusiones a etiquetas, clasificación, predicción, etc.
-    \end{quote}
-    
+    Los estudiantes decidirán la tarea, las características necesarias y si hace falta una variable objetivo para cada caso, justificando sus respuestas antes de discutirlas:
+    \begin{enumerate}[leftmargin=*]
+        \item Estimar el precio de una vivienda a partir de sus características.
+        \item Identificar mensajes no deseados usando ejemplos previamente revisados.
+        \item Encontrar perfiles de gestión municipal de residuos sin categorías de referencia.
+        \item Agrupar viviendas por sus características, aunque también se conozca su precio.
+    \end{enumerate}
+    No se requiere chatbot para esta actividad; las respuestas deben justificarse por el propósito del análisis.
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,9 +124,9 @@ En esta actividad se explicarán los tipos de tareas del aprendizaje automático
 
 En esta actividad se detallarán las métricas de distancia más comunes utilizadas en aprendizaje automático, mediante exploración de un cuaderno de Jupyter con ejemplos prácticos de cálculo.
 
-\paragraph{¿Cómo lo haremos?}  
+\paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Métricas de distancia:}  
+    \item \textbf{Métricas de distancia:}
     Se presentarán las métricas más comunes:
     \begin{itemize}
         \item Euclidiana: $\sqrt{\sum (x_i - y_i)^2}$
@@ -129,43 +134,47 @@ En esta actividad se detallarán las métricas de distancia más comunes utiliza
         \item Mahalanobis: Basada en la covarianza.
         \item Minkowski: Generalización de las métricas Euclidiana y Manhattan.
     \end{itemize}
-    \item \textbf{Materiales de apoyo:} 
+    \item \textbf{Práctica en Colab:} Comparar las distancias y el efecto de las unidades en \href{https://colab.research.google.com/github/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/02-Metricas-Distancia.ipynb}{02-Metricas-Distancia.ipynb}; anticipar los resultados antes de ejecutar y justificar las diferencias.
+    \item \textbf{Materiales de apoyo:}
     Se utilizará la sección tres del archivo \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen02.pdf}{Resumen02.pdf}
-    
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Presentación del Reto 1}
+Revisar la consigna sobre gestión municipal de residuos, sus productos, rúbrica e hitos; localizar el CSV y el diccionario del INEC. Distinguir ese conjunto común del conjunto elegido para los talleres y consultar las fechas en el cronograma y el aula virtual.
+
 \section*{Cierre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Verificación de aprendizaje:} 
+\paragraph{Verificación de aprendizaje:}
 \begin{enumerate}[leftmargin=*]
     \item ¿Cuál es la diferencia fundamental entre el aprendizaje supervisado y el no supervisado?
-    
+
     \item ¿Qué tipo de problemas se resuelven con aprendizaje supervisado y cuáles con no supervisado?
 \end{enumerate}
 
-\paragraph{Preguntas tipo entrevista:} 
+\paragraph{Preguntas tipo entrevista:}
 \begin{enumerate}[leftmargin=*]
     \item Explica con un ejemplo práctico cómo decidirías entre usar aprendizaje supervisado o no supervisado para un problema de negocio real.
-    
-    \item Si tienes datos etiquetados, ¿siempre debes usar aprendizaje supervisado?
+
+    \item Un compañero afirma que disponer de etiquetas obliga a usar aprendizaje supervisado: identifica la premisa incorrecta y plantea un caso en el que convenga agrupar esos mismos datos.
 \end{enumerate}
 
-\paragraph{Tarea:} 
+\paragraph{Tarea:}
 \begin{itemize}
-    \item 
-    Identificar un conjunto de datos con la menos 5 características sobre los cuales se pueda aplicar modelos de aprendizaje supervisado y no supervisado, el cual será usado en los talleres durante todo el curso. No se debe usar conjuntos de datos muy conocidos como Iris, MNIST, Titanic, CaBoston Housing Prices, Wine Quality, etc. Se puede usar sitios como Kaggle, UCI Machine Learning Repository, Datos Abiertos del Ecuador, etc.
-    \item 
-    El Reto 1 está abierto, iniciar con el entendimiento de los datos y su limpieza.
+    \item
+    Identificar un conjunto de datos con al menos 5 características sobre los cuales se pueda aplicar modelos de aprendizaje supervisado y no supervisado, el cual será usado en los talleres durante todo el curso. No se debe usar conjuntos de datos muy conocidos como Iris, MNIST, Titanic, Boston Housing Prices, Wine Quality, etc. Se puede usar sitios como Kaggle, UCI Machine Learning Repository, Datos Abiertos del Ecuador, etc.
+    \item
+    Para el Reto 1 se usará la base común del INEC sobre residuos municipales, distinta del conjunto personal de los talleres; elaborar una ficha con el archivo usado, la unidad de observación y tres variables candidatas, antes de decidir cómo limpiarlas.
 \end{itemize}
 
-\paragraph{Pregunta de investigación:} 
+\paragraph{Pregunta de investigación:}
 \begin{enumerate}[leftmargin=*]
     \item ¿Qué es la distancia de Mahalanobis y en qué casos se usa? (ver \href{https://youtu.be/xXhLvheEF7o?si=d9utsZOrSU1cCGyv}{Distancia euclidiana y distancia de Mahalanobis})
-    \item ¿Cuándo se emplea la distancia de Minkoski con $p$ diferente de 1 y 2?
+    \item ¿Cuándo se emplea la distancia de Minkowski con $p$ diferente de 1 y 2?
 \end{enumerate}
-    
+
 \paragraph{Para la próxima clase:}
     Llevar la descripción del conjunto de datos seleccionado para la tarea, indicando la fuente, número de registros, número de características, tipo de características (numéricas, categóricas, etc.) y una breve descripción del problema que se pretende resolver con los datos.
 
