@@ -32,7 +32,7 @@
 
 \section{Modelos de clasificación}
 
-Consideremos un problema de clasificación binaria $\func{f}{X}{\{0,1\}}$ y un modelo de clasificación $\func{\hat{f}}{X}{\{0,1\}}$ que intenta aproximar a $f$. Además, sea un conjunto de datos $D = \{(x_i,y_i)\}_{i=1}^n$ el conjunto de datos utilizado para evaluar el desempeño del modelo, donde $y_i = f(x_i)$. ${f}$
+Consideremos un problema de clasificación binaria $\func{f}{X}{\{0,1\}}$ y un modelo de clasificación $\func{\hat{f}}{X}{\{0,1\}}$ que intenta aproximar a $f$. Además, sea $D = \{(x_i,y_i)\}_{i=1}^n$ el conjunto de datos utilizado para evaluar el desempeño del modelo, donde $y_i = f(x_i)$ y $|D|=n$.
 
 Definimos los siguientes términos:
 
@@ -43,19 +43,19 @@ Definimos los siguientes términos:
 \toprule
 \textbf{Medida} & \textbf{Definición} & \textbf{Igual a} \\[5mm]
 \midrule
-número de positivos & $Pos = \displaystyle\sum_{x \in D} I[f(x) = 1]$ & \\[5mm]
-número de negativos & $Neg = \displaystyle\sum_{x \in D} I[f(x) = 0]$ & \\[5mm]
-verdaderos positivos & $TP = \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]$ & \\[5mm]
-verdaderos negativos & $TN = \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 0]$ & \\[5mm]
-falsos positivos & $FP = \displaystyle\sum_{x \in D} I[\hat{f}(x) = 1, f(x) = 0]$ & \\[5mm]
-falsos negativos & $FN = \displaystyle\sum_{x \in D} I[\hat{f}(x) = 0, f(x) = 1]$ & \\[5mm]
-\textbf{exactitud} (accuracy) & $acc = \dfrac{1}{|Te|} \displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x)]$ &  $\dfrac{TP+TN}{|D|}$\\[5mm]
-\textbf{error} & $err = \dfrac{1}{|Te|} \displaystyle\sum_{x \in D} I[\hat{f}(x) \neq f(x)]$ &  $\dfrac{FP+FN}{|D|}$ \\[5mm]
-\textbf{precisión}, confianza & $pre = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]}{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 1]}$ & $\dfrac{TP}{TP + FP}$ \\[5mm]
-tasa de verdaderos positivos, \textbf{sensibilidad} (recall) & $tpr = rec = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 1]}{\displaystyle\sum_{x \in D} I[f(x) = 1]}$ &  $\dfrac{TP}{FN + TP}$\\[5mm]
-tasa de verdaderos negativos, \textbf{especificidad} & $tnr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = f(x) = 0]}{\displaystyle\sum_{x \in D} I[f(x) = 0]}$ &  \\[5mm]
-tasa de falsos positivos & $fpr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 1, f(x) = 0]}{\displaystyle\sum_{x \in D} I[f(x) = 0]}$ &  \\[5mm]
-tasa de falsos negativos & $fnr = \dfrac{\displaystyle\sum_{x \in D} I[\hat{f}(x) = 0, f(x) = 1]}{\displaystyle\sum_{x \in D} I[f(x) = 1]}$ & \\[5mm]
+número de positivos & $Pos = \displaystyle\sum_{i=1}^{n} I[f(x_i) = 1]$ & \\[5mm]
+número de negativos & $Neg = \displaystyle\sum_{i=1}^{n} I[f(x_i) = 0]$ & \\[5mm]
+verdaderos positivos & $TP = \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i) = 1]$ & \\[5mm]
+verdaderos negativos & $TN = \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i) = 0]$ & \\[5mm]
+falsos positivos & $FP = \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = 1, f(x_i) = 0]$ & \\[5mm]
+falsos negativos & $FN = \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = 0, f(x_i) = 1]$ & \\[5mm]
+\textbf{exactitud} (accuracy) & $acc = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i)]$ &  $\dfrac{TP+TN}{|D|}$\\[5mm]
+\textbf{error} & $err = \dfrac{1}{|D|} \displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) \neq f(x_i)]$ &  $\dfrac{FP+FN}{|D|}$ \\[5mm]
+\textbf{precisión} & $pre = \dfrac{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i) = 1]}{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = 1]}$ & $\dfrac{TP}{TP + FP}$ \\[5mm]
+tasa de verdaderos positivos, \textbf{sensibilidad} (recall) & $tpr = rec = \dfrac{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i) = 1]}{\displaystyle\sum_{i=1}^{n} I[f(x_i) = 1]}$ &  $\dfrac{TP}{FN + TP}$\\[5mm]
+tasa de verdaderos negativos, \textbf{especificidad} & $tnr = \dfrac{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = f(x_i) = 0]}{\displaystyle\sum_{i=1}^{n} I[f(x_i) = 0]}$ &  \\[5mm]
+tasa de falsos positivos & $fpr = \dfrac{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = 1, f(x_i) = 0]}{\displaystyle\sum_{i=1}^{n} I[f(x_i) = 0]}$ &  \\[5mm]
+tasa de falsos negativos & $fnr = \dfrac{\displaystyle\sum_{i=1}^{n} I[\hat{f}(x_i) = 0, f(x_i) = 1]}{\displaystyle\sum_{i=1}^{n} I[f(x_i) = 1]}$ & \\[5mm]
 \textbf{Puntuación F1} & $F1 = 2 \cdot \dfrac{pre \cdot rec}{pre + rec}$ & \\[5mm]
 \bottomrule
 \end{tabular}
@@ -87,7 +87,7 @@ Un ejemplo claro es un filtro de correo spam en un entorno corporativo. Aquí, c
 \end{center}
 En este caso, minimizamos los Falsos Positivos para maximizar la precisión:
 \[pre = \frac{TP}{TP + FP} = \frac{30}{30 + 1} = \frac{30}{31} \approx 0.968\]
-Esto indica un 96.8\% de confianza. Aunque se filtraron pocos correos de spam del total real (muchos FN), garantizamos que lo que se capturó era efectivamente basura.
+Esto indica que el 96.8\% de los correos marcados como spam son realmente spam. Aunque se filtraron pocos correos de spam del total real (muchos FN), la mayoría de los mensajes capturados eran efectivamente basura.
 
 \paragraph{Sensibilidad (recall):} Proporción de instancias positivas que fueron correctamente identificadas. Se prioriza cuando el costo de un Falso Negativo es alto.
 
