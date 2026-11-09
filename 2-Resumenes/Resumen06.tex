@@ -31,7 +31,7 @@
 \encabezado
 
 \begin{teo}
-    Sea \(A \in \mathbb{R}^{m \times n}\) una matriz de rango \(r\). Entonces, existen únicas matrices \(U \in \mathbb{R}^{m \times m}\), \(V \in \mathbb{R}^{n \times n}\) y \(\Sigma \in \mathbb{R}^{m \times n}\) tal que
+    Sea \(A \in \mathbb{R}^{m \times n}\) una matriz de rango \(r\). Entonces, existen matrices \(U \in \mathbb{R}^{m \times m}\), \(V \in \mathbb{R}^{n \times n}\) y \(\Sigma \in \mathbb{R}^{m \times n}\) tales que
     \[
         A = U \Sigma V^T,
     \]
@@ -43,41 +43,23 @@
     \end{itemize}
 
     A los valores en la diagonal de \(\Sigma\) se les llama valores singulares de \(A\), y las columnas de \(U\) y \(V\) se llaman vectores singulares izquierdos y derechos, respectivamente.
+    Las matrices \(U\) y \(V\) no son, en general, únicas.
 \end{teo}
 
 \begin{proof}
-    Supongamos que la descomposición existe, es decir, \(A = U \Sigma V^T\), nuestro objetivo es encontrar las matrices \(U\), \(\Sigma\) y \(V\).
-
-    Primero, consideremos la matriz \(A^T A\), esta es simétrica; por el teorema espectral, también es diagonalizable y todos sus valores propios son no negativos. Sea \(P\) la matriz cuyas columnas son los vectores propios ortonormales de \(A^T A\), y sea \(D\) la matriz diagonal cuyos elementos son los valores propios correspondientes. Entonces, podemos escribir
+    La matriz \(A^T A\) es simétrica y semidefinida positiva. Por el teorema espectral, existe una matriz ortogonal \(V\) cuyas columnas \(v_i\) son vectores propios de \(A^T A\), ordenados según sus valores propios \(\lambda_1 \geq \cdots \geq \lambda_n \geq 0\). Así,
     \[
-        A^T A = P D P^T.
+        A^T A = V D V^T, \qquad D = \operatorname{diag}(\lambda_1,\ldots,\lambda_n).
     \]
-    Por otro lado, como suponemos que \(A = U \Sigma V^T\), tenemos
+    Definimos los valores singulares \(\sigma_i=\sqrt{\lambda_i}\) y los ubicamos en la diagonal de \(\Sigma\). Para los \(r\) valores singulares positivos, tomamos
     \[
-        A^T A = (U \Sigma V^T)^T (U \Sigma V^T) = V \Sigma^T U^T U \Sigma V^T = V \Sigma^T \Sigma V^T.
+        u_i = \frac{A v_i}{\sigma_i}, \qquad i=1,\ldots,r.
     \]
-    Comparando ambas expresiones para \(A^T A\), obtenemos
+    Estos vectores son ortonormales, pues
     \[
-        P D P^T = P \Sigma^T \Sigma P^T.
+        u_i^T u_j = \frac{v_i^T A^T A v_j}{\sigma_i\sigma_j} = \delta_{ij}.
     \]
-    Así, podemos tomar
-    \[
-        V = P, \quad \Sigma^T \Sigma = D.
-    \]
-    Como tanto $D$ y $\Sigma$ son diagonales, tenemos que $\sigma_{ii}^2 = \lambda_{ii}$. Por otro lado, como los valores propios de \(A^T A\) son no negativos, podemos tomar
-    \[
-        \sigma_{ii} = \sqrt{\lambda_{ii}}.
-    \]
-
-    Ahora, tomemos $v_i$ las columnas de $V$ y $u_i$ las columnas de $U$. Observemos que, como $V$ es ortogonal, tenemos que $V^T v_i = e_i$, donde $e_i$ es el vector canónico. Entonces, de $A = U\Sigma V^T$, tenemos que
-    \[
-        A v_i = U \Sigma V^T v_i = U \Sigma e_i = U \sigma_{ii} e_i = \sigma_{ii} u_i,
-    \]
-    así, podemos tomar
-    \[
-        u_i = \frac{1}{\sigma_{ii}} A v_i.
-    \]
-    De esta manera, tenemos la descomposición en valores singulares.
+    Completamos \(u_1,\ldots,u_r\) con vectores ortonormales hasta formar la matriz \(U\). Si \(i>r\), entonces \(\lambda_i=0\) y \(\|Av_i\|^2=v_i^T A^T A v_i=0\), por lo que \(Av_i=0\). Así, las primeras \(r\) columnas de \(AV\) son \(\sigma_i u_i\) y las restantes son nulas; por tanto, \(AV=U\Sigma\). Al multiplicar por \(V^T\), obtenemos \(A=U\Sigma V^T\).
 \end{proof}
     
 

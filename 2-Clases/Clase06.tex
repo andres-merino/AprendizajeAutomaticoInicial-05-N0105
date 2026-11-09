@@ -52,7 +52,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-¿Por qué es importante reducir la dimensionalidad de un conjunto de datos al construir un modelo de aprendizaje automático?
+Si varias características de un conjunto de datos aportan información parecida, ¿qué ganaríamos y qué podríamos perder al resumirlas en menos dimensiones antes de analizar los datos?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
@@ -61,12 +61,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 1: Selección de Atributos}
 
-Se preparará un modelo GPT interactivo mediante clase interactiva con el cual los estudiantes podrán explorar conceptos clave, ventajas y desventajas de técnicas de selección de atributos.
+Se repasará brevemente la selección de atributos para distinguirla de la extracción de nuevas características antes de trabajar con PCA.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Clase interactiva:}  
-    Los estudiantes interactuarán con un modelo GPT diseñado para explicar las técnicas de selección de atributos y sus aplicaciones prácticas.
+    Los estudiantes usarán un modelo GPT para recuperar las ideas principales de la selección de atributos y contrastarlas con la extracción de características.
     \begin{quote}
         Enlace al GPT: \href{https://chatgpt.com/g/g-674f787b286c8191aee6a93bde4ede57-tutor-aa-seleccion-de-atributos}{Tutor AA - Selección de Atributos}
     \end{quote}
@@ -76,7 +76,7 @@ Se preparará un modelo GPT interactivo mediante clase interactiva con el cual l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Análisis de Componentes Principales (PCA)}
 
-Se utilizará un modelo GPT para repasar conceptos clave de PCA mediante clase interactiva y se guiará a los estudiantes en su implementación práctica con cuaderno de Jupyter.
+Se utilizará un modelo GPT para recuperar conceptos de PCA y se dará prioridad a su aplicación e interpretación en el cuaderno de Jupyter.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -91,19 +91,19 @@ Se utilizará un modelo GPT para repasar conceptos clave de PCA mediante clase i
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06-1-Reduccion-Dimensionalidad.ipynb}{06-1-Reduccion-Dimensionalidad.ipynb}.
     \end{quote}
     
-    \item \textbf{Experimentación:} Realiza un análisis PCA con un número diferente de componentes principales y observa cómo afecta a la carga de cada componente.
+    \item \textbf{Experimentación:} Compara distintos números de componentes mediante la varianza explicada y las cargas; justifica cuánta información conserva la representación elegida.
     
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 3: Descomposición en Valores Singulares (SVD)}
 
-Clase magistral para explicar los fundamentos de SVD mediante introducción matemática, seguida de ejemplo práctico de implementación en cuaderno de Jupyter y discusión guiada sobre el significado de las matrices resultantes.
+Se retomará la relación entre PCA y SVD con una explicación breve y un ejemplo del cuaderno de Jupyter. El resumen matemático quedará disponible para profundizar después de la sesión.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Clase magistral:}  
-    Deducción matemática a SVD y sus aplicaciones en reducción de dimensionalidad.
+    Se presentará la factorización $A=U\Sigma V^T$ y se interpretará el papel de los valores singulares en una aproximación de menor dimensión.
 
     \item \textbf{Materiales de apoyo:} 
     Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen06.pdf}{Resumen06.pdf}
@@ -113,7 +113,7 @@ Clase magistral para explicar los fundamentos de SVD mediante introducción mate
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/06-2-SVD.ipynb}{06-2-SVD.ipynb}.
     \end{quote}
     
-    \item \textbf{Experimentación:} Amplía los datos del ejemplo agregando más usuarios y películas. Luego, implementa la SVD para realizar otra clasificación de conceptos.
+    \item \textbf{Experimentación posterior:} Amplía la matriz de preferencias con más usuarios y películas; compara qué información conserva una aproximación con distintos números de valores singulares.
     
 \end{itemize}
 
@@ -124,13 +124,13 @@ Clase magistral para explicar los fundamentos de SVD mediante introducción mate
 
 \paragraph{Verificación de aprendizaje:} 
 \begin{enumerate}[leftmargin=*]
-    \item ¿Qué es PCA y cuál es su objetivo principal en la reducción de dimensionalidad?
+    \item Al reducir cuatro características a dos componentes con PCA, ¿qué información revisarías para decidir si la representación es suficiente?
     
-    \item ¿Cuál es la diferencia entre selección de atributos y extracción de características?
+    \item ¿Qué diferencia hay entre conservar dos atributos originales y construir dos componentes principales?
     
-    \item ¿Para qué se utiliza la descomposición SVD en aprendizaje automático?
+    \item Si conservas menos valores singulares al reconstruir una matriz, ¿qué esperas que ocurra con la información representada?
 
-    \item En el SVD, ¿qué representan las matrices $U$, $\Sigma$ y $V^T$?
+    \item En el ejemplo de preferencias, ¿qué representan $U$, $\Sigma$ y $V^T$?
 \end{enumerate}
 
 \paragraph{Preguntas tipo entrevista:} 
@@ -144,14 +144,12 @@ Clase magistral para explicar los fundamentos de SVD mediante introducción mate
 
 \paragraph{Pregunta de investigación:} 
 \begin{enumerate}[leftmargin=*]
-    \item ¿Puedo hacer PCA para datos categóricos?
-    \item ¿Qué sistemas de recomendación usan SVD?
+    \item ¿Qué precaución tomarías antes de aplicar e interpretar PCA sobre variables categóricas codificadas como números?
+    \item ¿Cómo cambia la aproximación de una matriz de preferencias al conservar uno, dos o más valores singulares?
 \end{enumerate}
     
 \paragraph{Para la próxima clase:} 
 \begin{itemize}
-    \item La siguiente sesión se realizará un taller de implementación.
-    \item La sesión subsiguiente se tendrá evaluación.
     \item Ver el video \href{https://youtu.be/NyhnBI2aJmQ?si=XLyDJCydPYe1e2T1}{APRENDIZAJE NO SUPERVISADO EN MACHINE LEARNING}.
 \end{itemize}
 

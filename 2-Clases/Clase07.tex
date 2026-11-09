@@ -62,7 +62,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-Imagina que el Profesor Oak pierde todos los datos sobre los «Tipos» (Fuego, Agua, Planta, etc.). Si solo tenemos sus estadísticas numéricas (Ataque, Defensa, Velocidad), ¿podría un algoritmo redescubrir por sí solo que Charizard y Blastoise pertenecen a diferentes grupos basados en sus características?
+Si el Profesor Oak pierde las etiquetas de «Tipo» y solo conserva estadísticas numéricas de los Pokémon, ¿qué similitudes podrían revelar los grupos obtenidos? ¿Por qué esos grupos no tendrían que coincidir con los tipos originales?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
@@ -82,7 +82,7 @@ Se utilizará un video introductorio mediante proyección y discusión para fami
     \end{quote}
     
     \item \textbf{Interacción con ChatGPT:}  
-    Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con los términos o conceptos que no entendieron durante la visualización. Términos sugeridos para investigar: K-Means, Clusterización jerárquica, DBSCAN, Modelos de mezclas gaussianas, Ruido en los datos, Detección de anomalías.
+    Después del video, cada estudiante formulará preguntas sobre los conceptos que no entendió. Se dará prioridad a agrupamiento, k-means, agrupamiento jerárquico y efecto de la escala de los datos.
     
     \item \textbf{Discusión grupal:}
     Los estudiantes compartirán los términos que investigaron y las respuestas proporcionadas por ChatGPT.
@@ -102,14 +102,15 @@ En esta actividad los estudiantes explorarán las definiciones y característica
         \item \textbf{Agrupamiento con superposición:} Los datos pueden pertenecer a múltiples grupos con grados de pertenencia. Ejemplo: clustering difuso (\textit{fuzzy clustering}).
         \item \textbf{Agrupamiento jerárquico:} Los datos son organizados en una estructura de árbol jerárquico. Ejemplo: dendrogramas.
     \end{itemize}
+    El carácter jerárquico describe cómo se organizan los grupos; al cortar el dendrograma, cada dato también puede quedar asignado a un solo grupo. Por ello, «jerárquico» y «exclusivo» no son categorías opuestas.
     
     \item \textbf{Exploración guiada:}  
     Los estudiantes realizarán dos tareas principales en grupos pequeños:
     \begin{enumerate}
         \item \textbf{Preguntar a ChatGPT:} Cada grupo formulará las siguientes preguntas a la herramienta:
         \begin{itemize}
-            \item ¿Cuál es la principal diferencia entre el agrupamiento jerárquico y el agrupamiento exclusivo?
-            \item ¿Cuándo es preferible usar un modelo probabilístico frente a k-means?
+            \item ¿Puede un agrupamiento jerárquico producir grupos exclusivos? ¿Qué describe cada término?
+            \item ¿Qué información aporta un dendrograma que no muestra una única partición obtenida con k-means?
             \item ¿Qué limitaciones tienen los métodos de agrupamiento con superposición en aplicaciones reales?
         \end{itemize}
         \item \textbf{Búsqueda de referencias:} Usando la plataforma \href{https://consensus.app/}{Consensus}, los estudiantes buscarán un artículo científico que respalde o amplíe las respuestas obtenidas de ChatGPT, identificando la idea principal del artículo y cómo se relaciona con el tema discutido.
@@ -128,12 +129,12 @@ En esta actividad los estudiantes analizarán mediante exploración de cuaderno 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Presentación inicial:}  
-    Se presenta un gráfico que muestra cómo diferentes normalizaciones (StandardScaler, MinMaxScaler, Normalizer) afectan la distribución de los datos en un espacio bidimensional.
+    Se presentan gráficos que muestran cómo StandardScaler, MinMaxScaler y Normalizer transforman los datos y afectan los grupos obtenidos con k-means.
     
     \item \textbf{Exploración individual:}  
     Cada estudiante deberá analizar el gráfico y responder preguntas como:
     \begin{itemize}
-        \item ¿Cuál técnica de normalización parece más adecuada para separar los grupos visualmente?
+        \item ¿Qué cambia en los grupos asignados cuando se transforma la escala de los datos? ¿Puede juzgarse la calidad de un agrupamiento solo por su aspecto visual?
     \end{itemize}
     
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
@@ -151,14 +152,14 @@ En esta actividad los estudiantes analizarán mediante exploración de cuaderno 
 
 \paragraph{Verificación de aprendizaje:} 
 \begin{enumerate}[leftmargin=*]   
-    \item ¿Cuál es la diferencia principal entre agrupamiento exclusivo y agrupamiento con superposición?
+    \item ¿En qué se diferencia la pertenencia exclusiva de la pertenencia con superposición? ¿Puede un método jerárquico producir grupos exclusivos?
     
-    \item ¿Por qué es importante seleccionar una técnica de normalización adecuada antes de aplicar un algoritmo de clusterización?
+    \item En el ejemplo del cuaderno, ¿qué asignaciones de k-means cambian, si las hay, al transformar los datos y cómo explicarías esas diferencias?
 \end{enumerate}
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
-    \item ¿Cómo podrían detectarse anomalías en un conjunto de datos usando aprendizaje no supervisado?
+    \item En un caso real de agrupamiento sin etiquetas, ¿qué variables y decisiones de escalado podrían cambiar la interpretación de los grupos y por qué?
 \end{enumerate}
 
 

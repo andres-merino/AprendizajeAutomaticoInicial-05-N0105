@@ -57,7 +57,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pregunta inicial:} 
-A veces queremos agrupar a los Pokémon solo en «Legendarios vs. Comunes» (2 grupos), pero otras veces necesitamos dividirlos por sus 18 Tipos elementales. ¿Existe algún algoritmo que no nos obligue a decidir el número de grupos desde el principio, sino que nos permita «cortar» la clasificación al nivel de detalle que nosotros queramos después de ver los datos?
+Si agrupamos Pokémon por sus estadísticas numéricas sin usar las etiquetas de «Tipo», ¿cómo podríamos observar agrupaciones a distintos niveles de detalle y decidir dónde cortar la jerarquía?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Desarrollo}
@@ -81,17 +81,12 @@ Se introducirá a los estudiantes los fundamentos del agrupamiento jerárquico m
     \item \textbf{Materiales de apoyo:} 
     Se utilizará el documento \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-Resumenes/Resumen08.pdf}{Resumen08.pdf}
     
-    \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
-    \begin{quote}
-        Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
-    \end{quote}
-    
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 2: Agrupamiento jerárquico con una lista de números}
 
-Se realizará un ejercicio práctico manual para agrupar una lista de números utilizando un enfoque jerárquico, construyendo grupos con diferentes criterios de enlace y visualizando el proceso en un dendograma.
+Se realizará un ejercicio práctico manual para agrupar una lista de números, registrar las primeras fusiones y comparar cómo cambia el dendrograma según el criterio de enlace.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
@@ -99,47 +94,47 @@ Se realizará un ejercicio práctico manual para agrupar una lista de números u
     Se trabajará con la siguiente lista de números: \texttt{[10, 4, 20, 30, 38, 87, 82, 56, 66, 70]}.
     
     \item \textbf{Representación manual:}  
-    A medida que se fusionan los grupos, se registrarán los pasos y se dibujará un dendograma manualmente en el pizarrón o en hojas de trabajo distribuidas a los estudiantes.
+    Se registrarán las primeras fusiones con enlace simple y completo. Luego se contrastarán los dendrogramas con los primeros ejemplos del cuaderno.
     
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 3: Visualización de video sobre algoritmos de agrupamiento jerárquico}
 
-Se utilizará un video educativo mediante proyección y discusión para que los estudiantes comprendan los conceptos fundamentales del agrupamiento jerárquico, incluyendo los métodos aglomerativos y divisivos, los criterios de enlace, y la interpretación de dendogramas.
+El video quedará como apoyo para repasar los métodos aglomerativos y divisivos, los criterios de enlace y la interpretación de dendrogramas después de la sesión.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Proyección de video:}  
-    Se presentará un video educativo que explique los fundamentos del agrupamiento jerárquico.
+    \item \textbf{Consulta del video:}
+    Los estudiantes podrán revisar un video educativo sobre los fundamentos del agrupamiento jerárquico.
     \begin{quote}
         Enlace al video: \href{https://youtu.be/8QCBl-xdeZI?si=TYfeBv0pZGRS_0zS}{Hierarchical Cluster Analysis}.
     \end{quote}
     
     \item \textbf{Interacción con ChatGPT:}  
-    Después del video, cada estudiante formulará preguntas a ChatGPT relacionadas con términos o conceptos que no comprendieron durante la visualización.
+    Después del video, cada estudiante podrá formular preguntas sobre los términos que no comprendió y contrastar las respuestas con el resumen de la clase.
     
     \item \textbf{Discusión grupal:}
-    Los estudiantes compartirán las preguntas que realizaron a ChatGPT y las respuestas que obtuvieron.
+    Las dudas pendientes podrán retomarse al revisar los ejercicios.
     
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Actividad 4: Implementación del agrupamiento jerárquico}
 
-Los estudiantes utilizarán un cuaderno de Jupyter mediante exploración práctica para implementar y experimentar con algoritmos de agrupamiento jerárquico sobre varios conjuntos de datos, observando cómo las métricas y criterios de enlace afectan los resultados.
+Los estudiantes recorrerán los primeros ejemplos de la lista de números en el cuaderno para comprobar las fusiones del ejercicio manual y observar cómo el criterio de enlace afecta al dendrograma.
 
 \paragraph{¿Cómo lo haremos?}  
 \begin{itemize}[leftmargin=*]
     \item \textbf{Explicación de la experimentación:}  
-    Los estudiantes experimentarán modificando criterios de enlace (single, complete, average), métricas de distancia (euclidean, manhattan, cosine) y aplicando el agrupamiento sobre diferentes datasets.
+    Se compararán los enlaces simple y completo en el primer ejemplo del cuaderno. La exploración de otras métricas, enlaces y conjuntos de datos quedará para el ejercicio posterior.
     
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
         Enlace al cuaderno: \href{https://github.com/andres-merino/AprendizajeAutomaticoInicial-05-N0105/blob/main/2-Notebooks/08-Agrupamiento-Jerarquico.ipynb}{08-Agrupamiento-Jerarquico.ipynb}.
     \end{quote}
     
-    \item \textbf{Experimentación:} Genera el agrupamiento con diferentes métricas y métodos de enlaces. ¿Qué diferencias observas?
+    \item \textbf{Experimentación posterior:} Compara otros enlaces y métricas con el mismo conjunto de datos. ¿Qué cambia en las fusiones y en el corte del dendrograma?
     
 \end{itemize}
 
@@ -149,18 +144,18 @@ Los estudiantes utilizarán un cuaderno de Jupyter mediante exploración prácti
 
 \paragraph{Verificación de aprendizaje:} 
 \begin{enumerate}[leftmargin=*]
-    \item ¿Cuál es la diferencia principal entre los métodos aglomerativos y divisivos en agrupamiento jerárquico?
+    \item En el ejercicio manual, ¿qué pasos seguiría el método aglomerativo y en qué sentido cambiaría el procedimiento si fuera divisivo?
     
-    \item ¿Qué información proporciona un dendograma y cómo se interpreta?
+    \item ¿Qué indican la distancia de una fusión y un corte del dendrograma a una distancia determinada?
     
-    \item ¿Cómo difieren los tres criterios de enlace principales (simple, completo y promedio) y cuándo usaría cada uno?
+    \item ¿Por qué pueden cambiar las fusiones al pasar de enlace simple a completo con los mismos datos y la misma distancia entre puntos?
 \end{enumerate}
 
 \paragraph{Preguntas tipo entrevista:} 
 \begin{enumerate}[leftmargin=*]
     \item Tienes un dataset de clientes con múltiples características. Aplicaste clustering jerárquico con enlace simple y obtuviste un cluster gigante con casi todos los datos. ¿Qué problema está ocurriendo y cómo lo resolverías?
     
-    \item ¿Qué ventajas tiene el clustering jerárquico divisivo sobre el aglomerativo en términos de eficiencia computacional y calidad de los clusters formados?
+    \item Si quisieras dividir primero un grupo grande, ¿qué decisión adicional exige el enfoque divisivo y por qué no puede suponerse que será más rápido o producirá mejores grupos?
 \end{enumerate}
 
 \paragraph{Tarea:}  
@@ -171,8 +166,8 @@ Desarrollar los ejercicios planteados en el siguiente cuaderno y entregarlo por 
 
 \paragraph{Pregunta de investigación:}  
 \begin{enumerate}[leftmargin=*]
-    \item ¿En qué casos prácticos sería más útil un método divisivo en lugar de uno aglomerativo?
-    \item ¿Cómo afecta la elección de la métrica de distancia (euclidiana, Manhattan, coseno) en los resultados del agrupamiento jerárquico?
+    \item ¿Qué criterio usarías para decidir dónde cortar un dendrograma si buscas grupos interpretables y no conoces etiquetas previas?
+    \item Con los mismos datos escalados, ¿qué fusiones cambian al usar distancias euclidiana, Manhattan o coseno, y cómo explicarías esas diferencias?
 \end{enumerate}
     
 \paragraph{Para la próxima clase:}  Leer la sección 12.1 del artículo \href{https://link.springer.com/article/10.1140/epjs/s11734-021-00209-7}{Beginning with machine learning: a comprehensive primer}.

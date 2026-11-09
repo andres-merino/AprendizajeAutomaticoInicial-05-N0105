@@ -44,16 +44,18 @@
     \Output{Estructura jerárquica de clústeres}
     
     Inicializar $\ell \leftarrow 0$\;
-    Inicializar el conjunto de clústeres $C_\ell \leftarrow D$\;
+    Inicializar el conjunto de clústeres $C_\ell \leftarrow \{\{x\}:x\in D\}$\;
+    Inicializar el historial de fusiones $H \leftarrow [\,]$\;
     
     \While{$|C_\ell| > 1$}{
         Encontrar par $c_i, c_j \in C_\ell$ tal que $L(c_i, c_j)$ sea mínima\;
         Crear nuevo clúster $c_* \leftarrow c_i \cup c_j$\;
+        Registrar en $H$ la fusión de $c_i$ y $c_j$ a distancia $L(c_i,c_j)$\;
         Actualizar $C_{\ell+1} \leftarrow (C_\ell \setminus \{c_i, c_j\}) \cup \{c_*\}$\;
         $\ell \leftarrow \ell + 1$\;
     }
     
-    \Return{$C_\ell$}
+    \Return{$H$}
 \end{algorithm}
 
 \subsection{Tipos de enlace}
@@ -105,15 +107,17 @@
     
     Inicializar $\ell \leftarrow 0$\;
     Inicializar el conjunto de clústeres $C_\ell \leftarrow \{D\}$\;
+    Inicializar el historial de divisiones $H \leftarrow [\,]$\;
     
     \While{exista $c \in C_\ell$ que se pueda dividir}{
         Seleccionar clúster $c \in C_\ell$ para dividir\;
         Dividir $c$ en subclústeres $c_1, c_2, \ldots, c_k$\;
+        Registrar en $H$ la división de $c$ en $c_1, c_2, \ldots, c_k$\;
         Actualizar $C_{\ell+1} \leftarrow (C_\ell \setminus \{c\}) \cup \{c_1, c_2, \ldots, c_k\}$\;
         $\ell \leftarrow \ell + 1$\;
     }
     
-    \Return{$C_\ell$}
+    \Return{$H$}
 \end{algorithm}
 
 \end{document}
