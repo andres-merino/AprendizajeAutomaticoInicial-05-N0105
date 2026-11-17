@@ -63,7 +63,7 @@ Consideremos un problema de aprendizaje supervisado con un conjunto de datos
 donde \(x^{(i)} \in \mathbb{R}^d\) representa el vector de características y
 \(y^{(i)} \in \mathbb{R}\) la etiqueta asociada.
 
-Un \textbf{perceptrón} se define mediante la composición de las siguientes funciones:
+En esta introducción usamos una neurona con activación identidad para regresión, equivalente a un modelo lineal, y la distinguimos del perceptrón clásico de clasificación con función escalón. El modelo se define mediante la composición de las siguientes funciones:
 
 \begin{itemize}[leftmargin=*]
     \item \textbf{Función de combinación}
@@ -116,7 +116,7 @@ que minimizan la función de pérdida sobre el conjunto de datos:
     (w^\ast,b^\ast)
     =
     \argmin_{w \in \mathbb{R}^d,\, b \in \mathbb{R}}
-    \frac{1}{N} \sum_{i=1}^N L\bigl(y^{(i)}, \sigma(a(x^{(i)},w,b))\bigr).
+    L\bigl(y, (\sigma(a(x^{(i)},w,b)))_{i=1}^N\bigr).
 \]
 
 En el ejemplo, esto se traduce en:
@@ -143,7 +143,7 @@ Para esto, calculamos las derivadas parciales de la función de pérdida con res
     \frac{\partial L}{\partial b} 
     = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial b}
     = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \sigma}{\partial a} \cdot \frac{\partial a}{\partial b}
-    = \frac{2}{N} \sum_{i=1}^N ( \hat y^{(i)} - y^{(i)} ) \cdot 0 \cdot 1.
+    = \frac{2}{N} \sum_{i=1}^N ( \hat y^{(i)} - y^{(i)} ) \cdot 1 \cdot 1.
 \]
 De esta manera, tomamos valores aleatorios iniciales para \(w\) y \(b\), y actualizamos iterativamente:
 \[
@@ -160,7 +160,7 @@ De esta manera, tomamos valores aleatorios iniciales para \(w\) y \(b\), y actua
         \frac{\partial L}{\partial b}
     \end{pmatrix},
 \]
-donde \(\eta\) es la tasa de aprendizaje. A cada actilización se le denomina \textbf{época}.
+donde \(\eta\) es la tasa de aprendizaje. Una \textbf{época} es un recorrido completo del conjunto de entrenamiento; al usar todos los datos en cada actualización, como en este ejemplo, se realiza una actualización por época, mientras que al trabajar por lotes se realizan varias.
 
 
 

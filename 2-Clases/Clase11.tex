@@ -61,13 +61,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 1: Introducción a SVM}
+\subsection*{Actividad 1: Introducción a SVM (primera sesión)}
 
 En esta actividad los estudiantes conocerán las Máquinas de Soporte Vectorial (SVM) mediante visualización de video y clase magistral, explorando sus fundamentos teóricos sobre margen máximo, hiperplanos, vectores de soporte y optimización cuadrática.
 
 \paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Revisión de tarea:} Se realizará el siguiente cuestionario a estudiantes de manera aleatoria para revisar la lectura previas:
+    \item \textbf{Revisión de tarea:} Se realizará el siguiente cuestionario a estudiantes de manera aleatoria para revisar la lectura previa:
     \begin{quote}
         Enlace al cuestionario: \href{https://gemini.google.com/share/a88a74d2db79}{Cuestionario: Máquinas de Soporte Vectorial (SVM)}.
     \end{quote}
@@ -81,7 +81,7 @@ En esta actividad los estudiantes conocerán las Máquinas de Soporte Vectorial 
     Presentación de los elementos teóricos principales:
     \begin{itemize}
         \item Margen máximo y vectores de soporte.
-        \item Problema de optimización cuadrática.
+        \item Problema de optimización cuadrática, retomando los conocimientos previos de optimización y distinguiendo margen duro y margen blando.
     \end{itemize}
     
     \item \textbf{Materiales de apoyo:} 
@@ -97,7 +97,7 @@ En esta actividad los estudiantes implementarán un modelo SVM con kernel lineal
 \paragraph{¿Cómo lo haremos?}
 \begin{itemize}[leftmargin=*]
     \item \textbf{Explicación de parámetros:}
-    Se explicará el parámetro C y su impacto en el margen y la clasificación (valores pequeños de C crean márgenes más amplios tolerando más errores, valores grandes de C crean márgenes más estrictos).
+    Se explicará cómo $C$ penaliza las violaciones del margen, con mayor regularización para valores pequeños y mayor penalización de las violaciones para valores grandes.
     
     \item \textbf{Implementación en Python:} Los estudiantes accederán a un cuaderno de Jupyter previamente preparado.
     \begin{quote}
@@ -106,15 +106,14 @@ En esta actividad los estudiantes implementarán un modelo SVM con kernel lineal
     
     \item \textbf{Experimentación:} 
     \begin{itemize}
-        \item Pruébalo con un kernel polinómico de grado 2 y 3, y observa cómo cambia la visualización de las regiones de decisión.
-        \item Genera datos con la función make\_moons y observa cómo cambia la visualización de las regiones de decisión con diferentes kernels.
-        \item Para un conjunto de datos no linealmente separable, prueba un kernel polinomial con diferentes grados; realiza un gráfico de la precisión del modelo en función del grado del kernel.
+        \item Mantener el kernel lineal y observar el efecto de $C$ en el margen y los vectores de soporte sobre los datos de entrenamiento.
+        \item Contrastar la frontera lineal con los datos circulares del notebook para identificar su limitación sin seleccionar modelos con prueba.
     \end{itemize}
     
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Actividad 3: Introducción a los kernels y su aplicación}
+\subsection*{Actividad 3: Introducción a los kernels y su aplicación (segunda sesión)}
 
 En esta actividad los estudiantes explorarán mediante video, interacción con ChatGPT y clase magistral cómo los kernels permiten a las SVM abordar problemas de clasificación no lineales, analizando diferentes tipos de kernels y su efecto en la separación de datos.
 
@@ -138,6 +137,19 @@ En esta actividad los estudiantes explorarán mediante video, interacción con C
         \item Sigmoide.
     \end{itemize}
        
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Actividad 4: Ajuste y comparación de SVM}
+
+En esta actividad los estudiantes compararán kernels y ajustarán $C$ y $\gamma$ mediante la sección práctica del notebook, usando validación para seleccionar la configuración.
+
+\paragraph{¿Cómo lo haremos?}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Preparación:} Reservar prueba antes de escalar, separar entrenamiento y validación y ajustar el escalador solo con entrenamiento.
+    \item \textbf{Experimentación guiada:} Comparar los kernels y valores de $C$ propuestos y, para RBF, los valores de $\gamma$, interpretando la exactitud de entrenamiento y validación sobre las mismas particiones.
+    \item \textbf{Exploración complementaria:} Comparar grados 2 y 3 del kernel polinómico o repetir con \texttt{make\_moons}, utilizando validación para las decisiones.
+    \item \textbf{Evaluación final:} Fijar la configuración, reajustar escalado y modelo con entrenamiento y validación y evaluar una sola vez en prueba sin volver a ajustar.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,6 +184,6 @@ Desarrollar los ejercicios planteados en el siguiente cuaderno:
 \end{enumerate}
 
 \paragraph{Para la próxima clase:}
-Realizar la Clase invertida: Redes Neuronales, disponible en el aula virtual y aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/03Est-RedesNeuronales.pdf}{03Est-RedesNeuronales.pdf}.
+Tras la primera sesión, continuar con kernels y ajuste de SVM; al finalizar la segunda, realizar la Clase invertida: Redes Neuronales, disponible en el aula virtual y aquí: \href{https://andres-merino.github.io/AprendizajeAutomaticoInicial-05-N0105/2-ClaseInvertida/03Est-RedesNeuronales.pdf}{03Est-RedesNeuronales.pdf}.
 
 \end{document}

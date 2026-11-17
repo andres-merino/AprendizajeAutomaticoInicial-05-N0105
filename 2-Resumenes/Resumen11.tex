@@ -46,7 +46,7 @@
 Vladimir Vapnik dijo: \textit{«No existe nada más práctico que una buena teoría»}.
 
 \begin{defi}
-Sea un conjunto de entrenamiento $\left\{({x}_i, y_i)\right\}_{i=1}^N$ donde ${x}_i \in \mathbb{R}^n$ son los vectores de características y $y_i \in \{-1, 1\}$ son las etiquetas de clase.
+Sea un conjunto de entrenamiento linealmente separable $\left\{({x}_i, y_i)\right\}_{i=1}^N$ donde ${x}_i \in \mathbb{R}^n$ son los vectores de características y $y_i \in \{-1, 1\}$ son las etiquetas de clase; comenzamos con el caso de margen duro.
 
 El modelo SVM busca determinar un hiperplano, definido por $${w} \cdot {x} + b = 0,$$ que separe los datos, es decir
 \[
@@ -116,7 +116,7 @@ A los vectores que alcanzan la igualdad de la condición, es decir, $y_i ({w} \c
 
 La distancia de los vectores de soporte al hiperplano separador es $m$ (margen). El objetivo es maximizar el margen, que es la distancia entre los hiperplanos por los que pasan los vectores de soporte: $2m$.  
 
-Para determinar el valor de $t$, consideremos momentáneamente que el hiperplano pasa por el origen (es decir, $b=0$).
+Para determinar el valor de $m$, consideremos momentáneamente que el hiperplano pasa por el origen (es decir, $b=0$).
 \begin{center}
 \begin{tikzpicture}[scale=0.95]
     % ---- Fondo tipo cuadrícula ----
@@ -181,7 +181,7 @@ desarrollando:
     L({w}, b, {\alpha_1},\ldots,\alpha_N) = \frac{1}{2} {w} \cdot {w} - {w} \cdot \sum_{i=1}^N \alpha_i y_i {x}_i - b \sum_{i=1}^N \alpha_i y_i + \sum_{i=1}^N \alpha_i.
 \]
 
-Con esto, obtenemos las condiciones de pptimalidad,derivando parcialmente el Lagrangiano con respecto a ${w}$ y $b$ e igualando a cero:
+Con esto, obtenemos las condiciones de estacionariedad, derivando parcialmente el Lagrangiano con respecto a ${w}$ y $b$ e igualando a cero:
 \[
     \frac{\partial L}{\partial {w}} = {w} - \sum_{i=1}^N \alpha_i y_i {x}_i = 0 \quad \Rightarrow \quad {w} = \sum_{i=1}^N \alpha_i y_i {x}_i
 \]
@@ -203,17 +203,24 @@ El problema dual de maximización es:
     \end{cases}
 \]
 
+Cuando los datos no son linealmente separables, el modelo de margen blando permite violaciones del margen mediante variables $\xi_i \geq 0$:
+\[
+    \min_{w,b,\xi}\ \frac{1}{2}\|w\|^2+C\sum_{i=1}^N\xi_i,
+    \qquad y_i(w\cdot x_i+b)\geq 1-\xi_i.
+\]
+El parámetro $C>0$ penaliza estas violaciones: valores pequeños favorecen más regularización y valores grandes penalizan más las violaciones del margen, que no siempre son errores de clasificación. En el dual se sustituye $\alpha_i\geq 0$ por $0\leq\alpha_i\leq C$; los vectores de soporte pueden estar sobre el margen o dentro de él, incluidos puntos mal clasificados. Este es el modelo que utiliza \texttt{SVC} en el notebook.
+
 \section{Funciones kernel}
 
 \begin{defi}
-    Una función kernel es una función $$\func{K}{\mathbb{R}^n \times \mathbb{R}^n}{\mathbb{R}}$$ que cumple las propiedades distributiva, conmutativa y semidefinida positiva.
+    Una función kernel es una función $$\func{K}{\mathbb{R}^n \times \mathbb{R}^n}{\mathbb{R}}$$ que representa un producto interno en un espacio de características: $K(x,z)=\langle\phi(x),\phi(z)\rangle$. Es simétrica y, para cualquier conjunto finito de puntos, su matriz de Gram $G_{ij}=K(x_i,x_j)$ es semidefinida positiva, es decir, $c^\top Gc\geq 0$ para todo vector $c$. No se exige que sea distributiva respecto de las entradas originales.
 \end{defi}
 
 \begin{advertencia}
-    Dada una función de mapeo $$\func{\phi}{\mathbb{R}^n}{\mathbb{R}^m},$$ se define el kernel asociado como $$K({x}_i, {x}_j) = \phi({x}_i) \cdot \phi({x}_j).$$
+    En un espacio de características de dimensión finita, dada una función de mapeo $$\func{\phi}{\mathbb{R}^n}{\mathbb{R}^m},$$ se define el kernel asociado como $$K({x}_i, {x}_j) = \phi({x}_i) \cdot \phi({x}_j).$$ Algunos kernels, como RBF, corresponden a espacios de dimensión infinita y permiten calcular el producto interno sin construir explícitamente $\phi(x)$.
 \end{advertencia}
 
-Al usar funciones kernel, el problema dual de maximización queda:
+Al usar funciones kernel, el problema dual de maximización para margen duro queda:
 \[
     \begin{cases}
         \max \quad \displaystyle L_D({\alpha_1},\ldots,\alpha_N) = \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j K({x}_i, {x}_j) \\
@@ -229,6 +236,8 @@ Algunas funciones kernel comunes son:
     \item Kernel polinomial: $K({x}_i, {x}_j) = (\alpha {x}_i \cdot {x}_j + c)^p$, con $\alpha > 0$, $c \geq 0$ y $p \in \mathbb{N}$.
     \item Kernel radial: $K({x}_i, {x}_j) = \exp\left(-\alpha \|{x}_i - {x}_j\|^2\right)$, con $\alpha > 0$.
 \end{itemize}
+
+En \texttt{SVC}, el coeficiente $\alpha$ de estas expresiones se denomina \texttt{gamma}; en RBF, valores grandes producen una influencia más local de cada observación. El kernel sigmoide disponible en la biblioteca no garantiza una matriz de Gram semidefinida positiva para cualquier combinación de parámetros y datos.
 
 
 \end{document}

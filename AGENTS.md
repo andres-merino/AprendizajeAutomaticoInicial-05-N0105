@@ -48,12 +48,12 @@
 - Informar qué evaluaciones hay que alistar, para qué fecha y qué falta revisar. No esperar a la fecha de entrega para revisar una actividad que debe enviarse antes.
 - Para la primera semana (26 al 29 de octubre de 2026), revisar las clases 01–04: introducción, conceptos básicos, partición y preparación básica de datos, y primer modelo supervisado. El taller Mi segundo modelo se inicia al cierre de esa semana y se completa en el taller de implementación de la segunda semana. El Reto 1 debe estar listo para su envío el 27 de octubre.
 - Referencia inicial de hitos del cronograma, todos de 2026; comprobar siempre el archivo fuente por si cambia:
-  - Reto 1: envío el 27 de octubre; hito 3 el 17 de noviembre; entrega final el 20 de noviembre. Revisar la consigna para los demás hitos.
+  - Reto 1: envío el 27 de octubre y entrega final el 23 de noviembre. Consultar los hitos de seguimiento en el cronograma y el aula virtual.
   - Cuestionario 1: 11 de noviembre.
   - Videoexplicación 1: envío el 12 de noviembre y entrega el 19 de noviembre.
   - Cuestionario 2: 18 de noviembre; Examen 1: 19 de noviembre.
-  - Videoexplicación 2: envío el 23 de noviembre y entrega el 9 de diciembre.
-  - Reto 2: envío el 24 de noviembre y entrega el 16 de diciembre.
+  - Videoexplicación 2: envío el 24 de noviembre y entrega el 9 de diciembre.
+  - Reto 2: envío el 25 de noviembre; hitos el 30 de noviembre, 7 y 9 de diciembre; entrega el 16 de diciembre.
   - Cuestionario 3: 10 de diciembre; Examen 2: 15 de diciembre.
   - Exposiciones integradoras: 16 y 17 de diciembre; un único producto aporta evidencia diferenciada para los criterios 3.1 y 3.2.
 - Si falta una fecha o existen discrepancias entre cronograma y consignas, presentarlas como observación al docente sin resolverlas mediante cambios unilaterales.
@@ -69,6 +69,8 @@
 - No modificar resultados de aprendizaje, ponderaciones, rúbricas, fechas o políticas del curso por iniciativa propia; consultar cuando una mejora requiera esos cambios.
 - No crear PDF, salidas de ejecución ni otros artefactos generados como parte de una revisión.
 - Incorporar a este archivo los acuerdos de trabajo que el docente establezca posteriormente.
+- Para la Videoexplicación 2, mantener la duración de referencia de 6:00 con tolerancia de ±90 segundos, coherente con su rúbrica.
+- Los retos 1 y 2 utilizan la misma base de gestión de residuos municipales del INEC, edición 2024; el Reto 2 continúa el contexto y la organización del Reto 1 mediante aprendizaje supervisado. Este acuerdo sustituye la selección de datos por equipo para el Reto 2; los ejercicios de aplicación mantienen su acuerdo propio.
 
 ## Uso de Graphify
 

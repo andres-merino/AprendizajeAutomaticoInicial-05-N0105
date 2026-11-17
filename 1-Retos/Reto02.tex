@@ -44,83 +44,80 @@
 \section{Descripción}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A partir del trabajo realizado en el reto anterior, el equipo de investigación de la PUCE ha solicitado continuar con el análisis del conjunto de datos de viviendas para abordar un nuevo objetivo: desarrollar modelos predictivos que permitan anticipar el \textit{estatus entomológico} de una vivienda, es decir, si presenta o no indicios de la presencia del vector del mal de Chagas.
+\begin{center}
+    \large\bf Ecuador y sus residuos: modelar la separación en la fuente
+\end{center}
 
-Este nuevo enfoque requiere aplicar modelos de \textbf{aprendizaje supervisado}, en donde se utilizará la variable `Status entomológico` como etiqueta, a partir de las demás variables del entorno, materiales de construcción, servicios básicos, animales presentes, prácticas higiénicas y condiciones ambientales.
+En el Reto 1 descubriste perfiles de gestión municipal mediante agrupamiento y PCA. Ahora continuarás con la misma base para estudiar una pregunta supervisada: hasta qué punto ciertas características de los municipios permiten distinguir si reportan procesos de separación de residuos en la fuente. El interés está en comparar modelos, reconocer sus errores y explicar qué información adicional necesitarían los técnicos municipales antes de utilizar sus resultados.
 
 \subsection*{Pregunta esencial}
+¿Qué tan bien podemos predecir si un municipio reporta separación de residuos en la fuente a partir de otras características de su gestión, sin utilizar información que revele directamente esa respuesta?
+
+\subsection*{Base de datos y acceso}
+Se utilizará exclusivamente la misma edición 2024 del Reto 1: la \textbf{Estadística de Información Ambiental Económica en GAD Municipales: Gestión de Residuos Sólidos}, publicada por el INEC. El archivo \texttt{BDD\_GIRS\_2024\_VF.csv} contiene 221 registros y 213 columnas. El separador es punto y coma, los decimales usan coma y la codificación es Windows-1252; conservar \texttt{CantonId} como texto.
 \begin{itemize}[leftmargin=*]
-    \item ¿Qué características de una vivienda permiten anticipar la presencia del vector del Chagas, y cómo pueden los modelos supervisados apoyar acciones preventivas y decisiones comunitarias?
+    \item \href{https://www.ecuadorencifras.gob.ec/gad-municipales/}{Portal oficial}: sección Gestión Integral de Residuos Sólidos; consultar la base, el diccionario, el formulario y la guía de uso de esa edición.
+    \item \href{https://www.ecuadorencifras.gob.ec/documentos/web-inec/Encuestas_Ambientales/Municipios/2024/grs/2_BDD_DATOS_ABIERTOS_GRS_GADM_2024_12_CSV.zip}{Descarga oficial de la base CSV comprimida}.
+    \item \href{https://anda.inec.gob.ec/anda5/index.php/catalog/1294/variable/F18/V2774?name=MSF}{Ficha oficial de la variable objetivo MSF}: comprobar su definición y codificación con el diccionario descargado.
 \end{itemize}
+Registrar fuente, edición, archivo y fecha de descarga; incluir instrucciones para cargarlo en Colab sin depender de rutas personales. Si cambia un enlace, localizar el recurso desde el portal sin sustituir la edición. Reutilizar la auditoría y las definiciones del Reto 1, pero partir nuevamente del CSV original: las transformaciones ajustadas sobre todos los registros no pueden trasladarse directamente a una evaluación supervisada.
 
-\subsection*{Reto}
+\subsection*{Variable objetivo y escenario de predicción}
+La etiqueta será \texttt{MSF} (Municipios con Separación en la Fuente), con clase positiva $1$ (sí) y clase negativa $0$ (no). El catálogo registra 60 casos positivos y 161 negativos; verificar estos conteos al cargar la base y documentar cualquier diferencia. No confundir esta codificación con la de la pregunta \texttt{MR433}, que emplea $1$ para sí y $2$ para no. No imputar etiquetas desconocidas ni convertirlas en respuestas negativas.
 
-Tu misión es desarrollar un modelo supervisado que prediga el estatus entomológico de una vivienda, contribuyendo a priorizar acciones de intervención, fumigación o concienciación en comunidades vulnerables. Deberás:
+El escenario es una evaluación académica: ocultar la etiqueta de algunos registros y estimarla con un conjunto reducido de características de la misma edición. En los datos publicados la respuesta ya es conocida; el modelo no sustituye su consulta ni demuestra capacidad de predecir la adopción futura de la práctica. La etiqueta indica lo reportado sobre separación en la fuente, no la calidad integral de la gestión ni su cobertura en todo el municipio.
 
-\begin{itemize}[leftmargin=*]
-    \item Preprocesar el conjunto de datos del proyecto Chagas.
-    \item Entrenar y evaluar al menos tres modelos supervisados distintos.
-    \item Comunicar los hallazgos de forma técnica y también comprensible para equipos de salud pública.
-\end{itemize}
-
-Tu objetivo final será entregar:
-\begin{itemize}[leftmargin=*]
-    \item Un \texttt{Jupyter Notebook} documentado, que contenga el desarrollo completo del modelo y visualizaciones.
-    \item Un informe técnico de divulgación para equipos de intervención.
-    \item Una ficha del modelo que sintetice su uso previsto, desempeño, limitaciones y condiciones de uso responsable.
-\end{itemize}
+\subsection*{Rol y productos}
+Actúas como parte de un equipo de análisis que prepara una nota para técnicos municipales. Entregarás un notebook reproducible en Colab, un informe divulgativo y una ficha del modelo con su uso previsto, desempeño, limitaciones y condiciones de uso. La ficha puede incorporarse como apartado del notebook y sintetizarse en el informe; no requiere repetir el análisis en un tercer documento.
 
 \subsection*{Preguntas guía}
 \begin{itemize}[leftmargin=*]
-    \item ¿Qué variables son más relevantes para la predicción del estatus entomológico?
-    \item ¿Qué tipo de codificación es adecuada para las variables categóricas?
-    \item ¿Qué algoritmos ofrecen mejor desempeño y explicabilidad en este contexto?
-    \item ¿Qué costo tienen los falsos negativos y qué umbral de decisión resulta razonable para la intervención?
-    \item ¿El desempeño cambia entre subgrupos o comunidades y qué riesgos introduce esa variación?
-    \item ¿Cómo se puede interpretar el modelo para guiar decisiones prácticas?
-    \item ¿Qué recomendaciones concretas se derivan del modelo generado?
+    \item ¿Qué información aporta el modelo frente a predecir siempre la clase mayoritaria?
+    \item ¿Qué campos revelan la separación en la fuente mediante una pregunta equivalente, un cálculo o un salto del formulario?
+    \item ¿El modelo distingue prácticas de gestión o utiliza principalmente diferencias de escala de los municipios?
+    \item ¿Qué significa un falso positivo o un falso negativo cuando la clase positiva es reportar separación en la fuente?
+    \item ¿Qué cambia al modificar el umbral y qué limitaciones tiene estimar el desempeño con tan pocos casos positivos?
+    \item ¿Qué decisiones de preparación del Reto 1 pueden conservarse y cuáles deben reajustarse solo con entrenamiento?
 \end{itemize}
 
 \subsection*{Actividades guía}
 \begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
-    \item Revisar y seleccionar las variables predictoras que puedan influir en la presencia del vector.
-    \item Separar primero los datos en conjuntos estratificados de entrenamiento y prueba, preservando el conjunto de prueba para la evaluación final.
-    \item Construir un flujo reproducible de preprocesamiento:
-        \begin{itemize}
-            \item Limpieza y codificación de variables.
-            \item Análisis de balanceo de clases.
-            \item Escalado y selección de características.
-            \item Ajuste de imputación, codificación, escalado y selección únicamente con los datos de entrenamiento para evitar fuga de información.
-        \end{itemize}
-    \item Entrenar al menos tres modelos (p. ej. regresión logística, árboles de decisión, Random Forest, redes neuronales).
-    \item Evaluar los modelos con métricas de clasificación adecuadas al balance de clases (accuracy, precision, recall, F1-score, ROC-AUC y PR-AUC).
-    \item Seleccionar y justificar un umbral de decisión considerando especialmente el costo sanitario de los falsos negativos y la calibración de las probabilidades.
-    \item Optimizar el modelo con mejor desempeño utilizando validación cruzada y técnicas como GridSearchCV.
-    \item Interpretar los resultados, destacando las variables más influyentes y revisando el desempeño en subgrupos relevantes cuando los datos lo permitan.
-    \item Generar visualizaciones como:
-        \begin{itemize}
-            \item Matriz de confusión.
-            \item Importancia de variables.
-            \item Curvas ROC y precisión-recall.
-        \end{itemize}
-    \item Redactar un informe claro, accesible y útil para equipos comunitarios.
-    \item Elaborar una ficha del modelo con uso previsto, usuarios, datos, métricas, umbral, limitaciones, riesgos y medidas de supervisión humana.
+    \item \textbf{Auditar los datos:} verificar unidad de observación, identificadores únicos, duplicados, tipos, unidades y distribución de \texttt{MSF}; documentar registros excluidos y su motivo, sin mezclar ediciones ni incorporar totales como municipios.
+    \item \textbf{Elegir predictores:} proponer entre 4 y 8 características originales o indicadores derivados, con código, definición, unidad, transformación, disponibilidad y motivo de inclusión; registrar también las variables descartadas por fuga de información, sin completar el número con campos redundantes.
+    \item \textbf{Reservar prueba:} separar aproximadamente el 20\% de los registros mediante partición estratificada con semilla registrada, antes de ajustar imputación, codificación, escalado o selección; conservar esa prueba sin consultarla durante la comparación y el ajuste.
+    \item \textbf{Preparar y validar:} usar validación cruzada estratificada dentro del entrenamiento, con los mismos pliegues para todos los modelos; proponer cinco pliegues si los tamaños de clase lo permiten, ajustando las transformaciones dentro de cada pliegue de entrenamiento mediante un flujo reproducible, por ejemplo con \texttt{Pipeline} y \texttt{ColumnTransformer}.
+    \item \textbf{Comparar modelos:} evaluar al menos tres algoritmos supervisados distintos vistos en el curso (por ejemplo, k-NN, SVM y árbol de decisión), junto con una referencia que prediga la clase mayoritaria; la referencia no cuenta como uno de los tres algoritmos.
+    \item \textbf{Evaluar en validación:} comparar exactitud (accuracy), precisión (precision), recall y F1 de la clase positiva, ROC-AUC y el área de precisión-recall; indicar si esta última se calcula como precisión promedio (\texttt{average\_precision}) u otra convención y mantenerla en todas las comparaciones. Elegir y justificar una métrica principal, presentar media y dispersión entre pliegues y no elegir únicamente por accuracy.
+    \item \textbf{Ajustar y regularizar:} optimizar el modelo seleccionado con una búsqueda pequeña y justificada, usando los mismos pliegues y sin consultar prueba; explicar cómo sus hiperparámetros controlan la complejidad, por ejemplo $k$, $C$ o profundidad máxima, según el algoritmo elegido.
+    \item \textbf{Examinar probabilidades y umbral:} para el modelo seleccionado, obtener probabilidades mediante un procedimiento ajustado solo con entrenamiento y discutir si concuerdan con las frecuencias observadas; revisar cómo cambian falsos positivos y falsos negativos al modificar el umbral y justificarlo con predicciones de validación de casos que no participaron en el ajuste del modelo que los predice, sin usar prueba para elegirlo ni interpretar cualquier puntuación de decisión como probabilidad.
+    \item \textbf{Evaluar al final:} fijar predictores, transformaciones, modelo, hiperparámetros y umbral; reajustar el flujo con todo el entrenamiento y evaluar una sola vez el modelo seleccionado y la referencia en prueba mediante las métricas acordadas, matriz de confusión y curvas ROC y precisión-recall. No volver a ajustar con esos resultados; si no mejora la referencia, analizarlo sin ocultar el resultado.
+    \item \textbf{Interpretar y comunicar:} explicar las variables relevantes con un método adecuado al modelo, describir errores y limitaciones y proponer qué información adicional sería necesaria; revisar diferencias entre subgrupos solo si hay suficientes observaciones y entregar la ficha del modelo junto con ambos productos.
 \end{enumerate}
 
-\subsection*{Recursos}
+\subsection*{Pistas para la selección de características}
+Como punto de partida, revisar \texttt{VB} (vías barridas), \texttt{CSB} (cobertura del servicio de barrido), \texttt{CRR} (residuos recolectados, toneladas/mes) y los campos institucionales sobre la organización y el financiamiento del servicio. Son candidatas, no una selección obligatoria: comprobar sus códigos y definiciones en la edición 2024 y justificar que puedan conocerse sin consultar la respuesta objetivo.
 \begin{itemize}[leftmargin=*]
-    \item Dataset del proyecto PUCE sobre el mal de Chagas.
-    \item Bibliotecas: Scikit-learn, Pandas, Seaborn, Matplotlib, Plotly.
-    \item Cuadernos y ejemplos proporcionados en clase sobre aprendizaje supervisado.
+    \item Excluir \texttt{MSF} de los predictores, la pregunta equivalente \texttt{MR433} y cualquier recodificación o indicador que reconstruya la etiqueta; revisar también las subpreguntas condicionadas a esa respuesta, pues sus valores o faltantes pueden revelarla.
+    \item Para este reto, no usar como predictores las cantidades de recuperación o tratamiento, como \texttt{RI}, \texttt{RIR} y \texttt{TROT}, ni los detalles de separación en la fuente: pueden actuar como información del resultado que se pretende estimar. No trasladar automáticamente la selección de variables del Reto 1.
+    \item Reservar \texttt{CantonId}, nombres y códigos territoriales para identificar y describir resultados; no emplearlos como predictores ni convertir códigos nominales en magnitudes continuas.
+    \item Distinguir cero, faltante y no aplicable según el formulario; no usar indicadores de ausencia de respuesta de campos condicionados por la etiqueta. No eliminar municipios solo porque sean difíciles de clasificar.
+    \item Retomar la auditoría de \texttt{CSB}, las unidades ambiguas y la cobertura parcial de variables como \texttt{PORG}; justificar qué se conserva y ajustar cualquier tratamiento aprendido solo con entrenamiento. No usar \texttt{Pob} como población cantonal total de 2024 ni construir proporciones con denominadores incompatibles.
+    \item No usar los grupos ni las componentes del Reto 1 como etiquetas o predictores: fueron construidos con todos los registros y responden a una pregunta exploratoria distinta. Sus hallazgos pueden motivar hipótesis, pero no sustituyen la validación del modelo supervisado.
 \end{itemize}
 
+\subsection*{Requisitos y decisiones del equipo}
+Es obligatorio entregar notebook e informe con la ficha del modelo, usar \texttt{MSF} como etiqueta, justificar la preparación, comparar al menos tres algoritmos y la referencia mayoritaria bajo la misma validación, ajustar y regularizar el modelo seleccionado y presentar su evaluación final en prueba. El equipo decide los predictores, la métrica principal, las configuraciones y el umbral, justificando esas decisiones. Si se usan pesos de clase o remuestreo, aplicarlos únicamente dentro del entrenamiento de cada pliegue; no es obligatorio generar datos sintéticos. Las pistas de variables y los tipos de gráficos son orientaciones; la rúbrica conserva las puntuaciones de cada apartado.
+
+\subsection*{Alcance de las conclusiones}
+El conjunto incluye pocos registros y reúne los municipios de una sola edición; la partición simula etiquetas desconocidas dentro de esa base, sin demostrar generalización a otros años o territorios. La prueba puede contener pocos positivos y sus métricas variar considerablemente con pocos errores. No interpretar asociaciones como causas ni un valor alto de accuracy como evidencia suficiente de utilidad. No usar las predicciones para certificar prácticas, elaborar rankings o asignar recursos; contrastar cualquier propuesta con información municipal y criterio profesional. La auditoría del Reto 1 ya aportó conocimiento del conjunto completo: declararlo como antecedente y explicar por qué se reajustan todas las transformaciones aprendidas y se evita consultar la prueba durante este reto.
+
 \subsection*{Hitos de seguimiento}
-Los hitos son espacios de retroalimentación formativa y no reemplazan la entrega final.
+Los hitos son espacios de retroalimentación formativa y no reemplazan la entrega final; sus fechas se consultan en el cronograma y el aula virtual.
 \begin{enumerate}[leftmargin=*, label={\textbf{Hito \arabic*.}}]
-    \item \textbf{30-nov:} definición de variable objetivo, partición de datos, métrica principal y plan para tratar el desbalance.
-    \item \textbf{7-dic:} comparación preliminar de al menos tres modelos bajo el mismo esquema de validación.
-    \item \textbf{9-dic:} propuesta de optimización, umbral de decisión y borrador de la ficha del modelo.
-    \item \textbf{16-dic:} entrega final del notebook, informe divulgativo y ficha del modelo.
+    \item Auditoría de \texttt{MSF}, propuesta de predictores y exclusiones por fuga, partición reservada y plan de validación con métrica principal.
+    \item Comparación preliminar de al menos tres algoritmos y la referencia mayoritaria bajo los mismos pliegues de validación.
+    \item Propuesta de ajuste y regularización, análisis del umbral y borrador de la ficha del modelo, sin consultar prueba.
+    \item Entrega final del notebook, informe divulgativo y ficha del modelo.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,41 +125,39 @@ Los hitos son espacios de retroalimentación formativa y no reemplazan la entreg
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Jupyter Notebook}
-El \textit{Jupyter Notebook} debe ser técnico, bien documentado y fácilmente replicable, permitiendo que otros equipos puedan usar el mismo enfoque para analizar datos similares en nuevas comunidades. Debe estar generado en el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} dado en clases.
+Usar el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} y organizar el notebook para trabajar en Colab:
 
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-    \item \textbf{Título y descripción inicial:} Título claro del proyecto, autores y una breve introducción al problema del Chagas y los objetivos del modelo predictivo.
+    \item \textbf{Título y objetivos:} equipo, pregunta de predicción, clase positiva y alcance del análisis municipal.
 
-    \item \textbf{Carga y descripción de datos:} Lectura del dataset, identificación de la variable objetivo (`Status entomológico`) y descripción inicial de variables relevantes (estructura de la vivienda, tipo de agua, animales presentes, etc.).
+    \item \textbf{Fuente y exploración:} instrucciones de carga, edición, dimensiones, auditoría de \texttt{MSF}, diccionario de predictores y exclusiones por fuga de información.
 
-    \item \textbf{Preprocesamiento de datos:} Partición estratificada antes de ajustar transformaciones; limpieza, codificación, imputación, escalado y análisis de balanceo de clases dentro de un flujo reproducible. Justificación de cada decisión y de cómo se evitó la fuga de información.
+    \item \textbf{Preparación y validación:} partición estratificada, semillas, tamaños y clases por subconjunto, pliegues y flujo de transformaciones; explicar qué se recuperó del Reto 1 y qué se reajustó dentro de entrenamiento.
 
-    \item \textbf{Entrenamiento de modelos supervisados:} Implementación de al menos tres modelos distintos (como regresión logística, Random Forest, y redes neuronales). Visualización de curvas de aprendizaje o métricas clave.
+    \item \textbf{Comparación:} referencia mayoritaria y al menos tres algoritmos, configuraciones y tabla de métricas de validación con media y dispersión entre pliegues.
 
-    \item \textbf{Evaluación de modelos:} Evaluación con métricas como accuracy, precisión, recall, F1-score, ROC-AUC y PR-AUC. Comparación en una tabla resumen, matrices de confusión, curvas ROC y precisión-recall. Justificación del umbral de decisión y análisis del costo de los errores.
+    \item \textbf{Ajuste y evaluación:} búsqueda de hiperparámetros, control de complejidad, justificación del umbral y revisión de probabilidades en validación; presentar por separado la evaluación final en prueba con métricas, matriz de confusión, curvas y número de errores por clase.
 
-    \item \textbf{Optimización de modelos:} Ajuste de hiperparámetros del mejor modelo con técnicas como Grid Search o Random Search. Justificación de los parámetros elegidos.
+    \item \textbf{Interpretación:} variables relevantes, errores, limitaciones del tamaño de muestra y relación con las preguntas del análisis, sin atribuir causalidad.
 
-    \item \textbf{Interpretación de resultados:} Análisis de las variables más influyentes y discusión sobre cómo estas se relacionan con el riesgo de presencia del vector.
-
-    \item \textbf{Conclusión técnica y ficha del modelo:} Resumen de hallazgos, limitaciones, uso previsto, riesgos, supervisión humana, instrucciones de reproducción y sugerencias para aplicaciones futuras.
+    \item \textbf{Conclusiones y ficha del modelo:} respuesta a la pregunta, referencia comparativa, uso previsto, datos, clase positiva, métricas, umbral, limitaciones, riesgos, supervisión humana e instrucciones de reproducción.
 \end{enumerate}
 
 \subsection{Informe Divulgativo}
-El informe divulgativo debe estar dirigido a un público no técnico, como responsables comunitarios, autoridades sanitarias y organizaciones sociales. Debe estar hecho en \LaTeX{}, siguiendo el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE}, con lenguaje claro y visualizaciones interpretables.
+Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE} en \LaTeX{} y lenguaje accesible:
 
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-    \item \textbf{Introducción:} Contextualización del problema del Chagas y de la necesidad de modelos predictivos. Objetivo del análisis y relevancia para la salud pública.
+    \item \textbf{Introducción:} gestión de residuos, separación en la fuente, datos y pregunta del análisis como continuación del Reto 1.
 
-    \item \textbf{Metodología:} Breve explicación de los modelos supervisados utilizados, sin entrar en detalles técnicos, y por qué se eligieron para este problema.
+    \item \textbf{Metodología:} explicación sencilla de qué se predice, qué información se usa y cómo se compara sin consultar las respuestas de prueba.
 
-    \item \textbf{Resultados principales:} Descripción del modelo seleccionado, sus predicciones más relevantes, y cómo estas permiten identificar viviendas en riesgo. Gráficos comprensibles (ej. semáforos de riesgo, mapas conceptuales, barras de importancia de variables).
+    \item \textbf{Resultados:} desempeño frente a la referencia, aciertos y errores expresados como cantidades comprensibles y gráficos legibles; distinguir los resultados de validación de la prueba final.
 
-    \item \textbf{Implicaciones prácticas:} Cómo los resultados pueden apoyar decisiones de intervención (como priorización de fumigaciones, campañas informativas o mejoras estructurales), qué daños podrían causar los errores y por qué el modelo debe apoyar, no reemplazar, el criterio profesional.
+    \item \textbf{Implicaciones:} qué preguntas de seguimiento podrían explorarse con técnicos municipales, qué daños causarían los errores y por qué las predicciones requieren verificación.
 
-    \item \textbf{Recomendaciones:} Acciones sugeridas con base en los datos: reforzar ciertos servicios, enfocarse en tipos específicos de vivienda, entre otros.
+    \item \textbf{Recomendaciones:} propuestas fundamentadas para mejorar la información o profundizar el análisis, con límites y necesidades de verificación; sintetizar el uso previsto y las precauciones de la ficha del modelo.
 
-    \item \textbf{Conclusión:} Relevancia del uso de datos e inteligencia artificial para combatir el mal de Chagas, y la importancia de continuar recolectando y analizando información con enfoque preventivo.
+    \item \textbf{Conclusión:} respuesta a la pregunta y diferencia entre describir perfiles del Reto 1 y evaluar una predicción supervisada.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,13 +168,13 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 \begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
     \item \textbf{Título y descripción inicial (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Contextualiza el problema del Chagas y plantea claramente los objetivos del modelo predictivo (1 punto).
+        \item Contextualiza la separación en la fuente en los municipios y plantea claramente los objetivos del modelo predictivo (1 punto).
         \item Describe brevemente las técnicas de aprendizaje supervisado aplicadas (1 punto).
     \end{itemize}
 
     \item \textbf{Carga y descripción de datos (4 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Presenta las variables relevantes con un análisis exploratorio básico (3 puntos).
+        \item Presenta la base municipal, la etiqueta \texttt{MSF} y los predictores relevantes con un análisis exploratorio básico (3 puntos).
         \item Incluye representaciones gráficas adecuadas de distribuciones y relaciones (1 punto).
     \end{itemize}
 
@@ -199,7 +194,7 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
     \item \textbf{Evaluación de modelos (5 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Selección justificada de métricas, incluyendo ROC-AUC y PR-AUC cuando corresponda (2 puntos).
-        \item Matrices de confusión, curvas ROC y precisión-recall, junto con un umbral de decisión justificado (2 puntos).
+        \item Matrices de confusión, curvas ROC y precisión-recall cuando correspondan, junto con una regla o umbral de decisión justificado según la tarea (2 puntos).
         \item Análisis de calibración y del costo de falsos negativos y falsos positivos (1 punto).
     \end{itemize}
 
@@ -211,8 +206,8 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Interpretación de resultados (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Identifica y analiza variables clave para la predicción del estatus entomológico (1 punto).
-        \item Relaciona los hallazgos con el problema sanitario y examina diferencias entre subgrupos cuando los datos lo permiten (1 punto).
+        \item Identifica y analiza variables clave para la predicción de \texttt{MSF} (1 punto).
+        \item Relaciona los hallazgos con la gestión municipal de residuos y examina diferencias entre subgrupos cuando los datos lo permiten (1 punto).
     \end{itemize}
 
     \item \textbf{Conclusión técnica y ficha del modelo (3 puntos)}
@@ -227,7 +222,7 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 \begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
     \item \textbf{Introducción (3 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Presenta el contexto del mal de Chagas y el propósito del análisis (2 puntos).
+        \item Presenta el contexto de la gestión municipal de residuos y el propósito del análisis de separación en la fuente (2 puntos).
         \item Define claramente los objetivos del informe (1 punto).
     \end{itemize}
 
@@ -246,7 +241,7 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
     \item \textbf{Implicaciones prácticas (4 puntos)}
     \begin{itemize}[leftmargin=*]
         \item Relaciona resultados con acciones concretas de intervención (2 puntos).
-        \item Reflexiona sobre el impacto en salud pública, los posibles daños de los errores y la necesidad de supervisión humana (2 puntos).
+        \item Reflexiona sobre las implicaciones para el análisis municipal, los posibles daños de los errores y la necesidad de supervisión humana (2 puntos).
     \end{itemize}
 
     \item \textbf{Recomendaciones (2 puntos)}
@@ -256,7 +251,7 @@ El informe divulgativo debe estar dirigido a un público no técnico, como respo
 
     \item \textbf{Conclusión (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Resume la importancia del uso de modelos para combatir el Chagas (1.5 puntos).
+        \item Resume el aporte y los límites del modelo para analizar la separación en la fuente (1.5 puntos).
         \item Muestra conciencia sobre los límites y el valor del análisis (0.5 puntos).
     \end{itemize}
 \end{enumerate}
