@@ -36,6 +36,8 @@
 
 \section{Agrupamiento $k$-Means}
 
+El algoritmo $k$-Means divide observaciones numéricas en $k$ grupos y busca minimizar la suma de las distancias euclídeas al cuadrado entre cada observación y el centroide de su grupo. Por ello, las variables deben tener escalas comparables y los identificadores o etiquetas no deben incorporarse a la matriz de distancias.
+
 \begin{algorithm}[H]
     \SetKwInput{KwInput}{Entrada}
     \caption{Pseudocódigo del algoritmo $k$-means}
@@ -47,6 +49,7 @@
     Seleccionar los \emph{centroides} iniciales $\zeta_1, \zeta_2, \dots, \zeta_k$\;
     
     \While{Condición de parada no satisfecha}{
+        Vaciar los clústeres de $P$ antes de una nueva asignación\;
         \tcc{Fase de asignación}
         \For{todo $d_i \in D$}{
             Encontrar el índice $j$ tal que la distancia $d(d_i, \zeta_j)$ sea mínima\;
@@ -60,5 +63,9 @@
     }
     \Return{$P$}
 \end{algorithm}
+
+La asignación y la actualización se repiten hasta que los centroides dejan de cambiar de forma apreciable o se alcanza el máximo de iteraciones. Distintas inicializaciones pueden dar soluciones diferentes; conviene fijar una semilla al comparar configuraciones y revisar varias inicializaciones antes de interpretar los grupos.
+
+La inercia disminuye al aumentar $k$, incluso cuando los grupos dejan de ser útiles. El método del codo orienta la elección, pero debe contrastarse con la silueta, el tamaño de los grupos y su interpretación. Un valor alto de $k$ no garantiza una mejor partición para el problema estudiado.
 
 \end{document}

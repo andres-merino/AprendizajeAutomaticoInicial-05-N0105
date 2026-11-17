@@ -161,7 +161,7 @@ Definimos las siguientes métricas de evaluación:
 
 \section{Modelos de agrupamiento}
 
-Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde cada $C_i$ es un conjunto de datos que representa un clúster, tenemos las siguientes definiciones
+Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde cada $C_i$ es un conjunto de datos que representa un clúster, tenemos las siguientes definiciones:
 \begin{itemize}
     \item \textbf{Centroide del clúster:} Es el punto medio del clúster, calculado como el promedio de todos los puntos en el clúster
     \[
@@ -197,7 +197,7 @@ Dado un agrupamiento de datos $\mathcal{C} = \{C_1, C_2, \ldots, C_k\}$, donde c
     \]
 \end{itemize}
 
-Con esto, definimos las siguientes métricas de evaluación:
+Para un grupo de un solo elemento se toma su silueta como cero. La silueta media requiere al menos dos grupos y menos grupos que observaciones. Con esto, definimos las siguientes métricas de evaluación:
 \begin{center}
 \footnotesize
 \begin{tabular}{p{7cm}@{\hspace{5mm}}l}
@@ -211,6 +211,8 @@ Con esto, definimos las siguientes métricas de evaluación:
 \bottomrule
 \end{tabular}
 \end{center}
+
+La inercia disminuye al aumentar el número de clústeres y no permite, por sí sola, comparar métodos con objetivos diferentes. La silueta y los índices de Dunn y Davies-Bouldin se interpretan junto con el tamaño de los grupos, la escala y el significado de las variables; ninguna métrica sustituye el análisis del contexto.
 
 
 \end{document}

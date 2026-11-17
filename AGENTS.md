@@ -20,6 +20,7 @@
 - Los estudiantes cursan quinto nivel de Ciencia de Datos y conocen Python, estadística, álgebra lineal, PCA y optimización.
 - Aprovechar esos conocimientos previos y concentrar las explicaciones en su aplicación al aprendizaje automático, sin ampliar el temario.
 - El entorno principal de los estudiantes es Google Colab. Revisar estáticamente que rutas, acceso a datos, dependencias e instrucciones sean adecuados para ese entorno.
+- En los ejercicios de aplicación, los estudiantes deben usar el conjunto de datos que seleccionaron en las primeras semanas. El conjunto Pokémon puede emplearse como ejemplo en clase, pero no como alternativa para esos ejercicios.
 - La revisión abarca todos los componentes: explicaciones, actividades de clase, notebooks, ejercicios y evaluaciones.
 
 ## Restricciones de ejecución
