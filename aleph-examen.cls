@@ -120,7 +120,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Los siguientes son los colores predefinidos de la clase.
 \definecolor{colortext}{cmyk}{0.81,0.62,0.00,0.22}
-\definecolor{coloropcion}{cmyk}{0.81,0.62,0.99,0.22}
+\ifthenelse{\boolean{resp}}
+    {\definecolor{coloropcion}{cmyk}{0.81,0.62,0.99,0.22}}
+    {\colorlet{coloropcion}{.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Definición de comandos de datos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -271,23 +273,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Respuesta de opción múltiple
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% En el examen se hereda el color del texto en el lugar de la opción.
+\newcommand{\@opcionmarcada}[1]{%
+    \ifthenelse{\boolean{resp}}{\textcolor{coloropcion}{\underline{Correcta:} #1}}{#1}%
+}
+
 %%  Comando para opción múltiple
 \NewDocumentCommand{\opciones}{O{0} m m m m}{
     \vspace{-1mm}
     \begin{enumerate}[leftmargin=*,label=\textit{\alph*)}]
-        \item \IfValueTF{#1}{\ifnum#1=1 \textcolor{coloropcion}{#2}\else #2\fi}{#2}
-        \item \IfValueTF{#1}{\ifnum#1=2 \textcolor{coloropcion}{#3}\else #3\fi}{#3}
-        \item \IfValueTF{#1}{\ifnum#1=3 \textcolor{coloropcion}{#4}\else #4\fi}{#4}
-        \item \IfValueTF{#1}{\ifnum#1=4 \textcolor{coloropcion}{#5}\else #5\fi}{#5}
+        \item \IfValueTF{#1}{\ifnum#1=1 \@opcionmarcada{#2}\else #2\fi}{#2}
+        \item \IfValueTF{#1}{\ifnum#1=2 \@opcionmarcada{#3}\else #3\fi}{#3}
+        \item \IfValueTF{#1}{\ifnum#1=3 \@opcionmarcada{#4}\else #4\fi}{#4}
+        \item \IfValueTF{#1}{\ifnum#1=4 \@opcionmarcada{#5}\else #5\fi}{#5}
     \end{enumerate}
 }
 %%  Comando para opción múltiple en linea
 \NewDocumentCommand{\opcionesl}{O{0} m m m m}{
     \par\noindent
-    \textit{a)} \IfValueTF{#1}{\ifnum#1=1 \textcolor{coloropcion}{#2}\else #2\fi}{#2} \hfill
-    \textit{b)} \IfValueTF{#1}{\ifnum#1=2 \textcolor{coloropcion}{#3}\else #3\fi}{#3} \hfill
-    \textit{c)} \IfValueTF{#1}{\ifnum#1=3 \textcolor{coloropcion}{#4}\else #4\fi}{#4} \hfill
-    \textit{d)} \IfValueTF{#1}{\ifnum#1=4 \textcolor{coloropcion}{#5}\else #5\fi}{#5}
+    \textit{a)} \IfValueTF{#1}{\ifnum#1=1 \@opcionmarcada{#2}\else #2\fi}{#2} \hfill
+    \textit{b)} \IfValueTF{#1}{\ifnum#1=2 \@opcionmarcada{#3}\else #3\fi}{#3} \hfill
+    \textit{c)} \IfValueTF{#1}{\ifnum#1=3 \@opcionmarcada{#4}\else #4\fi}{#4} \hfill
+    \textit{d)} \IfValueTF{#1}{\ifnum#1=4 \@opcionmarcada{#5}\else #5\fi}{#5}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Puntaje

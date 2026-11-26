@@ -53,7 +53,7 @@
   - Videoexplicación 1: envío el 12 de noviembre y entrega el 19 de noviembre.
   - Cuestionario 2: 18 de noviembre; Examen 1: 19 de noviembre.
   - Videoexplicación 2: envío el 24 de noviembre y entrega el 9 de diciembre.
-  - Reto 2: envío el 25 de noviembre; hitos el 30 de noviembre, 7 y 9 de diciembre; entrega el 16 de diciembre.
+  - Reto 2: envío el 25 de noviembre y entrega el 16 de diciembre. Los hitos de avance son orientativos y se describen únicamente en la consigna del reto.
   - Cuestionario 3: 10 de diciembre; Examen 2: 15 de diciembre.
   - Exposiciones integradoras: 16 y 17 de diciembre; un único producto aporta evidencia diferenciada para los criterios 3.1 y 3.2.
 - Si falta una fecha o existen discrepancias entre cronograma y consignas, presentarlas como observación al docente sin resolverlas mediante cambios unilaterales.
@@ -70,6 +70,7 @@
 - No crear PDF, salidas de ejecución ni otros artefactos generados como parte de una revisión.
 - Incorporar a este archivo los acuerdos de trabajo que el docente establezca posteriormente.
 - Para la Videoexplicación 2, mantener la duración de referencia de 6:00 con tolerancia de ±90 segundos, coherente con su rúbrica.
+- La Videoexplicación 2 aborda un modelo supervisado distinto de los estudiados en clase o una variante nueva de uno de ellos. La variante debe introducir un cambio en la formulación, el entrenamiento o la forma de predecir.
 - Los retos 1 y 2 utilizan la misma base de gestión de residuos municipales del INEC, edición 2024; el Reto 2 continúa el contexto y la organización del Reto 1 mediante aprendizaje supervisado. Este acuerdo sustituye la selección de datos por equipo para el Reto 2; los ejercicios de aplicación mantienen su acuerdo propio.
 
 ## Uso de Graphify

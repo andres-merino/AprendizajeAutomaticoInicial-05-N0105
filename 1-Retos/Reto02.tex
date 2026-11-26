@@ -48,7 +48,7 @@
     \large\bf Ecuador y sus residuos: modelar la separación en la fuente
 \end{center}
 
-En el Reto 1 descubriste perfiles de gestión municipal mediante agrupamiento y PCA. Ahora continuarás con la misma base para estudiar una pregunta supervisada: hasta qué punto ciertas características de los municipios permiten distinguir si reportan procesos de separación de residuos en la fuente. El interés está en comparar modelos, reconocer sus errores y explicar qué información adicional necesitarían los técnicos municipales antes de utilizar sus resultados.
+En el Reto 1 descubriste perfiles de gestión municipal mediante agrupamiento y PCA. Retoma un hallazgo concreto de esos perfiles, por ejemplo, una diferencia en cobertura de barrido o en escala de recolección, y explica cómo da contexto a la pregunta sobre separación en la fuente. Con los mismos datos, compararás modelos que estimen si un municipio reporta esa práctica, analizarás sus errores y explicarás qué información adicional necesitarían los técnicos municipales para interpretar los resultados.
 
 \subsection*{Pregunta esencial}
 ¿Qué tan bien podemos predecir si un municipio reporta separación de residuos en la fuente a partir de otras características de su gestión, sin utilizar información que revele directamente esa respuesta?
@@ -60,15 +60,15 @@ Se utilizará exclusivamente la misma edición 2024 del Reto 1: la \textbf{Estad
     \item \href{https://www.ecuadorencifras.gob.ec/documentos/web-inec/Encuestas_Ambientales/Municipios/2024/grs/2_BDD_DATOS_ABIERTOS_GRS_GADM_2024_12_CSV.zip}{Descarga oficial de la base CSV comprimida}.
     \item \href{https://anda.inec.gob.ec/anda5/index.php/catalog/1294/variable/F18/V2774?name=MSF}{Ficha oficial de la variable objetivo MSF}: comprobar su definición y codificación con el diccionario descargado.
 \end{itemize}
-Registrar fuente, edición, archivo y fecha de descarga; incluir instrucciones para cargarlo en Colab sin depender de rutas personales. Si cambia un enlace, localizar el recurso desde el portal sin sustituir la edición. Reutilizar la auditoría y las definiciones del Reto 1, pero partir nuevamente del CSV original: las transformaciones ajustadas sobre todos los registros no pueden trasladarse directamente a una evaluación supervisada.
+Registrar fuente, edición, archivo y fecha de descarga; incluir instrucciones para cargarlo en Colab sin depender de rutas personales. Si cambia un enlace, localizar el recurso desde el portal sin sustituir la edición. Recuperar la auditoría, las definiciones y las decisiones de limpieza que sigan siendo pertinentes. Partir del mismo CSV original del Reto 1 y volver a ajustar las transformaciones que se aprenden de los datos dentro del entrenamiento.
 
 \subsection*{Variable objetivo y escenario de predicción}
-La etiqueta será \texttt{MSF} (Municipios con Separación en la Fuente), con clase positiva $1$ (sí) y clase negativa $0$ (no). El catálogo registra 60 casos positivos y 161 negativos; verificar estos conteos al cargar la base y documentar cualquier diferencia. No confundir esta codificación con la de la pregunta \texttt{MR433}, que emplea $1$ para sí y $2$ para no. No imputar etiquetas desconocidas ni convertirlas en respuestas negativas.
+La etiqueta será \texttt{MSF} (Municipios con Separación en la Fuente), con clase positiva $1$ (sí) y clase negativa $0$ (no). El catálogo registra 60 casos positivos y 161 negativos; verificar estos conteos al cargar la base y documentar cualquier diferencia.
 
-El escenario es una evaluación académica: ocultar la etiqueta de algunos registros y estimarla con un conjunto reducido de características de la misma edición. En los datos publicados la respuesta ya es conocida; el modelo no sustituye su consulta ni demuestra capacidad de predecir la adopción futura de la práctica. La etiqueta indica lo reportado sobre separación en la fuente, no la calidad integral de la gestión ni su cobertura en todo el municipio.
+El escenario es una evaluación académica: ocultar la etiqueta de algunos registros y estimarla con un conjunto reducido de características de la misma edición. 
 
 \subsection*{Rol y productos}
-Actúas como parte de un equipo de análisis que prepara una nota para técnicos municipales. Entregarás un notebook reproducible en Colab, un informe divulgativo y una ficha del modelo con su uso previsto, desempeño, limitaciones y condiciones de uso. La ficha puede incorporarse como apartado del notebook y sintetizarse en el informe; no requiere repetir el análisis en un tercer documento.
+Actúas como parte de un equipo de análisis que prepara una nota para técnicos municipales. Entregarás un notebook reproducible en Colab y un informe divulgativo. Incluye en el notebook una ficha del modelo con su uso previsto, desempeño, limitaciones y condiciones de uso. Sintetiza sus precauciones en el informe.
 
 \subsection*{Preguntas guía}
 \begin{itemize}[leftmargin=*]
@@ -83,7 +83,7 @@ Actúas como parte de un equipo de análisis que prepara una nota para técnicos
 \subsection*{Actividades guía}
 \begin{enumerate}[leftmargin=*, label={{\arabic*.}}]
     \item \textbf{Auditar los datos:} verificar unidad de observación, identificadores únicos, duplicados, tipos, unidades y distribución de \texttt{MSF}; documentar registros excluidos y su motivo, sin mezclar ediciones ni incorporar totales como municipios.
-    \item \textbf{Elegir predictores:} proponer entre 4 y 8 características originales o indicadores derivados, con código, definición, unidad, transformación, disponibilidad y motivo de inclusión; registrar también las variables descartadas por fuga de información, sin completar el número con campos redundantes.
+    \item \textbf{Elegir predictores:} proponer entre 4 y 8 características originales o indicadores derivados a partir del diccionario y del escenario de predicción, evitando campos redundantes. Documentar código, definición, unidad, transformación, disponibilidad y motivo de inclusión, así como las exclusiones por fuga de información. Si la selección depende de los datos, realizarla dentro del entrenamiento.
     \item \textbf{Reservar prueba:} separar aproximadamente el 20\% de los registros mediante partición estratificada con semilla registrada, antes de ajustar imputación, codificación, escalado o selección; conservar esa prueba sin consultarla durante la comparación y el ajuste.
     \item \textbf{Preparar y validar:} usar validación cruzada estratificada dentro del entrenamiento, con los mismos pliegues para todos los modelos; proponer cinco pliegues si los tamaños de clase lo permiten, ajustando las transformaciones dentro de cada pliegue de entrenamiento mediante un flujo reproducible, por ejemplo con \texttt{Pipeline} y \texttt{ColumnTransformer}.
     \item \textbf{Comparar modelos:} evaluar al menos tres algoritmos supervisados distintos vistos en el curso (por ejemplo, k-NN, SVM y árbol de decisión), junto con una referencia que prediga la clase mayoritaria; la referencia no cuenta como uno de los tres algoritmos.
@@ -111,13 +111,12 @@ Es obligatorio entregar notebook e informe con la ficha del modelo, usar \texttt
 \subsection*{Alcance de las conclusiones}
 El conjunto incluye pocos registros y reúne los municipios de una sola edición; la partición simula etiquetas desconocidas dentro de esa base, sin demostrar generalización a otros años o territorios. La prueba puede contener pocos positivos y sus métricas variar considerablemente con pocos errores. No interpretar asociaciones como causas ni un valor alto de accuracy como evidencia suficiente de utilidad. No usar las predicciones para certificar prácticas, elaborar rankings o asignar recursos; contrastar cualquier propuesta con información municipal y criterio profesional. La auditoría del Reto 1 ya aportó conocimiento del conjunto completo: declararlo como antecedente y explicar por qué se reajustan todas las transformaciones aprendidas y se evita consultar la prueba durante este reto.
 
-\subsection*{Hitos de seguimiento}
-Los hitos son espacios de retroalimentación formativa y no reemplazan la entrega final; sus fechas se consultan en el cronograma y el aula virtual.
+\subsection*{Hitos orientativos}
+Estos hitos sirven para organizar el trabajo del equipo y revisar su avance. La fecha de entrega final se consulta en el cronograma.
 \begin{enumerate}[leftmargin=*, label={\textbf{Hito \arabic*.}}]
-    \item Auditoría de \texttt{MSF}, propuesta de predictores y exclusiones por fuga, partición reservada y plan de validación con métrica principal.
+    \item Recuperación de un hallazgo del Reto 1 y de la auditoría pertinente. Revisión de \texttt{MSF}, propuesta de predictores, reserva de la prueba y plan de validación.
     \item Comparación preliminar de al menos tres algoritmos y la referencia mayoritaria bajo los mismos pliegues de validación.
     \item Propuesta de ajuste y regularización, análisis del umbral y borrador de la ficha del modelo, sin consultar prueba.
-    \item Entrega final del notebook, informe divulgativo y ficha del modelo.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,7 +127,7 @@ Los hitos son espacios de retroalimentación formativa y no reemplazan la entreg
 Usar el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Plantilla.ipynb}{formato base} y organizar el notebook para trabajar en Colab:
 
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-    \item \textbf{Título y objetivos:} equipo, pregunta de predicción, clase positiva y alcance del análisis municipal.
+    \item \textbf{Título y objetivos:} equipo, pregunta de predicción, clase positiva y hallazgo del Reto 1 que da contexto al análisis.
 
     \item \textbf{Fuente y exploración:} instrucciones de carga, edición, dimensiones, auditoría de \texttt{MSF}, diccionario de predictores y exclusiones por fuga de información.
 
@@ -147,7 +146,7 @@ Usar el \href{https://github.com/andres-merino/FormatoBaseProyectos/blob/main/Pl
 Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf.com/latex/templates/formato-tareas-puce/nkgwqjtcrvms}{formato de tareas PUCE} en \LaTeX{} y lenguaje accesible:
 
 \begin{enumerate}[leftmargin=*, label={\textbf{\arabic*.}}]
-    \item \textbf{Introducción:} gestión de residuos, separación en la fuente, datos y pregunta del análisis como continuación del Reto 1.
+    \item \textbf{Introducción:} gestión de residuos, datos, pregunta sobre separación en la fuente y hallazgo del Reto 1 que la contextualiza.
 
     \item \textbf{Metodología:} explicación sencilla de qué se predice, qué información se usa y cómo se compara sin consultar las respuestas de prueba.
 
@@ -168,7 +167,7 @@ Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf
 \begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
     \item \textbf{Título y descripción inicial (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Contextualiza la separación en la fuente en los municipios y plantea claramente los objetivos del modelo predictivo (1 punto).
+        \item Plantea el objetivo de predicción y lo relaciona con un hallazgo concreto del Reto 1 (1 punto).
         \item Describe brevemente las técnicas de aprendizaje supervisado aplicadas (1 punto).
     \end{itemize}
 
@@ -180,41 +179,40 @@ Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf
 
     \item \textbf{Preprocesamiento de datos (5 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Limpieza e imputación adecuadas (2 puntos).
-        \item Codificación y normalización dentro de un flujo reproducible ajustado solo con datos de entrenamiento (2 puntos).
-        \item Justificación de las decisiones y prevención explícita de fuga de información (1 punto).
+        \item Reserva la prueba y aplica la limpieza y las transformaciones pertinentes dentro de un flujo ajustado con el entrenamiento de cada pliegue (3 puntos).
+        \item Justifica qué decisiones recupera del Reto 1 y cómo evita la fuga de información al construir los predictores (2 puntos).
     \end{itemize}
 
-    \item \textbf{Entrenamiento de modelos supervisados (6 puntos)}
+    \item \textbf{Comparación de modelos supervisados (8 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Entrenamiento correcto de al menos tres modelos supervisados distintos (3 puntos).
-        \item Visualización y explicación de los resultados por modelo (3 puntos).
+        \item Implementa al menos tres algoritmos supervisados y la referencia mayoritaria con los mismos pliegues estratificados (4 puntos).
+        \item Presenta las métricas de validación con su media y dispersión entre pliegues mediante tablas o gráficos (2 puntos).
+        \item Justifica la métrica principal e interpreta la comparación frente a la referencia para elegir el modelo (2 puntos).
     \end{itemize}
 
-    \item \textbf{Evaluación de modelos (5 puntos)}
+    \item \textbf{Ajuste y evaluación final (4 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Selección justificada de métricas, incluyendo ROC-AUC y PR-AUC cuando corresponda (2 puntos).
-        \item Matrices de confusión, curvas ROC y precisión-recall cuando correspondan, junto con una regla o umbral de decisión justificado según la tarea (2 puntos).
-        \item Análisis de calibración y del costo de falsos negativos y falsos positivos (1 punto).
-    \end{itemize}
-
-    \item \textbf{Optimización de modelos (3 puntos)}
-    \begin{itemize}[leftmargin=*]
-        \item Aplicación de técnicas de ajuste de hiperparámetros (2 puntos).
-        \item Justificación y análisis de los cambios en rendimiento (1 punto).
+        \item Ajusta los hiperparámetros mediante validación cruzada y explica cómo la regularización o el control de la complejidad influyen en el desempeño (2 puntos).
+        \item Examina las probabilidades y justifica el umbral a partir de los errores observados en validación (1 punto).
+        \item Evalúa una sola vez el modelo elegido y la referencia en la prueba reservada y presenta las métricas, la matriz de confusión y las curvas requeridas (1 punto).
     \end{itemize}
 
     \item \textbf{Interpretación de resultados (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Identifica y analiza variables clave para la predicción de \texttt{MSF} (1 punto).
-        \item Relaciona los hallazgos con la gestión municipal de residuos y examina diferencias entre subgrupos cuando los datos lo permiten (1 punto).
+        \item Analiza qué variables contribuyen a la predicción y qué significan los falsos positivos y negativos (1.5 puntos).
+        \item Relaciona los resultados con la pregunta de gestión municipal (0.5 puntos).
     \end{itemize}
 
-    \item \textbf{Conclusión técnica y ficha del modelo (3 puntos)}
+    \item \textbf{Conclusión técnica y ficha del modelo (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Resumen técnico claro de hallazgos y desempeño (1 punto).
-        \item Limitaciones, riesgos, uso previsto y medidas de supervisión humana (1 punto).
-        \item Ficha del modelo e instrucciones suficientes para reproducir el flujo (1 punto).
+        \item Resume los hallazgos técnicos y documenta en la ficha el desempeño, el uso previsto y las condiciones de uso del modelo (1.5 puntos).
+        \item Identifica limitaciones y posibles mejoras (0.5 puntos).
+    \end{itemize}
+
+    \item \textbf{Legibilidad y simpleza del código (3 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Organiza y comenta el código para reproducir el análisis en Colab (1.5 puntos).
+        \item Usa celdas Markdown para explicar los pasos (1.5 puntos).
     \end{itemize}
 \end{enumerate}
 
@@ -222,37 +220,43 @@ Dirigir el informe a técnicos municipales, usando el \href{https://www.overleaf
 \begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
     \item \textbf{Introducción (3 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Presenta el contexto de la gestión municipal de residuos y el propósito del análisis de separación en la fuente (2 puntos).
+        \item Presenta el contexto de la gestión municipal de residuos y vincula el nuevo análisis con un hallazgo del Reto 1 (2 puntos).
         \item Define claramente los objetivos del informe (1 punto).
     \end{itemize}
 
-    \item \textbf{Metodología (3 puntos)}
+    \item \textbf{Metodología (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Describe de forma sencilla las técnicas utilizadas (2 puntos).
-        \item Explica cómo estas técnicas permiten abordar el problema (1 punto).
+        \item Describe de forma sencilla las técnicas utilizadas (1.5 puntos).
+        \item Explica cómo estas técnicas permiten abordar el problema (0.5 puntos).
     \end{itemize}
 
-    \item \textbf{Resultados principales (6 puntos)}
+    \item \textbf{Resultados principales (5 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Presenta los hallazgos de forma comprensible y contextualizada (3 puntos).
-        \item Utiliza visualizaciones claras e interpretables por público no técnico (3 puntos).
+        \item Explica el desempeño en prueba frente a la referencia y comunica los aciertos y errores (2.5 puntos).
+        \item Utiliza gráficos comprensibles y relevantes para el público objetivo (2.5 puntos).
     \end{itemize}
 
-    \item \textbf{Implicaciones prácticas (4 puntos)}
+    \item \textbf{Implicaciones prácticas (3 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Relaciona resultados con acciones concretas de intervención (2 puntos).
-        \item Reflexiona sobre las implicaciones para el análisis municipal, los posibles daños de los errores y la necesidad de supervisión humana (2 puntos).
+        \item Relaciona los resultados con preguntas de seguimiento para los técnicos municipales (2 puntos).
+        \item Explica las consecuencias de los errores y la necesidad de verificar las predicciones (1 punto).
     \end{itemize}
 
     \item \textbf{Recomendaciones (2 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Plantea acciones claras y realistas con base en el modelo (2 puntos).
+        \item Propone acciones fundamentadas para mejorar la información o profundizar el análisis (2 puntos).
     \end{itemize}
 
-    \item \textbf{Conclusión (2 puntos)}
+    \item \textbf{Conclusión (3 puntos)}
     \begin{itemize}[leftmargin=*]
-        \item Resume el aporte y los límites del modelo para analizar la separación en la fuente (1.5 puntos).
-        \item Muestra conciencia sobre los límites y el valor del análisis (0.5 puntos).
+        \item Resume los hallazgos principales sobre la separación en la fuente (2 puntos).
+        \item Explica qué aporta la predicción a lo observado en los perfiles del Reto 1 y cuáles son sus límites (1 punto).
+    \end{itemize}
+
+    \item \textbf{Presentación y diseño (2 puntos)}
+    \begin{itemize}[leftmargin=*]
+        \item Presenta el informe con secciones claras y bien organizadas (1 punto).
+        \item Usa gráficos y tablas adecuadamente formateados (1 punto).
     \end{itemize}
 \end{enumerate}
 
