@@ -55,7 +55,8 @@
   - Videoexplicación 2: envío el 24 de noviembre y entrega el 9 de diciembre.
   - Reto 2: envío el 25 de noviembre y entrega el 16 de diciembre. Los hitos de avance son orientativos y se describen únicamente en la consigna del reto.
   - Cuestionario 3: 10 de diciembre; Examen 2: 15 de diciembre.
-  - Exposiciones integradoras: 16 y 17 de diciembre; un único producto aporta evidencia diferenciada para los criterios 3.1 y 3.2.
+  - Exposición sobre artículos de aplicación de aprendizaje automático, 16 y 17 de diciembre. Aporta únicamente al criterio 3.1 y se centra en el componente no supervisado del artículo.
+  - Evaluación del Reto 2, 17 de diciembre. Es una prueba de opción múltiple sobre los resultados del reto y aporta al criterio 3.2.
 - Si falta una fecha o existen discrepancias entre cronograma y consignas, presentarlas como observación al docente sin resolverlas mediante cambios unilaterales.
 
 ## Criterios de edición
