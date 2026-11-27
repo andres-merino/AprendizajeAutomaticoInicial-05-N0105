@@ -6,8 +6,6 @@
 \usepackage{enumitem}
 \usepackage{aleph-comandos}
 \usepackage{booktabs}
-\usepackage{pdflscape}
-
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -26,7 +24,7 @@
 
 
 % -- Comandos adicionales
-% \setlist[enumerate]{label=\roman*.}
+\setlist[enumerate]{label=\roman*.}
 
 
 \begin{document}
@@ -39,10 +37,9 @@
 
 \begin{itemize}[leftmargin=*]
 \item En esta actividad se evalúa si el estudiante \textit{(Criterio 1.2) Describe los métodos de aprendizaje no supervisado, sus características, aplicaciones, alcance y limitaciones.}
-\item Se grabará una exposición sobre un método de aprendizaje no supervisado distinto de los tratados en clase. Se evaluará principalmente la calidad de las explicaciones.
-\item Se pueden utilizar diapositivas, diagramas u otros apoyos visuales legibles.
-\item El rostro del estudiante deberá permanecer visible durante toda la exposición; un video únicamente con voz en off estará sujeto a la reducción indicada en la rúbrica.
-\item El video deberá tener una duración máxima de 6 minutos.
+\item La exposición se centrará en un método de aprendizaje no supervisado distinto de los estudiados en clase. Se evaluará principalmente la calidad de la explicación.
+\item El estudiante deberá grabar un video con el rostro visible durante toda la exposición.
+\item La duración de referencia del video será de 6 minutos. La rúbrica admite una duración de 5:30 a 6:30.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,58 +47,94 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Elección del método:} Seleccionar un método de aprendizaje no supervisado que no se haya estudiado en clase y justificar brevemente por qué resulta pertinente para un problema concreto.
+    \item \textbf{Elección del método.} Justificar su pertinencia para un problema concreto mediante una comparación breve con un método estudiado en clase.
+
+    \item \textbf{Explicación y ejemplo de aplicación.}
     \begin{itemize}
-        \item Explicar qué datos recibe, cómo funciona en términos generales y qué resultado produce. Interpretar ese resultado mediante un ejemplo concreto.
-        \item Explicar en qué situación sería útil y en cuál tendría una limitación. Compararlo brevemente con un método visto en clase para justificar la elección, sin desarrollar una segunda exposición completa.
+        \item Explicar qué datos recibe el método, cómo funciona y qué tipo de resultado produce.
+        \item Mostrar cómo se aplica el método en un ejemplo concreto e interpretar el resultado obtenido o esperado.
+        \item Explicar en qué situación sería útil el método y dar un ejemplo que ilustre una limitación.
     \end{itemize}
-    \item \textbf{Estructura de la exposición:}
-    \begin{itemize}[leftmargin=*]
-        \item \textbf{Introducción:} Presentación del problema y del método elegido.
-        \item \textbf{Desarrollo:}
-        \begin{itemize}
-            \item Explicación de las características y los pasos principales del método con lenguaje comprensible.
-            \item Ejemplo de aplicación e interpretación del resultado obtenido o esperado.
-            \item Comparación breve con un método estudiado en clase.
-        \end{itemize}
-        \item \textbf{Conclusión:} Explicación de cuándo conviene usar el método y cuáles son sus limitaciones.
-    \end{itemize}
-    \item \textbf{Claridad y Profundidad:} La explicación deberá ser clara, estructurada y dirigida a un público con conocimientos básicos en aprendizaje automático. Los apoyos visuales, si se usan, deberán facilitar la comprensión sin sustituir la explicación oral.
-    \item \textbf{Entrega:}
+
+    \item \textbf{Grabación del video.}
     \begin{itemize}
-        \item Se deberá entregar a través del aula virtual el enlace de OneDrive al video grabado, con permisos que permitan al docente visualizarlo, antes de la fecha límite establecida.
+        \item Dirigir la exposición a un público con conocimientos básicos de aprendizaje automático.
+        \item Si se usan diapositivas, diagramas u otros apoyos visuales, deben ser legibles y facilitar la explicación oral.
+        \item Mantener el rostro visible durante toda la exposición.
     \end{itemize}
+
+    \item \textbf{Estructura mínima.}
+    \begin{itemize}
+        \item \textbf{Introducción.} Presentar el problema y el método elegido.
+        \item \textbf{Desarrollo.} Explicar el método, interpretar el resultado del ejemplo y justificar la elección mediante la comparación.
+        \item \textbf{Cierre.} Explicar el alcance y las limitaciones del método.
+    \end{itemize}
+
+    \item \textbf{Entrega.} Subir al aula virtual el enlace de OneDrive al video, con permisos que permitan al docente visualizarlo, antes de la fecha límite establecida.
 \end{enumerate}
 
-
-
-
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rúbrica de evaluación}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Si el video se presenta únicamente con voz en off, el rostro no permanece visible durante toda la exposición o la duración queda fuera del intervalo de 5:30 a 6:30 minutos, se reducirá un nivel en cada indicador de la rúbrica.
+Cada indicador vale hasta 4 puntos, para un total de 32 puntos.
 
+Si el video se presenta únicamente con voz en off, el rostro no permanece visible durante toda la exposición o la duración queda fuera del intervalo de 5:30 a 6:30, se reducirá un nivel en cada indicador, con un mínimo de 0 puntos.
 
-\begin{landscape}
 \begin{center}\footnotesize
-% \begin{tabular}{p{3cm}*{4}{p{4.8cm}}}
-\begin{tabular}{L{3.5cm}*{4}{L{4.5cm}}}
+\begin{tabular}{L{3cm}*{4}{L{2.9cm}}}
 \toprule
-\textbf{Indicador} & \textbf{Excelente (4)} & \textbf{Bueno (3)} & \textbf{Mejorable (2)} & \textbf{Deficiente (1)} \\ \midrule
-\textbf{Método y contexto} & Presenta correctamente un método no visto en clase y el problema que aborda. & Presenta el método y su contexto con una omisión menor. & Presenta el método o el contexto de forma superficial. & No identifica correctamente el método o el problema. \\ \midrule
-\textbf{Características} & Explica los datos necesarios y el tipo de resultado que produce. & Explica ambos con una imprecisión menor. & Menciona solo los datos o el resultado, sin aclararlos. & No explica los datos ni el resultado del método. \\ \midrule
-\textbf{Funcionamiento e interpretación} & Explica los pasos principales e interpreta correctamente un resultado. & Explica los pasos y el resultado con una omisión menor. & Describe los pasos o el resultado de manera incompleta. & No explica el funcionamiento ni interpreta el resultado. \\ \midrule
-\textbf{Aplicación} & Desarrolla un ejemplo concreto y justifica por qué usaría el método. & Presenta un ejemplo pertinente con justificación parcial. & Menciona una aplicación sin explicar su pertinencia. & No presenta una aplicación pertinente. \\ \midrule
-\textbf{Alcance y limitaciones} & Distingue una situación útil y una limitación mediante ejemplos. & Explica ambas con ejemplos poco desarrollados. & Menciona solo el alcance o la limitación. & No aborda el alcance ni las limitaciones. \\ \midrule
-\textbf{Justificación de la elección} & Contrasta con un método visto en clase y justifica claramente la elección. & Compara ambos métodos con una justificación parcial. & Menciona otro método sin explicar la elección. & No compara ni justifica la elección. \\ \midrule
-\textbf{Gestión del tiempo} & Desarrolla y concluye la explicación con ritmo equilibrado entre 5:30 y 6:30 minutos. & Concluye dentro del intervalo, con desbalances leves. & Concluye dentro del intervalo, pero el ritmo provoca omisiones. & Dura menos de 5:30 o más de 6:30 minutos, o no concluye por una distribución inadecuada del tiempo. \\ \midrule
-\textbf{Claridad y fluidez} & Expone con claridad y fluidez, con o sin apoyos visuales. & Expone claramente, con algunas interrupciones. & La exposición se entiende, pero pierde claridad o depende de leer un guion. & La exposición es confusa o incomprensible. \\ \bottomrule
+\textbf{Indicador} & \textbf{Excelente} & \textbf{Bueno} & \textbf{Aceptable} & \textbf{Insuficiente} \\ \midrule
+
+\textbf{Método y contexto}
+& Presenta un método no estudiado en clase y explica el problema que aborda (4)
+& Presenta el método y el problema con una omisión menor (3)
+& Presenta el método o el problema de forma superficial (2)
+& El método está fuera de la consigna o el problema no se identifica correctamente (0) \\ \midrule
+
+\textbf{Características}
+& Explica qué datos requiere el método y qué tipo de resultado produce (4)
+& Explica los datos y el resultado con una imprecisión menor (3)
+& Menciona solo los datos o el resultado, sin aclararlos (2)
+& No identifica correctamente los datos ni el resultado (0) \\ \midrule
+
+\textbf{Funcionamiento e interpretación}
+& Explica los pasos principales e interpreta correctamente un resultado (4)
+& Explica los pasos e interpreta el resultado con una omisión menor (3)
+& Explica los pasos o interpreta el resultado de forma parcial (2)
+& No explica el funcionamiento ni interpreta correctamente el resultado (0) \\ \midrule
+
+\textbf{Aplicación}
+& Desarrolla un ejemplo concreto y explica cómo se aplica el método al problema (4)
+& Presenta un ejemplo pertinente con una explicación parcial de la aplicación (3)
+& Menciona una aplicación sin explicar cómo usaría el método (2)
+& Omite un ejemplo de aplicación pertinente (0) \\ \midrule
+
+\textbf{Alcance y limitaciones}
+& Explica una situación en la que el método es útil y una limitación mediante ejemplos (4)
+& Explica ambos aspectos con ejemplos poco desarrollados (3)
+& Menciona solo el alcance o una limitación (2)
+& Omite el alcance y las limitaciones (0) \\ \midrule
+
+\textbf{Justificación de la elección}
+& Compara con un método estudiado en clase y justifica la elección (4)
+& Compara los métodos con una justificación parcial (3)
+& Menciona otro método sin justificar la elección (2)
+& Omite la comparación y la justificación (0) \\ \midrule
+
+\textbf{Claridad y fluidez}
+& Expone con claridad y fluidez (4)
+& Expone con claridad y algunas interrupciones (3)
+& La exposición se entiende con dificultad o depende de la lectura del guion (2)
+& La exposición es confusa o ininteligible (0) \\ \midrule
+
+\textbf{Gestión del tiempo}
+& Completa la exposición con ritmo equilibrado entre 5:30 y 6:30 (4)
+& Concluye dentro del intervalo, con leves desequilibrios en el ritmo (3)
+& Concluye dentro del intervalo, pero el ritmo provoca omisiones (2)
+& Dura menos de 5:30 o más de 6:30, o deja inconclusa la exposición (0) \\ \bottomrule
 \end{tabular}
 \end{center}
-\end{landscape}
-
-
 
 \end{document}
